@@ -6,7 +6,7 @@ The epoch of AWS is the launch of Amazon S3 on March 14, 2006, now almost 10 yea
 
 *1. Build evolvable systems*
 
-wang系统需要不断迭代和重新设计
+系统需要不断迭代和重新设计
 
 Almost from day one, we knew that the software we were building would not be the software that would be running a year later. The expectation was that with each order or two of magnitude, we would need to revisit and revise the architecture to make sure we could address the issues of scale.
 
