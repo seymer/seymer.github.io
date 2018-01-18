@@ -1,7 +1,5 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:theindex.org][2018-01-18 Index]]
-   + [[file:sitemap.org][2018-01-18 Sitemap for project blog]]
    + [[file:backblaze-storage-pod.org][2018-01-18 backblaze-storage-pod]]
    + [[file:10-lessons-from-10-years-of-aws.org][2018-01-18 10 Lessons from 10 Years of Amazon Web Services]]
    + [[file:a-comparison-of-approaches-to-large-scale-data-analysis.org][2018-01-17 A Comparison of Approaches to Large-Scale Data Analysis]]
