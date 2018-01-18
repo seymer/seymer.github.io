@@ -112,6 +112,9 @@ body {
     width: 80%;
     line-height: 150%;
     border: 1px solid LightGrey;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    border-radius: .28571429rem;
 }
 
 H1 {
