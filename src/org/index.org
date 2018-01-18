@@ -1,0 +1,8 @@
+#+TITLE: Siqing's Blog
+
+   + [[file:sitemap.org][2018-01-18 Sitemap for project blog]]
+   + [[file:backblaze-storage-pod.org][2018-01-18 backblaze-storage-pod]]
+   + [[file:a-comparison-of-approaches-to-large-scale-data-analysis.org][2018-01-17 A Comparison of Approaches to Large-Scale Data Analysis]]
+   + [[file:7-tips-for-improving-mapreduce-performance.org][2018-01-17 7 Tips for Improving MapReduce Performance]]
+   + [[file:10-lessons-learned-from-the-early-days-of-google.org][2018-01-17 10 Lessons Learned from the Early Days of Google]]
+   + [[file:10-lessons-from-10-years-of-aws.org][2018-01-18 10 Lessons from 10 Years of Amazon Web Services]]
