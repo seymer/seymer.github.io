@@ -158,6 +158,17 @@ li {
     margin-left: 10px;
 }
 
+li {
+  /* display: block; */
+  line-height:38px;
+
+  /* padding: 10px 15px; */
+  /* padding: inherit; */
+  /* margin-left: 2px; */
+  /* background-color: #fff;
+  border: 1px solid #ddd; */
+}
+
 
 blockquote {
     border-left: 4px lightgrey solid;
@@ -185,16 +196,18 @@ code {
 
 
 a {
+    /* display: block; */
     text-decoration: none;
     # cursor: crosshair;
-    border-bottom: 1px dashed Red;
+    /* border-bottom: 1px dashed Red; */
     padding: 1px;
     # color: black;
 }
 
 
 a:hover {
-	background-color: #EEE;
+	/* background-color: #EEE; */
+  border-bottom: 1px dashed Red;
 }
 
 
