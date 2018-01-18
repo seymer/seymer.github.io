@@ -102,7 +102,6 @@ textarea { overflow-x: auto; }
 .org-info-js_search-highlight
 { background-color: #ffff00; color: #000000; font-weight: bold; }
 
-/* http://www.yinwang.org/main.css */
 
 body {
     /* font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; */
@@ -195,7 +194,7 @@ a {
 
 
 a:hover {
-	background-color: LightGrey;
+	background-color: #EEE;
 }
 
 

@@ -2,6 +2,8 @@
 
    + [[file:backblaze-storage-pod.org][2018-01-18 backblaze-storage-pod]]
    + [[file:10-lessons-from-10-years-of-aws.org][2018-01-18 10 Lessons from 10 Years of Amazon Web Services]]
+   + [[file:building-scalable-highly-concurrent-and-fault-tolerant-systems.org][2018-01-17 Building Scalable, Highly Concurrent & Fault-Tolerant Systems: Lessons Learned]]
+   + [[file:building-a-terabyte-scale-data-cycle-at-linkedin-with-hadoop-and-project-voldemort.org][2018-01-17 Building a terabyte-scale data cycle at LinkedIn with Hadoop and Project Voldemort]]
    + [[file:a-comparison-of-approaches-to-large-scale-data-analysis.org][2018-01-17 A Comparison of Approaches to Large-Scale Data Analysis]]
    + [[file:7-tips-for-improving-mapreduce-performance.org][2018-01-17 7 Tips for Improving MapReduce Performance]]
    + [[file:10-lessons-learned-from-the-early-days-of-google.org][2018-01-17 10 Lessons Learned from the Early Days of Google]]
