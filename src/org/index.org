@@ -1,6 +1,5 @@
 #+TITLE: Siqing's Blog
 
    + [[file:the-tumx-guide.org][2018-01-20 Tmux 学习笔记]]
-   + [[file:Guide.org][2018-01-20 The compact Org-mode Guide]]
-   + [[file:org-mode-tutorial.org][2018-01-19 org-mode 教程 This is the title of the document]]
+   + [[file:the-compact-org-mode-guide.org][2018-01-20 The compact Org-mode Guide]]
    + [[file:hello-world.org][2018-01-18 开始写博客啦]]
