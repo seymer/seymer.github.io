@@ -2,12 +2,5 @@
 
    + [[file:the-tumx-guide.org][2018-01-20 Tmux 学习笔记]]
    + [[file:Guide.org][2018-01-20 The compact Org-mode Guide]]
-   + [[file:test.org][2018-01-20 ACE]]
    + [[file:org-mode-tutorial.org][2018-01-19 org-mode 教程 This is the title of the document]]
    + [[file:hello-world.org][2018-01-18 开始写博客啦]]
-   + [[file:backblaze-storage-pod.org][2018-01-18 backblaze-storage-pod]]
-   + [[file:building-scalable-highly-concurrent-and-fault-tolerant-systems.org][2018-01-17 Building Scalable, Highly Concurrent & Fault-Tolerant Systems: Lessons Learned]]
-   + [[file:building-a-terabyte-scale-data-cycle-at-linkedin-with-hadoop-and-project-voldemort.org][2018-01-17 Building a terabyte-scale data cycle at LinkedIn with Hadoop and Project Voldemort]]
-   + [[file:a-comparison-of-approaches-to-large-scale-data-analysis.org][2018-01-17 A Comparison of Approaches to Large-Scale Data Analysis]]
-   + [[file:7-tips-for-improving-mapreduce-performance.org][2018-01-17 7 Tips for Improving MapReduce Performance]]
-   + [[file:10-lessons-learned-from-the-early-days-of-google.org][2018-01-17 10 Lessons Learned from the Early Days of Google]]
