@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Tmux 学习笔记</title>
+<!-- 2018-01-20 Sat 20:47 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog-cn/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Tmux 学习笔记</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. tmux 基础知识</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Navigation through Tmux sessions</a></li>
+<li><a href="#sec-1-2">1.2. Fast text navigation and copying</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. Navigate text</a></li>
+<li><a href="#sec-1-2-2">1.2.2. Send copied text to System's clipboard</a></li>
+<li><a href="#sec-1-2-3">1.2.3. Select and copy text</a></li>
+<li><a href="#sec-1-2-4">1.2.4. Make text copying even more Vim-like</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. Effective pair programming</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. Tmux with Tmate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+link: <a href="http://tangosource.com/blog/a-tmux-crash-course-tips-and-tweaks/">http://tangosource.com/blog/a-tmux-crash-course-tips-and-tweaks/</a>
+</p>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> tmux 基础知识</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+By default, tmux uses <b>Ctrl-b</b> as the prefix key.
+</p>
+<pre class="example">
+&lt;prefix&gt; c: Create a new window (appears in status bar)
+&lt;prefix&gt; 0: Switch to window 0
+&lt;prefix&gt; 1: Switch to window 1
+&lt;prefix&gt; 2: Switch to window 2 (etc.)
+&lt;prefix&gt; x: Kill current window
+&lt;prefix&gt; d: Detach tmux (exit back to normal terminal)
+</pre>
+
+<p>
+To see all tmux sessions, you can enter:
+</p>
+<pre class="example">
+tmux ls
+</pre>
+
+<p>
+To attach to the last used session, you can enter:
+</p>
+<pre class="example">
+tmux a
+</pre>
+
+<p>
+To attach to a specific session, you can enter:
+</p>
+<pre class="example">
+tmux a -t &lt;session-name&gt;
+</pre>
+
+<p>
+You can also customize tmux by making a <b>.tmux.conf</b> file in your home directory.
+</p>
+<pre class="example">
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+#Start window numbering at 1
+set -g base-index 1
+</pre>
+
+<p>
+A few recommendations:
+</p>
+<ol class="org-ol">
+<li>如果你还没有把 <b>ctrl</b> 键映射到 <b>caps-lock</b> 键，我建议你那么做。
+<pre class="example">
+unbind C-b
+set -g prefix C-a
+</pre>
+</li>
+<li><b>~/.tmux.conf</b> 文件只有在每次打开时才会读取更新，所以我建议：
+<pre class="example">
+# bind a reload key
+bind R source-file ~/.tmux.conf \; display-message "Config reloaded."
+</pre>
+<p>
+这样的话，你每次添加更新后，只需按 <b>Ctrl-b R</b> 重新加载配置即可。
+</p>
+</li>
+</ol>
+
+<p>
+Sessions
+A tmux session can contain multiple windows, Sessions are a neat feature. To create a new session just run:
+</p>
+
+<pre class="example">
+tmux new -s &lt;name-of-my-session&gt;
+</pre>
+
+<p>
+To create a new session press <b>Ctrl-b :</b> and the enter the following command:
+</p>
+<pre class="example">
+new -s &lt;name-of-my-new-session&gt;
+</pre>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Navigation through Tmux sessions</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+To get a list of the existing sessions, press <b>Ctrl-b s</b>
+</p>
+
+<p>
+In the case that you are not in Tmux but you have one or more sessions running just use:
+</p>
+
+<pre class="example">
+tmux attach
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Fast text navigation and copying</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Navigate text</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Tmux allows for text navigation in a way that is very similar to Vim.
+</p>
+
+<pre class="example">
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Send copied text to System's clipboard</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+By default, when you copy text from Tmux, the text is only available to be inside that same Tmux session.
+In order to make that text available to be pasted anywhere, you have to tell Tmux to copy to system's clipboard.
+</p>
+
+<ol class="org-ol">
+<li>Install <b>retach-to-user-namespace</b>, this is very easy with <b>brew</b>, just run the following command:
+
+<pre class="example">
+brew install reattach-to-user-namespace
+</pre>
+</li>
+
+<li>Update ~/.tmux.conf file
+<pre class="example">
+# invoke reattach-to-user-namespace every time a new window/pane opens
+set-option -g default-command "reattach-to-user-namespace -l bash"
+</pre>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> Select and copy text</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Now, follow these steps to copy that text:
+</p>
+
+<ol class="org-ol">
+<li>Enter copy mode: <b>ctrl-b [.</b>
+</li>
+<li>Start moving across the text as you would do in Vim: with j, k, l, h, etc..
+</li>
+<li>Once you get to the text you want to copy press the spacebar and start selecting text(exactly as you would do it in Vim).
+</li>
+<li>Once text is selected press <b>enter</b> key
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Make text copying even more Vim-like</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+You can use <b>v</b> key to select text and <b>v</b> to copy it, just add and following to your <b>~/.tmux.conf</b> file:
+</p>
+<pre class="example">
+# start selecting text typing 'v' key (once you are in copy mode)
+bind-key  -t vi-copy v begin-selection
+# copy selected text to the system's clipboard
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Effective pair programming</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+You can share the address of a Tmux session with someone else, and that person can connect to the session via <b>SSH</b>.
+Since the connection runs over <b>SSH</b>, it will be very lightweight. For the user connecting to the remote Tmux session,
+it will fell as if the session is running locally, providing the internet connection is fast enough.
+</p>
+</div>
+
+<div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> Tmux with Tmate</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Tmate is a tool that makes it very easy to create a Tmux session and share it with someone else over hte internet.
+</p>
+<ol class="org-ol">
+<li>Install Homebrew:
+<pre class="example">
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</pre>
+</li>
+
+<li>Install Tmate
+<pre class="example">
+brew update   &amp;&amp; \
+brew tap naviennot/tmate &amp;&amp; \
+brew install tmate
+</pre>
+</li>
+
+<li>Launch a new session with Tmate:
+<pre class="example">
+tmate
+</pre>
+</li>
+
+<li>Copy the SSH URL given by Tmate on the Tmux session.
+</li>
+
+<li>Ask the other person to access via <b>SSH</b> using the URL you just copied.
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
