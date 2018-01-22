@@ -212,3 +212,5 @@ In tmux, hit the prefix *ctrl+b* (my modified prefix is *ctrl+a*) and then:
 
 
 
+
+[[https://orgmode.org/orgcard.pdf][Org-Mode Reference Card]]
