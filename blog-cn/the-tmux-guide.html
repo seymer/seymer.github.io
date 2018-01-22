@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Tmux 学习笔记</title>
-<!-- 2018-01-20 Sat 23:56 -->
+<!-- 2018-01-23 Tue 00:03 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -34,6 +34,7 @@
 <li><a href="#sec-1-3-1">1.3.1. Tmux with Tmate</a></li>
 </ul>
 </li>
+<li><a href="#sec-1-4">1.4. Table Notes</a></li>
 </ul>
 </li>
 </ul>
@@ -270,6 +271,158 @@ tmate
 </li>
 </ol>
 </div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Table Notes</h3>
+<div class="outline-text-3" id="text-1-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">命令</th>
+<th scope="col" class="left">属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">ctrl-b s</td>
+<td class="left">列出当前tmux中的会话</td>
+</tr>
+
+<tr>
+<td class="left">ctrl-b %</td>
+<td class="left">垂直分割</td>
+</tr>
+
+<tr>
+<td class="left">ctrl-b "</td>
+<td class="left">水平分割</td>
+</tr>
+
+<tr>
+<td class="left">ctrl-b ➡</td>
+<td class="left">进入目标窗格</td>
+</tr>
+
+<tr>
+<td class="left">ctrl-b c</td>
+<td class="left">创建窗口</td>
+</tr>
+
+<tr>
+<td class="left">ctrl-b 0..!</td>
+<td class="left">进入对应数字窗口</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">命令</th>
+<th scope="col" class="left">属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">tmux new -s name</td>
+<td class="left">start new with session name</td>
+</tr>
+
+<tr>
+<td class="left">tmux a # (or at, or attach)</td>
+<td class="left">attach</td>
+</tr>
+
+<tr>
+<td class="left">tmux a -t name</td>
+<td class="left">attach to nameed</td>
+</tr>
+
+<tr>
+<td class="left">tmux ls</td>
+<td class="left">list sessions</td>
+</tr>
+
+<tr>
+<td class="left">tmux kill-session -t name</td>
+<td class="left">kill session</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+In tmux, hit the prefix <b>ctrl+b</b> (my modified prefix is <b>ctrl+a</b>) and then:
+</p>
+
+<p>
+<b>Sessions</b>
+</p>
+<pre class="example">
+:new&lt;CR&gt; new session
+s list sessions
+$ name session
+</pre>
+
+<p>
+<b>Windows(tabs)</b>
+</p>
+<pre class="example">
+c create window
+w list windows
+n nest window
+p previous window
+f find window
+, name window
+&amp; kill window
+</pre>
+
+<p>
+<b>Panes(splits)</b>
+</p>
+<pre class="example">
+% vertical split
+" horizontal split
+
+o swap panes
+q show pane numbers
+x kill pane
++ break pane into window (e.g. to select text by mouse to copy)
+- restore pane from window
+
+&lt;prefix&gt; q (show pane numbers, when the numbers show up type the key to goto that pane)
+&lt;prefix&gt; { (move the current pane left)
+&lt;prefix&gt; } (move the current pane right)
+&lt;prefix&gt; z toggle pane zoom
+</pre>
+
+<p>
+<b>Misc</b>
+d detach
+t big clock
+? list shortcuts
+</p>
+<pre class="example">
+prompt
+</pre>
 </div>
 </div>
 </div>

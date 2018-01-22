@@ -1,0 +1,86 @@
+#+TITEL: Programming Collective Intelligence
+
+** Introduction to Collection Intelligence
+
+*** What Is Collective Intelligence?
+
+*** What Is Machine Learning?
+
+*** Limits of Machine Learning
+
+*** Real-Life Examples
+
+*** Other Uses for Learning Algorithms
+
+**** 生物工艺学
+
+**** 金融欺诈侦测
+
+**** 机器视觉
+
+**** 产品市场化
+
+**** 供应链优化
+
+**** 股票市场分析
+
+**** 国家安全
+
+
+** Making Recommendations
+
+*** Collaborative Filtering （协作型过滤）
+
+*** Collecting Preferences （搜集偏好）
+
+*** Finding Similar Users （寻找相近的用户）
+
+*** Euclidean Distance Score （欧几里德距离评价）
+计算每一轴向上的差值，求平方后再相加，最后对总和求平方根。
+#+BEGIN_SRC python
+  from math import sqrt
+
+  # Returns a distance-based similarity score for person1 and person2
+  def sim_distance(prefs,person1,person2):
+      # Get the list of shared_items
+      si={}
+      for item in prefs[person1]:
+          if item in prefs[person2]: si[item]=1
+
+      # if they have no ratings in common, return 0
+      if len(si)==0: return 0
+
+      # Add up the squares of all the differences
+      sum_of_squares=sum([pow(prefs[person1][item]-prefs[person2][item],2)
+                          for item in prefs[person1] if item in prefs[person2]])
+
+      return 1/(1+sqrt(sum_of_squares))
+
+#+END_SRC
+
+
+*** Pearson Correlation Score （皮尔逊相关度评价）
+
+*** Which Similarity Metric Should You Use? （应该选用哪一种相似性度量方法）
+
+*** Ranking the Critics （为评论者打分）
+
+*** Recommending Items （推荐物品）
+
+*** Matching Products （匹配商品）
+
+*** Building a del.icio.us Link Recommender （构建一个基于 del.icio.us 的链接推荐系统）
+
+**** Building the Dataset （构造数据集）
+
+**** Recommending Neighbors and Links （推荐近邻与链接）
+
+**** Item-Based Filtering （基于物品的过滤）
+
+**** Building the Comparison Dataset （构造物品比较数据集）
+
+**** Getting Recommendations （获得推荐）
+
+*** Using the MovieLens Dataset （使用 MovieLens 数据集）
+
+*** User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）
