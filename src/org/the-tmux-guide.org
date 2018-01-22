@@ -146,16 +146,14 @@ Tmate is a tool that makes it very easy to create a Tmux session and share it wi
 
        
 *** Table Notes
-| 命令        | 属性                 |
-|-------------+----------------------|
-| ctrl-b s    | 列出当前tmux中的会话 |
-| ctrl-b %    | 垂直分割             |
-| ctrl-b "    | 水平分割             |
-| ctrl-b ➡    | 进入目标窗格         |
-| ctrl-b c    | 创建窗口             |
-| ctrl-b 0..! | 进入对应数字窗口     |
-
 | 命令                        | 属性                        |
+|-----------------------------+-----------------------------|
+| ctrl-b s                    | 列出当前tmux中的会话        |
+| ctrl-b %                    | 垂直分割                    |
+| ctrl-b "                    | 水平分割                    |
+| ctrl-b ➡                    | 进入目标窗格                |
+| ctrl-b c                    | 创建窗口                    |
+| ctrl-b 0..!                 | 进入对应数字窗口            |
 |-----------------------------+-----------------------------|
 | tmux new -s name            | start new with session name |
 | tmux a # (or at, or attach) | attach                      |
@@ -203,11 +201,12 @@ In tmux, hit the prefix *ctrl+b* (my modified prefix is *ctrl+a*) and then:
 #+END_EXAMPLE
 
 *Misc*
-d detach
-t big clock
-? list shortcuts
-: prompt
-
+#+BEGIN_EXAMPLE
+  d detach
+  t big clock
+  ? list shortcuts
+  : prompt
+#+END_EXAMPLE
 
 
 
