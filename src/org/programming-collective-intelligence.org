@@ -1,4 +1,4 @@
-#+TITEL: Programming Collective Intelligence
+#+TITLE:Programming Collective Intelligence
 
 ** Introduction to Collection Intelligence
 
