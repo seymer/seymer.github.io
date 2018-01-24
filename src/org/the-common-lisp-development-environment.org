@@ -1,4 +1,4 @@
-#+TITLE 如何搭建 SLIME 环境
+#+TITLE: 如何搭建 SLIME 环境
 
 ** sbcl
 #+BEGIN_EXAMPLE
