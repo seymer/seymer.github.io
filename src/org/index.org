@@ -2,6 +2,6 @@
 
    + [[file:the-common-lisp-development-environment.org][2018-01-24 如何搭建 SLIME 环境]]
    + [[file:the-tmux-guide.org][2018-01-23 Tmux 学习笔记]]
-   + [[file:programming-collective-intelligence.org][2018-01-22 programming-collective-intelligence]]
+   + [[file:Programming-Collective-Intelligence.org][2018-01-22 Programming-Collective-Intelligence]]
    + [[file:the-compact-org-mode-guide.org][2018-01-20 The compact Org-mode Guide]]
    + [[file:hello-world.org][2018-01-18 开始写博客啦]]
