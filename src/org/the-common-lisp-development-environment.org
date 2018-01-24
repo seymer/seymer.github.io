@@ -14,7 +14,7 @@ Quicklisp is a library manager for Common Lisp. It works with your existing Comm
 install, and load any of over 1,500 libraries with a few simple commands.Quicklisp is easy to install and works with 
 ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, and Scieneer CL, on Linux, Mac OS X, and Windows. 
 
-** Slime
+*** Slime
 
 #+BEGIN_EXAMPLE
 
@@ -30,7 +30,7 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 
 #+END_EXAMPLE
 
-** .emacs
+*** .emacs
 
 #+BEGIN_EXAMPLE
 
