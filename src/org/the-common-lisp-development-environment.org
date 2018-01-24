@@ -1,0 +1,46 @@
+#+TITLE 如何搭建 SLIME 环境
+
+** sbcl
+#+BEGIN_EXAMPLE
+  brew install sbcl
+#+END_EXAMPLE
+** Emacs
+#+BEGIN_EXAMPLE
+  brew install emacs
+#+END_EXAMPLE
+** Quicklisp
+
+Quicklisp is a library manager for Common Lisp. It works with your existing Common Lisp implementation to download,
+install, and load any of over 1,500 libraries with a few simple commands.Quicklisp is easy to install and works with 
+ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, and Scieneer CL, on Linux, Mac OS X, and Windows. 
+
+** Slime
+
+#+BEGIN_EXAMPLE
+
+  curl -O https://beta.quicklisp.org/quicklisp.lisp
+
+  sbcl --load quicklisp.lisp
+
+  (quicklisp-quickstart:install)
+
+  (ql:quickload "quicklisp-slime-helper")
+
+  (ql:add-to-init-file)
+
+#+END_EXAMPLE
+
+** .emacs
+
+#+BEGIN_EXAMPLE
+
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  ;; Replace "sbcl" with the path to your implementation
+  (setq inferior-lisp-program "sbcl")
+
+#+END_EXAMPLE
+
+** start
+#+BEGIN_EXAMPLE
+  M-x slime
+#+END_EXAMPLE
