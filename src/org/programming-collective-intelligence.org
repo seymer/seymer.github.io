@@ -38,6 +38,7 @@
 *** Euclidean Distance Score （欧几里德距离评价）
 计算每一轴向上的差值，求平方后再相加，最后对总和求平方根。
 #+BEGIN_SRC python
+
   from math import sqrt
 
   # Returns a distance-based similarity score for person1 and person2
@@ -84,3 +85,4 @@
 *** Using the MovieLens Dataset （使用 MovieLens 数据集）
 
 *** User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）
+
