@@ -24,9 +24,11 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 
   (quicklisp-quickstart:install)
 
+  (ql:add-to-init-file)
+
   (ql:quickload "quicklisp-slime-helper")
 
-  (ql:add-to-init-file)
+  (quit)
 
 #+END_EXAMPLE
 
@@ -44,3 +46,18 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 #+BEGIN_EXAMPLE
   M-x slime
 #+END_EXAMPLE
+** table notes
+| 命令        | 属性                                       |
+|-------------+--------------------------------------------|
+| C-c C-k     | Complie and load the current buffer's file |
+| C-c C-c     | Complie the top-level form at point        |
+| M-n         | slime-next-note                            |
+| M-p         | slime-previous-note                        |
+| C-c C-]     | slime-close-all-parens-in-sexp             |
+| C-c Tab     | slime-complete-symbol                      |
+| C-c C-t     | slime-toggle-fancy-trace                   |
+| C-c C-w C-c | slime-who-calls                            |
+| C-c Return  | macroexpand interactively                  |
+| C-c M-d     | Disassemble a funtion                      |
+| C-c I       | slime-inspect                              |
+| C-h m       | Holy grail :)                              |
