@@ -32,7 +32,7 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 
 #+END_EXAMPLE
 
-*** .emacs
+*** 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置.emacs 代码
 
 #+BEGIN_EXAMPLE
 
