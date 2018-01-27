@@ -62,6 +62,6 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 | C-c I       | slime-inspect                              |
 | C-h m       | Holy grail :)                              |
 - [[http://www.sbcl.org/][sbcl]]
-- [[quicklisp.org/beta/][quicklisp]]
+- [[https://www.quicklisp.org/beta/][quicklisp]]
 - [[https://common-lisp.net/project/slime/][slime]]
 
