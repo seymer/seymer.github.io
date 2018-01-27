@@ -1,0 +1,50 @@
+#+TITLE: Docker 入门
+
+** A brief explanation of containers
+
+#+BEGIN_QUOTE
+
+  An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
+
+  A container is a runtime instance of an image—what the image becomes in memory when actually executed. It runs completely isolated from the host environment by default, only accessing host files and ports if configured to do so.
+
+  Containers run apps natively on the host machine’s kernel. They have better performance characteristics than virtual machines that only get virtual access to host resources through a hypervisor. Containers can get native access, each one running in a discrete process, taking no more memory than any other executable.
+
+#+END_QUOTE
+
+** Containers vs. virtual machines
+
+| Virtual Machine diagram | Container diagram            |
+|-------------------------+------------------------------|
+| [[file:../images/VM.png]]   | file:../images/Container.png |
+
+** Note
+
+You may need to add your user to the *docker* group to call this command without sudo
+
+** Manage Docker as a non-root user
+
+#+BEGIN_QUOTE
+
+The *docker* daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user *root* and other users
+can only access	it using *sudo*. The *docker* daemon always runs as the	*root* user.
+
+If you don't want to use *sudo*	when you use the *docker* command, Create a Unix group called *docker* and users to it.	When the *docker* daemon starts,
+it makes the ownership of the Unix socket read/writable	by the *docker*	group.
+
+#+END_QUOTE
+
+*** To create to *docker* group and add your user:
+1. Create the *docker* group.
+#+BEGIN_EXAMPLE
+  sudo groupadd docker
+#+END_EXAMPLE
+2. Add your user to the *docker* group.
+#+BEGIN_EXAMPLE
+  sudo usermod -aG docker $USER
+#+END_EXAMPLE
+3. Log out and log back in so that your group membership is re-evaluated.
+#+BEGIN_QUOTE
+如果在虚拟机上测试，可能需要重新启动虚拟机，使更改生效。
+在桌面Linux环境如X-Windows，注销您的会话完全，然后重新登录。
+#+END_QUOTE
