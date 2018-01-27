@@ -16,7 +16,7 @@
 
 | Virtual Machine diagram | Container diagram            |
 |-------------------------+------------------------------|
-| [[file:../images/VM.png]]   | file:../images/Container.png |
+| [[file:./images/VM.png]]    | file:./images/Container.png  |
 
 ** Note
 
@@ -46,5 +46,6 @@ it makes the ownership of the Unix socket read/writable	by the *docker*	group.
 3. Log out and log back in so that your group membership is re-evaluated.
 #+BEGIN_QUOTE
 如果在虚拟机上测试，可能需要重新启动虚拟机，使更改生效。
-在桌面Linux环境如X-Windows，注销您的会话完全，然后重新登录。
+
+在桌面Linux环境如X-Windows，注销您的会话，然后重新登录。
 #+END_QUOTE
