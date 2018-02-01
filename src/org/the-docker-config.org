@@ -1,0 +1,20 @@
+#+TITLE Docker 如何更改现有容器的配置
+
+参考链接：https://mybrainimage.wordpress.com/2017/02/05/docker-change-port-mapping-for-an-existing-container/
+
+因为在创建容器之初，没有考虑到太多。现在容器内服务需要新增一个开放端口，经过搜索和研究发现，现整理总结于此。
+
+** 步骤
+1. 在宿主机上以 root 用户，首先关闭掉 docker 服务，可以利用 *service docker stop* , 当然你也可以用 *systemctl* 来关闭。
+
+2. 接着 *find / -name hostconfig.json* ,这时你应该会看到你创建的容器的配置文件，ubuntu 系统显示的路径为 */var/lib/docker/containers/* 下。
+
+3. 用 vim 或 emacs 打开文件，找到 *PortBindings* 项，然后添加端口，保存，关闭。
+
+4. 接着 *find / -name config.v2.json* , 里面有个暴露端口项 *ExposedPorts* 添加你想添加的端口号，还有个 *Ports* 项，也按格式添加。
+
+5. 注意以上修改配置文件后，最好验证下 json 格式是否正确。
+
+6. 接下来 *service docker start* ,  *docker start <容器ID>* , *docker ps -a*, 每次开启中间都可以查看下刚才配置的两个文件是否被覆盖，要确保
+修改的内容还在。不出意外，这时你应该能看到添加的端口项出现了。
+
