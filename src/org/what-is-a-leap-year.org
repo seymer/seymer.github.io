@@ -11,7 +11,6 @@
 
 集合问题：A：4 倍  B：100 倍  C：400 倍
 
-所以包含关系是：
 file:./images/set.png
 
 即 A 内 B 外 C 内
