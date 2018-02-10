@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>什么是闰年？</title>
+<!-- 2018-02-10 Sat 23:53 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog-cn/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">什么是闰年？</h1>
+<p>
+什么是闰年呢？刚才在 YouTube 上看了个视频，里面讲到瑞年的规则，现记录如下：
+</p>
+
+<p>
+两个规则：
+</p>
+<ol class="org-ol">
+<li>四的倍数，但不是一百的倍数。
+</li>
+<li>四百的倍数。
+</li>
+</ol>
+
+<p>
+回归年：365.2422，因为公转和自转的原因，所以近似相等。也就差三天，所以可以接受。
+问题：公元 1 - 10000 年有多少闰年？
+</p>
+
+<p>
+集合问题：A：4 倍  B：100 倍  C：400 倍
+</p>
+
+<p>
+所以包含关系是：
+<img src="./images/set.png" alt="set.png" />
+</p>
+
+<p>
+即 A 内 B 外 C 内
+</p>
+
+<p>
+所以我们只需要求彩色区域内的包函数即可。用公式表达为：
+</p>
+
+<p>
+S = SA - SB + SC
+</p>
+
+<p>
+S = 2500 - 100 + 25
+</p>
+
+<p>
+S = 2425
+</p>
+
+<p>
+顺口溜：四年一闰，百年不闰，四百年又闰。
+</p>
+</div>
+</body>
+</html>

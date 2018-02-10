@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Docker 如何更改现有容器的配置</title>
-<!-- 2018-02-02 Fri 13:11 -->
+<!-- 2018-02-10 Sat 23:53 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -46,7 +46,7 @@
 <li>接着 <b>find / -name config.v2.json</b> , 里面有个暴露端口项 <b>ExposedPorts</b> 添加你想添加的端口号，还有个 <b>Ports</b> 项，也按格式添加。
 </li>
 
-<li>注意以上修改配置文件后，最好验证下 json 格式是否正确。
+<li>注意以上修改配置文件后，最好验证下 json 格式是否正确，也可以通过 <b>docker inspect &lt;containerID&gt;</b> 查看配置情况。
 </li>
 
 <li>接下来 <b>service docker start</b> ,  <b>docker start &lt;容器ID&gt;</b> , <b>docker ps -a</b>, 每次开启中间都可以查看下刚才配置的两个文件是否被覆盖，要确保修改的内容还在。不出意外，这时你应该能看到添加的端口项出现了。

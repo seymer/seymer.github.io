@@ -13,7 +13,7 @@
 
 4. 接着 *find / -name config.v2.json* , 里面有个暴露端口项 *ExposedPorts* 添加你想添加的端口号，还有个 *Ports* 项，也按格式添加。
 
-5. 注意以上修改配置文件后，最好验证下 json 格式是否正确。
+5. 注意以上修改配置文件后，最好验证下 json 格式是否正确，也可以通过 *docker inspect <containerID>* 查看配置情况。
 
 6. 接下来 *service docker start* ,  *docker start <容器ID>* , *docker ps -a*, 每次开启中间都可以查看下刚才配置的两个文件是否被覆盖，要确保修改的内容还在。不出意外，这时你应该能看到添加的端口项出现了。
 

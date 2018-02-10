@@ -1,6 +1,9 @@
 #+TITLE: ANSI COMMON LISP
 
+** 第一章 基础知识
 - quote 作为一种引用，也就是什么也不做，它的另一种表达形式是’
+
+- list 函数用来创建列表
 
 - 空列表的两种表达形式，（） nil
 
@@ -98,7 +101,47 @@
 
 - common lisp 的内置类型，对象总是不止属于某种类型。例如：数字21有 fixnum 、 integer 、 rational 、 real 、 number 、 atom 和 t 类型，t 为所有类型的基类。
 
+** 第二章 列表
+
+- cons 把两个对象结合成一个有两部分的对象，称之为 Cons 对象。概念上来讲，一个 Cons 是一对指针；第一个是 car ，第二个是 cdr 。
+
+- 嵌套列表和平坦列表
+
+- consp 用来判断是否是 Cons 对象
+
+- 所有不是 Cons 对象的东西，就是一个原子（atom)
+
+- 注意：nil 既是一个原子，也是一个列表
+
+- eql 和 equal 注意区别，前者有点类似全等，有关指针或内存空间。
+
+- Lisp 没有指针，因为从概念上来讲每个值都是一个指针。
+
+- append 函数返回任何数目的列表串接。
+
+- (load "compress.lisp") 通过这种方式载入程序，注意，有些实现里的扩展名可能为.lsp
+
+- nth 函数可以找到列表特定位置的元素，它们是用 car 跟 cdr 定义的
+
+- nthcdr 函数可以找到第 n 个cdr
+
+- zerop 函数仅在参数为零时，才返回真
+
+- last 函数返回列表的最后一个 Cons 对象
+
+- caddr 函数，它是 cdr 的 cdr 的 car 的缩写（car of cdr of cdr)
+
+- cadr 函数可能会有异常产生
+
 - 
+
+
+
+
+
+
+
+
 
 
   
