@@ -6,7 +6,7 @@ import glob
 import string
 import re
 
-site = 'https://seymer.github.io/'
+site = 'https://seymer.github.io/blog/'
 
 r1 = re.compile(r'^<meta name="generated" content="')
 r2 = re.compile(r'^<p class="date">Date: ')

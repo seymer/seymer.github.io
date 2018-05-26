@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://seymer.github.io/the-common-lisp-development-environment.html</loc></url>
-<url><loc>https://seymer.github.io/index.html</loc></url>
-<url><loc>https://seymer.github.io/the-vim-note.html</loc></url>
-<url><loc>https://seymer.github.io/programming-collective-intelligence.html</loc></url>
-<url><loc>https://seymer.github.io/what-is-a-leap-year.html</loc></url>
-<url><loc>https://seymer.github.io/the-compact-org-mode-guide.html</loc></url>
-<url><loc>https://seymer.github.io/get-started-with-docker.html</loc></url>
-<url><loc>https://seymer.github.io/ansi-common-lisp.html</loc></url>
-<url><loc>https://seymer.github.io/the-tmux-guide.html</loc></url>
-<url><loc>https://seymer.github.io/the-docker-config.html</loc></url>
-<url><loc>https://seymer.github.io/hello-world.html</loc></url>
+    <url><loc>https://seymer.github.io/blog/the-common-lisp-development-environment.html</loc></url>
+<url><loc>https://seymer.github.io/blog/index.html</loc></url>
+<url><loc>https://seymer.github.io/blog/the-vim-note.html</loc></url>
+<url><loc>https://seymer.github.io/blog/programming-collective-intelligence.html</loc></url>
+<url><loc>https://seymer.github.io/blog/what-is-a-leap-year.html</loc></url>
+<url><loc>https://seymer.github.io/blog/the-compact-org-mode-guide.html</loc></url>
+<url><loc>https://seymer.github.io/blog/get-started-with-docker.html</loc></url>
+<url><loc>https://seymer.github.io/blog/ansi-common-lisp.html</loc></url>
+<url><loc>https://seymer.github.io/blog/the-tmux-guide.html</loc></url>
+<url><loc>https://seymer.github.io/blog/the-docker-config.html</loc></url>
+<url><loc>https://seymer.github.io/blog/hello-world.html</loc></url>
 </urlset>
