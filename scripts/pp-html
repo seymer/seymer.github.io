@@ -85,11 +85,6 @@ for f in html_files:
             site_title = x[len('<title>'):-len('</title>')].replace("'", '')
     print('add code to \'%s\''%(f))
 
-    data = map(replace_link, data)
-    with open(f, 'w') as fh:
-        fh.writelines(map(lambda x: x + '\n', data))
-
-
 with open('./sitemap.txt', 'w') as fh:
     fh.writelines(map(lambda x: site + x[len(HTML_DIR):-4] + 'html\n', html_files))
 with open('./sitemap.xml', 'w') as fh:

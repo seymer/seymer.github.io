@@ -1,0 +1,11 @@
+https://seymer.github.io/the-common-lisp-development-environment.html
+https://seymer.github.io/index.html
+https://seymer.github.io/the-vim-note.html
+https://seymer.github.io/programming-collective-intelligence.html
+https://seymer.github.io/what-is-a-leap-year.html
+https://seymer.github.io/the-compact-org-mode-guide.html
+https://seymer.github.io/get-started-with-docker.html
+https://seymer.github.io/ansi-common-lisp.html
+https://seymer.github.io/the-tmux-guide.html
+https://seymer.github.io/the-docker-config.html
+https://seymer.github.io/hello-world.html
