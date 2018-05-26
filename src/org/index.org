@@ -1,5 +1,7 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-compact-org-mode-guide.org][2018-05-26 The compact Org-mode Guide]]
+   + [[file:the-tmux-guide.org][2018-05-26 Tmux 学习笔记]]
    + [[file:the-vim-note.org][2018-03-12 VIM笔记]]
    + [[file:ansi-common-lisp.org][2018-02-20 ANSI Common Lisp]]
    + [[file:what-is-a-leap-year.org][2018-02-11 什么是闰年？]]
@@ -7,5 +9,3 @@
    + [[file:get-started-with-docker.org][2018-01-27 Docker 入门]]
    + [[file:the-common-lisp-development-environment.org][2018-01-27 如何搭建 SLIME 环境]]
    + [[file:programming-collective-intelligence.org][2018-01-24 Programming Collective Intelligence]]
-   + [[file:the-tmux-guide.org][2018-01-23 Tmux 学习笔记]]
-   + [[file:the-compact-org-mode-guide.org][2018-01-20 The compact Org-mode Guide]]
