@@ -38,7 +38,7 @@ BODY_END = """
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 var disqus_config = function () {
-this.page.url = 'https://seymer.github.io/%(site_id)s';
+this.page.url = 'https://seymer.github.io/blog/%(site_id)s';
 this.page.identifier = '%(site_id)s';
 };
 (function() {
@@ -69,6 +69,7 @@ for f in html_files:
     data=[]
     for x in xs:
         x = x[:-1] # strip trailing \n
+        
         if x.find('<head>') != -1 and not x == '<head>' + HEAD_BEGIN + '\n':
             data.append('<head>' + HEAD_BEGIN)
         elif x.find('<body>') != -1 and not x == '<body>' + BODY_BEGIN + '\n':
@@ -83,7 +84,19 @@ for f in html_files:
             data.append(x)
         if x.find('<title>') !=-1 and x.find('</title>') != -1:
             site_title = x[len('<title>'):-len('</title>')].replace("'", '')
+    print(data)
     print('add code to \'%s\''%(f))
+
+    def replace_link(x):
+        x2 = x
+        for (k, k2) in alternative_links:
+            x2 = x2.replace(k, k2)
+        return x2
+
+    data = map(replace_link, data)
+    with open(f, 'w') as fh:
+        fh.writelines(map(lambda x: x + '\n', data))
+
 
 with open('./sitemap.txt', 'w') as fh:
     fh.writelines(map(lambda x: site + x[len(HTML_DIR):-4] + 'html\n', html_files))
