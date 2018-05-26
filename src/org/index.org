@@ -1,7 +1,8 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-vim-note.org][2018-03-12 VIM笔记]]
+   + [[file:ansi-common-lisp.org][2018-02-20 ANSI Common Lisp]]
    + [[file:what-is-a-leap-year.org][2018-02-11 什么是闰年？]]
-   + [[file:ansi-common-lisp.org][2018-02-10 ANSI COMMON LISP]]
    + [[file:the-docker-config.org][2018-02-03 Docker 如何更改现有容器的配置]]
    + [[file:get-started-with-docker.org][2018-01-27 Docker 入门]]
    + [[file:the-common-lisp-development-environment.org][2018-01-27 如何搭建 SLIME 环境]]

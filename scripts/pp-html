@@ -1,0 +1,100 @@
+#!/usr/bin/env python
+#coding:utf-8
+#Copyright (C) dirlt
+
+import glob
+import string
+import re
+
+site = 'https://seymer.github.io/'
+
+r1 = re.compile(r'^<meta name="generated" content="')
+r2 = re.compile(r'^<p class="date">Date: ')
+r3 = re.compile(r'^<a href="http://validator.w3.org/check')
+r4 = re.compile(r'^<!-- \d{4}-\d{2}\-\d{2} ')
+
+HTML_DIR = './blog/'
+html_files = glob.glob(HTML_DIR + '*.html')
+
+
+filter_words = ('resume',)
+
+
+HEAD_BEGIN = """
+""".replace('\n','')
+
+HEAD_END = """
+""".replace('\n','')
+
+BODY_BEGIN = """
+""".replace('\n','')
+
+BODY_END = """
+<!-- DISQUS BEGIN -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+this.page.url = 'https://seymer.github.io/%(site_id)s';
+this.page.identifier = '%(site_id)s';
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://seymer.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<!-- DISQUS END -->
+""".replace('\n','')
+
+
+for f in html_files:
+    skip = False
+    for w in filter_words:
+        if f.find(w) != -1:
+            skip = True
+            break
+    if skip:
+        continue
+
+    xs = open(f).readlines()
+    site_id = f[len(HTML_DIR):]
+    site_title = site_id
+
+    data=[]
+    for x in xs:
+        x = x[:-1] # strip trailing \n
+        if x.find('<head>') != -1 and not x == '<head>' + HEAD_BEGIN + '\n':
+            data.append('<head>' + HEAD_BEGIN)
+        elif x.find('<body>') != -1 and not x == '<body>' + BODY_BEGIN + '\n':
+            data.append('<body>' + BODY_BEGIN)
+        elif x.find('</head>') != -1 and not x == HEAD_END + '</head>' + '\n':
+            data.append(HEAD_END + '</head>')
+        elif x.find('</body>') != -1 and not x == BODY_END%(locals()) + '</body>' + '\n':
+            data.append(BODY_END%(locals()) + '</body>')
+        elif r1.match(x) or r2.match(x) or r3.match(x) or r4.match(x):
+            pass
+        else:
+            data.append(x)
+        if x.find('<title>') !=-1 and x.find('</title>') != -1:
+            site_title = x[len('<title>'):-len('</title>')].replace("'", '')
+    print('add code to \'%s\''%(f))
+
+    data = map(replace_link, data)
+    with open(f, 'w') as fh:
+        fh.writelines(map(lambda x: x + '\n', data))
+
+
+with open('./sitemap.txt', 'w') as fh:
+    fh.writelines(map(lambda x: site + x[len(HTML_DIR):-4] + 'html\n', html_files))
+with open('./sitemap.xml', 'w') as fh:
+    fh.write("""<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    """)
+    fh.writelines(map(lambda x: '<url><loc>{}</loc></url>\n'.format(site + x[len(HTML_DIR):-4] + 'html'), html_files))
+    fh.write('</urlset>\n')

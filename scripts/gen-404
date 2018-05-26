@@ -155,7 +155,7 @@ SCRIPT_TEMPLATE = """
   </script>
 """
 
-HTML_DIR = './html/'
+HTML_DIR = './blog/'
 top_html_files = glob.glob(HTML_DIR + '*.html')
 html_files_string = ",".join(["'/%s'" % x[len(HTML_DIR):] for x in top_html_files])
 script_string = SCRIPT_TEMPLATE % (globals())

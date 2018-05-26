@@ -3,23 +3,24 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>ANSI COMMON LISP</title>
-<!-- 2018-02-10 Sat 23:53 -->
+<title>ANSI Common Lisp</title>
+<!-- 2018-05-26 Sat 15:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
-<link rel="shortcut icon" href="https://www.khow.me/blog-cn/images/favicon.ico" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content">
-<h1 class="title">ANSI COMMON LISP</h1>
+<h1 class="title">ANSI Common Lisp</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. 第一章 基础知识</a></li>
 <li><a href="#sec-2">2. 第二章 列表</a></li>
+<li><a href="#sec-3">3. 第三章 特殊数据结构</a></li>
 </ul>
 </div>
 </div>
@@ -231,6 +232,165 @@
 </li>
 
 <li>cadr 函数可能会有异常产生
+</li>
+
+<li>mapcar 接受一个函数以及一个或多个列表，并返回把函数应用至每个列表的元素的结果，直到有的列表没有元素为止
+</li>
+
+<li>maplist 也是接受一个函数以及一个或多个列表，然后将列表渐进的下一个 cdr 传入函数
+</li>
+
+<li>其他还有 mapc 和 mapcan
+</li>
+
+<li>Cons 对象可以想成是二叉树，car 代表左子树，而 cdr 代表右子树。
+</li>
+
+<li>操作数的函数通常有这种形式，car 和 cdr 同时做递归。这种函数被称为双重递归。
+</li>
+
+<li>列表是表示小集合的好方法，列表中的每个元素都代表了一个集合的成员
+</li>
+
+<li>member 函数用来查找集合内的元素是否存在，存在则返回由寻找对象所开始的那部分
+</li>
+
+<li>一般情况，member 使用 eql 来比较对象。通过关键字作匹配，一个关键字是一个前面有冒号的符号
+</li>
+
+<li>member 函数接受的关键字 :test 参数和 :key 参数
+</li>
+
+<li>member-if 判断式可以通过类似 oddp  函数，来判断奇偶，奇数则返回真
+</li>
+
+<li>adjoin 函数像是条件式的 cons。它接受一个对象及一个列表，如果对象还不是列表的成员，才构造对象至列表上
+</li>
+
+<li>集合论中的并集（union)、交集（intersection) 以及差集（complement）的实现，是由函数 union, intersection, set-difference
+</li>
+
+<li>因为集合中没有顺序的概念，所以返回的顺序可能不尽相同
+</li>
+
+<li>序列可以认为是一系列有特定顺序的对象，在 Common Lisp 里，序列包括列表与向量。
+</li>
+
+<li>length 函数返回序列中元素的数目
+</li>
+
+<li>subseq 函数用来复制序列的一部分，第二个（必须）参数是第一个开始引用进来的元素位置，第三个（可选）参数是第一个不引用进来的元素位置
+</li>
+
+<li>reverse 函数返回顺序颠倒的序列
+</li>
+
+<li>sort 排序函数接受一个序列及一个比较参数的函数，它是破坏性的，如果不想原序列被改动，传入一个副本。
+</li>
+
+<li>传入列表副本可以用 copy-list 函数
+</li>
+
+<li>函数 every 和 some 接受一个判断式及一个或多个序列。当仅输入一个序列时，他们测试序列元素是否满足判断式，当多于一个序列时，序列元素应该相同。
+</li>
+
+<li>push 宏用于将元素放入列表前端
+</li>
+
+<li>pop 宏用于将列表第一个元素移除，并返回这个元素
+</li>
+
+<li>push 和 pop 都是由 setf 定义的，例如：(push obj lst) 等同于 (setf lst (cons obj lst))
+</li>
+
+<li>pushnew 宏是 push 的变种，使用了 adjoin 而不是 cons
+</li>
+
+<li>点状列表，调用 list 所构造的列表，也可以称为正规列表，它可以是 NIL 或是 cdr 是正规列表的 Cons 对象
+</li>
+
+<li>一个由 Cons 对象组成的列表称为关联列表(assoclistor alist)
+</li>
+
+<li>assoc 函数用来取出在关联列表中，与给定的键值有关联的 Cons 对。和 member 一样，接受关键字参数 :test 和 :key
+</li>
+
+<li>assoc-if 类似 member-if
+</li>
+
+<li></li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 第三章 特殊数据结构</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>make-array 可以构造一个数组，第一个实参为一个指定数组维度的列表
+</li>
+
+<li>Common Lisp 的数组至少可以达到七个维度，每个维度至少可以容纳 1023 个元素
+</li>
+
+<li>用 aref 取出数组内的元素，它是零索引的
+</li>
+
+<li>替换数组的某个元素，可以使用 setf 与 aref
+</li>
+
+<li>表示字面常量的数组，使用 #na 语法，其中 n 是数组的维度
 </li>
 
 <li></li>

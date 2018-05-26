@@ -20,6 +20,7 @@ then
 fi
 
 # post processing html files.
+./scripts/pp-html
 ./scripts/gen-404
 git add .
 git commit -a -m 'xy'
