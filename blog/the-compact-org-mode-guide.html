@@ -1,7 +1,86 @@
-#+TITLE: The compact Org-mode Guide
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>The compact Org-mode Guide</title>
+<!-- 2018-05-27 Sun 15:47 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">The compact Org-mode Guide</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 介绍</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 前言</a></li>
+<li><a href="#sec-1-2">1.2. 安装</a></li>
+<li><a href="#sec-1-3">1.3. 激活</a></li>
+<li><a href="#sec-1-4">1.4. 反馈</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 文档结构</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 概述</a></li>
+<li><a href="#sec-2-2">2.2. 标题</a></li>
+<li><a href="#sec-2-3">2.3. 可视化循环</a></li>
+<li><a href="#sec-2-4">2.4. Motion</a></li>
+<li><a href="#sec-2-5">2.5. 结构编辑</a></li>
+<li><a href="#sec-2-6">2.6. 稀疏树</a></li>
+<li><a href="#sec-2-7">2.7. 普通列表</a></li>
+<li><a href="#sec-2-8">2.8. 脚注</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 表格</a></li>
+<li><a href="#sec-4">4. 超链接</a>
+<ul>
+<li><a href="#sec-4-1">4.1. 链接格式</a></li>
+<li><a href="#sec-4-2">4.2. 内部链接</a></li>
+<li><a href="#sec-4-3">4.3. 外部链接</a></li>
+<li><a href="#sec-4-4">4.4. 处理链接</a></li>
+<li><a href="#sec-4-5">4.5. 跳转链接</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. <span class="todo TODO">TODO</span> 项目</a>
+<ul>
+<li><a href="#sec-5-1">5.1. 使用 TODO 状态</a></li>
+<li><a href="#sec-5-2">5.2. 多状态工作流</a></li>
+<li><a href="#sec-5-3">5.3. 进度记录</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. 标签</a></li>
+<li><a href="#sec-7">7. 属性</a></li>
+<li><a href="#sec-8">8. 日期和时间</a>
+<ul>
+<li><a href="#sec-8-1">8.1. 时间戳</a></li>
+<li><a href="#sec-8-2">8.2. 创建时间戳</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. 捕获-重新提交-存档</a></li>
+<li><a href="#sec-10">10. 议程观点</a></li>
+<li><a href="#sec-11">11. 富文本导出</a></li>
+<li><a href="#sec-12">12. 导出</a></li>
+<li><a href="#sec-13">13. 发布</a></li>
+<li><a href="#sec-14">14. 使用源代码</a></li>
+<li><a href="#sec-15">15. 杂项</a></li>
+</ul>
+</div>
+</div>
 
-** 介绍
-*** 前言
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 介绍</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 前言</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
 Org is a mode for keeping notes, maintaining TODO lists, and doing project planning with
 a fast and effective plain-text system. It is also an authoring and publishing system, and it
 supports working with source code for literal programming and reproducible research.
@@ -9,92 +88,155 @@ This document is a much compressed derivative of the comprehensive Org-mode manu
 It contains all basic features and commands, along with important hints for customization.
 It is intended for beginners who would shy back from a 200 page manual because of sheer
 size.
-*** 安装
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 安装</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
 Important: If you are using a version of Org that is part of the Emacs distribution, please
 skip this section and go directly to Section 1.3 [Activation], page 1.
 If you have downloaded Org from the Web, either as a distribution .zip or .tar file, or
 as a Git archive, it is best to run it directly from the distribution directory. You need to
 add the lisp subdirectories to the Emacs load path. To do this, add the following line to
 .emacs:
-#+BEGIN_SRC emacs-lisp
-(setq load-path (cons "~/path/to/orgdir/lisp" load-path))
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq load-path (cons "~/path/to/orgdir/lisp" load-path))
 (setq load-path (cons "~/path/to/orgdir/contrib/lisp" load-path))
-#+END_SRC
+</pre>
+</div>
+<p>
 If you have been using git or a tar ball to get Org, you need to run the following command
 to generate autoload information. command:
-*make autoloads*
-*** 激活
+<b>make autoloads</b>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 激活</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
 Add the following lines to your .emacs file. The last four lines define global keys for some
 commands — please choose suitable keys yourself.
 ;; The following lines are always needed. Choose your own keys.
-#+BEGIN_SRC emacs-lisp
-(global-set-key "\C-cl" 'org-store-link)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-#+END_SRC
+</pre>
+</div>
+<p>
 Files with extension ‘.org’ will be put into Org mode automatically. 
-*** 反馈
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 反馈</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
 If you find problems with Org, or if you have questions, remarks, or ideas about it, please
-mail to the Org mailing list *emacs-orgmode@gnu.org*. For information on how to submit
+mail to the Org mailing list <b>emacs-orgmode@gnu.org</b>. For information on how to submit
 bug reports, see the main manual.
+</p>
+</div>
+</div>
+</div>
 
-** 文档结构
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 文档结构</h2>
+<div class="outline-text-2" id="text-2">
+<p>
 Org is based on Outline mode and provides flexible commands to edit the structure of the
 document.
-*** 概述
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概述</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
 Like HTML, Org provides links inside a file, external links to other files, Usenet articles,
 emails, and much more.Org is implemented on top of Outline mode. Outlines allow a document to be organized
 in a hierarchical structure, which (at least for me) is the best representation of notes and
 thoughts. An overview of this structure is achieved by folding (hiding) large parts of the
 document to show only the general document structure and the parts currently being worked
 on. Org greatly simplifies the use of outlines by compressing the entire show/hide functionality
-into a single command, *org-cycle*, which is bound to the *TAB* key.
-*** 标题
+into a single command, <b>org-cycle</b>, which is bound to the <b>TAB</b> key.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 标题</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
 Headlines define the structure of an outline tree. The headlines in Org start with one or
 more stars, on the left margin1. For example:
-#+BEGIN_EXAMPLE
-    * Top level headline
-    ** Second level
-    *** 3rd level
-        some text
-    *** 3rd level
-        more text
-    * Another top level headline
-#+END_EXAMPLE
+</p>
+<pre class="example">
+* Top level headline
+** Second level
+*** 3rd level
+    some text
+*** 3rd level
+    more text
+* Another top level headline
+</pre>
+<p>
 Note that a headline named after org-footnote-section, which defaults to ‘Footnotes’,
 is considered as special. A subtree with this headline will be silently ignored by exporting
 functions.
 Some people find the many stars too noisy and would prefer an outline that has whitespace
 followed by a single star as headline starters. Section 15.2 [Clean view], page 34,
 describes a setup to realize this.
-*** 可视化循环
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 可视化循环</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
 Outlines make it possible to hide parts of the text in the buffer. Org uses just two commands,
 bound to TAB and S-TAB to change the visibility in the buffer.
 TAB Subtree cycling: Rotate current subtree among the states
-,-> FOLDED -> CHILDREN -> SUBTREE --.
-'-----------------------------------'
+,-&gt; FOLDED -&gt; CHILDREN -&gt; SUBTREE &#x2013;.
+'&#x2013;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;'
 When called with a prefix argument (C-u TAB) or with the shift key, global
 cycling is invoked.
 S-TAB and C-u TAB
 Global cycling: Rotate the entire buffer among the states
-,-> OVERVIEW -> CONTENTS -> SHOW ALL --.
-'--------------------------------------'
+,-&gt; OVERVIEW -&gt; CONTENTS -&gt; SHOW ALL &#x2013;.
+'&#x2013;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;'
 C-u C-u C-u TAB
 Show all, including drawers.
 When Emacs first visits an Org file, the global state is set to OVERVIEW, i.e. only the
 top level headlines are visible. This can be configured through the variable org-startupfolded,
 or on a per-file basis by adding a startup keyword overview, content, showall,
 like this:
-#+STARTUP: content
-*** Motion
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Motion</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
 The following commands jump to other headlines in the buffer.
 C-c C-n Next heading.
 C-c C-p Previous heading.
 C-c C-f Next heading same level.
 C-c C-b Previous heading same level.
 C-c C-u Backward to higher level heading.
-*** 结构编辑
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 结构编辑</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
 M-RET Insert new heading with same level as current. If the cursor is in a plain list
 item, a new item is created (see Section 2.7 [Plain lists], page 4). When this
 command is used in the middle of a line, the line is split and the rest of the line
@@ -113,7 +255,13 @@ page 20.
 C-x n s/w Narrow buffer to current subtree / widen it again
 When there is an active region (Transient Mark mode), promotion and demotion work
 on all headlines in the region.
-*** 稀疏树
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 稀疏树</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
 An important feature of Org mode is the ability to construct sparse trees for selected
 information in an outline tree, so that the entire document is folded as much as possible,
 but the selected information is made visible along with the headline structure above it3.
@@ -125,29 +273,44 @@ C-c / r Occur. Prompts for a regexp and shows a sparse tree with all matches. Ea
 match is also highlighted; the highlights disappear by pressing C-c C-c.
 The other sparse tree commands select headings based on TODO keywords, tags, or
 properties and will be discussed later in this manual.
-*** 普通列表
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 普通列表</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
 Within an entry of the outline tree, hand-formatted lists can provide additional structure.
 They also provide a way to create lists of checkboxes (see Section 5.6 [Checkboxes],
 page 12). Org supports editing such lists, and the HTML exporter (see Chapter 12 [Exporting],
 page 29) parses and formats them.
     Org knows ordered lists, unordered lists, and description lists.
-    - Unordered list items start with ‘-’, ‘+’, or ‘*’ as bullets.
-    - Ordered list items start with ‘1.’ or ‘1)’.
-    - Description list use ‘ :: ’ to separate the term from the description.
+</p>
+<ul class="org-ul">
+<li>Unordered list items start with ‘-’, ‘+’, or ‘*’ as bullets.
+</li>
+<li>Ordered list items start with ‘1.’ or ‘1)’.
+</li>
+<li id="Description list use ‘">’ to separate the term from the description.
+</li>
+</ul>
+<p>
 Items belonging to the same list must have the same indentation on the first line. An
 item ends before the next line that is indented like its bullet/number, or less. A list ends
 when all items are closed, or before two blank lines. An example:
-#+BEGIN_EXAMPLE
-    ** Lord of the Rings
-       My favorite scenes are (in this order)
-       1. The attack of the Rohirrim
-       2. Eowyn's fight with the witch king
-          + this was already my favorite scene in the book
-          + I really like Miranda Otto.
-       Important actors in this film are:
-       - Elijah Wood :: He plays Frodo
-       - Sean Astin :: He plays Sam, Frodo's friend.
-#+END_EXAMPLE
+</p>
+<pre class="example">
+** Lord of the Rings
+   My favorite scenes are (in this order)
+   1. The attack of the Rohirrim
+   2. Eowyn's fight with the witch king
+      + this was already my favorite scene in the book
+      + I really like Miranda Otto.
+   Important actors in this film are:
+   - Elijah Wood :: He plays Frodo
+   - Sean Astin :: He plays Sam, Frodo's friend.
+</pre>
+<p>
 The following commands act on items when the cursor is in the first line of an item (the
 line with the bullet or number).
 TAB Items can be folded just like headline levels.
@@ -166,15 +329,23 @@ toggle the state of the checkbox. Also verify bullets and indentation consistenc
 in the whole list.
 C-c - Cycle the entire list level through the different itemize/enumerate bullets (‘-’,
 ‘+’, ‘*’, ‘1.’, ‘1)’).
-*** 脚注
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 脚注</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
 A footnote is defined in a paragraph that is started by a footnote marker in square brackets
 in column 0, no indentation allowed. The footnote reference is simply the marker in square
 brackets, inside text. For example:
-#+BEGIN_EXAMPLE
-    The Org homepage[fn:1] now looks a lot better than it used to.
-    ...
-    [fn:1] The link is: http://orgmode.org
-#+END_EXAMPLE
+</p>
+<pre class="example">
+The Org homepage[fn:1] now looks a lot better than it used to.
+...
+[fn:1] The link is: http://orgmode.org
+</pre>
+<p>
 The following commands handle footnotes:
 C-c C-x f The footnote action command. When the cursor is on a footnote reference,
 jump to the definition. When it is at a definition, jump to the (first) reference.
@@ -184,29 +355,83 @@ C-c C-c Jump between definition and reference.
 Further reading
 Chapter 2 of the manual
 Sacha Chua’s tutorial
-** 表格
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 表格</h2>
+<div class="outline-text-2" id="text-3">
+<p>
 Org comes with a fast and intuitive table editor. Spreadsheet-like calculations are supported
 in connection with the Emacs calc package (see the Emacs Calculator manual for more
 information about the Emacs calculator).
 Org makes it easy to format tables in plain ASCII. Any line with ‘|’ as the first nonwhitespace
 character is considered part of a table. ‘|’ is also the column separator. A table
 might look like this:
-| Name  | Phone | Age |
-|-------+-------+-----|
-| Peter | 1234  | 17  |
-| Anna  | 4321  | 25  |
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="right">Phone</th>
+<th scope="col" class="right">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Peter</td>
+<td class="right">1234</td>
+<td class="right">17</td>
+</tr>
+
+<tr>
+<td class="left">Anna</td>
+<td class="right">4321</td>
+<td class="right">25</td>
+</tr>
+</tbody>
+</table>
+<p>
 A table is re-aligned automatically each time you press TAB or RET or C-c C-c inside the
 table. TAB also moves to the next field (RET to the next row) and creates new table rows
 at the end of the table or before horizontal lines. The indentation of the table is set by the
 first line. Any line starting with ‘|-’ is considered as a horizontal separator line and will be
 expanded on the next re-align to span the whole table width. So, to create the above table,
 you would only type
-|Name|Phone|Age|
-|-
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Name</td>
+<td class="left">Phone</td>
+<td class="left">Age</td>
+</tr>
+</tbody>
+</table>
+<p>
 cessary.
 S-TAB Re-align, move to previous field.
 RET Re-align the table and move down to next row. Creates a new row if necessary.
-*Column and row editing*
+<b>Column and row editing</b>
 M-left
 M-right Move the current column left/right.
 M-S-left Kill the current column.
@@ -229,59 +454,89 @@ Chapter 3 of the manual
 Bastien’s table tutorial
 Bastien’s spreadsheet tutorial
 Eric’s plotting tutorial
-** 超链接
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 超链接</h2>
+<div class="outline-text-2" id="text-4">
+<p>
 Like HTML, Org provides links inside a file, external links to other files, Usenet articles,
 emails, and much more.
-*** 链接格式
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 链接格式</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
 Org will recognize plain URL-like links and activate them as clickable links. The general
 link format, however, looks like this:
-[[link][description]] or alternatively [[link]]
+<i>description</i> or alternatively <i>link</i>
 Once a link in the buffer is complete (all brackets present), Org will change the display so
-that ‘description’ is displayed instead of ‘[[link][description]]’ and ‘link’ is displayed
-instead of ‘[[link]]’. To edit the invisible ‘link’ part, use C-c C-l with the cursor on the
+that ‘description’ is displayed instead of ‘<i>description</i>’ and ‘link’ is displayed
+instead of ‘<i>link</i>’. To edit the invisible ‘link’ part, use C-c C-l with the cursor on the
 link.
-*** 内部链接
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 内部链接</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
 If the link does not look like a URL, it is considered to be internal in the current file. The
-most important case is a link like ‘[[#my-custom-id]]’ which will link to the entry with
+most important case is a link like ‘<i>#my-custom-id</i>’ which will link to the entry with
 the CUSTOM_ID property ‘my-custom-id’.
-Links such as ‘[[My Target]]’ or ‘[[My Target][Find my target]]’ lead to a text
-search in the current file for the corresponding target which looks like ‘<<My Target>>’.
+Links such as ‘<a href="#My-Target">4.2</a>’ or ‘<a href="#My-Target">Find my target</a>’ lead to a text
+search in the current file for the corresponding target which looks like ‘<a id="My-Target" name="My-Target"></a>’.
 Internal links will be used to reference their destination, through links or numbers, when
 possible.
-*** 外部链接
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 外部链接</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
 Org supports links to files, websites, Usenet and email messages, BBDB database entries
 and links to both IRC conversations and their logs. External links are URL-like locators.
 They start with a short identifying string followed by a colon. There can be no space after
 the colon. Here are some examples:
-http://www.astro.uva.nl/~dominik on the web
-file:/home/dominik/images/jupiter.jpg file, absolute path
+<a href="http://www.astro.uva.nl/~dominik">http://www.astro.uva.nl/~dominik</a> on the web
+<img src="file:///home/dominik/images/jupiter.jpg" alt="jupiter.jpg" /> file, absolute path
 /home/dominik/images/jupiter.jpg same as above
-file:papers/last.pdf file, relative path
-file:projects.org another Org file
-docview:papers/last.pdf::NNN open file in doc-view mode at page NNN
+<a href="papers/last.pdf">papers/last.pdf</a> file, relative path
+<a href="projects.html">projects.html</a> another Org file
+<a href="papers/last.pdf">papers/last.pdf</a> open file in doc-view mode at page NNN
 id:B7423F4D-2E8A-471B-8810-C40F074717E9 Link to heading by ID
-news:comp.emacs Usenet link
-mailto:adent@galaxy.net Mail link
+<a href="comp.emacs">comp.emacs</a> Usenet link
+<a href="mailto:adent@galaxy.net">mailto:adent@galaxy.net</a> Mail link
 vm:folder VM folder link
 vm:folder#id VM message link
 wl:folder#id WANDERLUST message link
-mhe:folder#id MH-E message link
-rmail:folder#id RMAIL message link
-gnus:group#id Gnus article link
-bbdb:R.*Stallman BBDB link (with regexp)
-irc:/irc.com/#emacs/bob IRC link
-info:org:External%20links Info node link (with encoded space)
+<a href="folder#id">folder#id</a> MH-E message link
+<a href="folder#id">folder#id</a> RMAIL message link
+<a href="group#id">group#id</a> Gnus article link
+<i>nil</i> BBDB link (with regexp)
+<a href="/irc.com/#emacs/bob">/irc.com/#emacs/bob</a> IRC link
+<a href="org:External%20links">org:External%20links</a> Info node link (with encoded space)
 A link should be enclosed in double brackets and may contain a descriptive text to be
 displayed instead of the URL (see Section 4.1 [Link format], page 8), for example:
-#+BEGIN_EXAMPLE
-    [[http://www.gnu.org/software/emacs/][GNU Emacs]]
-#+END_EXAMPLE
+</p>
+<pre class="example">
+[[http://www.gnu.org/software/emacs/][GNU Emacs]]
+</pre>
+<p>
 If the description is a file name or URL that points to an image, HTML export (see
 Section 12.4 [HTML export], page 29) will inline the image as a clickable button. If there
 is no description at all and the link points to an image, that image will be inlined into the
 exported HTML file.
-*** 处理链接
-
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 处理链接</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
 Org provides methods to create a link in the correct syntax, to insert it into an Org file,
 and to follow the link.
 C-c l Store a link to the current location. This is a global command (you must create
@@ -296,36 +551,52 @@ When the cursor is on an existing link, C-c C-l allows you to edit the link and
 description parts of the link.
 C-c C-o or mouse-1 or mouse-2
 Open link at point.
-C-c & Jump back to a recorded position. A position is recorded by the commands
+C-c &amp; Jump back to a recorded position. A position is recorded by the commands
 following internal links, and by C-c %. Using this command several times in
 direct succession moves through a ring of previously recorded positions.
+</p>
+</div>
+</div>
 
-*** 跳转链接
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 跳转链接</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
 File links can contain additional information to make Emacs jump to a particular location
 in the file when following a link. This can be a line number or a search option after a double
 colon.
 Here is the syntax of the different ways to attach a search to a file link, together with
 an explanation:
-[[file:~/code/main.c::255]] Find line 255
-[[file:~/xx.org::My Target]] Find ‘<<My Target>>’
-[[file:~/xx.org::#my-custom-id]] Find entry with custom id
+<a href="file:///Users/Seymer/code/main.c">file:///Users/Seymer/code/main.c</a> Find line 255
+<a href="file:///Users/Seymer/xx.html">file:///Users/Seymer/xx.html</a> Find ‘<a id="My-Target" name="My-Target"></a>’
+<a href="file:///Users/Seymer/xx.html#my-custom-id">file:///Users/Seymer/xx.html#my-custom-id</a> Find entry with custom id
 Further reading
 Chapter 4 of the manual
+</p>
+</div>
+</div>
+</div>
 
 
 
 
 
-** TODO 项目
-*** 使用 TODO 状态
-
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> 项目</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 使用 TODO 状态</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
 Any headline becomes a TODO item when it starts with the word ‘TODO’, for example:
-#+BEGIN_EXAMPLE
-    *** TODO Write letter to Sam Fortune
-#+END_EXAMPLE
+</p>
+<pre class="example">
+*** TODO Write letter to Sam Fortune
+</pre>
+<p>
 The most important commands to work with TODO entries are:
 C-c C-t Rotate the TODO state of the current item among
-(unmarked) -> TODO -> DONE -> (unmarked)
+(unmarked) -&gt; TODO -&gt; DONE -&gt; (unmarked)
 The same rotation can also be done “remotely” from the agenda buffers with
 the t command key (see Section 10.4 [Agenda commands], page 23).
 S-right/left
@@ -338,12 +609,22 @@ Chapter 10 [Agenda Views], page 21) into a single buffer. See Section 10.3.2
 S-M-RET Insert a new TODO entry below the current one.
 Changing a TODO state can also trigger tag changes. See the docstring of the option
 org-todo-state-tags-triggers for details.
-*** 多状态工作流
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 多状态工作流</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
 You can use TODO keywords to indicate sequential working progress states:
-#+BEGIN_SRC emacs-lisp
-(setq org-todo-keywords
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq org-todo-keywords
 '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
-#+END_SRC
+</pre>
+</div>
+<p>
 The vertical bar separates the TODO keywords (states that need action) from the DONE
 states (which need no further action). If you don’t provide the separator bar, the last state
 is used as the DONE state. With this setup, the command C-c C-t will cycle an entry
@@ -351,44 +632,63 @@ from TODO to FEEDBACK, then to VERIFY, and finally to DONE and DELEGATED.
 Sometimes you may want to use different sets of TODO keywords in parallel. For example,
 you may want to have the basic TODO/DONE, but also a workflow for bug fixing. Your setup
 would then look like this:
-#+BEGIN_SRC emacs-lisp
-(setq org-todo-keywords
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq org-todo-keywords
 '((sequence "TODO(t)" "|" "DONE(d)")
 (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
-#+END_SRC
+</pre>
+</div>
+<p>
 The keywords should all be different, this helps Org mode to keep track of which subsequence
 should be used for a given entry. The example also shows how to define keys for
 fast access of a particular state, by adding a letter in parenthesis after each keyword—you
 will be prompted for the key after C-c C-t.
 To define TODO keywords that are valid only in a single file, use the following text
 anywhere in the file.
-#+TODO: TODO(t) | DONE(d)
-#+TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
-#+TODO: | CANCELED(c)
+</p>
+<p>
 After changing one of these lines, use C-c C-c with the cursor still in the line to make
 the changes known to Org mode.
-*** 进度记录
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 进度记录</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
 Org mode can automatically record a timestamp and possibly a note when you mark a
 TODO item as DONE, or even each time you change the state of a TODO item. This
 system is highly configurable; settings can be on a per-keyword basis and can be localized
 to a file or even a subtree. For information on how to clock working time for a task, see
 Section 8.4 [Clocking work time], page 18.
- 
-*Closing items*
+</p>
+
+<p>
+<b>Closing items</b>
 The most basic logging is to keep track of when a certain TODO item was finished. This is
 achieved with1.
-#+BEGIN_SRC emacs-lisp
-(setq org-log-done 'time)
-#+END_SRC
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq org-log-done 'time)
+</pre>
+</div>
+<p>
 Then each time you turn an entry from a TODO (not-done) state into any of the DONE
 states, a line ‘CLOSED: [timestamp]’ will be inserted just after the headline. If you want
 to record a note along with the timestamp, use2
-#+BEGIN_SRC emacs-lisp
-(setq org-log-done 'note)
-#+END_SRC
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq org-log-done 'note)
+</pre>
+</div>
+<p>
 You will then be prompted for a note, and that note will be stored below the entry with a
 ‘Closing Note’ heading.
-*Tracking TODO state changes*
+<b>Tracking TODO state changes</b>
 You might want to keep track of TODO state changes. You can either record just a timestamp,
 or a time-stamped note for a change. These records will be inserted after the headline
 as an itemized list. When taking a lot of notes, you might want to get the notes out of the
@@ -396,29 +696,94 @@ way into a drawer. Customize the variable org-log-into-drawer to get this behavi
 For state logging, Org mode expects configuration on a per-keyword basis. This is
 achieved by adding special markers ‘!’ (for a timestamp) and ‘@’ (for a note) in parentheses
 after each keyword. For example:
-#+TODO: TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)
+</p>
+<p>
 will define TODO keywords and fast access keys, and also request that a time is recorded
 when the entry is set to DONE, and that a note is recorded when switching to WAIT or
 CANCELED. The same syntax works also when setting org-todo-keywords.
+</p>
+</div>
+</div>
+</div>
 
-** 标签
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 标签</h2>
+</div>
 
-** 属性
-** 日期和时间
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 属性</h2>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 日期和时间</h2>
+<div class="outline-text-2" id="text-8">
+<p>
 为了协助项目计划，TODO项目可以标注日期和时间。带有日期和时间信息的特殊格式的字符串在 Org 模式中被称为时间戳。
-*** 时间戳
+</p>
+</div>
+<div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> 时间戳</h3>
+</div>
 
-*** 创建时间戳
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> 创建时间戳</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
 Org 模式需要使用特定格式用于识别字符戳。下面列出的所有命令以正确的格式生成时间戳。
-<2018-01-20 Sat>
-[2018-01-20 Sat]
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-20 Sat&gt;</span></span>
+<span class="timestamp-wrapper"><span class="timestamp">[2018-01-20 Sat]</span></span>
+</p>
+</div>
+</div>
+</div>
 
 
-** 捕获-重新提交-存档
-** 议程观点
-** 富文本导出
-** 导出
-** 发布
-** 使用源代码
-** 杂项
-[[https://orgmode.org/orgcard.pdf][Org-Mode Reference Card]]
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 捕获-重新提交-存档</h2>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 议程观点</h2>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> 富文本导出</h2>
+</div>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> 导出</h2>
+</div>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> 发布</h2>
+</div>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> 使用源代码</h2>
+</div>
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> 杂项</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+<a href="https://orgmode.org/orgcard.pdf">Org-Mode Reference Card</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="postamble">Last Updated 2018-05-27 Sun 15:47. Created by Siqing Mu</p>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_shortname = 'seymer';
+  (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+           })();
+  </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-110114842-1', 'auto');
+  ga('send', 'pageview');
+ </script>
+</div>
+</body>
+</html>
