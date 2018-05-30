@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:rules-of-machine-learning.org][2018-05-30 机器学习规则 - 关于机器学习工程的最佳实践]]
    + [[file:the-compact-org-mode-guide.org][2018-05-27 The compact Org-mode Guide]]
    + [[file:the-tmux-guide.org][2018-05-26 Tmux 学习笔记]]
    + [[file:the-vim-note.org][2018-03-12 VIM笔记]]
