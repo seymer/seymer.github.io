@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>机器学习规则 - 关于机器学习工程的最佳实践</title>
-<!-- 2018-05-30 Wed 15:06 -->
+<!-- 2018-05-31 Thu 14:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="马丁辛克维奇" />
@@ -18,7 +18,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 机器学习规则 (Rules of Machine Learning)：</a></li>
+<li><a href="#sec-1">1. 机器学习规则 (Rules of Machine Learning)：</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-1-0-1">1.0.1. 术语</a></li>
+<li><a href="#sec-1-0-2">1.0.2. 概览</a></li>
+<li><a href="#sec-1-0-3">1.0.3. 在进行机器学习之前</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-1">1.1. 机器学习第一阶段：您的第一个管道</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. 监控</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. 机器学习第二阶段：特征工程</a></li>
+<li><a href="#sec-1-3">1.3. 机器学习第三阶段：缓慢增长、优化细化和复杂模型</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -34,9 +51,12 @@
 <p>
 本文档旨在帮助已掌握机器学习基础知识的人员从 Google 机器学习的最佳实践中受益。它介绍了一种机器学习样式，类似于 Google C++ 样式指南和其他常用的实用编程指南。如果您学习过机器学习方面的课程，或者拥有机器学习模型的构建或开发经验，则具备阅读本文档所必需的背景知识。
 </p>
+</div>
 
+<div id="outline-container-sec-1-0-1" class="outline-4">
+<h4 id="sec-1-0-1"><span class="section-number-4">1.0.1</span> 术语</h4>
+<div class="outline-text-4" id="text-1-0-1">
 <p>
-术语
 在我们讨论有效的机器学习的过程中，会反复提到下列术语：
 </p>
 
@@ -64,9 +84,13 @@
 <li>点击率：点击广告中的链接的网页访问者所占的百分比。
 </li>
 </ul>
+</div>
+</div>
 
+<div id="outline-container-sec-1-0-2" class="outline-4">
+<h4 id="sec-1-0-2"><span class="section-number-4">1.0.2</span> 概览</h4>
+<div class="outline-text-4" id="text-1-0-2">
 <p>
-概览
 要打造优质的产品：
 </p>
 
@@ -100,7 +124,14 @@
 第三部分介绍了在向管道添加新特征时如何进行发布和迭代、如何评估模型，以及如何应对训练-应用偏差。
 最后一部分介绍了当您达到稳定阶段时该怎么做。
 之后是相关资源列表和附录，附录针对多次作为示例在本文档中提及的系统，提供了一些背景信息。
-在进行机器学习之前
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-3" class="outline-4">
+<h4 id="sec-1-0-3"><span class="section-number-4">1.0.3</span> 在进行机器学习之前</h4>
+<div class="outline-text-4" id="text-1-0-3">
+<p>
 第 1 条规则：不要害怕发布未采用机器学习技术的产品。
 机器学习技术很酷，但它需要数据。从理论上讲，您可以采用来自其他问题的数据，然后针对新产品调整模型，但其效果很可能不如基本的启发式算法。如果您认为机器学习技术能为您带来 100% 的提升，那么启发式算法可为您带来 50% 的提升。
 </p>
@@ -130,9 +161,13 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 第 3 条规则：选择机器学习技术而非复杂的启发式算法。
 简单的启发式算法有利于推出产品。但复杂的启发式算法难以维护。当您获得足够的数据并基本确定自己要尝试实现的目标后，请考虑使用机器学习技术。与大多数软件工程任务一样，您需要不断更新方法（无论是启发式算法还是机器学习模型），而且您会发现机器学习模型更易于更新和维护（请参阅第 16 条规则）。
 </p>
+</div>
+</div>
 
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 机器学习第一阶段：您的第一个管道</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-机器学习第一阶段：您的第一个管道
 重点关注第一个管道的系统基础架构。虽然展望您将要进行的创新性机器学习的方方面面是一件很有趣的事，但如果您不先确认管道的可靠性，则很难弄清楚所发生的情况。
 </p>
 
@@ -183,9 +218,12 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 修改标签。当您感觉启发式算法会获取当前标签中未包含的信息时，可以选择进行此操作。例如，如果您正在尝试最大程度地增加下载次数，但同时也想要优质的内容，则可能的解决方案是用标签乘以应用获得的平均星数。您可以非常灵活地修改标签。请参阅“您的第一个目标”。
 在机器学习系统中使用启发式算法时，请务必留意是否会带来额外的复杂性。在新的机器学习算法中使用旧启发式算法有助于实现平稳过渡，但思考下是否有可以达到相同效果的更简单的方法。
 </p>
+</div>
 
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 监控</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <p>
-监控
 在一般情况下，请实行良好的警报安全机制，例如设计解决警报的步骤以及提供“信息中心”页面。
 </p>
 
@@ -285,9 +323,14 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 <p>
 在某个层级，必须将这两个系统的输出整合在一起。请注意，与过滤电子邮件中的垃圾邮件相比，在过滤搜索结果中的垃圾内容时，可能应该更加主动。这种说法的前提是您没有正则化且算法已收敛。一般来说大致是这样。此外，从质量分类器的训练数据中移除垃圾内容是一种标准做法。
 </p>
+</div>
+</div>
+</div>
 
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 机器学习第二阶段：特征工程</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-机器学习第二阶段：特征工程
 在机器学习系统生命周期的第一阶段，重要的问题涉及以下三个方面：将训练数据导入学习系统、对任何感兴趣的指标进行测量，以及构建应用基础架构。当您构建了一个端到端的可稳定运行的系统，并且制定了系统测试和单元测试后，就可以进入第二阶段了。
 </p>
 
@@ -507,7 +550,14 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 训练数据和预留数据的效果之间的差异。一般来说，这种情况始终存在，而且并非总是坏事。
 预留数据和“次日”数据的效果之间的差异。同样，这种情况始终存在。您应该调整正则化，以最大程度地提升次日数据的效果。不过，如果与预留数据相比，次日数据效果下降明显，则可能表明某些特征具有时效性，而且可能会降低模型的效果。
 “次日”数据和实时数据的效果之间的差异。如果您将模型应用于训练数据中的某个样本，并在应用时使用同一样本，那么您得到的结果应该完全相同（请参阅第 5 条规则）。因此，此处的差异很可能表示出现了工程错误。
-机器学习第三阶段：缓慢增长、优化细化和复杂模型
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 机器学习第三阶段：缓慢增长、优化细化和复杂模型</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
 第二阶段即将结束时会出现一些信号。首先，月增长开始减弱。您将开始在指标之间做出取舍：在部分试验中，您会看到一些指标上升了，而另一些指标下降了。情况变得有趣起来。由于越来越难实现增长，因此机器学习系统必须变得更加复杂。注意：相比之前两个部分，本部分中会有较多的纯理论性规则。我们见过许多团队在机器学习的第一阶段和第二阶段非常满意。但到了第三阶段后，他们必须找到自己的道路。
 </p>
 
@@ -529,10 +579,39 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 唯一可以轻松做出发布决策的情况是，所有指标都在变好（或至少没有变差）。 如果团队能够在复杂的机器学习算法和简单的启发式算法之间做出选择，而对所有这些指标来说，简单的启发式算法可以提供更好的效果，那么应该选择启发式算法。此外，并未对所有可能的指标值进行明确排名。具体而言，请考虑以下两种情形：
 </p>
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">实验</th>
+<th scope="col" class="left">每日活跃用户数</th>
+<th scope="col" class="left">收入/日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">A</td>
+<td class="left">100万</td>
+<td class="left">400万美元</td>
+</tr>
+
+<tr>
+<td class="left">B</td>
+<td class="left">200万</td>
+<td class="left">200万美元</td>
+</tr>
+</tbody>
+</table>
+
 <p>
-实验每日活跃用户数收入/日
-A100 万400 万美元
-B200 万200 万美元
 如果当前系统是 A，那么团队不太可能会改用 B。如果当前系统是 B，那么团队不太可能会改用 A。这似乎与理性行为背道而驰；但是，对更改指标的预测可能会成功也可能不会，因此这两种改变都蕴含着巨大的风险。每个指标都涵盖了团队所担心的一些风险。
 </p>
 
@@ -600,8 +679,9 @@ Tensorflow 文档。
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-05-30 Wed 15:06. Created by 马丁辛克维奇</p>
+<p class="postamble">Last Updated 2018-05-31 Thu 14:32. Created by 马丁辛克维奇</p>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
   var disqus_shortname = 'seymer';
