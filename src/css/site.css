@@ -1,5 +1,6 @@
 html {
-    font-family: Georgia, "Microsoft Yahei", "WenQuanYi Micro Hei";
+   #font-family: Georgia, "Microsoft Yahei", "WenQuanYi Micro Hei";
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
     border-top: 3px solid #990000;
 }
 
