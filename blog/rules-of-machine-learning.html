@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>机器学习规则 - 关于机器学习工程的最佳实践</title>
-<!-- 2018-06-03 Sun 01:36 -->
+<!-- 2018-06-03 Sun 01:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="马丁·辛克维奇" />
@@ -14,6 +14,23 @@
 <body>
 <div id="content">
 <h1 class="title">机器学习规则 - 关于机器学习工程的最佳实践</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 术语</a></li>
+<li><a href="#sec-2">2. 概览</a></li>
+<li><a href="#sec-3">3. 在进行机器学习之前</a></li>
+<li><a href="#sec-4">4. 机器学习第一阶段：您的第一个管道</a></li>
+<li><a href="#sec-5">5. 机器学习第二阶段：特征工程</a></li>
+<li><a href="#sec-6">6. 机器学习第三阶段：缓慢增长、优化细化和复杂模型</a>
+<ul>
+<li><a href="#sec-6-1">6.1. Google 内部和外部有许多关于机器学习的文档。</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <p>
 SOURCE LINK: <a href="https://developers.google.com/machine-learning/rules-of-ml/">https://developers.google.com/machine-learning/rules-of-ml/</a>
 </p>
@@ -146,16 +163,20 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 <li>第 3 条规则：选择机器学习技术而非复杂的启发式算法。
 </li>
 </ul>
-<blockquote>
 <p>
+#+BEGIN_QUOTE 
 简单的启发式算法有利于推出产品。但复杂的启发式算法难以维护。当您获得足够的数据并基本确定自己要尝试实现的目标后，请考虑使用机器学习技术。与大多数软件工程任务一样，您需要不断更新方法（无论是启发式算法还是机器学习模型），而且您会发现机器学习模型更易于更新和维护（请参阅第 16 条规则）。
 </p>
+</div>
+</div>
 
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 机器学习第一阶段：您的第一个管道</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-***机器学习第一阶段：您的第一个管道
 重点关注第一个管道的系统基础架构。虽然展望您将要进行的创新性机器学习的方方面面是一件很有趣的事，但如果您不先确认管道的可靠性，则很难弄清楚所发生的情况。
+#+END_QUOTE
 </p>
-</blockquote>
 
 <ul class="org-ul">
 <li>第 4 条规则：确保第一个模型简单易用，并正确实施基础架构。
@@ -364,9 +385,9 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 机器学习第二阶段：特征工程</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 机器学习第二阶段：特征工程</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 在机器学习系统生命周期的第一阶段，重要的问题涉及以下三个方面：将训练数据导入学习系统、对任何感兴趣的指标进行测量，以及构建应用基础架构。当您构建了一个端到端的可稳定运行的系统，并且制定了系统测试和单元测试后，就可以进入第二阶段了。
 </p>
@@ -703,9 +724,9 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 机器学习第三阶段：缓慢增长、优化细化和复杂模型</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 机器学习第三阶段：缓慢增长、优化细化和复杂模型</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 第二阶段即将结束时会出现一些信号。首先，月增长开始减弱。您将开始在指标之间做出取舍：在部分试验中，您会看到一些指标上升了，而另一些指标下降了。情况变得有趣起来。由于越来越难实现增长，因此机器学习系统必须变得更加复杂。注意：相比之前两个部分，本部分中会有较多的纯理论性规则。我们见过许多团队在机器学习的第一阶段和第二阶段非常满意。但到了第三阶段后，他们必须找到自己的道路。
 </p>
@@ -846,9 +867,9 @@ Google 的团队通过以下做法取得了大量进展：采用一个预测产�
 相关资源
 </p>
 </div>
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Google 内部和外部有许多关于机器学习的文档。</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Google 内部和外部有许多关于机器学习的文档。</h3>
+<div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><a href="https://developers.google.com/machine-learning/crash-course/">机器学习速成课程</a>：应用机器学习简介。
 </li>
@@ -868,7 +889,7 @@ Google 的团队通过以下做法取得了大量进展：采用一个预测产�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-06-03 Sun 01:30. Created by 马丁·辛克维奇</p>
+<p class="postamble">Last Updated 2018-06-03 Sun 01:42. Created by 马丁·辛克维奇</p>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
   var disqus_shortname = 'seymer';
