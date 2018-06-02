@@ -1,9 +1,6 @@
 #+TITLE: 机器学习规则 - 关于机器学习工程的最佳实践
 #+AUTHOR: 马丁·辛克维奇
-#+OPTIONS: toc:2
-
-
-SOURCE LINK: https://developers.google.com/machine-learning/rules-of-ml/
+https://developers.google.com/machine-learning/rules-of-ml/
 
 *** 术语
 
@@ -422,8 +419,7 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 Google 的团队通过以下做法取得了大量进展：采用一个预测产品中某种联系的紧密程度的模型，并使用该模型对其他产品进行准确预测。您的好友保持不变。另一方面，我曾见过几个团队在应对多个产品间的个性化特征时捉襟见肘。是的，当时看起来应该可以奏效的。但现在看来并没有。有时可以奏效的方法是，使用一个属性的原始数据来预测另一个属性的行为。此外，请注意，仅仅是知道用户有其他属性的历史记录也会有帮助。例如，两个产品上出现了用户活动或许本身就可以说明该问题。
 #+END_QUOTE
 
-相关资源
-**** Google 内部和外部有许多关于机器学习的文档。
+*** Google 内部和外部有许多关于机器学习的文档。
 
 - [[https://developers.google.com/machine-learning/crash-course/][机器学习速成课程]]：应用机器学习简介。
 - [[https://www.cs.ubc.ca/~murphyk/MLbook/][机器学习：概率法]]，凯文·墨菲著，帮助了解机器学习领域。
