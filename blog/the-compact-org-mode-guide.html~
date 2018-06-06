@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>The compact Org-mode Guide</title>
-<!-- 2018-06-07 Thu 00:19 -->
+<!-- 2018-05-27 Sun 15:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Unity" />
+<meta  name="author" content="Siqing Mu" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
@@ -567,9 +567,9 @@ in the file when following a link. This can be a line number or a search option 
 colon.
 Here is the syntax of the different ways to attach a search to a file link, together with
 an explanation:
-<a href="file:///home/unity/code/main.c">file:///home/unity/code/main.c</a> Find line 255
-<a href="file:///home/unity/xx.html">file:///home/unity/xx.html</a> Find ‘<a id="My-Target" name="My-Target"></a>’
-<a href="file:///home/unity/xx.html#my-custom-id">file:///home/unity/xx.html#my-custom-id</a> Find entry with custom id
+<a href="file:///Users/Seymer/code/main.c">file:///Users/Seymer/code/main.c</a> Find line 255
+<a href="file:///Users/Seymer/xx.html">file:///Users/Seymer/xx.html</a> Find ‘<a id="My-Target" name="My-Target"></a>’
+<a href="file:///Users/Seymer/xx.html#my-custom-id">file:///Users/Seymer/xx.html#my-custom-id</a> Find entry with custom id
 Further reading
 Chapter 4 of the manual
 </p>
@@ -765,7 +765,7 @@ Org 模式需要使用特定格式用于识别字符戳。下面列出的所有�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-06-04 Mon 22:52. Created by Unity</p>
+<p class="postamble">Last Updated 2018-05-27 Sun 15:47. Created by Siqing Mu</p>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
   var disqus_shortname = 'seymer';
