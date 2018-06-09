@@ -3,8 +3,10 @@
 ** Introduction to Collection Intelligence
 
 *** What Is Collective Intelligence?
-
+    通常是指：为了创造新的想法，而将一群人的行为、偏好或思想结合在一起。
 *** What Is Machine Learning?
+    机器学习是人工智能（AI，Artificial Intelligence）领域中与算法相关的一个子域，它允许计算机不断地进行学习。在大多数情况下，这相当于将一组数据传递给算法，并由算法推断出与这些数据的属性相关的信息。
+借助这些信息，算法就能预测出未来有可能会出现的其他数据。
 
 *** Limits of Machine Learning
 
