@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-06-09 Sat 19:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Docker 入门</title>
-<!-- 2018-06-07 Thu 00:18 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Unity" />
-<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="./css/site.css" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content">
@@ -18,23 +18,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. A brief explanation of containers</a></li>
-<li><a href="#sec-2">2. Containers vs. virtual machines</a></li>
-<li><a href="#sec-3">3. Note</a></li>
-<li><a href="#sec-4">4. Manage Docker as a non-root user</a>
+<li><a href="#org17847a2">1. A brief explanation of containers</a></li>
+<li><a href="#org8bb4387">2. Containers vs. virtual machines</a></li>
+<li><a href="#org2a3ba7e">3. Note</a></li>
+<li><a href="#orgc06de74">4. Manage Docker as a non-root user</a>
 <ul>
-<li><a href="#sec-4-1">4.1. To create to <b>docker</b> group and add your user:</a></li>
+<li><a href="#org982a4c4">4.1. To create to <b>docker</b> group and add your user:</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. Containers</a></li>
-<li><a href="#sec-6">6. Services</a></li>
-<li><a href="#sec-7">7. Swarms</a></li>
+<li><a href="#org69007d2">5. Containers</a></li>
+<li><a href="#orgffae66a">6. Services</a></li>
+<li><a href="#orga6e9a6e">7. Swarms</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> A brief explanation of containers</h2>
+<div id="outline-container-org17847a2" class="outline-2">
+<h2 id="org17847a2"><span class="section-number-2">1</span> A brief explanation of containers</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -56,35 +56,35 @@ Containers run apps natively on the host machine’s kernel. They have better pe
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Containers vs. virtual machines</h2>
+<div id="outline-container-org8bb4387" class="outline-2">
+<h2 id="org8bb4387"><span class="section-number-2">2</span> Containers vs. virtual machines</h2>
 <div class="outline-text-2" id="text-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">Virtual Machine diagram</th>
-<th scope="col" class="left">Container diagram</th>
+<th scope="col" class="org-left">Virtual Machine diagram</th>
+<th scope="col" class="org-left">Container diagram</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left"><img src="./images/VM.png" alt="VM.png" /></td>
-<td class="left"><img src="./images/Container.png" alt="Container.png" /></td>
+<td class="org-left"><img src="./images/VM.png" alt="VM.png" /></td>
+<td class="org-left"><img src="./images/Container.png" alt="Container.png" /></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Note</h2>
+<div id="outline-container-org2a3ba7e" class="outline-2">
+<h2 id="org2a3ba7e"><span class="section-number-2">3</span> Note</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 You may need to add your user to the <b>docker</b> group to call this command without sudo
@@ -92,8 +92,8 @@ You may need to add your user to the <b>docker</b> group to call this command wi
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Manage Docker as a non-root user</h2>
+<div id="outline-container-orgc06de74" class="outline-2">
+<h2 id="orgc06de74"><span class="section-number-2">4</span> Manage Docker as a non-root user</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -102,36 +102,33 @@ You may need to add your user to the <b>docker</b> group to call this command wi
 
 <p>
 The <b>docker</b> daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <b>root</b> and other users
-can only access        it using <b>sudo</b>. The <b>docker</b> daemon always runs as the        <b>root</b> user.
+can only access	it using <b>sudo</b>. The <b>docker</b> daemon always runs as the	<b>root</b> user.
 </p>
 
 <p>
-If you don't want to use <b>sudo</b> when you use the <b>docker</b> command, Create a Unix group called <b>docker</b> and users to it.        When the <b>docker</b> daemon starts,
-it makes the ownership of the Unix socket read/writable        by the <b>docker</b> group.
+If you don't want to use <b>sudo</b> when you use the <b>docker</b> command, Create a Unix group called <b>docker</b> and users to it.	When the <b>docker</b> daemon starts,
+it makes the ownership of the Unix socket read/writable	by the <b>docker</b> group.
 </p>
 </blockquote>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> To create to <b>docker</b> group and add your user:</h3>
+<div id="outline-container-org982a4c4" class="outline-3">
+<h3 id="org982a4c4"><span class="section-number-3">4.1</span> To create to <b>docker</b> group and add your user:</h3>
 <div class="outline-text-3" id="text-4-1">
 <ol class="org-ol">
-<li>Create the <b>docker</b> group.
-</li>
+<li>Create the <b>docker</b> group.</li>
 </ol>
 <pre class="example">
 sudo groupadd docker
 </pre>
 <ol class="org-ol">
-<li>Add your user to the <b>docker</b> group.
-</li>
+<li>Add your user to the <b>docker</b> group.</li>
 </ol>
 <pre class="example">
 sudo usermod -aG docker $USER
 </pre>
 <ol class="org-ol">
-<li>Log out and log back in so that your group membership is re-evaluated.
-</li>
+<li>Log out and log back in so that your group membership is re-evaluated.</li>
 </ol>
 <blockquote>
 <p>
@@ -146,102 +143,102 @@ sudo usermod -aG docker $USER
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Containers</h2>
+<div id="outline-container-org69007d2" class="outline-2">
+<h2 id="org69007d2"><span class="section-number-2">5</span> Containers</h2>
 <div class="outline-text-2" id="text-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">命令</th>
-<th scope="col" class="left">注释</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">注释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">docker build -t friendlyhello .</td>
-<td class="left"># Create image using this directory's Dockerfile</td>
+<td class="org-left">docker build -t friendlyhello .</td>
+<td class="org-left"># Create image using this directory's Dockerfile</td>
 </tr>
 
 <tr>
-<td class="left">docker run -p 4000:80 friendlyhello</td>
-<td class="left"># Run "friendlyname" mapping port 4000 to 80</td>
+<td class="org-left">docker run -p 4000:80 friendlyhello</td>
+<td class="org-left"># Run "friendlyname" mapping port 4000 to 80</td>
 </tr>
 
 <tr>
-<td class="left">docker run -d -p 4000:80 friendlyhello</td>
-<td class="left"># Same thing, but in detached mode</td>
+<td class="org-left">docker run -d -p 4000:80 friendlyhello</td>
+<td class="org-left"># Same thing, but in detached mode</td>
 </tr>
 
 <tr>
-<td class="left">docker container ls</td>
-<td class="left"># List all running containers</td>
+<td class="org-left">docker container ls</td>
+<td class="org-left"># List all running containers</td>
 </tr>
 
 <tr>
-<td class="left">docker container ls -a</td>
-<td class="left"># List all containers, even those not running</td>
+<td class="org-left">docker container ls -a</td>
+<td class="org-left"># List all containers, even those not running</td>
 </tr>
 
 <tr>
-<td class="left">docker container stop &lt;hash&gt;</td>
-<td class="left"># Gracefully stop the specified container</td>
+<td class="org-left">docker container stop &lt;hash&gt;</td>
+<td class="org-left"># Gracefully stop the specified container</td>
 </tr>
 
 <tr>
-<td class="left">docker container kill &lt;hash&gt;</td>
-<td class="left"># Force shutdown of the specified container</td>
+<td class="org-left">docker container kill &lt;hash&gt;</td>
+<td class="org-left"># Force shutdown of the specified container</td>
 </tr>
 
 <tr>
-<td class="left">docker container rm &lt;hash&gt;</td>
-<td class="left"># Remove specified container from this machine</td>
+<td class="org-left">docker container rm &lt;hash&gt;</td>
+<td class="org-left"># Remove specified container from this machine</td>
 </tr>
 
 <tr>
-<td class="left">docker container rm $(docker container ls -a -q)</td>
-<td class="left"># Remove all containers</td>
+<td class="org-left">docker container rm $(docker container ls -a -q)</td>
+<td class="org-left"># Remove all containers</td>
 </tr>
 
 <tr>
-<td class="left">docker image ls -a</td>
-<td class="left"># List all images on this machine</td>
+<td class="org-left">docker image ls -a</td>
+<td class="org-left"># List all images on this machine</td>
 </tr>
 
 <tr>
-<td class="left">docker image rm &lt;image id&gt;</td>
-<td class="left"># Remove specified image from this machine</td>
+<td class="org-left">docker image rm &lt;image id&gt;</td>
+<td class="org-left"># Remove specified image from this machine</td>
 </tr>
 
 <tr>
-<td class="left">docker image rm $(docker image ls -a -q)</td>
-<td class="left"># Remove all images from this machine</td>
+<td class="org-left">docker image rm $(docker image ls -a -q)</td>
+<td class="org-left"># Remove all images from this machine</td>
 </tr>
 
 <tr>
-<td class="left">docker login</td>
-<td class="left"># Log in this CLI session using your Docker credentials</td>
+<td class="org-left">docker login</td>
+<td class="org-left"># Log in this CLI session using your Docker credentials</td>
 </tr>
 
 <tr>
-<td class="left">docker tag &lt;image&gt; username/repository:tag</td>
-<td class="left"># Tag &lt;image&gt; for upload to registry</td>
+<td class="org-left">docker tag &lt;image&gt; username/repository:tag</td>
+<td class="org-left"># Tag &lt;image&gt; for upload to registry</td>
 </tr>
 
 <tr>
-<td class="left">docker push username/repository:tag</td>
-<td class="left"># Upload tagged image to registry</td>
+<td class="org-left">docker push username/repository:tag</td>
+<td class="org-left"># Upload tagged image to registry</td>
 </tr>
 
 <tr>
-<td class="left">docker run username/repository:tag</td>
-<td class="left"># Run image from a registry</td>
+<td class="org-left">docker run username/repository:tag</td>
+<td class="org-left"># Run image from a registry</td>
 </tr>
 </tbody>
 </table>
@@ -249,184 +246,184 @@ sudo usermod -aG docker $USER
 </div>
 
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Services</h2>
+<div id="outline-container-orgffae66a" class="outline-2">
+<h2 id="orgffae66a"><span class="section-number-2">6</span> Services</h2>
 <div class="outline-text-2" id="text-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">命令</th>
-<th scope="col" class="left">注释</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">注释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">docker stack ls</td>
-<td class="left"># List stacks or apps</td>
+<td class="org-left">docker stack ls</td>
+<td class="org-left"># List stacks or apps</td>
 </tr>
 
 <tr>
-<td class="left">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;</td>
-<td class="left"># Run the specified Compose file</td>
+<td class="org-left">docker stack deploy -c &lt;composefile&gt; &lt;appname&gt;</td>
+<td class="org-left"># Run the specified Compose file</td>
 </tr>
 
 <tr>
-<td class="left">docker service ls</td>
-<td class="left"># List running services associated with an app</td>
+<td class="org-left">docker service ls</td>
+<td class="org-left"># List running services associated with an app</td>
 </tr>
 
 <tr>
-<td class="left">docker service ps &lt;service&gt;</td>
-<td class="left"># List tasks associated with an app</td>
+<td class="org-left">docker service ps &lt;service&gt;</td>
+<td class="org-left"># List tasks associated with an app</td>
 </tr>
 
 <tr>
-<td class="left">docker inspect &lt;task or container&gt;</td>
-<td class="left"># Inspect task or container</td>
+<td class="org-left">docker inspect &lt;task or container&gt;</td>
+<td class="org-left"># Inspect task or container</td>
 </tr>
 
 <tr>
-<td class="left">docker container ls -q</td>
-<td class="left"># List container IDs</td>
+<td class="org-left">docker container ls -q</td>
+<td class="org-left"># List container IDs</td>
 </tr>
 
 <tr>
-<td class="left">docker stack rm &lt;appname&gt;</td>
-<td class="left"># Tear down an application</td>
+<td class="org-left">docker stack rm &lt;appname&gt;</td>
+<td class="org-left"># Tear down an application</td>
 </tr>
 
 <tr>
-<td class="left">docker swarm leave &#x2013;force</td>
-<td class="left"># Take down a single node swarm from the manager</td>
+<td class="org-left">docker swarm leave &#x2013;force</td>
+<td class="org-left"># Take down a single node swarm from the manager</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Swarms</h2>
+<div id="outline-container-orga6e9a6e" class="outline-2">
+<h2 id="orga6e9a6e"><span class="section-number-2">7</span> Swarms</h2>
 <div class="outline-text-2" id="text-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">命令</th>
-<th scope="col" class="left">注释</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">注释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">docker-machine create &#x2013;driver virtualbox myvm1</td>
-<td class="left"># Create a VM (Mac, Win7, Linux)</td>
+<td class="org-left">docker-machine create &#x2013;driver virtualbox myvm1</td>
+<td class="org-left"># Create a VM (Mac, Win7, Linux)</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine create -d hyperv &#x2013;hyperv-virtual-switch "myswitch" myvm1</td>
-<td class="left"># Win10</td>
+<td class="org-left">docker-machine create -d hyperv &#x2013;hyperv-virtual-switch "myswitch" myvm1</td>
+<td class="org-left"># Win10</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine env myvm1</td>
-<td class="left"># View basic information about your node</td>
+<td class="org-left">docker-machine env myvm1</td>
+<td class="org-left"># View basic information about your node</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1 "docker node ls"</td>
-<td class="left"># List the nodes in your swarm</td>
+<td class="org-left">docker-machine ssh myvm1 "docker node ls"</td>
+<td class="org-left"># List the nodes in your swarm</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1 "docker node inspect &lt;node ID&gt;"</td>
-<td class="left"># Inspect a node</td>
+<td class="org-left">docker-machine ssh myvm1 "docker node inspect &lt;node ID&gt;"</td>
+<td class="org-left"># Inspect a node</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1 "docker swarm join-token -q worker"</td>
-<td class="left"># View join token</td>
+<td class="org-left">docker-machine ssh myvm1 "docker swarm join-token -q worker"</td>
+<td class="org-left"># View join token</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1</td>
-<td class="left"># Open an SSH session with the VM; type "exit" to end</td>
+<td class="org-left">docker-machine ssh myvm1</td>
+<td class="org-left"># Open an SSH session with the VM; type "exit" to end</td>
 </tr>
 
 <tr>
-<td class="left">docker node ls</td>
-<td class="left"># View nodes in swarm (while logged on to manager)</td>
+<td class="org-left">docker node ls</td>
+<td class="org-left"># View nodes in swarm (while logged on to manager)</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm2 "docker swarm leave"</td>
-<td class="left"># Make the worker leave the swarm</td>
+<td class="org-left">docker-machine ssh myvm2 "docker swarm leave"</td>
+<td class="org-left"># Make the worker leave the swarm</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1 "docker swarm leave -f"</td>
-<td class="left"># Make master leave, kill swarm</td>
+<td class="org-left">docker-machine ssh myvm1 "docker swarm leave -f"</td>
+<td class="org-left"># Make master leave, kill swarm</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ls</td>
-<td class="left"># list VMs, asterisk shows which VM this shell is talking to</td>
+<td class="org-left">docker-machine ls</td>
+<td class="org-left"># list VMs, asterisk shows which VM this shell is talking to</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine start myvm1</td>
-<td class="left"># Start a VM that is currently not running</td>
+<td class="org-left">docker-machine start myvm1</td>
+<td class="org-left"># Start a VM that is currently not running</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine env myvm1</td>
-<td class="left"># show environment variables and command for myvm1</td>
+<td class="org-left">docker-machine env myvm1</td>
+<td class="org-left"># show environment variables and command for myvm1</td>
 </tr>
 
 <tr>
-<td class="left">eval $(docker-machine env myvm1)</td>
-<td class="left"># Mac command to connect shell to myvm1</td>
+<td class="org-left">eval $(docker-machine env myvm1)</td>
+<td class="org-left"># Mac command to connect shell to myvm1</td>
 </tr>
 
 <tr>
-<td class="left">docker stack deploy -c &lt;file&gt; &lt;app&gt;</td>
-<td class="left"># Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file</td>
+<td class="org-left">docker stack deploy -c &lt;file&gt; &lt;app&gt;</td>
+<td class="org-left"># Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine scp docker-compose.yml myvm1:~</td>
-<td class="left"># Copy file to node's home dir (only required if you use ssh to connect to manager and deploy the app)</td>
+<td class="org-left">docker-machine scp docker-compose.yml myvm1:~</td>
+<td class="org-left"># Copy file to node's home dir (only required if you use ssh to connect to manager and deploy the app)</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine ssh myvm1 "docker stack deploy -c &lt;file&gt; &lt;app&gt;"</td>
-<td class="left"># Deploy an app using ssh (you must have first copied the Compose file to myvm1)</td>
+<td class="org-left">docker-machine ssh myvm1 "docker stack deploy -c &lt;file&gt; &lt;app&gt;"</td>
+<td class="org-left"># Deploy an app using ssh (you must have first copied the Compose file to myvm1)</td>
 </tr>
 
 <tr>
-<td class="left">eval $(docker-machine env -u)</td>
-<td class="left"># Disconnect shell from VMs, use native docker</td>
+<td class="org-left">eval $(docker-machine env -u)</td>
+<td class="org-left"># Disconnect shell from VMs, use native docker</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine stop $(docker-machine ls -q)</td>
-<td class="left"># Stop all running VMs</td>
+<td class="org-left">docker-machine stop $(docker-machine ls -q)</td>
+<td class="org-left"># Stop all running VMs</td>
 </tr>
 
 <tr>
-<td class="left">docker-machine rm $(docker-machine ls -q)</td>
-<td class="left"># Delete all VMs and their disk images</td>
+<td class="org-left">docker-machine rm $(docker-machine ls -q)</td>
+<td class="org-left"># Delete all VMs and their disk images</td>
 </tr>
 </tbody>
 </table>
@@ -434,25 +431,25 @@ sudo usermod -aG docker $USER
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-06-04 Mon 22:52. Created by Unity</p>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-  var disqus_shortname = 'seymer';
-  (function() {
-           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-           dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-           })();
-  </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<p class="postamble">Last Updated 2018-01-27 Sat 13:38. Created by Siqing Mu</p>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-110114842-1', 'auto');
-  ga('send', 'pageview');
- </script>
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
 </div>
 </body>
 </html>

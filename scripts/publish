@@ -13,7 +13,7 @@ git pull origin master
 
 # generate html files.
 $emacs --batch --script ./scripts/publish.el
-echo $emacs
+
 if [ $? != 0 ]
 then
     echo "publish failed!"

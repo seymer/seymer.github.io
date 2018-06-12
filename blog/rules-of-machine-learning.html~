@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>机器学习规则 - 关于机器学习工程的最佳实践</title>
-<!-- 2018-06-03 Sun 01:53 -->
+<!-- 2018-06-07 Thu 00:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="马丁·辛克维奇" />
@@ -882,7 +882,7 @@ Google 的团队通过以下做法取得了大量进展：采用一个预测产�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-06-03 Sun 01:53. Created by 马丁·辛克维奇</p>
+<p class="postamble">Last Updated 2018-06-04 Mon 22:52. Created by 马丁·辛克维奇</p>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
   var disqus_shortname = 'seymer';

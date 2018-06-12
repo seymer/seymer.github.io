@@ -1,6 +1,6 @@
 #+TITLE: 机器学习规则 - 关于机器学习工程的最佳实践
 #+AUTHOR: 马丁·辛克维奇
-SRC: https://developers.google.com/machine-learning/rules-of-ml/
+Source: https://developers.google.com/machine-learning/rules-of-ml/
 
 *** 术语
 

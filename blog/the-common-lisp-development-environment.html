@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-06-09 Sat 19:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何搭建 SLIME 环境</title>
-<!-- 2018-06-07 Thu 00:19 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Unity" />
-<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="./css/site.css" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content">
@@ -18,38 +18,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. sbcl</a></li>
-<li><a href="#sec-2">2. Emacs</a></li>
-<li><a href="#sec-3">3. Quicklisp</a>
+<li><a href="#org3f84102">1. sbcl</a></li>
+<li><a href="#org55cdb78">2. Emacs</a></li>
+<li><a href="#orga5aabf6">3. Quicklisp</a>
 <ul>
-<li><a href="#sec-3-1">3.1. Slime</a></li>
-<li><a href="#sec-3-2">3.2. 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</a></li>
+<li><a href="#orgc6f157e">3.1. Slime</a></li>
+<li><a href="#orgc68c310">3.2. 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. start</a></li>
-<li><a href="#sec-5">5. table notes</a></li>
+<li><a href="#org15b98e1">4. start</a></li>
+<li><a href="#org902c8fc">5. table notes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> sbcl</h2>
+<div id="outline-container-org3f84102" class="outline-2">
+<h2 id="org3f84102"><span class="section-number-2">1</span> sbcl</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 brew install sbcl
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Emacs</h2>
+<div id="outline-container-org55cdb78" class="outline-2">
+<h2 id="org55cdb78"><span class="section-number-2">2</span> Emacs</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 brew install emacs
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Quicklisp</h2>
+<div id="outline-container-orga5aabf6" class="outline-2">
+<h2 id="orga5aabf6"><span class="section-number-2">3</span> Quicklisp</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Quicklisp is a library manager for Common Lisp. It works with your existing Common Lisp implementation to download,
@@ -58,10 +58,11 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 </p>
 </div>
 
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Slime</h3>
+<div id="outline-container-orgc6f157e" class="outline-3">
+<h3 id="orgc6f157e"><span class="section-number-3">3.1</span> Slime</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
+
 curl -O https://beta.quicklisp.org/quicklisp.lisp
 
 sbcl --load quicklisp.lisp
@@ -73,140 +74,140 @@ sbcl --load quicklisp.lisp
 (ql:quickload "quicklisp-slime-helper")
 
 (quit)
+
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</h3>
+<div id="outline-container-orgc68c310" class="outline-3">
+<h3 id="orgc68c310"><span class="section-number-3">3.2</span> 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
+
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; Replace "sbcl" with the path to your implementation
 (setq inferior-lisp-program "sbcl")
+
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> start</h2>
+<div id="outline-container-org15b98e1" class="outline-2">
+<h2 id="org15b98e1"><span class="section-number-2">4</span> start</h2>
 <div class="outline-text-2" id="text-4">
 <pre class="example">
 M-x slime
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> table notes</h2>
+<div id="outline-container-org902c8fc" class="outline-2">
+<h2 id="org902c8fc"><span class="section-number-2">5</span> table notes</h2>
 <div class="outline-text-2" id="text-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">命令</th>
-<th scope="col" class="left">属性</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">属性</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">C-c C-k</td>
-<td class="left">Complie and load the current buffer's file</td>
+<td class="org-left">C-c C-k</td>
+<td class="org-left">Complie and load the current buffer's file</td>
 </tr>
 
 <tr>
-<td class="left">C-c C-c</td>
-<td class="left">Complie the top-level form at point</td>
+<td class="org-left">C-c C-c</td>
+<td class="org-left">Complie the top-level form at point</td>
 </tr>
 
 <tr>
-<td class="left">M-n</td>
-<td class="left">slime-next-note</td>
+<td class="org-left">M-n</td>
+<td class="org-left">slime-next-note</td>
 </tr>
 
 <tr>
-<td class="left">M-p</td>
-<td class="left">slime-previous-note</td>
+<td class="org-left">M-p</td>
+<td class="org-left">slime-previous-note</td>
 </tr>
 
 <tr>
-<td class="left">C-c C-]</td>
-<td class="left">slime-close-all-parens-in-sexp</td>
+<td class="org-left">C-c C-]</td>
+<td class="org-left">slime-close-all-parens-in-sexp</td>
 </tr>
 
 <tr>
-<td class="left">C-c Tab</td>
-<td class="left">slime-complete-symbol</td>
+<td class="org-left">C-c Tab</td>
+<td class="org-left">slime-complete-symbol</td>
 </tr>
 
 <tr>
-<td class="left">C-c C-t</td>
-<td class="left">slime-toggle-fancy-trace</td>
+<td class="org-left">C-c C-t</td>
+<td class="org-left">slime-toggle-fancy-trace</td>
 </tr>
 
 <tr>
-<td class="left">C-c C-w C-c</td>
-<td class="left">slime-who-calls</td>
+<td class="org-left">C-c C-w C-c</td>
+<td class="org-left">slime-who-calls</td>
 </tr>
 
 <tr>
-<td class="left">C-c Return</td>
-<td class="left">macroexpand interactively</td>
+<td class="org-left">C-c Return</td>
+<td class="org-left">macroexpand interactively</td>
 </tr>
 
 <tr>
-<td class="left">C-c M-d</td>
-<td class="left">Disassemble a funtion</td>
+<td class="org-left">C-c M-d</td>
+<td class="org-left">Disassemble a funtion</td>
 </tr>
 
 <tr>
-<td class="left">C-c I</td>
-<td class="left">slime-inspect</td>
+<td class="org-left">C-c I</td>
+<td class="org-left">slime-inspect</td>
 </tr>
 
 <tr>
-<td class="left">C-h m</td>
-<td class="left">Holy grail :)</td>
+<td class="org-left">C-h m</td>
+<td class="org-left">Holy grail :)</td>
 </tr>
 </tbody>
 </table>
 <ul class="org-ul">
-<li><a href="http://www.sbcl.org/">sbcl</a>
-</li>
-<li><a href="https://www.quicklisp.org/beta/">quicklisp</a>
-</li>
-<li><a href="https://common-lisp.net/project/slime/">slime</a>
-</li>
+<li><a href="http://www.sbcl.org/">sbcl</a></li>
+<li><a href="https://www.quicklisp.org/beta/">quicklisp</a></li>
+<li><a href="https://common-lisp.net/project/slime/">slime</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-06-04 Mon 22:52. Created by Unity</p>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-  var disqus_shortname = 'seymer';
-  (function() {
-           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-           dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-           })();
-  </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<p class="postamble">Last Updated 2018-01-27 Sat 11:01. Created by Siqing Mu</p>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-110114842-1', 'auto');
-  ga('send', 'pageview');
- </script>
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
 </div>
 </body>
 </html>
