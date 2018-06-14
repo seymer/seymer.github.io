@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+- [[file:bookmarks-list.org][Bookmarks List]]
 - [[file:rules-of-machine-learning.org][机器学习规则 - 关于机器学习工程的最佳实践]]
 - [[file:programming-collective-intelligence.org][Programming Collective Intelligence]]
 - [[file:the-tmux-guide.org][Tmux 学习笔记]]
