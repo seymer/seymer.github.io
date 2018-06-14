@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-12 Tue 18:57 -->
+<!-- 2018-06-14 Thu 17:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Siqing's Blog</title>
@@ -15,6 +15,7 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="bookmarks-list.html">Bookmarks List</a></li>
 <li><a href="rules-of-machine-learning.html">机器学习规则 - 关于机器学习工程的最佳实践</a></li>
 <li><a href="programming-collective-intelligence.html">Programming Collective Intelligence</a></li>
 <li><a href="the-tmux-guide.html">Tmux 学习笔记</a></li>
