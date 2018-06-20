@@ -1,0 +1,100 @@
+;;sbcl slime
+;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+;(setq inferior-lisp-program "sbcl")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+(defun get-string-from-file (filePath)
+  "Return filePath's file content."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (buffer-string)))
+;; http://orgmode.org/manual/Publishing-options.html
+(setq org-export-with-sub-superscripts nil)
+(setq org-export-with-timestamps nil)
+(setq org-export-author nil)
+(setq org-export-with-creator nil)
+(setq org-export-with-date nil)
+(setq org-export-with-email nil)
+(setq org-export-with-toc 't)
+(setq org-export-with-section-numbers 't)
+(setq org-html-preamble nil)
+(setq org-html-postamble nil)
+(setq org-log-done 'note)
+(setq org-html-head
+      (concat
+       "<style type=\"text/css\">"
+       (get-string-from-file "~/Github/seymer.github.io/src/css/site.css")
+       "</style>"))
+;; see org-html-style-default
+(setq org-html-head-include-default-style nil)
+
+;; see org-html-scripts
+(setq org-html-head-include-scripts nil)
+(setq org-html-htmlize-output-type 'css)
+
+;; http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+(setq org-publish-project-alist
+      '(("pages"
+          :base-directory "~/Github/seymer.github.io/src/"
+          :publishing-directory "~/Github/seymer.github.io/html/"
+          :recursive nil
+          :html-head-include-default-style nil
+          :html-head "<link rel=\"shortcut icon\" href=\"https://www.khow.me/blog/images/favicon.ico\" /><link rel=\"stylesheet\" type=\"text/css\" href=\"./css/site.css\" />"
+          :publishing-function org-html-publish-to-html
+          ;; :auto-sitemap 't
+          ;; :sitemap-filename "sitemap.org"
+          ;; :sitemap-title "Sitemap"
+          :with-toc 't)
+        ("blog"
+          :base-directory "~/Github/seymer.github.io/src/org/"
+          :publishing-directory "~/Github/seymer.github.io/blog/"
+          :recursive nil
+          :html-head-include-default-style nil
+          :html-head "<link rel=\"shortcut icon\" href=\"https://www.khow.me/blog/images/favicon.ico\" /><link rel=\"stylesheet\" type=\"text/css\" href=\"./css/site.css\" />"
+          :publishing-function org-html-publish-to-html
+          :section-numbers 't
+          :auto-sitemap 't
+          :sitemap-filename "index.org"
+          :sitemap-title "Siqing's Blog"
+	  :sitemap-sort-files anti-chronologically
+          :sitemap-file-entry-format "%d %t"
+          :with-toc 't
+	  :html-postamble "<div id=\"disqus_thread\"></div>
+            <script type=\"text/javascript\">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>"
+        )
+
+        ("site" :components ("pages" "blog"))))
+        
+;; (put 'upcase-region 'disabled nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (python . t)
+   (R . t)
+   (ruby . t)
+   (ditaa . t)
+   (dot . t)
+   (octave . t)
+   (sqlite . t)
+   (perl . t)
+   (C . t)
+   ))
+
+
