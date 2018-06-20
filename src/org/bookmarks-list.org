@@ -3,3 +3,27 @@
 #+AUTHOR: Siqing Mu
 
 *** Tools
+
+1. [[https://github.com/rofl0r/proxychains-ng][proxychains4]] 一个 Unix 代理工具
+2. [[https://github.com/apenwarr/sshuttle][sshuttle]] 一个透明代理工具，用于中转流量
+3. [[https://iperf.fr/][iperf]] 一个终极速度测试工具用于 TCP, UDP 和 SCTP 协议
+4. [[https://www.tcpdump.org/tcpdump_man.html][tcpdump]] 一个运行在命令行上的常用数据包分析工具
+5. [[http://www.uderzo.it/main_products/space_sniffer/][space sniffer]] 一款分析硬盘数据结构和大小的软件
+6. [[http://supervisord.org/][supervisor]] 一个用 Python 写的进程管理软件，可以替代 nohup &
+7. [[https://www.freedownloadmanager.org/][FDM]] 一个支持 Windows 和 MacOS 系统的下载工具
+8. [[https://sentry.io/][sentry]] 一个开源的错误追踪和帮助解决错误的工具
+9. [[https://github.com/wg/wrk][wrk]] 一个 HTTP 基准测试工具
+10. [[https://en.wikipedia.org/wiki/Iostat][iostat]] 用于输出CPU和磁盘I/O相关的统计信息
+11. [[https://www.tripwire.com/][tripwire]] Linux下文件系统完整性安全检查软件工具
+12. [[https://github.com/pyenv/pyenv][pyenv]] Simple Python version management
+13. [[https://www.tripwire.com/][tripwire]] 入侵检测
+14. [[https://www.snort.org/][snort]] 入侵检测
+15. [[https://www.virtualbox.org/][VirtualBox]] 虚拟机
+16. [[https://www.wireshark.org/][Wireshark]] 抓包工具
+17. 
+18. 
+19. 
+20. 
+21. 
+
+*** Books
