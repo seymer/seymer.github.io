@@ -30,8 +30,15 @@ modprobe iwlwifi
 
 + 完毕。
 
+*** 扩展链接
 
+其实，这里我们也可以直接去下面这个链接去找自己机器对应的驱动
 
+#+BEGIN_EXAMPLE
+https://wiki.debian.org/WiFi
+#+END_EXAMPLE
 
-
+#+BEGIN_EXAMPLE
+https://wiki.debian.org/rt2800pci
+#+END_EXAMPLE
 

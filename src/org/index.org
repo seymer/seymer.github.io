@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:debian-install-wireless-network-card.org][2018-07-01 Debian安装无线网卡]]
+   + [[file:debian-install-wireless-network-card.org][2018-07-02 Debian安装无线网卡]]
    + [[file:bookmarks-list.org][2018-06-20 Bookmarks List]]
    + [[file:rules-of-machine-learning.org][2018-06-09 机器学习规则 - 关于机器学习工程的最佳实践]]
    + [[file:programming-collective-intelligence.org][2018-06-03 Programming Collective Intelligence]]
