@@ -1,0 +1,154 @@
+#+TITLE: SSH_LOGIN 扫描登录辅助模块
+#+DATE: 2018-07-02
+#+AUTHOR: Siqing Mu
+
+*** 简介
+
+ssh_login该模块是渗透测试框架MSF(MetaSploit)框架下常用的一个工具，它可以针对单个IP或者一组IP进行暴力破解。
+#+BEGIN_EXAMPLE
+➜  ~ msfconsole
+                                                  
+
+      .:okOOOkdc'           'cdkOOOko:.
+    .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+   :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+  'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+  oOOOOOOOO.MMMM.oOOOOoOOOOl.MMMM,OOOOOOOOo
+  dOOOOOOOO.MMMMMM.cOOOOOc.MMMMMM,OOOOOOOOx
+  lOOOOOOOO.MMMMMMMMM;d;MMMMMMMMM,OOOOOOOOl
+  .OOOOOOOO.MMM.;MMMMMMMMMMM;MMMM,OOOOOOOO.
+   cOOOOOOO.MMM.OOc.MMMMM'oOO.MMM,OOOOOOOc
+    oOOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOOo
+     lOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOl
+      ;OOOO'MMM.OOOO.MMM:OOOO.MMM;OOOO;
+       .dOOo'WM.OOOOocccxOOOO.MX'xOOd.
+         ,kOl'M.OOOOOOOOOOOOO.M'dOk,
+           :kk;.OOOOOOOOOOOOO.;Ok:
+             ;kOOOOOOOOOOOOOOOk:
+               ,xOOOOOOOOOOOx,
+                 .lOOOOOOOl.
+                    ,dOd,
+                      .
+
+       =[ metasploit v4.16.64-dev-c1c6dc0d8516dbdecca04f17e41f48148f648f18]
++ -- --=[ 1777 exploits - 1018 auxiliary - 308 post       ]
++ -- --=[ 538 payloads - 41 encoders - 10 nops            ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+msf > use auxiliary/scanner/ssh/ssh_login
+msf auxiliary(scanner/ssh/ssh_login) > show options
+#+END_EXAMPLE
+
+*** 使用
+
+我们可以根据查看选项设置(show options)，这里我们可能需要一些必要设置项
+比如：我们需要设置扫描的IP或者IP段，可以这样设置：
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set RHOSTS 192.168.1.100
+RHOSTS => 192.168.0.1
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set RHOSTS 192.168.1.100
+RHOSTS => 192.168.0.1/24
+#+END_EXAMPLE
+
+我们可以设置指定的用户名和密码，也可以引入弱口令密码表。
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set USERNAME root
+msf auxiliary(scanner/ssh/ssh_login) > set USERPASS 123456
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set USERPASS_FILE ~/pwd.txt
+#+END_EXAMPLE
+但如果需要用公私钥登录需要切换至ssh_login_pubkey模块，
+#+BEGIN_SRC 
+msf auxiliary(scanner/ssh/ssh_login) > use auxiliary/scanner/ssh/ssh_login_pubkey
+#+END_SRC
+具体配置项可以 show options, 这里不再赘述：
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login_pubkey) > set KEY_FILE ~/.ssh/id_rsa
+#+END_EXAMPLE
+
+我们也可以设置并发线程数:
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set THREADS 10
+#+END_EXAMPLE
+
+也可以设置是否打印输出：
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > set VERBOSE true
+#+END_EXAMPLE
+
+设置完成后即可运行：
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login) > run
+#+END_EXAMPLE
+
+扫描完后，我们可以看sessions或hosts
+#+BEGIN_EXAMPLE
+msf auxiliary(scanner/ssh/ssh_login_pubkey) > sessions -i 1
+msf auxiliary(scanner/ssh/ssh_login_pubkey) > hosts
+#+END_EXAMPLE
+
+*** 最后
+
+如果你第一次使用，在安装完MSF框架后，需要设置一个postgresql数据库：
+安装不说了，注意查看是否开启：
+#+BEGIN_EXAMPLE
+systemctl start postgresql
+#+END_EXAMPLE
+mac上查看
+#+BEGIN_EXAMPLE
+brew services start postgresql
+#+END_EXAMPLE
+
+在命令后下初始化一个数据库：
+#+BEGIN_EXAMPLE
+➜  ~ msfdb init
+#+END_EXAMPLE
+进入MSF框架查看是否连接成功
+#+BEGIN_EXAMPLE
+msf > db_status
+#+END_EXAMPLE
+查看工作区
+#+BEGIN_EXAMPLE
+msf > workspace
+#+END_EXAMPLE
+创建工作区
+#+BEGIN_EXAMPLE
+msf > workspace -a xxx
+#+END_EXAMPLE
+切换工作区
+#+BEGIN_EXAMPLE
+msf > workspace xxx
+#+END_EXAMPLE
+删除工作区
+#+BEGIN_EXAMPLE
+msf > workspace -d xxx
+#+END_EXAMPLE
+其他可以查看帮助
+#+BEGIN_EXAMPLE
+msf > workspace -h
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE
+msf > help
+#+END_EXAMPLE
+导入和扫描
+#+BEGIN_EXAMPLE
+msf > db_import /root/msfu/nmapScan
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE
+msf > db_nmap -A 172.16.194.134
+#+END_EXAMPLE
+备份
+#+BEGIN_EXAMPLE
+msf > db_export -h
+#+END_EXAMPLE
+hosts 命令
+#+BEGIN_EXAMPLE
+msf > hosts -c address,os_flavor
+#+END_EXAMPLE
+
+*** 参考
+SRC0:https://www.offensive-security.com/metasploit-unleashed/using-databases/
+SRC1:https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/

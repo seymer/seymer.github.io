@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:scanner-ssh-auxiliary-modules.org][2018-07-02 SSH_LOGIN 扫描登录辅助模块]]
    + [[file:debian-install-wireless-network-card.org][2018-07-02 Debian安装无线网卡]]
    + [[file:bookmarks-list.org][2018-06-20 Bookmarks List]]
    + [[file:rules-of-machine-learning.org][2018-06-09 机器学习规则 - 关于机器学习工程的最佳实践]]

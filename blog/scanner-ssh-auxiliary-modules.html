@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>SSH_LOGIN 扫描登录辅助模块</title>
+<!-- 2018-07-02 Mon 15:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">SSH_LOGIN 扫描登录辅助模块</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 简介</a></li>
+<li><a href="#sec-2">2. 使用</a></li>
+<li><a href="#sec-3">3. 最后</a></li>
+<li><a href="#sec-4">4. 参考</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+ssh_login该模块是渗透测试框架MSF(MetaSploit)框架下常用的一个工具，它可以针对单个IP或者一组IP进行暴力破解。
+</p>
+<pre class="example">
+➜  ~ msfconsole
+                                                  
+
+      .:okOOOkdc'           'cdkOOOko:.
+    .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+   :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+  'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+  oOOOOOOOO.MMMM.oOOOOoOOOOl.MMMM,OOOOOOOOo
+  dOOOOOOOO.MMMMMM.cOOOOOc.MMMMMM,OOOOOOOOx
+  lOOOOOOOO.MMMMMMMMM;d;MMMMMMMMM,OOOOOOOOl
+  .OOOOOOOO.MMM.;MMMMMMMMMMM;MMMM,OOOOOOOO.
+   cOOOOOOO.MMM.OOc.MMMMM'oOO.MMM,OOOOOOOc
+    oOOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOOo
+     lOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOl
+      ;OOOO'MMM.OOOO.MMM:OOOO.MMM;OOOO;
+       .dOOo'WM.OOOOocccxOOOO.MX'xOOd.
+         ,kOl'M.OOOOOOOOOOOOO.M'dOk,
+           :kk;.OOOOOOOOOOOOO.;Ok:
+             ;kOOOOOOOOOOOOOOOk:
+               ,xOOOOOOOOOOOx,
+                 .lOOOOOOOl.
+                    ,dOd,
+                      .
+
+       =[ metasploit v4.16.64-dev-c1c6dc0d8516dbdecca04f17e41f48148f648f18]
++ -- --=[ 1777 exploits - 1018 auxiliary - 308 post       ]
++ -- --=[ 538 payloads - 41 encoders - 10 nops            ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+msf &gt; use auxiliary/scanner/ssh/ssh_login
+msf auxiliary(scanner/ssh/ssh_login) &gt; show options
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 使用</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+我们可以根据查看选项设置(show options)，这里我们可能需要一些必要设置项
+比如：我们需要设置扫描的IP或者IP段，可以这样设置：
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set RHOSTS 192.168.1.100
+RHOSTS =&gt; 192.168.0.1
+</pre>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set RHOSTS 192.168.1.100
+RHOSTS =&gt; 192.168.0.1/24
+</pre>
+
+<p>
+我们可以设置指定的用户名和密码，也可以引入弱口令密码表。
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set USERNAME root
+msf auxiliary(scanner/ssh/ssh_login) &gt; set USERPASS 123456
+</pre>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set USERPASS_FILE ~/pwd.txt
+</pre>
+<p>
+但如果需要用公私钥登录需要切换至ssh_login_pubkey模块，
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; use auxiliary/scanner/ssh/ssh_login_pubkey
+</pre>
+<p>
+具体配置项可以 show options, 这里不再赘述：
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login_pubkey) &gt; set KEY_FILE ~/.ssh/id_rsa
+</pre>
+
+<p>
+我们也可以设置并发线程数:
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set THREADS 10
+</pre>
+
+<p>
+也可以设置是否打印输出：
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; set VERBOSE true
+</pre>
+
+<p>
+设置完成后即可运行：
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login) &gt; run
+</pre>
+
+<p>
+扫描完后，我们可以看sessions或hosts
+</p>
+<pre class="example">
+msf auxiliary(scanner/ssh/ssh_login_pubkey) &gt; sessions -i 1
+msf auxiliary(scanner/ssh/ssh_login_pubkey) &gt; hosts
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 最后</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+如果你第一次使用，在安装完MSF框架后，需要设置一个postgresql数据库：
+安装不说了，注意查看是否开启：
+</p>
+<pre class="example">
+systemctl start postgresql
+</pre>
+<p>
+mac上查看
+</p>
+<pre class="example">
+brew services start postgresql
+</pre>
+
+<p>
+在命令后下初始化一个数据库：
+</p>
+<pre class="example">
+➜  ~ msfdb init
+</pre>
+<p>
+进入MSF框架查看是否连接成功
+</p>
+<pre class="example">
+msf &gt; db_status
+</pre>
+<p>
+查看工作区
+</p>
+<pre class="example">
+msf &gt; workspace
+</pre>
+<p>
+创建工作区
+</p>
+<pre class="example">
+msf &gt; workspace -a xxx
+</pre>
+<p>
+切换工作区
+</p>
+<pre class="example">
+msf &gt; workspace xxx
+</pre>
+<p>
+删除工作区
+</p>
+<pre class="example">
+msf &gt; workspace -d xxx
+</pre>
+<p>
+其他可以查看帮助
+</p>
+<pre class="example">
+msf &gt; workspace -h
+</pre>
+<pre class="example">
+msf &gt; help
+</pre>
+<p>
+导入和扫描
+</p>
+<pre class="example">
+msf &gt; db_import /root/msfu/nmapScan
+</pre>
+<pre class="example">
+msf &gt; db_nmap -A 172.16.194.134
+</pre>
+<p>
+备份
+</p>
+<pre class="example">
+msf &gt; db_export -h
+</pre>
+<p>
+hosts 命令
+</p>
+<pre class="example">
+msf &gt; hosts -c address,os_flavor
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 参考</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+SRC0:<a href="https://www.offensive-security.com/metasploit-unleashed/using-databases/">https://www.offensive-security.com/metasploit-unleashed/using-databases/</a>
+SRC1:<a href="https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/">https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
