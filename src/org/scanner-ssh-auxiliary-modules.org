@@ -150,5 +150,8 @@ msf > hosts -c address,os_flavor
 #+END_EXAMPLE
 
 *** 参考
+#+BEGIN_SRC 
 SRC0:https://www.offensive-security.com/metasploit-unleashed/using-databases/
 SRC1:https://www.offensive-security.com/metasploit-unleashed/scanner-ssh-auxiliary-modules/
+#+END_SRC
+
