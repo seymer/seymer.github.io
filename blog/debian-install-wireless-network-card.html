@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Debian安装无线网卡</title>
-<!-- 2018-07-02 Mon 00:10 -->
+<!-- 2018-07-02 Mon 08:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -30,9 +30,10 @@
 <li>如果当前是 root 用户，直接 emacs /etc/apt/sources.list 或者 vim /etc/apt/sources.list。否则，如果当前为普通用户，则先进入 root 用户，或者用 sudo 命令执行。
 </li>
 
-<li>debian 9 添加如下一行。由于debian系统严格践行自由软件，所以有很多网卡需要如此添加。
+<li>debian 9 添加如下一行。由于debian系统严格践行自由软件理念，所以有很多网卡需要如此添加。
 </li>
 </ul>
+
 <pre class="example">
 deb http://httpredir.debian.org/debian/ stretch main contrib non-free
 </pre>
@@ -41,28 +42,22 @@ deb http://httpredir.debian.org/debian/ stretch main contrib non-free
 <li>添加完成保存后，需要更新下，你可以sudo aptitude update ，root用户直接aptitude update。当然你也可以sudo apt update 或者 sudo apt-get update。
 </li>
 
-<li>更新完后，这时我们就要选择我们笔记本的无线网卡啦，那如何选择呢。我们首先确定我们是何种无线
+<li>更新完后，这时我们就要选择我们笔记本的无线网卡啦，那如何选择呢。我们首先确定我们是何种无线网卡，用命令 lspci 可以查看到 Network controller, 如果需要安装的是以太网卡，则看Ethernet controller。
 </li>
-</ul>
-<p>
-网卡，用命令 lspci 可以查看到 Network controller, 如果需要安装的是以太网卡，则看Ethernet controller。
-</p>
 
-<ul class="org-ul">
 <li>此时，我们确定了网卡的生产厂商和型号，现在可以直接安装了。
 </li>
 </ul>
+
 <pre class="example">
 sudo apt-get install firmware-ralink
 </pre>
 
 <ul class="org-ul">
-<li>如果没有问题，此时你已经可以看到无线网络了。但看到有人说需要模块添加到内核中，但貌似非必须。
+<li>如果没有问题，此时你已经可以看到无线网络了。但看到有人说需要模块添加到内核中，但貌似非必须。所以我没有执行下面的命令，如果你安装的是下面这个网卡，你可能需要执行。注意需要在root用户下执行。
 </li>
 </ul>
-<p>
-所以我没有执行下面的命令，如果你安装的是下面这个网卡，你可能需要执行。注意需要在root用户下执行。
-</p>
+
 <pre class="example">
 modprobe -r iwlwifi
 modprobe iwlwifi
@@ -79,7 +74,7 @@ modprobe iwlwifi
 <h2 id="sec-2"><span class="section-number-2">2</span> 扩展链接</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-其实，这里我们也可以直接去下面这个链接去找自己机器对应的驱动
+其实，这里我们也可以直接去下面这个链接去找自己机器对应的驱动,然后安装
 </p>
 
 <pre class="example">
