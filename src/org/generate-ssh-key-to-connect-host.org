@@ -1,7 +1,7 @@
 #+TITLE: 如何生成密钥连接Linux实例
 #+DATE: 2018-07-03
 #+AUTHOR: Siqing Mu
-https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys
+SRC:https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys
 
 *** Creating a new SSH key
 If you do not have an existing private SSH key file and a matching public SSH key file that you can use, generate a new SSH key. If you want to use an existing SSH key, locate the public SSH key file.
@@ -19,8 +19,10 @@ chmod 400 ~/.ssh/[KEY_FILENAME]
 
 *** Locating an SSH key
 If you created a key on a Linux or macOS workstation by using the ssh-keygen tool, your key was saved to the following locations:
+#+BEGIN_EXAMPLE
 + Public key file: ~/.ssh/[KEY_FILENAME].pub
 + Private key file: ~/.ssh/[KEY_FILENAME]
+#+END_EXAMPLE
 
 *** Connect to instance
 #+BEGIN_EXAMPLE
