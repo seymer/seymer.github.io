@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Siqing's Blog</title>
+<title>用密钥连接到 Linux 实例</title>
 <!-- 2018-07-03 Tue 14:35 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
@@ -12,35 +12,57 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Siqing's Blog</h1>
+<h1 class="title">用密钥连接到 Linux 实例</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Creating a new SSH key</a></li>
+<li><a href="#sec-2">2. Locating an SSH key</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Creating a new SSH key</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+If you do not have an existing private SSH key file and a matching public SSH key file that you can use, generate a new SSH key. If you want to use an existing SSH key, locate the public SSH key file.
+</p>
+
+<ol class="org-ol">
+<li>Open a terminal on your workstation and use the ssh-keygen command to generate a new key. Specify the -C flag to add a comment with your username.
+</li>
+</ol>
+<pre class="example">
+ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]
+</pre>
+
+
+<ol class="org-ol">
+<li>Restrict access to your private key so that only you can read it and nobody can write to it.
+</li>
+</ol>
+<pre class="example">
+chmod 400 ~/.ssh/[KEY_FILENAME]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Locating an SSH key</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+If you created a key on a Linux or macOS workstation by using the ssh-keygen tool, your key was saved to the following locations:
+</p>
 <ul class="org-ul">
-<li><a href="generate-ssh-key-to-connect-host.html">2018-07-03 用密钥连接到 Linux 实例</a>
+<li>Public key file: ~/.ssh/[KEY_FILENAME].pub
 </li>
-<li><a href="scanner-ssh-auxiliary-modules.html">2018-07-02 SSH_LOGIN 扫描登录辅助模块</a>
-</li>
-<li><a href="debian-install-wireless-network-card.html">2018-07-02 Debian安装无线网卡</a>
-</li>
-<li><a href="bookmarks-list.html">2018-06-20 Bookmarks List</a>
-</li>
-<li><a href="rules-of-machine-learning.html">2018-06-09 机器学习规则 - 关于机器学习工程的最佳实践</a>
-</li>
-<li><a href="programming-collective-intelligence.html">2018-06-03 Programming Collective Intelligence</a>
-</li>
-<li><a href="the-tmux-guide.html">2018-05-26 Tmux 学习笔记</a>
-</li>
-<li><a href="the-vim-note.html">2018-03-12 VIM笔记</a>
-</li>
-<li><a href="ansi-common-lisp.html">2018-02-20 ANSI Common Lisp</a>
-</li>
-<li><a href="what-is-a-leap-year.html">2018-02-11 什么是闰年？</a>
-</li>
-<li><a href="the-docker-config.html">2018-02-03 Docker 如何更改现有容器的配置</a>
-</li>
-<li><a href="get-started-with-docker.html">2018-01-27 Docker 入门</a>
-</li>
-<li><a href="the-common-lisp-development-environment.html">2018-01-27 如何搭建 SLIME 环境</a>
+<li>Private key file: ~/.ssh/[KEY_FILENAME]
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <div id="disqus_thread"></div>
