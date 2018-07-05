@@ -1,0 +1,120 @@
+#+TITLE: 关于 sudo 的一些事
+#+DATE: 2017-07-04
+#+AUTHOR: Siqing Mu
+SRC:https://wiki.debian.org/sudo
+
+#+BEGIN_QUOTE
+Sudo(Super-user do) 是被设计为让系统管理员允许普通用户作为超级用户或另一用户来执行某些命令的工具。基本理念是尽可能少地提供特权，但仍然允许人们完成他们的工作，Sudo 也是记录谁允许哪些命令以及何时运行的有效方法。
+#+END_QUOTE
+
+*** 为何选择sudo?
+
+使用sudo比以root身份打开会话更好（更安全），原因有很多，其中包括：
+
+  + 没有人需要知道root密码（sudo提示输入当前用户的密码）。可以临时授予个人用户额外的权限，然后在不需要更改密码的情况下将其删除。
+  + 通过sudo可以运行需要特殊权限的命令; 作为普通用户，可以减少了错误导致的系统危害。
+  + 审计/日志记录：执行sudo命令时，将记录原始用户名和命令。
+
+由于上述原因，通常不推荐使用sudo -i (或sudo su) 切换到root，因为它取消了上述功能。
+
+*** 用户和sudo
+
+为了让用户运行sudo，用户必须属于group = sudo。
+
+**** 验证sudo会员资格
+
+以用户身份登录后，您可以使用id或groups命令验证用户是否属于group = sudo。例如，id = foo的用户应该看到输出
+#+BEGIN_SRC bash
+groups
+#+END_SRC
+
+#+BEGIN_SRC 
+foot sudo
+#+END_SRC
+
+如果输出中不存在sudo,则用户不属于该组。类似地，来自command=id的更复杂和可变的输出应该类似于
+
+#+BEGIN_EXAMPLE
+uid = 1001（foo）gid = 1001（foo）groups = 1001（foo），27（sudo）
+#+END_EXAMPLE
+
+从命令行添加现有用户，比如，要将id = foo的现有用户添加到group = sudo：
+
+#+BEGIN_SRC bash
+sudo adduser foo sudo
+#+END_SRC
+
+或者，你可以先获得root（例如，sudo su  -），然后运行相同的命令，不带prefix = sudo：
+
+#+BEGIN_SRC bash
+adduser foo
+adduser foo sudo
+#+END_SRC
+
+添加到新组后，用户必须注销然后再次重新登录才能使新组生效。组仅在登录时分配给用户。最常见的混淆源是人们将自己添加到一个新组，但之后不再注销并重新登录，然后因为没有分配组而出现问题; 一定要验证组成员身份。
+
+*** 使用sudo创建用户
+
+您还可以使用sudo成员身份创建新用户：
+
+安装OS时创建新用户
+从DebianSqueeze开始，如果你在安装过程中给root一个空密码，sudo将被安装，第一个用户将能够使用它获得root访问权限（目前，用户将被添加到sudo组）。系统还将配置gksu和aptitude以使用sudo。以安装的用户身份登录后，您仍应验证组成员身份。
+
+从命令行创建新用户
+已经拥有sudo的用户可以使用命令行中的sudo组成员身份创建另一个用户（例如id = foo）：
+
+#+BEGIN_SRC bash
+sudo adduser foo
+sudo adduser foo sudo
+#+END_SRC
+
+然后，您应该以新用户身份登录并验证组成员身份。
+
+*** 配置概述
+现在，如果您想允许某些用户执行某些程序，这里有一个简单的例子（有关更多信息，请阅读详细手册）。
+
+#+BEGIN_EXAMPLE
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# Host alias specification
+User_Alias      MYADMINS = jdoe
+
+# User alias specification
+
+# Cmnd alias specification
+Cmnd_Alias      SHUTDOWN = /sbin/reboot, /sbin/poweroff
+Cmnd_Alias      PKGMGMT = /usr/bin/dpkg, /usr/bin/apt-get, /usr/bin/aptitude
+
+# User privilege specification
+
+# Users listed above (MYADMINS) can run package managers and reboot the system.
+MYADMINS ALL = PKGMGMT, SHUTDOWN
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+#Default rule for root.
+root    ALL=(ALL) ALL
+
+#includedir /etc/sudoers.d
+#+END_EXAMPLE
+
+*** 需要root密码
+如果您想要使用root密码来使用sudo而不是用户密码，请添加以下行：
+
+#+BEGIN_EXAMPLE
+Defaults   rootpw
+#+END_EXAMPLE
+
+
+
+
+

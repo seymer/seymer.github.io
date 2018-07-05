@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:sudo.org][2018-07-05 关于 sudo 的一些事]]
    + [[file:generate-ssh-key-to-connect-host.org][2018-07-03 如何生成密钥连接Linux实例]]
    + [[file:scanner-ssh-auxiliary-modules.org][2018-07-02 SSH_LOGIN 扫描登录辅助模块]]
    + [[file:debian-install-wireless-network-card.org][2018-07-02 Debian安装无线网卡]]
