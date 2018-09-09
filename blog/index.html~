@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2018-07-05 Thu 13:42 -->
+<!-- 2018-09-09 Sun 16:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,6 +14,8 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="high-level-organization-of-the-standard.html">2018-09-09 High Level Organization of the Standard</a>
+</li>
 <li><a href="sudo.html">2018-07-05 关于 sudo 的一些事</a>
 </li>
 <li><a href="generate-ssh-key-to-connect-host.html">2018-07-03 如何生成密钥连接Linux实例</a>
