@@ -1,0 +1,20 @@
+#+TITLE: High Level Organization of the Standard
+#+Date: 2018-09-09
+
+ation test can be performed at. As no pentest is like another, and testing will range from the more mundane web application or network test, to a full-on red team engagement, said levels will enable an organization to define how much sophistication they expect their adversary to exhibit, and enable the tester to step up the intensity on those areas where the organization needs them the most. Some of the initial work on "levels" can be seen in the intelligence gathering section.
+
+Following are the main sections defined by the standard as the basis for penetration testing execution:
+
+Pre-engagement Interactions
+Intelligence Gathering
+Threat Modeling
+Vulnerability Analysis
+Exploitation
+Post Exploitation
+Reporting
+As the standard does not provide any technical guidelines as far as how to execute an actual pentest, we have also created a technical guide to accompany the standard itself. The technical gude can be reached via the link below:
+
+Technical Guidelines
+For more information on what this standard is, please visit:
+
+The Penetration Testing Execution Standard: FAQ
