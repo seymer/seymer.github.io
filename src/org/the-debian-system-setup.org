@@ -1,0 +1,57 @@
+#+TITLE: Debian 系统安装后的设置
+#+AUTHOR: Siqing Mu
+#+DATE: 2018-09-26
+#+OPTION: TOC
+
+新装 debian 系统后，非 root 用户在使用 sudo 命令安装应用会发现未找到此命令，因为 debian 系统默认是不安装的，所以我们
+首先需要安装它。
+
+切换到 root 用户
+#+BEGIN_EXAMPLE
+su -
+#+END_EXAMPLE
+
+安装 sudo 命令
+#+BEGIN_QUOTE
+apt-get install sudo
+#+END_QUOTE
+
+安装完成后，将普通用户添加到 sudo 群组
+#+BEGIN_EXAMPLE
+gpaawd sudo -a username
+#+END_EXAMPLE
+或者
+#+BEGIN_EXAMPLE
+usermod -aG sudo username
+#+END_EXAMPLE
+后续如果需要添加新的用户到 sudo 组也可以, 或者先切换到 root 用户，再添加
+（推荐）
+#+BEGIN_EXAMPLE
+sudo adduser username sudo
+#+END_EXAMPLE
+
+注意⚠️  添加到新组后，用户必须注销后重新登录才能生效。
+
+#+BEGIN_EXAMPLE
+➜  ~ sudo adduser foo
+➜  ~ sudo adduser foot sudo
+#+END_EXAMPLE
+
+
+如果需要编辑 sudoer 配置文件，可以 visudo, 但是默认是 nano 编辑器，我们可以输入
+
+#+BEGIN_EXAMPLE
+sudo update-alternatives --config editor
+#+END_EXAMPLE
+
+然后选择自己的喜欢的编辑器就可以。
+
+如果你想使用 root 密码来使用 sudo 而不是用户密码，请添加以下行：
+#+BEGIN_EXAMPLE
+Defaults rootpw
+#+END_EXAMPLE
+
+参考链接：
+【1】https://imtx.me/archives/2375.html
+【2】https://wiki.debian.org/sudo
+【3】https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936

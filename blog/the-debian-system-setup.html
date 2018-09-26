@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Debian 系统安装后的设置</title>
+<!-- 2018-09-26 Wed 17:06 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Debian 系统安装后的设置</h1>
+<p>
+新装 debian 系统后，非 root 用户在使用 sudo 命令安装应用会发现未找到此命令，因为 debian 系统默认是不安装的，所以我们
+首先需要安装它。
+</p>
+
+<p>
+切换到 root 用户
+</p>
+<pre class="example">
+su -
+</pre>
+
+<p>
+安装 sudo 命令
+</p>
+<blockquote>
+<p>
+apt-get install sudo
+</p>
+</blockquote>
+
+<p>
+安装完成后，将普通用户添加到 sudo 群组
+</p>
+<pre class="example">
+gpaawd sudo -a username
+</pre>
+<p>
+或者
+</p>
+<pre class="example">
+usermod -aG sudo username
+</pre>
+<p>
+后续如果需要添加新的用户到 sudo 组也可以, 或者先切换到 root 用户，再添加
+（推荐）
+</p>
+<pre class="example">
+sudo adduser username sudo
+</pre>
+
+<p>
+注意⚠️  添加到新组后，用户必须注销后重新登录才能生效。
+</p>
+
+<pre class="example">
+➜  ~ sudo adduser foo
+➜  ~ sudo adduser foot sudo
+</pre>
+
+
+<p>
+如果需要编辑 sudoer 配置文件，可以 visudo, 但是默认是 nano 编辑器，我们可以输入
+</p>
+
+<pre class="example">
+sudo update-alternatives --config editor
+</pre>
+
+<p>
+然后选择自己的喜欢的编辑器就可以。
+</p>
+
+<p>
+如果你想使用 root 密码来使用 sudo 而不是用户密码，请添加以下行：
+</p>
+<pre class="example">
+Defaults rootpw
+</pre>
+
+<p>
+参考链接：
+【1】<a href="https://imtx.me/archives/2375.html">https://imtx.me/archives/2375.html</a>
+【2】<a href="https://wiki.debian.org/sudo">https://wiki.debian.org/sudo</a>
+【3】<a href="https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936">https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

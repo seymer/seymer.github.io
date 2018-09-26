@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-debian-system-setup.org][2018-09-26 Debian 系统安装后的设置]]
    + [[file:high-level-organization-of-the-standard.org][2018-09-09 High Level Organization of the Standard]]
    + [[file:sudo.org][2018-07-05 关于 sudo 的一些事]]
    + [[file:generate-ssh-key-to-connect-host.org][2018-07-03 如何生成密钥连接Linux实例]]
