@@ -52,6 +52,6 @@ Defaults rootpw
 #+END_EXAMPLE
 
 参考链接：
-【1】https://imtx.me/archives/2375.html
-【2】https://wiki.debian.org/sudo
-【3】https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936
++ 【1】https://imtx.me/archives/2375.html
++ 【2】https://wiki.debian.org/sudo
++ 【3】https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936
