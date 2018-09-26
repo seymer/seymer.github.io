@@ -18,7 +18,7 @@ apt-get install sudo
 
 安装完成后，将普通用户添加到 sudo 群组
 #+BEGIN_EXAMPLE
-gpaawd sudo -a username
+gpasswd sudo -a username
 #+END_EXAMPLE
 或者
 #+BEGIN_EXAMPLE
