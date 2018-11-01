@@ -8,7 +8,7 @@ If you're running a recent release of Debian GNU/Linux you'll find the golang-en
 
 - [[https://packages.debian.org/golang-go][https://packages.debian.org/golang-go]]
 
-However the go-environment is changing pretty regularly, and these changes are worth following for increased compilation speed, GC-improvements, and similar improvements. With that in mind I find the preferred approach to working with golang is to install binary releases, outside the packaging system, beneath *** /opt/go ***.
+However the go-environment is changing pretty regularly, and these changes are worth following for increased compilation speed, GC-improvements, and similar improvements. With that in mind I find the preferred approach to working with golang is to install binary releases, outside the packaging system, beneath ** /opt/go **.
 
 You'll want to lookup the latest release upon the download page but for the moment the stable release is 1.7.4.
 

@@ -1,7 +1,7 @@
 #+TITLE: Siqing's Blog
 
    + [[file:installing-the-Go-programming-language-on-Debian.org][2018-11-01 Installing the Go programming language on Debian GNU/Linux]]
-   + [[file:wsl-issue.org][2018-10-17 wsl-issue-and-reference]]
+   + [[file:wsl-issue.org][2018-11-01 wsl-issue-and-reference]]
    + [[file:ansi-common-lisp.org][2018-09-27 ANSI Common Lisp]]
    + [[file:the-debian-system-setup.org][2018-09-26 Debian 系统安装后的设置]]
    + [[file:high-level-organization-of-the-standard.org][2018-09-09 High Level Organization of the Standard]]
