@@ -1,6 +1,7 @@
 #+TITLE: Installing the Go programming language on Debian GNU/Linux
 #+AUTHOR: Steve Kemp
 #+DATE: 2016-12-15
+#+LINK: https://debian-administration.org/article/727/Installing_the_Go_programming_language_on_Debian_GNU/Linux
 
 Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. In this brief article we'll show how to install binary releases of the compiler/toolset, and test them.
 
