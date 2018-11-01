@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2018-11-01 Thu 16:21 -->
+<!-- 2018-11-01 Thu 16:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -16,7 +16,7 @@
 <ul class="org-ul">
 <li><a href="installing-the-Go-programming-language-on-Debian.html">2018-11-01 Installing the Go programming language on Debian GNU/Linux</a>
 </li>
-<li><a href="wsl-issue.html">2018-10-17 wsl-issue-and-reference</a>
+<li><a href="wsl-issue.html">2018-11-01 wsl-issue-and-reference</a>
 </li>
 <li><a href="ansi-common-lisp.html">2018-09-27 ANSI Common Lisp</a>
 </li>
