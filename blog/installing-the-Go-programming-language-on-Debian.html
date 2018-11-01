@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Installing the Go programming language on Debian GNU/Linux</title>
+<!-- 2018-11-01 Thu 16:21 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Steve Kemp" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Installing the Go programming language on Debian GNU/Linux</h1>
+<p>
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. In this brief article we'll show how to install binary releases of the compiler/toolset, and test them.
+</p>
+
+<p>
+If you're running a recent release of Debian GNU/Linux you'll find the golang-environment is packaged and available for installation via apt-get as you'd expect:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://packages.debian.org/golang-go"><a href="https://packages.debian.org/golang-go">https://packages.debian.org/golang-go</a></a>
+</li>
+</ul>
+
+<p>
+However the go-environment is changing pretty regularly, and these changes are worth following for increased compilation speed, GC-improvements, and similar improvements. With that in mind I find the preferred approach to working with golang is to install binary releases, outside the packaging system, beneath <b>*</b> /opt/go <b>*</b>.
+</p>
+
+<p>
+You'll want to lookup the latest release upon the download page but for the moment the stable release is 1.7.4.
+</p>
+
+<p>
+To download and install it, assuming you're on a 64-bit system:
+</p>
+
+<pre class="example">
+# cd /opt
+# curl https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz | tar zxf -
+</pre>
+
+<p>
+The golang tooling is pretty opinionated, and wants you to keep your source code beneath a single prefix which is identified via the environmental variable GOPATH. Similarly binaries are always installed in a single directory.
+</p>
+
+<p>
+To configure things you'll want to append the following to your ~/.bashrc file:
+</p>
+
+<pre class="example">
+# Point to the local installation of golang.
+export GOROOT=/opt/go
+
+# Point to the location beneath which source and binaries are installed.
+export GOPATH=$HOME/go
+
+# Ensure that the binary-release is on your PATH.
+export PATH=${PATH}:${GOROOT}/bin
+
+# Ensure that compiled binaries are also on your PATH.
+export PATH=${PATH}:${GOPATH}/bin
+</pre>
+
+<p>
+Once you've setup these variables you should source the file to make sure they take effect, then test the download succeeded:
+</p>
+
+<pre class="example">
+$ source .bashrc
+$ go version
+go version go1.7.4 linux/amd64
+</pre>
+
+<p>
+Assuming that you do indeed see output from the "go version"-command you can now actually compile a program written in go!
+</p>
+
+<p>
+The go tool allows you to download source from remote repositories, run compilation jobs, reformat code, and several other things. We're just going to use it to download and compile in this simple introduction, by downloading and building a project with go get:
+</p>
+
+<pre class="example">
+$ go get github.com/golang/example/hello
+</pre>
+
+<p>
+When you execute this several things will happen:
+</p>
+
+<ul class="org-ul">
+<li>The github repository <a href="https://github.com/golang/example">https://github.com/golang/example</a> will be cloned to ~/go/src/github.com/golang/example.
+</li>
+
+<li>The hello example will be compiled, from the hello subdirectory of the repository which was cloned.
+</li>
+
+<li>The compiled binary will be installed in ~/go/bin.
+</li>
+</ul>
+
+<p>
+Once the binary has been compiled you can execute it:
+</p>
+
+<pre class="example">
+$ hello
+Hello, Go examples!
+</pre>
+
+<p>
+If you wish to study the source code to the example you can do that:
+</p>
+
+<pre class="example">
+$ cd $GOPATH/src/github.com/golang/example/hello/
+$ cat hello.go
+..
+func main() {
+        fmt.Println(stringutil.Reverse("!selpmaxe oG ,olleH"))
+}
+</pre>
+
+<p>
+If you wish to try making changes you can open the file hello.go in your favourite editor. Once you've made a sample change you can compile it in-place:
+</p>
+
+<pre class="example">
+$ go build .
+$ ls
+hello  hello.go
+</pre>
+
+<p>
+In this example we've compiled the binary in the current working directory, previously we'd installed to $GOPATH/bin - if you prefer to do that you'd instead run:
+</p>
+
+<pre class="example">
+$ go install .
+</pre>
+
+<p>
+Future discussion of golang itself is outside the scope of this site, but you'll probably find the following sites useful:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://golang.org/">The Go Programming Language</a>
+</li>
+
+<li><a href="https://gobyexample.com/">Go by Example</a>
+</li>
+</ul>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

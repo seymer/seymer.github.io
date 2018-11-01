@@ -1,0 +1,13 @@
+#+TITLE: wsl-issue-and-reference
+#+DATE: 2018-10-17
+#+AUTHOR: Siqing Mu
+#+OPTION: TOC
+
+** 一些參考資料
+
+   *** https://sspai.com/post/43813
+   *** https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+   *** https://stackoverflow.com/questions/46286420/php7-0-fpm-extremly-slow-on-ubuntu-windows-subsystem-linux
+   *** https://github.com/Microsoft/WSL/issues/2100
+   *** https://serversforhackers.com/c/php-fpm-configuration-the-listen-directive
+   *** https://www.linode.com/docs/web-servers/nginx/serve-php-php-fpm-and-nginx/

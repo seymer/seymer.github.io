@@ -1,0 +1,101 @@
+#+TITLE: Installing the Go programming language on Debian GNU/Linux
+#+AUTHOR: Steve Kemp
+#+DATE: 2016-12-15
+
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. In this brief article we'll show how to install binary releases of the compiler/toolset, and test them.
+
+If you're running a recent release of Debian GNU/Linux you'll find the golang-environment is packaged and available for installation via apt-get as you'd expect:
+
+- [[https://packages.debian.org/golang-go][https://packages.debian.org/golang-go]]
+
+However the go-environment is changing pretty regularly, and these changes are worth following for increased compilation speed, GC-improvements, and similar improvements. With that in mind I find the preferred approach to working with golang is to install binary releases, outside the packaging system, beneath *** /opt/go ***.
+
+You'll want to lookup the latest release upon the download page but for the moment the stable release is 1.7.4.
+
+To download and install it, assuming you're on a 64-bit system:
+
+#+BEGIN_EXAMPLE
+# cd /opt
+# curl https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz | tar zxf -
+#+END_EXAMPLE
+
+The golang tooling is pretty opinionated, and wants you to keep your source code beneath a single prefix which is identified via the environmental variable GOPATH. Similarly binaries are always installed in a single directory.
+
+To configure things you'll want to append the following to your ~/.bashrc file:
+
+#+BEGIN_EXAMPLE
+# Point to the local installation of golang.
+export GOROOT=/opt/go
+
+# Point to the location beneath which source and binaries are installed.
+export GOPATH=$HOME/go
+
+# Ensure that the binary-release is on your PATH.
+export PATH=${PATH}:${GOROOT}/bin
+
+# Ensure that compiled binaries are also on your PATH.
+export PATH=${PATH}:${GOPATH}/bin
+#+END_EXAMPLE
+
+Once you've setup these variables you should source the file to make sure they take effect, then test the download succeeded:
+
+#+BEGIN_EXAMPLE
+$ source .bashrc
+$ go version
+go version go1.7.4 linux/amd64
+#+END_EXAMPLE
+
+Assuming that you do indeed see output from the "go version"-command you can now actually compile a program written in go!
+
+The go tool allows you to download source from remote repositories, run compilation jobs, reformat code, and several other things. We're just going to use it to download and compile in this simple introduction, by downloading and building a project with go get:
+
+#+BEGIN_EXAMPLE
+$ go get github.com/golang/example/hello
+#+END_EXAMPLE
+
+When you execute this several things will happen:
+
+- The github repository https://github.com/golang/example will be cloned to ~/go/src/github.com/golang/example.
+
+- The hello example will be compiled, from the hello subdirectory of the repository which was cloned.
+
+- The compiled binary will be installed in ~/go/bin.
+
+Once the binary has been compiled you can execute it:
+
+#+BEGIN_EXAMPLE
+$ hello
+Hello, Go examples!
+#+END_EXAMPLE
+
+If you wish to study the source code to the example you can do that:
+
+#+BEGIN_EXAMPLE
+$ cd $GOPATH/src/github.com/golang/example/hello/
+$ cat hello.go
+..
+func main() {
+        fmt.Println(stringutil.Reverse("!selpmaxe oG ,olleH"))
+}
+#+END_EXAMPLE
+
+If you wish to try making changes you can open the file hello.go in your favourite editor. Once you've made a sample change you can compile it in-place:
+
+#+BEGIN_EXAMPLE
+$ go build .
+$ ls
+hello  hello.go
+#+END_EXAMPLE
+
+In this example we've compiled the binary in the current working directory, previously we'd installed to $GOPATH/bin - if you prefer to do that you'd instead run:
+
+#+BEGIN_EXAMPLE
+$ go install .
+#+END_EXAMPLE
+
+Future discussion of golang itself is outside the scope of this site, but you'll probably find the following sites useful:
+
+- [[https://golang.org/][The Go Programming Language]]
+
+- [[https://gobyexample.com/][Go by Example]]
+
