@@ -23,6 +23,6 @@ After doing that, you should be able to run the command without any issues. Run 
 
 Logging out and logging back in is required because the group change will not have an effect unless your session is closed.
 
-*** SOURCE
+*** Source
 + [[https://techoverflow.net/2017/03/01/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/][techoverflow]]
 
