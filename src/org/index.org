@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.org][2018-11-04 Solving Docker permission denied while trying to connect to the Docker daemon socket]]
    + [[file:installing-the-Go-programming-language-on-Debian.org][2018-11-01 Installing the Go programming language on Debian GNU/Linux]]
    + [[file:wsl-issue.org][2018-11-01 wsl-issue-and-reference]]
    + [[file:ansi-common-lisp.org][2018-09-27 ANSI Common Lisp]]
