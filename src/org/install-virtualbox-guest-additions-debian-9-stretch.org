@@ -1,0 +1,75 @@
+#+TITLE: How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine
+#+AUTHOR: Xiao Guo-An
+#+OPTIONS: TOC
+
+https://www.linuxbabe.com/debian/install-virtualbox-guest-additions-debian-9-stretch
+
+This tutorial will show you how to install VirtualBox guest additions in a Debian 9 virtual machine. You need to have a Debian 9 guest OS installed inside VirtualBox to follow the instructions. The type of host OS doesn’t matter.
+
+*** What is VirtualBox Guest Additions?
+
+VirtualBox guest additions offer the following capabilities:
+
+Enable users to seamlessly move mouse pointer between host and guest.
+Allow guest OS to have read and write access to hard drives on the host OS.
+Power up the graphics ability of your guest machine. The screen resolution of guest machine can be automatically adjusted and 3D graphics can be accelerated.
+Enable bidirectional shared clipboard between host and guest.
+
+
+*** How to Install VirtualBox Guest Additions in Debian 9
+
+Boot up your Debian 9 virtual machine. Then switch to root with the following command:
+
+#+BEGIN_EXAMPLE
+su -
+#+END_EXAMPLE
+
+Next, update software.
+
+#+BEGIN_EXAMPLE
+apt update
+
+apt upgrade
+#+END_EXAMPLE
+
+If a new Linux kernel is installed in the upgrade process, then you need to reboot Debian 9 VM. After that, run the following command to install required packages for building kernel modules.
+
+#+BEGIN_EXAMPLE
+apt install build-essential module-assistant dkms
+#+END_EXAMPLE
+
+Once the above packages are installed, prepare your Debian 9 system to build kernel module, which is done with the command below.
+#+BEGIN_EXAMPLE
+m-a prepare
+#+END_EXAMPLE
+
+Then in the VirtualBox window, select Devices > Insert Guest Additions CD image.
+
+You will be asked if you want to run the software. Select Run.
+
+If your host OS doesn’t have the guest additions CD image, then it will ask you to click a button to download the CD image onto the host machine.You can manually download it from http://download.virtualbox.org/virtualbox.
+
+Ubuntu-based Linux distro can also download the CD image with the following command (with root privilege).
+
+#+BEGIN_EXAMPLE
+apt-get install virtualbox-guest-additions-iso
+#+END_EXAMPLE
+
+Once you click the Run button, the CD image is mounted at /media/cdrom/ directory. Under /media/cdrom/ directory there’s a shell script named VboxLinuxAdditions.run. Run this script (with root privilege).
+
+#+BEGIN_EXAMPLE
+sh /media/cdrom/VBoxLinuxAdditions.run
+#+END_EXAMPLE
+
+Once guest additions is installed, restart your Debian 9 VM.
+
+#+BEGIN_EXAMPLE
+shutdown -r now
+#+END_EXAMPLE
+
+Now the resizeable display should be working and the resolution of Debian 9 VM will adjust with the size of VirtulBox window.  You can press right Ctrl and F keyboard shortcut to enter full-screen mode. You can now also configure shared folder and bidirectional shared clipboard.
+
+
+
+
+

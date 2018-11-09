@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-09 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
    + [[file:solving-the-vmware-virtual-machine-issues.org][2018-11-09 解决VMware虚拟机上遇到的问题]]
    + [[file:solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.org][2018-11-04 Solving Docker permission denied while trying to connect to the Docker daemon socket]]
    + [[file:installing-the-Go-programming-language-on-Debian.org][2018-11-01 Installing the Go programming language on Debian GNU/Linux]]

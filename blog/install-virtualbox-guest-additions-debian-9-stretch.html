@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine</title>
+<!-- 2018-11-09 Fri 20:52 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Xiao Guo-An" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. What is VirtualBox Guest Additions?</a></li>
+<li><a href="#sec-2">2. How to Install VirtualBox Guest Additions in Debian 9</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="https://www.linuxbabe.com/debian/install-virtualbox-guest-additions-debian-9-stretch">https://www.linuxbabe.com/debian/install-virtualbox-guest-additions-debian-9-stretch</a>
+</p>
+
+<p>
+This tutorial will show you how to install VirtualBox guest additions in a Debian 9 virtual machine. You need to have a Debian 9 guest OS installed inside VirtualBox to follow the instructions. The type of host OS doesn’t matter.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> What is VirtualBox Guest Additions?</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+VirtualBox guest additions offer the following capabilities:
+</p>
+
+<p>
+Enable users to seamlessly move mouse pointer between host and guest.
+Allow guest OS to have read and write access to hard drives on the host OS.
+Power up the graphics ability of your guest machine. The screen resolution of guest machine can be automatically adjusted and 3D graphics can be accelerated.
+Enable bidirectional shared clipboard between host and guest.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> How to Install VirtualBox Guest Additions in Debian 9</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Boot up your Debian 9 virtual machine. Then switch to root with the following command:
+</p>
+
+<pre class="example">
+su -
+</pre>
+
+<p>
+Next, update software.
+</p>
+
+<pre class="example">
+apt update
+
+apt upgrade
+</pre>
+
+<p>
+If a new Linux kernel is installed in the upgrade process, then you need to reboot Debian 9 VM. After that, run the following command to install required packages for building kernel modules.
+</p>
+
+<pre class="example">
+apt install build-essential module-assistant dkms
+</pre>
+
+<p>
+Once the above packages are installed, prepare your Debian 9 system to build kernel module, which is done with the command below.
+</p>
+<pre class="example">
+m-a prepare
+</pre>
+
+<p>
+Then in the VirtualBox window, select Devices &gt; Insert Guest Additions CD image.
+</p>
+
+<p>
+You will be asked if you want to run the software. Select Run.
+</p>
+
+<p>
+If your host OS doesn’t have the guest additions CD image, then it will ask you to click a button to download the CD image onto the host machine.You can manually download it from <a href="http://download.virtualbox.org/virtualbox">http://download.virtualbox.org/virtualbox</a>.
+</p>
+
+<p>
+Ubuntu-based Linux distro can also download the CD image with the following command (with root privilege).
+</p>
+
+<pre class="example">
+apt-get install virtualbox-guest-additions-iso
+</pre>
+
+<p>
+Once you click the Run button, the CD image is mounted at <i>media/cdrom</i> directory. Under <i>media/cdrom</i> directory there’s a shell script named VboxLinuxAdditions.run. Run this script (with root privilege).
+</p>
+
+<pre class="example">
+sh /media/cdrom/VBoxLinuxAdditions.run
+</pre>
+
+<p>
+Once guest additions is installed, restart your Debian 9 VM.
+</p>
+
+<pre class="example">
+shutdown -r now
+</pre>
+
+<p>
+Now the resizeable display should be working and the resolution of Debian 9 VM will adjust with the size of VirtulBox window.  You can press right Ctrl and F keyboard shortcut to enter full-screen mode. You can now also configure shared folder and bidirectional shared clipboard.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
