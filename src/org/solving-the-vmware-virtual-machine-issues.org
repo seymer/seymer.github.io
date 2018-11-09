@@ -1,11 +1,12 @@
 #+TITLE: 解决VMware虚拟机上遇到的问题
-
+#+DATE: 2018-11-09
+#+OPTION: toc
 *** Could not open /dev/vmmon: Broken pipe. Please make sure that the kernel module `vmmon' is loaded.
-**** 打开System Preferences, 然后打开Security & Privacy, 在General栏底下可以看到有类似这样的文字
+ 打开System Preferences, 然后打开Security & Privacy, 在General栏底下可以看到有类似这样的文字
 #+BEGIN_EXAMPLE
 System software from developer "VMware,Inc." was blocked from loading.    Allow
 #+END_EXAMPLE
 点击右边的允许即可。
 
 *** Cannot power on virtual machine too many virtual machines
-**** 有人说是因为开启了docker, 需要退出docker, 但我退出后并没用，最后重启了下系统，解决了。
+ 有人说是因为开启了docker, 需要退出docker, 但我退出后并没用，最后重启了下系统，解决了。
