@@ -1,6 +1,6 @@
 #+TITLE: 解决VMware虚拟机上遇到的问题
 #+DATE: 2018-11-09
-#+OPTION: toc
+#+OPTION: TOC
 *** Could not open /dev/vmmon: Broken pipe. Please make sure that the kernel module `vmmon' is loaded.
  打开System Preferences, 然后打开Security & Privacy, 在General栏底下可以看到有类似这样的文字
 #+BEGIN_EXAMPLE
