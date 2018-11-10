@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-docker-config.org][2018-11-10 Docker 如何更改现有容器的配置]]
    + [[file:solving-the-vmware-virtual-machine-issues.org][2018-11-09 解决VMware虚拟机上遇到的问题]]
    + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-09 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
    + [[file:solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.org][2018-11-04 Solving Docker permission denied while trying to connect to the Docker daemon socket]]
@@ -18,6 +19,5 @@
    + [[file:the-tmux-guide.org][2018-05-26 Tmux 学习笔记]]
    + [[file:the-vim-note.org][2018-03-12 VIM笔记]]
    + [[file:what-is-a-leap-year.org][2018-02-11 什么是闰年？]]
-   + [[file:the-docker-config.org][2018-02-03 Docker 如何更改现有容器的配置]]
    + [[file:get-started-with-docker.org][2018-01-27 Docker 入门]]
    + [[file:the-common-lisp-development-environment.org][2018-01-27 如何搭建 SLIME 环境]]

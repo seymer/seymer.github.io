@@ -17,3 +17,20 @@
 
 6. 接下来 *service docker start* ,  *docker start <容器ID>* , *docker ps -a*, 每次开启中间都可以查看下刚才配置的两个文件是否被覆盖，要确保修改的内容还在。不出意外，这时你应该能看到添加的端口项出现了。
 
+** 另一种更简单方案
+1. stop running container
+#+BEGIN_EXAMPLE
+docker stop [CONTAINER NAME]
+#+END_EXAMPLE
+
+2. commit the container
+#+BEGIN_EXAMPLE
+docker commit [CONTAINER NAME] [NEW CONTAINER NAME]
+#+END_EXAMPLE
+
+3. re-run from the commited image
+#+BEGIN_EXAMPLE
+docker run -p 8080:8080 -td [NEW CONTAINER NAME]
+#+END_EXAMPLE
+
+REFURL:https://stackoverflow.com/questions/19335444/how-do-i-assign-a-port-mapping-to-an-existing-docker-container/38783433
