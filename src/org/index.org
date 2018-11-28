@@ -1,9 +1,9 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:the-exploits-database-sites.org][2018-11-27 几个常用的 exploits 数据库]]
+   + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-28 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
+   + [[file:the-exploits-database-sites.org][2018-11-28 几个常用的 exploits 数据库]]
    + [[file:the-docker-config.org][2018-11-10 Docker 如何更改现有容器的配置]]
    + [[file:solving-the-vmware-virtual-machine-issues.org][2018-11-09 解决VMware虚拟机上遇到的问题]]
-   + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-09 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
    + [[file:solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.org][2018-11-04 Solving Docker permission denied while trying to connect to the Docker daemon socket]]
    + [[file:installing-the-Go-programming-language-on-Debian.org][2018-11-01 Installing the Go programming language on Debian GNU/Linux]]
    + [[file:wsl-issue.org][2018-11-01 wsl-issue-and-reference]]

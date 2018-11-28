@@ -1,6 +1,6 @@
 #+TITLE: How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine
 #+AUTHOR: Xiao Guo-An
-#+OPTIONS: TOC
+#+OPTION: TOC
 
 https://www.linuxbabe.com/debian/install-virtualbox-guest-additions-debian-9-stretch
 
