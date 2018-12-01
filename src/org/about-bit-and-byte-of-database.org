@@ -1,0 +1,36 @@
+#+TITLE: 关于数据库设计之位和字节的讨论
+#+DATA: 2018-11-28
+#+AUTHOR: Siqing Mu
+
+*** 缘起
+前几天要新增一个数据库复合索引，DBA告知无法添加，说 mysql 索引最大支持767字节。于是看了下线上的数据库表结构设计，发现三个字段类型均被定义为varchar(256),不得其解。
+于是问了同事缘由，得知他之前在设计的时候均按照 8 的倍数，比如64，128，256等，并让我也那么做。好吧，你应该也知道了。
+显然是因为他没有分清 bit 和 byte 的区别，也可能不清楚数据库表字段范围大小设计。
+
+*** 关于bit和byte和character和word
+8 个bit（位）等于 1 个 byte（字节）
+1 个word（汉字）等于 2 个 character（字符）
+1 个英文字符等于 1 个 byte （字节）
+这里默认的字符编码都是UTF-8
+
+这里可能有人要问了，那字符和字节的关系呢？
+
+位是计算机中最小的数据单位，0 或 1 
+字符是文本字符串中的基本元素。
+字节是数字信息的基本单位，通常由8个 bit （位）组成为一个二进制数。
+
+*** 回到问题
+256是如何而来？
+2^8 = 256 , 所以有256种可能性。如果是无符号的，则计数是从 0 开始。所以范围0～255。
+
+[[file:./images/requirements][string-type-storage-requirements]]
+
+即使存储引擎能够支持更大的行，MySQL表的内部表示的最大行大小限制为65,535字节。
+
+*** Reference
+   + https://en.wikipedia.org/wiki/Bit
+   + https://en.wikipedia.org/wiki/Byte
+   + https://en.wiktionary.org/wiki/character
+   + https://en.wikipedia.org/wiki/Word
+   + https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html
+   + https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html

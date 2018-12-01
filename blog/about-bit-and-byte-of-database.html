@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>关于数据库设计之位和字节的讨论</title>
+<!-- 2018-12-01 Sat 11:02 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">关于数据库设计之位和字节的讨论</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 缘起</a></li>
+<li><a href="#sec-2">2. 关于bit和byte和character和word</a></li>
+<li><a href="#sec-3">3. 回到问题</a></li>
+<li><a href="#sec-4">4. Reference</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 缘起</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+前几天要新增一个数据库复合索引，DBA告知无法添加，说 mysql 索引最大支持767字节。于是看了下线上的数据库表结构设计，发现三个字段类型均被定义为varchar(256),不得其解。
+于是问了同事缘由，得知他之前在设计的时候均按照 8 的倍数，比如64，128，256等，并让我也那么做。好吧，你应该也知道了。
+显然是因为他没有分清 bit 和 byte 的区别，也可能不清楚数据库表字段范围大小设计。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 关于bit和byte和character和word</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+8 个bit（位）等于 1 个 byte（字节）
+1 个word（汉字）等于 2 个 character（字符）
+1 个英文字符等于 1 个 byte （字节）
+这里默认的字符编码都是UTF-8
+</p>
+
+<p>
+这里可能有人要问了，那字符和字节的关系呢？
+</p>
+
+<p>
+位是计算机中最小的数据单位，0 或 1 
+字符是文本字符串中的基本元素。
+字节是数字信息的基本单位，通常由8个 bit （位）组成为一个二进制数。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 回到问题</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+256是如何而来？
+2^8 = 256 , 所以有256种可能性。如果是无符号的，则计数是从 0 开始。所以范围0～255。
+</p>
+
+<p>
+<a href="./images/requirements">string-type-storage-requirements</a>
+</p>
+
+<p>
+即使存储引擎能够支持更大的行，MySQL表的内部表示的最大行大小限制为65,535字节。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Reference</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><a href="https://en.wikipedia.org/wiki/Bit">https://en.wikipedia.org/wiki/Bit</a>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Byte">https://en.wikipedia.org/wiki/Byte</a>
+</li>
+<li><a href="https://en.wiktionary.org/wiki/character">https://en.wiktionary.org/wiki/character</a>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Word">https://en.wikipedia.org/wiki/Word</a>
+</li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html">https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html</a>
+</li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html">https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
