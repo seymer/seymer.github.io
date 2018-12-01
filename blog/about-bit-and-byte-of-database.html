@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>关于数据库设计（位）和（字节）的讨论</title>
-<!-- 2018-12-01 Sat 11:38 -->
+<!-- 2018-12-01 Sat 11:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -83,7 +83,7 @@
 <ul class="org-ul">
 <li>上面写道varchar类型里说如果列值需要0 - 255个字节，则为L + 1个字节;如果值可能需要超过255个字节，则为L + 2个字节。
 </li>
-<li>所以这里的计算是这样的，255+255+255+2=767字节，所以这样正好符合三个字符类型组成的复合。
+<li>所以这里的计算是这样的，255+255+255+2=767字节，所以这样正好符合三个字符类型组成的复合索引。
 </li>
 <li>这里并不是说不能存储256或者更大的范围，其实是可以的，但是即使存储引擎能够支持更大的行，MySQL表的内部表示的最大行大小限制为65,535字节。我也建议不要那么做，尤其是256字节，虽然看起来像是比255字节可以多存一个，但却浪费一个需要存储数据的字节。
 </li>
