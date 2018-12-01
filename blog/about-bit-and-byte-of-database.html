@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>关于数据库设计之位和字节的讨论</title>
-<!-- 2018-12-01 Sat 11:27 -->
+<!-- 2018-12-01 Sat 11:36 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -88,11 +88,9 @@
 <li>这里并不是说不能存储256或者更大的范围，其实是可以的，但是即使存储引擎能够支持更大的行，MySQL表的内部表示的最大行大小限制为65,535字节。我也建议不要那么做，尤其是256字节，虽然看起来像是比255字节可以多存一个，但却浪费一个需要存储数据的字节。
 </li>
 </ul>
-<p>
-<a href="./images/requirements.png">string-type-storage-requirements</a>
-</p>
 </div>
 </div>
+
 <div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4"><span class="section-number-2">4</span> Reference</h2>
 <div class="outline-text-2" id="text-4">
@@ -110,6 +108,8 @@
 <li><a href="https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html">https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html</a>
 </li>
 <li><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-restrictions.html">https://dev.mysql.com/doc/refman/8.0/en/innodb-restrictions.html</a>
+</li>
+<li><a href="./images/requirements.png">tring-type-storage-requirements</a>
 </li>
 </ul>
 </div>
