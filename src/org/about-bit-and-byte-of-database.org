@@ -23,7 +23,7 @@
 256是如何而来？
 2^8 = 256 , 所以有256种可能性。如果是无符号的，则计数是从 0 开始。所以范围0～255。
 
-[[file:./images/requirements][string-type-storage-requirements]]
+[[file:./images/requirements.png][string-type-storage-requirements]]
 
 即使存储引擎能够支持更大的行，MySQL表的内部表示的最大行大小限制为65,535字节。
 
