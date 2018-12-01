@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:about-bit-and-byte-of-database.org][2018-12-01 关于数据库设计之位和字节的讨论]]
+   + [[file:about-bit-and-byte-of-database.org][2018-12-01 关于数据库设计（位）和（字节）的讨论]]
    + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-28 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
    + [[file:the-exploits-database-sites.org][2018-11-28 几个常用的 exploits 数据库]]
    + [[file:the-docker-config.org][2018-11-10 Docker 如何更改现有容器的配置]]
