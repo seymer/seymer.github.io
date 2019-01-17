@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:my-2019-goal.org][2019-01-17 我的2019年目标]]
    + [[file:about-bit-and-byte-of-database.org][2018-12-01 关于数据库设计（位）和（字节）的讨论]]
    + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-28 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]
    + [[file:the-exploits-database-sites.org][2018-11-28 几个常用的 exploits 数据库]]
