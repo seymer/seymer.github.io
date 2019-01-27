@@ -9,11 +9,11 @@
 git checkout -b <分支名> upstream/<要同步的分支>
 git push -u origin <分支名>
 #+END_EXAMPLE
-就这么简单，但你不知道就是不知道，没什么好说的。
+就这么简单，但自己不知道就是不知道，没什么好说的。
 
-有时间还是得多看看官方手册。
+看来有时间还是应该多看看官方手册。
 
 参考链接：
-[[https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612]]
-[[https://help.github.com/articles/syncing-a-fork/]]
-[[https://git-scm.com/doc]]
++ [[https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612]]
++ [[https://help.github.com/articles/syncing-a-fork/]]
++ [[https://git-scm.com/doc]]
