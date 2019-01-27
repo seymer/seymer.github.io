@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:syncing-upstream-branches-in-my-fork.org][2019-01-27 同步上游分支到我的fork]]
    + [[file:my-tool-list.org][2019-01-26 工具清单]]
    + [[file:about-bit-and-byte-of-database.org][2018-12-01 关于数据库设计（位）和（字节）的讨论]]
    + [[file:install-virtualbox-guest-additions-debian-9-stretch.org][2018-11-28 How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine]]

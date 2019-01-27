@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>同步上游分支到我的fork</title>
+<!-- 2019-01-27 Sun 22:43 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">同步上游分支到我的fork</h1>
+<p>
+几个月前fork了一个仓库开发，前两天同事告诉我他建了个新分支，已经push到upstream了，让我同步下，我竟然一下子不知道该怎么办。
+因为该分支是基于develop分支开发的，但是develop分支都已经更新过好几个版本了，而且我们用的git flow工具，显然我不能直接基于develop创建新分支，
+再把upstream上的这个分支pull（fetch &amp;&amp; merge)下来。这样如果提交上去肯定会带有一些不该有的东西。经过搜索果然找到了解决方案。现记录如下：
+</p>
+<pre class="example">
+git checkout -b &lt;分支名&gt; upstream/&lt;要同步的分支&gt;
+git push -u origin &lt;分支名&gt;
+</pre>
+<p>
+就这么简单，但你不知道就是不知道，没什么好说的。
+</p>
+
+<p>
+有时间还是得多看看官方手册。
+</p>
+
+<p>
+参考链接：
+<a href="https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612">https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612</a>
+<a href="https://help.github.com/articles/syncing-a-fork/">https://help.github.com/articles/syncing-a-fork/</a>
+<a href="https://git-scm.com/doc">https://git-scm.com/doc</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

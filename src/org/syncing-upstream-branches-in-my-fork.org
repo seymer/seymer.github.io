@@ -1,0 +1,19 @@
+#+TITLE:同步上游分支到我的fork
+#+AUTHOR:Siqing Mu
+#+DATE:2019-01-27
+
+几个月前fork了一个仓库开发，前两天同事告诉我他建了个新分支，已经push到upstream了，让我同步下，我竟然一下子不知道该怎么办。
+因为该分支是基于develop分支开发的，但是develop分支都已经更新过好几个版本了，而且我们用的git flow工具，显然我不能直接基于develop创建新分支，
+再把upstream上的这个分支pull（fetch && merge)下来。这样如果提交上去肯定会带有一些不该有的东西。经过搜索果然找到了解决方案。现记录如下：
+#+BEGIN_EXAMPLE
+git checkout -b <分支名> upstream/<要同步的分支>
+git push -u origin <分支名>
+#+END_EXAMPLE
+就这么简单，但你不知道就是不知道，没什么好说的。
+
+有时间还是得多看看官方手册。
+
+参考链接：
+[[https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612]]
+[[https://help.github.com/articles/syncing-a-fork/]]
+[[https://git-scm.com/doc]]
