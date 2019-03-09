@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>php security check list</title>
+<!-- 2019-03-09 Sat 19:20 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">php security check list</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Full Path Disclosure</a></li>
+<li><a href="#sec-2">2. Arbitrary File Upload</a></li>
+<li><a href="#sec-3">3. Arbitrary File Delete</a></li>
+<li><a href="#sec-4">4. Arbitrary File Download</a></li>
+<li><a href="#sec-5">5. Local File Inclusion</a></li>
+<li><a href="#sec-6">6. Remote File Inclusion</a></li>
+<li><a href="#sec-7">7. Cookie Injection</a></li>
+<li><a href="#sec-8">8. Header Injection</a></li>
+<li><a href="#sec-9">9. SQL Injection</a></li>
+<li><a href="#sec-10">10. XML Injection</a></li>
+<li><a href="#sec-11">11. XXE Injection</a></li>
+<li><a href="#sec-12">12. [Email Injection](_(OTG-INPVAL-011))</a></li>
+<li><a href="#sec-13">13. [HTML Injection](_(OTG-CLIENT-003))</a></li>
+<li><a href="#sec-14">14. [xPath Injection]()</a></li>
+<li><a href="#sec-15">15. [Code Injection]()</a></li>
+<li><a href="#sec-16">16. [Command Injection]()</a></li>
+<li><a href="#sec-17">17. [Object Injection]()</a></li>
+<li><a href="#sec-18">18. [Cross Site Scripting]()</a></li>
+<li><a href="#sec-19">19. [Cross Site Request Forgery]()</a></li>
+<li><a href="#sec-20">20. [Broken Authentication and Session Management]()</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> <a href="https://www.owasp.org/index.php/Full_Path_Disclosure">Full Path Disclosure</a></h2>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> <a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">Arbitrary File Upload</a></h2>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <a href="https://www.acunetix.com/vulnerabilities/web/arbitrary-file-deletion/">Arbitrary File Delete</a></h2>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <a href="https://resources.infosecinstitute.com/arbitrary-file-download-breaking-into-the-system/#gref">Arbitrary File Download</a></h2>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <a href="https://www.offensive-security.com/metasploit-unleashed/file-inclusion-vulnerabilities/">Local File Inclusion</a></h2>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> <a href="https://www.owasp.org/index.php/Testing_for_Remote_File_Inclusion">Remote File Inclusion</a></h2>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> <a href="https://www.owasp.org/index.php/Testing_for_cookies_attributes_(OTG-SESS-002)">Cookie Injection</a></h2>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> <a href="https://www.owasp.org/index.php/Testing_for_HTTP_Parameter_pollution_(OTG-INPVAL-004)">Header Injection</a></h2>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> <a href="https://www.owasp.org/index.php/SQL_Injection">SQL Injection</a></h2>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> <a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)">XML Injection</a></h2>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> <a href="https://www.owasp.org/index.php/XML_External_Entity">XXE Injection</a></h2>
+</div>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> [Email Injection](<a href="https://www.owasp.org/index.php/Testing_for_IMAP/SMTP_Injection">https://www.owasp.org/index.php/Testing_for_IMAP/SMTP_Injection</a>_(OTG-INPVAL-011))</h2>
+</div>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> [HTML Injection](<a href="https://www.owasp.org/index.php/Testing_for_HTML_Injection">https://www.owasp.org/index.php/Testing_for_HTML_Injection</a>_(OTG-CLIENT-003))</h2>
+</div>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> [xPath Injection](<a href="https://www.owasp.org/index.php/XPATH_Injection">https://www.owasp.org/index.php/XPATH_Injection</a>)</h2>
+</div>
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> [Code Injection](<a href="https://www.owasp.org/index.php/Code_Injection">https://www.owasp.org/index.php/Code_Injection</a>)</h2>
+</div>
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> [Command Injection](<a href="https://www.owasp.org/index.php/Command_Injection">https://www.owasp.org/index.php/Command_Injection</a>)</h2>
+</div>
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> [Object Injection](<a href="https://www.owasp.org/index.php/PHP_Object_Injection">https://www.owasp.org/index.php/PHP_Object_Injection</a>)</h2>
+</div>
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18"><span class="section-number-2">18</span> [Cross Site Scripting](<a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a>)</h2>
+</div>
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19"><span class="section-number-2">19</span> [Cross Site Request Forgery](<a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)</a>)</h2>
+</div>
+<div id="outline-container-sec-20" class="outline-2">
+<h2 id="sec-20"><span class="section-number-2">20</span> [Broken Authentication and Session Management](<a href="https://www.owasp.org/index.php/Broken_Authentication_and_Session_Management">https://www.owasp.org/index.php/Broken_Authentication_and_Session_Management</a>)</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
