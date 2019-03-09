@@ -1,7 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:php-security-check-list.org][2019-03-03 php security check list]]
-   + [[file:my-book-list.org][2019-02-23 我的书单]]
+   + [[file:php-security-check-list.org][2019-03-09 php security check list]]
    + [[file:my-tool-list.org][2019-02-09 工具清单]]
    + [[file:syncing-upstream-branches-in-my-fork.org][2019-01-27 同步上游分支到我的fork]]
    + [[file:about-bit-and-byte-of-database.org][2018-12-01 关于数据库设计（位）和（字节）的讨论]]
