@@ -29,4 +29,6 @@
 
 - [[https://www.monokakido.jp/japanese/nds/][精選版 日本国語大辞典]] 一个日语词典，价格：$64.99
 
+- [[https://www.papersapp.com/][Papers]] 一个文档管理工具，价格：$79.00
+
 
