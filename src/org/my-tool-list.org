@@ -23,3 +23,10 @@
 - [[https://pilotmoon.com/popclip/][PopClip]] 这是一款辅助触摸板应用，同时有很多扩展可用。嗯，收费。
 
 
+*** 我没在用哪些工具？
+
+- [[https://nssurge.com/][Surge]] 一个高级网络调试工具，价格：$49.99
+
+- [[https://www.monokakido.jp/japanese/nds/][精選版 日本国語大辞典]] 一个日语词典，价格：$64.99
+
+
