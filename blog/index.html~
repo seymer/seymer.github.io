@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2019-03-12 Tue 19:53 -->
+<!-- 2019-03-25 Mon 08:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,6 +14,10 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="how-to-convert-aiff-to-mp3-on-command-line.html">2019-03-25 如何在命令行上将AIFF格式转换为MP3格式</a>
+</li>
+<li><a href="japanese-learning.html">2019-03-16 みんなの日本語</a>
+</li>
 <li><a href="my-tool-list.html">2019-03-10 工具清单</a>
 </li>
 <li><a href="php-security-check-list.html">2019-03-09 php security check list</a>

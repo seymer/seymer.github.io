@@ -1,7 +1,6 @@
 #+TITLE: Siqing's Blog
 
    + [[file:how-to-convert-aiff-to-mp3-on-command-line.org][2019-03-25 如何在命令行上将AIFF格式转换为MP3格式]]
-   + [[file:japanese-learning.org][2019-03-16 みんなの日本語]]
    + [[file:my-tool-list.org][2019-03-10 工具清单]]
    + [[file:php-security-check-list.org][2019-03-09 php security check list]]
    + [[file:syncing-upstream-branches-in-my-fork.org][2019-01-27 同步上游分支到我的fork]]
