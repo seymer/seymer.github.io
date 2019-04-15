@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:java-enviroment-variable-setting.org][2019-04-15 Java 环境变量设置]]
    + [[file:my-tool-list.org][2019-04-09 工具清单]]
    + [[file:learning-japanese.org][2019-03-31 みんなの日本語]]
    + [[file:how-to-convert-aiff-to-mp3-on-command-line.org][2019-03-25 如何在命令行上将AIFF格式转换为MP3格式]]
