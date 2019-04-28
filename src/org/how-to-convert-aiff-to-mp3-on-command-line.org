@@ -8,12 +8,12 @@ ffmpeg -i myinput.aif -f mp3 -acodec libmp3lame -ab 320000 -ar 44100 myoutput.mp
 
 批量文件转换：
 #+BEGIN_EXAMPLE
-for f in *.aiff; do ffmpeg -i "$f" -f mp3 -acodec libmp3lame -ab 320000 -ar 44100 "${f%.aiff}.mp3"; done
+for f in *.aiff; do ffmpeg -i "$f" -f mp3 -acodec libmp3lame -ab 320000 -ar 44100 "${f%.*}.mp3"; done
 #+END_EXAMPLE
 
 上面指定了比特率，MP3最大为320kbit/s，文件大小会稍微大点，音质会好点，虽然我听不太出来，哈哈，看自己需要。所以你也可以采用默认参数转换，文件会小一半大概，例如：
 #+BEGIN_EXAMPLE
-for f in *.aiff; do ffmpeg -i "$f" "${f%.aiff}.mp3"; done
+for f in *.aiff; do ffmpeg -i "$f" "${f%.*}.mp3"; done
 #+END_EXAMPLE
 
 更多参数使用详见 man ffmpeg

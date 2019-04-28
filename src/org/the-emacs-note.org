@@ -1,0 +1,16 @@
+#+TITLE: Emacs 使用笔记
+#+DATE: [2019-04-20 Sat 09:32]
+#+AUTHOR: Siqing Mu
+
+
+**** 常用操作命令
+
+ - C-g 停止当前运行/输入的命令
+ - C-x u 撤销
+ - M-x revert-buffer RETURN 撤销上次存盘后的所有改动
+ - M-x recover-file RETURN 从自动存盘文件恢复
+ - M-x recover-session RETURN 如果你编辑了几个文件, 用这个恢复
+ - C-u C-c ! 插入日期时间
+ - 
+   
+
