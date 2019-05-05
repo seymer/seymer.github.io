@@ -1,0 +1,16 @@
+#+TITLE: 如何解决systemuiserver无响应问题
+#+DATE:[2019-05-05 Sun 14:05]
+
+
+最近发现，在连接wifi时会出现无响应问题，经过一番搜索，除了重启电脑，也可以执行下面这行代码：
+
+#+BEGIN_EXAMPLE
+sudo kill -9 `ps aux | grep -v grep | grep /usr/libexec/airportd | awk '{print $2}'`
+#+END_EXAMPLE
+
+ref:
+[1][[https://jiezhi.github.io/2019/03/07/macos-systemuiserver-not-responding/][解决 macos systemuiserver 无响应的问题]]
+
+
+
+
