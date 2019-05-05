@@ -8,8 +8,7 @@
 sudo kill -9 `ps aux | grep -v grep | grep /usr/libexec/airportd | awk '{print $2}'`
 #+END_EXAMPLE
 
-ref:
-+ [[https://jiezhi.github.io/2019/03/07/macos-systemuiserver-not-responding/][解决 macos systemuiserver 无响应的问题]]
+ref: [[https://jiezhi.github.io/2019/03/07/macos-systemuiserver-not-responding/][解决 macos systemuiserver 无响应的问题]]
 
 
 
