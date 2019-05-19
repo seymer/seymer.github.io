@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:three-virtues-of-programmer.org][2019-05-19 程序员三大美德]]
    + [[file:how-to-solve-the-problem-of-systemuiserver-no-response.org][2019-05-05 如何解决systemuiserver无响应问题]]
    + [[file:the-emacs-note.org][2019-04-20 Emacs 使用笔记]]
    + [[file:java-enviroment-variable-setting.org][2019-04-15 Java 环境变量设置]]
