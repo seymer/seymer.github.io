@@ -1,7 +1,7 @@
 #+TITLE: 程序员三大美德
 #+DATE: [2019-05-19 Sun 10:24]
 #+AUTHOR: Siqing Mu
-#+OPTION: TOC
+#+OPTIONS: toc:nil num:nil
 
 According to Larry Wall(1), the original author of the Perl programming language, there are three great virtues of a programmer; *Laziness*, *Impatience* and *Hubris*
 
