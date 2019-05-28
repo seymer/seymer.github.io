@@ -1,4 +1,4 @@
-#+TITLE: vmware fusion 复制粘贴及拖拽拷贝问题
+#+TITLE: VMware Fusion 复制粘贴及拖拽拷贝问题
 #+DATE: [2019-05-28 Tue 17:07]
 
 最近发现VMware复制粘贴不好使，其实拖拽拷也不好使，只是自己不经常用。经过一番搜索，现记录如下
