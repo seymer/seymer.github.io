@@ -1,0 +1,13 @@
+#+TITLE: VMware Fusion 共享文件夹问题
+#+DATE: [2019-05-28 Tue 20:20]
+
+除了上文中遇到的拷贝粘贴问题，共享文件夹也不好使，又是一番搜索试验，最终找到了正确答案。
+*** 操作步骤
+#+BEGIN_EXAMPLE
+sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+#+END_EXAMPLE
+执行即可，如果还不行，那么可以参考原文。从这次问题搜索也可以有一点心得，有些问题如果不能直接从Google第一页获得答案，
+包括官方文档及论坛，那么不妨根据线索去找找涉及模块，比如这次就是在GitHub中issue里找到的。
+*** 参考链接
++ [[https://github.com/vmware/open-vm-tools/issues/199][open-vm-tools-issues]]
+

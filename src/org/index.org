@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:shared-folders-issue-for-vmware-fusion.org][2019-05-28 VMware Fusion 共享文件夹问题]]
    + [[file:copy-and-paste-issue-via-vmware-fusion.org][2019-05-28 vmware fusion 复制粘贴及拖拽拷贝问题]]
    + [[file:three-virtues-of-programmer.org][2019-05-19 程序员三大美德]]
    + [[file:how-to-solve-the-problem-of-systemuiserver-no-response.org][2019-05-05 如何解决systemuiserver无响应问题]]
