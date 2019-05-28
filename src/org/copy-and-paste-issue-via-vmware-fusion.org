@@ -4,6 +4,7 @@
 最近发现VMware复制粘贴不好使，其实拖拽拷也不好使，只是自己不经常用。经过一番搜索，现记录如下
 *** 安装
 #+BEGIN_EXAMPLE
+sudo apt-get remove open-vm-tools
 sudo apt-get install open-vm-tools-desktop
 #+END_EXAMPLE
 安装完成后重启即可。
