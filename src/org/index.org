@@ -1,7 +1,6 @@
 #+TITLE: Siqing's Blog
 
    + [[file:shadowsocks-libev-one-click-install-shell-script-for-Debian.org][2019-06-04 Debian下shadowsocks-libev一键安装脚本]]
-   + [[file:java-note.org][2019-06-02 java-note]]
    + [[file:shared-folders-issue-for-vmware-fusion.org][2019-05-28 VMware Fusion 共享文件夹问题]]
    + [[file:copy-and-paste-issue-via-vmware-fusion.org][2019-05-28 VMware Fusion 复制粘贴及拖拽拷贝问题]]
    + [[file:three-virtues-of-programmer.org][2019-05-19 程序员三大美德]]
