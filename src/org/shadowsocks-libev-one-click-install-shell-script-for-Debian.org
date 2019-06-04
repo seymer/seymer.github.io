@@ -1,0 +1,41 @@
+#+TITLE: Debian下shadowsocks-libev一键安装脚本
+#+AUTHOR: tedysun
+
+*** 本脚本适用环境：
+
+#+BEGIN_EXAMPLE
+系统支持：Debian/Ubuntu
+内存要求：≥128M
+日期：2018 年 06 月 01 日
+#+END_EXAMPLE
+
+*** 使用方法：
+
+使用root用户登录，运行以下命令：
+#+BEGIN_EXAMPLE
+wget --no-check-certificate -O shadowsocks-libev-debian.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
+chmod +x shadowsocks-libev-debian.sh
+./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
+#+END_EXAMPLE
+
+*** 卸载方法：
+
+使用 root 用户登录，运行以下命令：
+#+BEGIN_EXAMPLE
+./shadowsocks-libev-debian.sh uninstall
+#+END_EXAMPLE
+
+*** 使用命令：
+#+BEGIN_EXAMPLE
+启动：/etc/init.d/shadowsocks start
+停止：/etc/init.d/shadowsocks stop
+重启：/etc/init.d/shadowsocks restart
+查看状态：/etc/init.d/shadowsocks status
+#+END_EXAMPLE
+ 
+
+
+
+
+
+
