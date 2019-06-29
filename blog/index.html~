@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2019-06-04 Tue 16:34 -->
+<!-- 2019-06-29 Sat 16:40 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,6 +14,8 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="hacking-ida-pro-installer-of-windows-version.html">2019-06-29 破解IDA Pro 7.2版本（windows version）</a>
+</li>
 <li><a href="shadowsocks-libev-one-click-install-shell-script-for-Debian.html">2019-06-04 Debian下shadowsocks-libev一键安装脚本</a>
 </li>
 <li><a href="shared-folders-issue-for-vmware-fusion.html">2019-05-28 VMware Fusion 共享文件夹问题</a>
