@@ -1,0 +1,16 @@
+#+TITLE: 破解IDA Pro 7.2版本（windows version）
+#+DATE: [2019-06-29 Sat 15:57]
+
+前几天听(scz)说有人搞定了IDA 7.2及以前版本的安装密码生成算法[fn:1]，有人也直接在reddit上贴出来跑出来的7.2安装密码 *7JpT48a7Y2fv* ，经测试是可以安装的。感兴趣也可以通过公布的算法自己跑下。
+
+*** 原始软件md5值
+
+#+BEGIN_EXAMPLE
+> md5sum IDA-Pro-v7.2-nopasswd.exe 
+f1982a5c602ee0930160b6b52e76c031
+#+END_EXAMPLE
+
+[fn:1] https://devco.re/blog/2019/06/21/operation-crack-hacking-IDA-Pro-installer-PRNG-from-an-unusual-way-en/
+[fn:2] 下载地址1:https://www.ninefile.com/op5ovxo5d9wn.html
+[fn:3] 下载地址2:https://pan.baidu.com/s/1F758v3fQ9egeyCCPDiGLNA  提取码: *u05x*
+[fn:4] https://www.baiduwp.com/
