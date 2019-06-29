@@ -1,0 +1,19 @@
+#+TITLE: Navicat Premium 相关分析
+#+DATE: [2019-06-29 Sat 18:09]
+#+AUTHOR: DoubleLabyrinth
+#+OPTIONS: toc:nil
+
+Navicat Premium 是一款非常优秀的数据库管理软件，下面是有关它的分析：
+
+*** navicat-keygen
+
+https://github.com/DoubleLabyrinth/navicat-keygen
+
+*** how-does-Xmanager-encrypt-password
+
+https://github.com/DoubleLabyrinth/how-does-navicat-encrypt-password
+
+
+
+
+
