@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:front-end-webdevelopment.org][2019-08-05 Front-End Web Development]]
    + [[file:a-keygen-for-navicat.org][2019-06-29 Navicat Premium 相关分析]]
    + [[file:hacking-ida-pro-installer-of-windows-version.org][2019-06-29 破解IDA Pro 7.2版本（windows version）]]
    + [[file:shadowsocks-libev-one-click-install-shell-script-for-Debian.org][2019-06-04 Debian下shadowsocks-libev一键安装脚本]]
