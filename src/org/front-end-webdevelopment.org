@@ -1,5 +1,6 @@
 #+TITLE: Front-End Web Development
 #+DATE: [2019-08-05 Mon 00:15]
+#+OPTION: toc:nil
 
 * 第一部分 浏览器编程基础
 
@@ -20,11 +21,15 @@
 *** 1.3 文档和参考资料
 
 Mozilla 开发者网络（MDN）https://developer.mozilla.org/en-US/
-也可以访问 https://devdocs.io/ ，它从MDN拉取前端核心技术文档，并支持离线状态查询（离线缓存机制）。
+
+也可以访问 https://devdocs.io/ ，它从MDN拉取前端核心技术文档，并支持离线状态查询（离线缓存机制）
+
 开发者讨论社区 https://stackoverflow.com/
+
 判断版本特性支持的两个网站 
-https://html5please.com/ 
-https://caniuse.com/
+ https://html5please.com/ 
+
+ https://caniuse.com/
 
 *** 
 
