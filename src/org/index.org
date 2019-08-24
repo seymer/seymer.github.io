@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:how-to-know-the-password-saved-by-navicat-preminum.org][2019-08-24 如何知道Navicat Premium保存的密码]]
    + [[file:template.org][2019-08-24 前端模板]]
    + [[file:front-end-webdevelopment.org][2019-08-05 Front-End Web Development]]
    + [[file:a-keygen-for-navicat.org][2019-06-29 Navicat Premium 相关分析]]
