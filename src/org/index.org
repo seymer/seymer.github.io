@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-vmware-fusion-professional-version-11-license.org][2019-08-25 VMware Fusion 11 序列号]]
    + [[file:the-proxifier-license.org][2019-08-25 Proxifier序列号]]
    + [[file:how-to-know-the-password-saved-by-navicat-preminum.org][2019-08-24 如何知道Navicat Premium保存的密码]]
    + [[file:template.org][2019-08-24 前端模板]]

@@ -1,0 +1,8 @@
+#+TITLE: VMware Fusion 11 序列号
+#+DATE: [2019-08-25 Sun 00:26]
+
+*** 软件下载地址
+https://my.vmware.com/en/web/vmware/info/slug/desktop_end_user_computing/vmware_fusion/11_0
+
+*** 序列号
++ 7HYY8-Z8WWY-F1MAN-ECKNY-LUXYX
