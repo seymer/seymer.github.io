@@ -1,0 +1,17 @@
+#+TITLE: 日语学习网站分享
+#+DATE: [2019-08-25 Sun 09:00]
+
+1. [[https://www3.nhk.or.jp/nhkworld/zh/][NHK WORLD_JAPAN]]
+2. [[https://a2.marugotoweb.jp/ja/][MARUGOTO PLUS]]
+3. [[https://hirogaru-nihongo.jp/][ひろがる]]
+4. [[http://www.nihongonoki.com/blog/][にほんごの木]]
+5. [[https://www3.nhk.or.jp/news/easy/index.html][NHK NEWS WEB EASY]]
+6. [[https://kotobank.jp/][コトバンク]]
+7. [[https://jisho.org/][jisho]]
+8. [[http://www.coelang.tufs.ac.jp/ja/zt/][東京外国語大学言語モジュール]]
+9. [[https://www.kanjipedia.jp/][漢字ペディア ]]
+10. [[http://www.gavo.t.u-tokyo.ac.jp/ojad/][OJAD]]
+
+
+参考：
+[1] https://www.youtube.com/watch?v=XkxMG
