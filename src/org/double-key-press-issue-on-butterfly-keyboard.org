@@ -1,0 +1,12 @@
+#+TITLE: 用软件的方式解决蝴蝶键盘问题
+#+DATE: [2019-08-25 Sun 15:26]
+
+最近发现一款软件，貌似可以解决苹果蝶式键盘问题。如果你的碟式键盘也出现按某个键结果连出了两次或多次，你或许可以试试这个软件。当然，最好是拿到天才吧免费维修。另外虽然这款软件对「键连打」有效，但对多次按键也没有输出这种失效情况却无能为力。
+
+**** 下载地址
+https://github.com/aahung/Unshaky/releases
+
+**** 安装
+双击安装后，回需要赋予该软件权限。 依次进入System Preferences -> Security & Privacy -> Privacy (Tab) -> Accessibility (Left panel)，勾选右边的该软件名称Unshaky.app。然后打开顶上菜单栏该软件图标配置，针对某个「键连打」情况设置延迟时间。
+
+
