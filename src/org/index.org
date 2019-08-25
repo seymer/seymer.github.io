@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:japanese-errors-that-are-easy-for-chinese-speaker.org][2019-08-25 说中文的人容易犯的日文错误]]
    + [[file:double-key-press-issue-on-butterfly-keyboard.org][2019-08-25 用软件的方式解决蝴蝶键盘问题]]
    + [[file:japanese-learning-website-sharing.org][2019-08-25 日语学习网站分享]]
    + [[file:the-vmware-fusion-professional-version-11-license.org][2019-08-25 VMware Fusion 11 序列号]]
