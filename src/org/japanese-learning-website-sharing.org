@@ -3,14 +3,17 @@
 
 1. [[https://www3.nhk.or.jp/nhkworld/zh/][NHK WORLD_JAPAN]]
 2. [[https://a2.marugotoweb.jp/ja/][MARUGOTO PLUS]]
-3. [[https://hirogaru-nihongo.jp/][ひろがる]]
-4. [[http://www.nihongonoki.com/blog/][にほんごの木]]
-5. [[https://www3.nhk.or.jp/news/easy/index.html][NHK NEWS WEB EASY]]
-6. [[https://kotobank.jp/][コトバンク]]
-7. [[https://jisho.org/][jisho]]
-8. [[http://www.coelang.tufs.ac.jp/ja/zt/][東京外国語大学言語モジュール]]
-9. [[https://www.kanjipedia.jp/][漢字ペディア ]]
-10. [[http://www.gavo.t.u-tokyo.ac.jp/ojad/][OJAD]]
+3. [[https://words.marugotoweb.jp/top.php][MARUGOTO Words]]
+4. [[https://hirogaru-nihongo.jp/][ひろがる]]
+5. [[http://www.nihongonoki.com/blog/][にほんごの木]]
+6. [[https://www3.nhk.or.jp/news/easy/index.html][NHK NEWS WEB EASY]]
+7. [[https://kotobank.jp/][コトバンク]]
+8. [[https://jisho.org/][jisho]]
+9. [[http://www.coelang.tufs.ac.jp/ja/zt/][東京外国語大学言語モジュール]]
+10. [[https://jplang.tufs.ac.jp/][東京外國語大學日語學習網]]
+11. [[https://www.kanjipedia.jp/][漢字ペディア ]]
+12. [[http://www.gavo.t.u-tokyo.ac.jp/ojad/][OJAD]]
+13. [[http://www.anime-manga.jp/][動漫畫日本語]]
 
 
 
