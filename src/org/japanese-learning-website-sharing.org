@@ -13,5 +13,4 @@
 10. [[http://www.gavo.t.u-tokyo.ac.jp/ojad/][OJAD]]
 
 
-参考：
-- [1] https://www.youtube.com/watch?v=XkxMG
+
