@@ -1,0 +1,5 @@
+#+TITLE: SSH Tunnel
+#+DATE: [2019-09-01 Sun 13:53]
+
+SSH隧道是一个强大但鲜为人知的特性，它允许你在本地主机和远程服务之间创建一个隧道。
+[[file:./images/tunnel-1.png]]
