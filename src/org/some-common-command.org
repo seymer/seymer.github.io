@@ -1,0 +1,38 @@
+#+TITLE: 一些常用命令
+#+DATE: [2019-09-01 Sun 23:13]
+
+一般性命令
+#+BEGIN_EXAMPLE
+df -h #查看挂载设备和挂载点
+fdisk -l #查看所有驱动器
+lsblk -f #查看文件类型系统
+dd if=file of=/dev/fd0 bs=512 conv=sync ; sync  #刻盘
+diskutil list  #MacOS上的磁盘工具，该命令为打印磁盘列表
+nvram -p  #MacOS上打印所有固件变量
+gpasswd sudo -a username  #将普通用户添加到sudo群组
+usermod -aG sudo $USER  #将用户添加到特定群组，这里的sudo是举例
+sudo adduser username sudo #新增用户并添加到sudo群组
+sudo update-alternatives --config editor #修改默认浏览器
+#+END_EXAMPLE
+
+使用ssh-keygen生成公私钥，并设置仅自己可读
+#+BEGIN_EXAMPLE
+ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]
+chmod 400 ~/.ssh/[KEY_FILENAME]
+#+END_EXAMPLE
+
+使用sshuttle代理
+#+BEGIN_EXAMPLE
+sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa.pub'
+sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa.pub'
+#+END_EXAMPLE
+
+
+
+
+
+
+
+
+
+
