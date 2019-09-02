@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>一些常用命令</title>
-<!-- 2019-09-02 Mon 00:00 -->
+<!-- 2019-09-02 Mon 09:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -24,7 +24,7 @@ dd if=file of=/dev/fd0 bs=512 conv=sync ; sync  #刻盘
 diskutil list  #MacOS上的磁盘工具，该命令为打印磁盘列表
 nvram -p  #MacOS上打印所有固件变量
 gpasswd sudo -a username  #将普通用户添加到sudo群组
-usermod -aG sudo $USER  #将用户添加到特定群组，这里的sudo是举例
+usermod -aG sudo $USER  #将用户添加到指定群组，这里的sudo是举例
 sudo adduser username sudo #新增用户并添加到sudo群组
 sudo update-alternatives --config editor #修改默认浏览器
 </pre>
@@ -44,6 +44,26 @@ chmod 400 ~/.ssh/[KEY_FILENAME]
 sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa.pub'
 sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa.pub'
 </pre>
+
+<p>
+安全相关
+</p>
+<pre class="example">
+unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0; export HISTFILESIZE=0  #不记录history
+python -c 'import pty; pty.spawn("/bin/sh")'  #使用交互shell
+ssh -C -f -N -g -R local_port:localhost:remote_port user@remote_host  #将远程端口服务转发到本地端口，反向代理，相当于frp或者ngrok
+ssh -C -f -N -g -L local_port:localhost:remote_port user@remote_host  #将本地端口服务转发到远程端口，正向代理，相当于iptable的port forwarding
+ssh -C -f -N -g -D local_port user@remote_host #动态端口转发，socks5代理，一般配合浏览器插件Proxy SwitchyOmega使用
+</pre>
+
+
+<p>
+参考
+</p>
+<ul class="org-ul">
+<li><a href="https://zhuanlan.zhihu.com/p/57630633">https://zhuanlan.zhihu.com/p/57630633</a>
+</li>
+</ul>
 </div>
 <div id="postamble" class="status">
 <div id="disqus_thread"></div>
