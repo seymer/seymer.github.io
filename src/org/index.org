@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:blogroll.org][2019-09-08 BlogRoll]]
+   + [[file:blogroll.org][2019-09-08 Blogroll]]
    + [[file:some-common-command.org][2019-09-01 一些常用命令]]
    + [[file:ssh-tunnel.org][2019-09-01 SSH Tunnel]]
    + [[file:japanese-errors-that-are-easy-for-chinese-speaker.org][2019-08-25 说中文的人容易犯的日文错误]]
