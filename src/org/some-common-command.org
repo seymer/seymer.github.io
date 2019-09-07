@@ -21,6 +21,7 @@ ptrace #进程跟踪和调试
 dtrace #动态跟踪编译器和跟踪实用程序
 traceroute #链路追踪
 mtr  #网络诊断工具
+lsof -i:port  #查看占用端口
 #+END_EXAMPLE
 
 使用ssh-keygen生成公私钥，并设置仅自己可读

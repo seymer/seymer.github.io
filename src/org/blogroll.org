@@ -1,0 +1,11 @@
+#+TITLE: BlogRoll
+#+DATE: [2019-09-08 Sun 00:32]
+
++ [[https://www.allthingsdistributed.com][All Things Distributed]] Author: Werner Vogels
++ [[http://www.yinwang.org/][当然我在扯淡]] Author: 王垠
++ [[https://dirtysalt.github.io/html/blogs.html][An Amateur Programmer's Blogs]] Author: 章炎
++ [[https://blog.codingnow.com/][云风的Blog]] Author: 云风
++ [[http://scz.617.cn/][scz's Blog]] Author: 沈沉舟
++ [[http://paulgraham.com/articles.html][PaulGraham's Blog]] Author: Paul Graham
++ [[https://imququ.com/][JerryQu's Blog]] Author: Jerry Qu
++ [[https://blog.lilydjwg.me/][依云's Blog]] Author: 依云
