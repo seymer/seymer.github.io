@@ -3,11 +3,11 @@
 #+AUTHOR: Siqing Mu
 
 
-#+BEGIN_EXPORT latex
+#+BEGIN_LaTex
 \documentclass[11pt]{article}
 
 \begin{document}
 Hello LeTex World.
 \end{document}
-#+END_EXPORT
+#+END_LaTex
 
