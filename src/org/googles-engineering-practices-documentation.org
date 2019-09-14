@@ -1,0 +1,5 @@
+#+TITLE: Google's Engineering Practices documentation
+#+DATE: [2019-09-13 Fri 12:15]
+
++ https://google.github.io/eng-practices/review/reviewer/
++ https://google.github.io/eng-practices/review/developer/

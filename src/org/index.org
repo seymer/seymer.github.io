@@ -1,5 +1,8 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:googles-engineering-practices-documentation.org][2019-09-13 Google's Engineering Practices documentation]]
+   + [[file:free-access-to-scientific-articles.org][2019-09-13 Free Access to Scientific Articles]]
+   + [[file:wechat-red-envelope-system-design.org][2019-09-08 微信红包系统设计方案]]
    + [[file:blogroll.org][2019-09-08 Blogroll]]
    + [[file:some-common-command.org][2019-09-01 一些常用命令]]
    + [[file:ssh-tunnel.org][2019-09-01 SSH Tunnel]]
