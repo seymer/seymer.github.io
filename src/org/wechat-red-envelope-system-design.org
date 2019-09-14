@@ -34,4 +34,6 @@
 3. 双维度库表设计，保障系统性能稳定。
    虽然已经使用多库多表，但随着单表数量的逐渐增加，DB性能会有大幅下降。所以采用冷热分离，将历史冷数据与当前热数据分开存储，可以有效避免该问题。即在系统以ID维度分库表的基础上，增加了以循环天分表的维度。
 
-* [1] https://www.infoq.cn/article/2017hongbao-weixin
+
+link-source:
++ https://www.infoq.cn/article/2017hongbao-weixin

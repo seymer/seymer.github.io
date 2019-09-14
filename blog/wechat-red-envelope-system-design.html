@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>微信红包系统设计方案</title>
-<!-- 2019-09-14 Sat 22:09 -->
+<!-- 2019-09-14 Sat 22:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -17,21 +17,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-0-0-1">0.0.1. 微信红包两大业务特点</a></li>
-<li><a href="#sec-0-0-2">0.0.2. 传统的秒杀系统架构设计</a></li>
-<li><a href="#sec-0-0-3">0.0.3. 解决高并发问题通常使用的方案</a></li>
-<li><a href="#sec-0-0-4">0.0.4. 微信红包系统的高并发解决方案</a></li>
+<li><a href="#sec-1">1. 微信红包两大业务特点</a></li>
+<li><a href="#sec-2">2. 传统的秒杀系统架构设计</a></li>
+<li><a href="#sec-3">3. 解决高并发问题通常使用的方案</a></li>
+<li><a href="#sec-4">4. 微信红包系统的高并发解决方案</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-1">1. </a></div>
+</div>
 </div>
 
 
-<div id="outline-container-sec-0-0-1" class="outline-4">
-<h4 id="sec-0-0-1"><span class="section-number-4">0.0.1</span> 微信红包两大业务特点</h4>
-<div class="outline-text-4" id="text-0-0-1">
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 微信红包两大业务特点</h2>
+<div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>比普通商品秒杀有更高的并发要求
 </li>
@@ -41,18 +38,18 @@
 </div>
 </div>
 
-<div id="outline-container-sec-0-0-2" class="outline-4">
-<h4 id="sec-0-0-2"><span class="section-number-4">0.0.2</span> 传统的秒杀系统架构设计</h4>
-<div class="outline-text-4" id="text-0-0-2">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 传统的秒杀系统架构设计</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 一般由接入层、逻辑服务层、存储层与缓存构成。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-0-0-3" class="outline-4">
-<h4 id="sec-0-0-3"><span class="section-number-4">0.0.3</span> 解决高并发问题通常使用的方案</h4>
-<div class="outline-text-4" id="text-0-0-3">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 解决高并发问题通常使用的方案</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>使用内存操作替代实时的DB事务操作，然后异步持久化入库
 </li>
@@ -84,9 +81,9 @@
 </div>
 </div>
 
-<div id="outline-container-sec-0-0-4" class="outline-4">
-<h4 id="sec-0-0-4"><span class="section-number-4">0.0.4</span> 微信红包系统的高并发解决方案</h4>
-<div class="outline-text-4" id="text-0-0-4">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 微信红包系统的高并发解决方案</h2>
+<div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>系统垂直 SET 化，分而治之。
 所谓set化，其实就是根据一定规则（比如取模运算）将流量路由到某一组指定服务去。
@@ -98,21 +95,18 @@
 虽然已经使用多库多表，但随着单表数量的逐渐增加，DB性能会有大幅下降。所以采用冷热分离，将历史冷数据与当前热数据分开存储，可以有效避免该问题。即在系统以ID维度分库表的基础上，增加了以循环天分表的维度。
 </li>
 </ol>
-</div>
-</div>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> <sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> <a href="https://www.infoq.cn/article/2017hongbao-weixin">https://www.infoq.cn/article/2017hongbao-weixin</a></h2>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>DEFINITION NOT FOUND.</p></div>
 
 
+<p>
+link-source:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.infoq.cn/article/2017hongbao-weixin">https://www.infoq.cn/article/2017hongbao-weixin</a>
+</li>
+</ul>
 </div>
-</div></div>
+</div>
+</div>
 <div id="postamble" class="status">
 <div id="disqus_thread"></div>
             <script type="text/javascript">
