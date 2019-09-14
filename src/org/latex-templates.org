@@ -1,0 +1,13 @@
+#+TITLE: LaTex Templates
+#+DATE: [2019-09-14 Sat 22:27]
+#+AUTHOR: Siqing Mu
+
+
+#+BEGIN_EXPORT latex
+\documentclass[11pt]{article}
+
+\begin{document}
+Hello LeTex World.
+\end{document}
+#+END_EXPORT
+
