@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Learn LaTeX in 30 minutes</title>
+<!-- 2019-09-15 Sun 11:30 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Learn LaTeX in 30 minutes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Create a basic article template</a></li>
+<li><a href="#sec-2">2. Adding a title, author and date</a></li>
+<li><a href="#sec-3">3. Sections</a></li>
+<li><a href="#sec-4">4. Create tables</a></li>
+<li><a href="#sec-5">5. Adding a Table of Contents</a></li>
+<li><a href="#sec-6">6. Support Chinese Typeset</a></li>
+<li><a href="#sec-7">7. Reference</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Create a basic article template</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+\documentclass[11pt]{article}
+
+\begin{document}
+This is a simple example.
+\end{document}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Adding a title, author and date</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+This is a simple example.
+\end{document}
+</pre>
+
+<p>
+这时候我们发现刚添加的信息并没有显示出来，这是怎么回事？
+现在我们使用 <b>\maketitle</b> 将上面的信息打印到文档中。
+</p>
+
+<pre class="example">
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+This is a simple example.
+\end{document}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Sections</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\subsection{First Subsection}
+Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
+ 
+\section*{Unnumbered Section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem
+\end{document}
+</pre>
+
+<p>
+注意看最后一个，通过 <b>\section*{}</b> 中包含星号，使得节编号禁用。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Create tables</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                      
+\author{Siqing Mu}                                                                                                   
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\subsection{First Subsection}
+Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
+ 
+\section*{Unnumbered Section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem
+
+\section{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|}
+ \hline
+cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell \\
+ \hline
+cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell \\
+ \hline
+cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell\\
+ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Adding a Table of Contents</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+\tableofcontents
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Support Chinese Typeset</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+\usepackage{ctex}
+\usepackage{xeCJK}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Reference</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li><a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes</a>
+</li>
+<li><a href="http://www.hanlindong.com/2017/latex-on-mac/">http://www.hanlindong.com/2017/latex-on-mac/</a>
+</li>
+<li><a href="http://liuchengxu.org/blog-cn/posts/quick-latex/">http://liuchengxu.org/blog-cn/posts/quick-latex/</a>
+</li>
+<li><a href="https://www.latex-tutorial.com/">https://www.latex-tutorial.com/</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+#+TITLE: Learn LaTeX in 30 minutes
+#+DATE: [2019-09-14 Sat 23:58]
+
+*** Create a basic article template
+
+#+BEGIN_EXAMPLE
+\documentclass[11pt]{article}
+
+\begin{document}
+This is a simple example.
+\end{document}
+#+END_EXAMPLE
+
+*** Adding a title, author and date
+
+#+BEGIN_EXAMPLE
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+This is a simple example.
+\end{document}
+#+END_EXAMPLE
+
+这时候我们发现刚添加的信息并没有显示出来，这是怎么回事？
+现在我们使用 *\maketitle* 将上面的信息打印到文档中。
+
+#+BEGIN_EXAMPLE
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+This is a simple example.
+\end{document}
+#+END_EXAMPLE
+
+*** Sections
+
+#+BEGIN_EXAMPLE
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                   
+
+\author{Siqing Mu}                                                                                                  
+
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\subsection{First Subsection}
+Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
+ 
+\section*{Unnumbered Section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem
+\end{document}
+#+END_EXAMPLE
+
+注意看最后一个，通过 *\section*{}* 中包含星号，使得节编号禁用。
+
+*** Create tables
+
+#+BEGIN_EXAMPLE
+\documentclass[11pt]{article}
+
+\title{My First \LaTeX{} Article}                                                                                      
+\author{Siqing Mu}                                                                                                   
+\date{2019-07-26}  
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+ 
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+\section{Second Section}
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+\subsection{First Subsection}
+Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
+ 
+\section*{Unnumbered Section}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem
+
+\section{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|}
+ \hline
+cell & cell & cell & cell & cell & cell \\
+ \hline
+cell & cell & cell & cell & cell & cell \\
+ \hline
+cell & cell & cell & cell & cell & cell\\
+ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
+
+#+END_EXAMPLE
+
+*** Adding a Table of Contents
+
+#+BEGIN_EXAMPLE
+\tableofcontents
+#+END_EXAMPLE
+
+*** Support Chinese Typeset
+
+#+BEGIN_EXAMPLE
+\usepackage{ctex}
+\usepackage{xeCJK}
+#+END_EXAMPLE
+
+*** Reference
+
++ https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
++ http://www.hanlindong.com/2017/latex-on-mac/
++ http://liuchengxu.org/blog-cn/posts/quick-latex/
++ https://www.latex-tutorial.com/
