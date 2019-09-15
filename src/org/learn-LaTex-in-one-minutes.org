@@ -1,4 +1,4 @@
-#+TITLE: Learn LaTeX in 30 minutes
+#+TITLE: Learn LaTeX in one minutes
 #+DATE: [2019-09-14 Sat 23:58]
 
 *** Create a basic article template
