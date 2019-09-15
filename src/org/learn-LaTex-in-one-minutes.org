@@ -14,7 +14,9 @@ This is a simple example.
 *** Adding a title, author and date
 
 #+BEGIN_EXAMPLE
-\title{My First \LaTeX{} Article}                                                                             \author{Siqing Mu}                                                                                            \date{2019-07-26}
+\title{My First \LaTeX{} Article}                                                                           
+\author{Siqing Mu}
+\date{2019-07-26}
 #+END_EXAMPLE
 
 这时候我们发现刚添加的信息并没有显示出来，这是怎么回事？
@@ -69,6 +71,11 @@ This is the unnumbered section.
 
 注意看最后一个，通过 *\section*{}* 中包含星号，使得节编号禁用。
 
+*** Adding a Table of Contents
+
+#+BEGIN_EXAMPLE
+\tableofcontents
+#+END_EXAMPLE
 *** Create tables
 
 #+BEGIN_EXAMPLE
@@ -86,12 +93,6 @@ cell & cell & cell & cell & cell & cell\\
 \end{center}
 #+END_EXAMPLE
 
-*** Adding a Table of Contents
-
-#+BEGIN_EXAMPLE
-\tableofcontents
-#+END_EXAMPLE
-
 *** Support Chinese Typeset
 
 #+BEGIN_EXAMPLE
@@ -99,6 +100,55 @@ cell & cell & cell & cell & cell & cell\\
 \usepackage{xeCJK}
 #+END_EXAMPLE
 
+*** Bold, italics and underlining
+
+#+BEGIN_EXAMPLE
+Some of the \textbf{greatest}
+discoveries in \underline{science} 
+were made by \textbf{\textit{accident}}.
+#+END_EXAMPLE
+
+*** Create lists
+**** unordered lists
+#+BEGIN_EXAMPLE
+\begin{itemize}
+  \item The individual entries are indicated with a black dot, a so-called bullet.
+  \item The text in the entries may be of any length.
+\end{itemize}
+#+END_EXAMPLE
+**** ordered lists
+#+BEGIN_EXAMPLE
+\begin{enumerate}
+  \item This is the first entry in our list
+  \item The list numbers increase with each entry we add
+\end{enumerate}
+#+END_EXAMPLE
+
+*** Adding images
+指定包和图片路径
+#+BEGIN_EXAMPLE
+\usepackage{graphicx}
+\graphicspath{ {Pictures/} }
+#+END_EXAMPLE
+
+引入图片及设置宽高并保证纵横比，或根据比例缩放
+#+BEGIN_EXAMPLE
+\includegraphics[width=6cm,height=3cm,keepaspectratio]{image.jpg}
+\includegraphics[width=\textwidth]{image.jpg}
+\includegraphics[scale=0.25]{image.jpg}
+#+END_EXAMPLE
+
+也可以用如下形式引入图片
+#+BEGIN_EXAMPLE
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{Plot}
+\caption{My amazing figure}
+\end{figure}
+#+END_EXAMPLE
+
+*** Source Download
++ [[file:../../resource/template.zip][template.zip]]
 *** Reference
 
 + https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes

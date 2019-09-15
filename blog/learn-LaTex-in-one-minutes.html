@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Learn LaTeX in one minutes</title>
-<!-- 2019-09-15 Sun 21:18 -->
+<!-- 2019-09-15 Sun 22:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -62,10 +62,19 @@
 <li><a href="#sec-1">1. Create a basic article template</a></li>
 <li><a href="#sec-2">2. Adding a title, author and date</a></li>
 <li><a href="#sec-3">3. Sections</a></li>
-<li><a href="#sec-4">4. Create tables</a></li>
-<li><a href="#sec-5">5. Adding a Table of Contents</a></li>
+<li><a href="#sec-4">4. Adding a Table of Contents</a></li>
+<li><a href="#sec-5">5. Create tables</a></li>
 <li><a href="#sec-6">6. Support Chinese Typeset</a></li>
-<li><a href="#sec-7">7. Reference</a></li>
+<li><a href="#sec-7">7. Bold, italics and underlining</a></li>
+<li><a href="#sec-8">8. Create lists</a>
+<ul>
+<li><a href="#sec-8-1">8.1. unordered lists</a></li>
+<li><a href="#sec-8-2">8.2. ordered lists</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. Adding images</a></li>
+<li><a href="#sec-10">10. Source Download</a></li>
+<li><a href="#sec-11">11. Reference</a></li>
 </ul>
 </div>
 </div>
@@ -87,7 +96,9 @@ This is a simple example.
 <h2 id="sec-2"><span class="section-number-2">2</span> Adding a title, author and date</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
-\title{My First \LaTeX{} Article}                                                                             \author{Siqing Mu}                                                                                            \date{2019-07-26}
+\title{My First \LaTeX{} Article}                                                                           
+\author{Siqing Mu}
+\date{2019-07-26}
 </pre>
 
 <p>
@@ -152,8 +163,16 @@ This is the unnumbered section.
 </div>
 
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Create tables</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> Adding a Table of Contents</h2>
 <div class="outline-text-2" id="text-4">
+<pre class="example">
+\tableofcontents
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Create tables</h2>
+<div class="outline-text-2" id="text-5">
 <pre class="example">
 \section{table}
 \begin{center}
@@ -171,15 +190,6 @@ cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell\\
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Adding a Table of Contents</h2>
-<div class="outline-text-2" id="text-5">
-<pre class="example">
-\tableofcontents
-</pre>
-</div>
-</div>
-
 <div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6"><span class="section-number-2">6</span> Support Chinese Typeset</h2>
 <div class="outline-text-2" id="text-6">
@@ -191,8 +201,88 @@ cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell\\
 </div>
 
 <div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Reference</h2>
+<h2 id="sec-7"><span class="section-number-2">7</span> Bold, italics and underlining</h2>
 <div class="outline-text-2" id="text-7">
+<pre class="example">
+Some of the \textbf{greatest}
+discoveries in \underline{science} 
+were made by \textbf{\textit{accident}}.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Create lists</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> unordered lists</h3>
+<div class="outline-text-3" id="text-8-1">
+<pre class="example">
+\begin{itemize}
+  \item The individual entries are indicated with a black dot, a so-called bullet.
+  \item The text in the entries may be of any length.
+\end{itemize}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> ordered lists</h3>
+<div class="outline-text-3" id="text-8-2">
+<pre class="example">
+\begin{enumerate}
+  \item This is the first entry in our list
+  \item The list numbers increase with each entry we add
+\end{enumerate}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Adding images</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+指定包和图片路径
+</p>
+<pre class="example">
+\usepackage{graphicx}
+\graphicspath{ {Pictures/} }
+</pre>
+
+<p>
+引入图片及设置宽高并保证纵横比，或根据比例缩放
+</p>
+<pre class="example">
+\includegraphics[width=6cm,height=3cm,keepaspectratio]{image.jpg}
+\includegraphics[width=\textwidth]{image.jpg}
+\includegraphics[scale=0.25]{image.jpg}
+</pre>
+
+<p>
+也可以用如下形式引入图片
+</p>
+<pre class="example">
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{Plot}
+\caption{My amazing figure}
+\end{figure}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Source Download</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li><a href="../../resource/template.zip">template.zip</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> Reference</h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes</a>
 </li>
