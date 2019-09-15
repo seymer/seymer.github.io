@@ -14,75 +14,57 @@ This is a simple example.
 *** Adding a title, author and date
 
 #+BEGIN_EXAMPLE
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
-This is a simple example.
-\end{document}
+\title{My First \LaTeX{} Article}                                                                             \author{Siqing Mu}                                                                                            \date{2019-07-26}
 #+END_EXAMPLE
 
 这时候我们发现刚添加的信息并没有显示出来，这是怎么回事？
 现在我们使用 *\maketitle* 将上面的信息打印到文档中。
 
 #+BEGIN_EXAMPLE
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
 \maketitle
-
-This is a simple example.
-\end{document}
 #+END_EXAMPLE
 
 *** Sections
 
 #+BEGIN_EXAMPLE
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
-\maketitle
-
-
-\section{Introduction}
- 
+\section{First Section}                                                                                         
 This is the first section.
- 
-Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
-elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
-neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
-Donec ullamcorper, felis non sodales...
- 
-\section{Second Section}
- 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
-sollicitudin.  Praesent imperdiet mi necante...
- 
-\subsection{First Subsection}
-Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
- 
-\section*{Unnumbered Section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem
-\end{document}
+                                                                                                                                                                   
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                                                                                                              
+\section{Second Section}                                                                                       
+This is the Second section.                                                                                                                  
+        
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                                                                                                            
+\section{Third Section} 
+This is the third section.
+
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                   
+\section*{Unnumbered Section}                                                                               
+This is the unnumbered section.
 #+END_EXAMPLE
 
 注意看最后一个，通过 *\section*{}* 中包含星号，使得节编号禁用。
@@ -90,41 +72,9 @@ Etiam lobortis facilisissem
 *** Create tables
 
 #+BEGIN_EXAMPLE
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                      
-\author{Siqing Mu}                                                                                                   
-\date{2019-07-26}  
-
-\begin{document}
-\maketitle
-
-
-\section{Introduction}
- 
-This is the first section.
- 
-Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
-elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
-neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
-Donec ullamcorper, felis non sodales...
- 
-\section{Second Section}
- 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
-sollicitudin.  Praesent imperdiet mi necante...
- 
-\subsection{First Subsection}
-Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
- 
-\section*{Unnumbered Section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem
-
 \section{table}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|}
  \hline
 cell & cell & cell & cell & cell & cell \\
  \hline
@@ -134,9 +84,6 @@ cell & cell & cell & cell & cell & cell\\
  \hline
 \end{tabular}
 \end{center}
-
-\end{document}
-
 #+END_EXAMPLE
 
 *** Adding a Table of Contents

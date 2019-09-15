@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Learn LaTeX in one minutes</title>
-<!-- 2019-09-15 Sun 15:34 -->
+<!-- 2019-09-15 Sun 21:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -87,17 +87,7 @@ This is a simple example.
 <h2 id="sec-2"><span class="section-number-2">2</span> Adding a title, author and date</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
-This is a simple example.
-\end{document}
+\title{My First \LaTeX{} Article}                                                                             \author{Siqing Mu}                                                                                            \date{2019-07-26}
 </pre>
 
 <p>
@@ -106,19 +96,7 @@ This is a simple example.
 </p>
 
 <pre class="example">
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
 \maketitle
-
-This is a simple example.
-\end{document}
 </pre>
 </div>
 </div>
@@ -127,40 +105,44 @@ This is a simple example.
 <h2 id="sec-3"><span class="section-number-2">3</span> Sections</h2>
 <div class="outline-text-2" id="text-3">
 <pre class="example">
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                   
-
-\author{Siqing Mu}                                                                                                  
-
-\date{2019-07-26}  
-
-\begin{document}
-\maketitle
-
-
-\section{Introduction}
- 
+\section{First Section}                                                                                         
 This is the first section.
- 
-Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
-elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
-neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
-Donec ullamcorper, felis non sodales...
- 
-\section{Second Section}
- 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
-sollicitudin.  Praesent imperdiet mi necante...
- 
-\subsection{First Subsection}
-Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
- 
-\section*{Unnumbered Section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem
-\end{document}
+                                                                                                                                                                   
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                                                                                                              
+\section{Second Section}                                                                                       
+This is the Second section.                                                                                                                  
+        
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                                                                                                            
+\section{Third Section} 
+This is the third section.
+
+\subsection{First Subsection}                                                                                  
+This is the first subsection. 
+
+\subsection{Second Subsection}                                                                                  
+This is the second subsection. 
+
+\subsection{Third Subsection}                                                                                  
+This is the third subsection. 
+                   
+\section*{Unnumbered Section}                                                                               
+This is the unnumbered section.
 </pre>
 
 <p>
@@ -173,41 +155,9 @@ Etiam lobortis facilisissem
 <h2 id="sec-4"><span class="section-number-2">4</span> Create tables</h2>
 <div class="outline-text-2" id="text-4">
 <pre class="example">
-\documentclass[11pt]{article}
-
-\title{My First \LaTeX{} Article}                                                                                      
-\author{Siqing Mu}                                                                                                   
-\date{2019-07-26}  
-
-\begin{document}
-\maketitle
-
-
-\section{Introduction}
- 
-This is the first section.
- 
-Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
-elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
-neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
-Donec ullamcorper, felis non sodales...
- 
-\section{Second Section}
- 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
-sollicitudin.  Praesent imperdiet mi necante...
- 
-\subsection{First Subsection}
-Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
- 
-\section*{Unnumbered Section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem
-
 \section{table}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|}
  \hline
 cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell \\
  \hline
@@ -217,8 +167,6 @@ cell &amp; cell &amp; cell &amp; cell &amp; cell &amp; cell\\
  \hline
 \end{tabular}
 \end{center}
-
-\end{document}
 </pre>
 </div>
 </div>
