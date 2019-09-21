@@ -149,9 +149,17 @@ were made by \textbf{\textit{accident}}.
 
 *** Source Download
 + [[file:../../resource/template.zip][template.zip]]
+*** Getting Tex and LaTex
++ [[http://tug.org/mactex/][MacTex]] for MacOS
++ [[https://www.tug.org/texlive/][TeXLive]] for GNU/Linux
++ [[https://www.tug.org/protext/][proText]] for Windows
+
 *** Reference
 
 + https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
 + http://www.hanlindong.com/2017/latex-on-mac/
 + http://liuchengxu.org/blog-cn/posts/quick-latex/
 + https://www.latex-tutorial.com/
++ https://www.whoishostingthis.com/resources/tex-latex/
++ https://www.kronto.org/thesis/index.html
++ https://www.ctan.org/
