@@ -163,3 +163,4 @@ were made by \textbf{\textit{accident}}.
 + https://www.whoishostingthis.com/resources/tex-latex/
 + https://www.kronto.org/thesis/index.html
 + https://www.ctan.org/
++ https://www.andy-roberts.net/writing/latex/tables
