@@ -17,7 +17,6 @@ O(2^n): Exponential Growth（指数）
 O(n!): Factorial（阶乘）
 #+END_EXAMPLE
 
-Application to common algorithms[fn:1]
 [[file:./images/application-to-common-algorithms]]
 
 
