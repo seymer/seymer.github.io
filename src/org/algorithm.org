@@ -29,11 +29,11 @@ O(n!): Factorial（阶乘）
 2. Hash Table + Double LinkedList
 3. O(1) get and O(1) set
 
+常用两种：
 1. LFU - least frequently used
 [[file:./images/LFU-Cache.png]]
 2. LRU - least recently used
 [[file:./images/LRU-Cache.png]]
-
 
 *** Bloom Filter
 
