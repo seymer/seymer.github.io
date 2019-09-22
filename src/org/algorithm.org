@@ -19,5 +19,9 @@ O(n!): Factorial（阶乘）
 
 [[file:./images/application-to-common-algorithms.png]]
 
+[[file:../resource/bigoposter.pdf]]
+
+
 
 [fn:1]https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)
+[fn:2]https://www.bigocheatsheet.com/
