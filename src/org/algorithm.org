@@ -21,9 +21,38 @@ O(n!): Factorial（阶乘）
 
 [[../resource/bigoposter.pdf][Big O Poster]]
 
+*** LRU Cache
+[[file:./images/cpu-socket.png]]
 
+三个要点：
+1. Least Recently Used
+2. Hash Table + Double LinkedList
+3. O(1) get and O(1) set
+
+1. LFU - least frequently used
+[[file:./images/LFU-Cache.png]]
+2. LRU - least recently used
+[[file:./images/LRU-Cache.png]]
+
+
+*** Bloom Filter
+
+两个特点：
+1. 空间效率和查询速度远超一般算法
+2. 查询不存在肯定不存在
+3. 查询存在但不一定存在，需要再次确认
+
++ 查询不存在肯定不存在情况
+[[file:./images/bloom-filter-01.png]]
+
++ 查询存在但不一定存在情况
+[[file:./images/bloom-filter-02.png]]
+
+*** 总结
 
 [fn:1]https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)
 [fn:2]https://www.bigocheatsheet.com/
 [fn:3][[../resource/bigoposter.pdf][Big O Poster]]
 [fn:4]https://en.wikipedia.org/wiki/Heap_(data_structure)
+[fn:5]https://www.sqlpassion.at/archive/2018/01/06/understanding-the-meltdown-exploit-in-my-own-simple-words/
+[fn:6]https://en.wikipedia.org/wiki/Cache_replacement_policies
