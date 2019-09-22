@@ -26,3 +26,4 @@ O(n!): Factorial（阶乘）
 [fn:1]https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)
 [fn:2]https://www.bigocheatsheet.com/
 [fn:3][[../resource/bigoposter.pdf][Big O Poster]]
+[fn:4]https://en.wikipedia.org/wiki/Heap_(data_structure)
