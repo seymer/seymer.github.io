@@ -1,0 +1,24 @@
+#+TITLE: 算法通关40讲
+#+DATE: [2019-09-22 Sun 08:52]
+
+*** 算法/数据结构/系统设计
+[[file:./images/algorithm-data-structure-system-design.png]]
+
+*** 时间复杂度/空间复杂度
+#+BEGIN_EXAMPLE
+Big O notation
+
+O(1): Constant Complexity（常数复杂度）
+O(log n): Logarithmic Complexity（对数复杂度）
+O(n): Linear Complexity（线性时间复杂度）
+O(n^2): N square Complexity（平方）
+O(n^3): N square Complexity（立方）
+O(2^n): Exponential Growth（指数）
+O(n!): Factorial（阶乘）
+#+END_EXAMPLE
+
+Application to common algorithms[fn:1]
+[[file:./images/application-to-common-algorithms]]
+
+
+[fn:1]https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)

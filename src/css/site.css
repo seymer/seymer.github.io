@@ -1,12 +1,13 @@
 html {
     #font-family: Georgia, "Microsoft Yahei", "WenQuanYi Micro Hei";
-    background: linear-gradient(to bottom, #024d68, #b2b2b2) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    /* 
+    /* -webkit-background-size: cover;
+    /* -moz-background-size: cover;
+    /* -o-background-size: cover;
+    /* background-size: cover;
     font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
     border-top: 3px solid #990000;
+    background: linear-gradient(to bottom, #024d68, #b2b2b2) no-repeat center center fixed;
 }
 
 /* body { */
