@@ -17,7 +17,7 @@ O(2^n): Exponential Growth（指数）
 O(n!): Factorial（阶乘）
 #+END_EXAMPLE
 
-[[file:./images/application-to-common-algorithms]].png
+[[file:./images/application-to-common-algorithms.png]]
 
 
 [fn:1]https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)
