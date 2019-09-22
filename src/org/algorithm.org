@@ -19,7 +19,7 @@ O(n!): Factorial（阶乘）
 
 [[file:./images/application-to-common-algorithms.png]]
 
-[[file:../resource/bigoposter.pdf]]
+[[../resource/bigoposter.pdf]]
 
 
 
