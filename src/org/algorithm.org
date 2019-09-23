@@ -96,7 +96,7 @@ PoriorityQueue - 优先队列
 
 [[file:./images/hash-collisions.png]]
 
-[[file:./listvsmapvsset.png]]
+[[file:./images/listvsmapvsset.png]]
 
 *** Tree & Binary Tree & Binary Search Tree
 
