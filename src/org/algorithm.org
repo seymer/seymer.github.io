@@ -22,7 +22,39 @@ O(n!): Factorial（阶乘）
 [[../resource/bigoposter.pdf][Big O Poster]]
 
 *** Array & Linked List
-[[file:./images/array.tiff]]
+Array
+[[file:./images/array-search.png]]
+
+[[file:./images/array-insert-delete.png]]
+
+#+BEGIN_EXAMPLE
+复杂度分析
+
+Access:  O(1)
+Insert: 平均O(n)，如果插入到最后一个则是O(1)
+Delete: 平均O(n)，如果删除最后一个则是O(1)
+#+END_EXAMPLE
+
+Linked List
+[[file:./images/linked-list.png]]
+
+[[file:./images/linked-list-add-node.png]]
+
+[[file:.//images/linked-list-delete-node.png]]
+
+Doubly Linked List
+[[file:./images/doubly-linked-list.png]]
+
+#+BEGIN_EXAMPLE
+复杂度分析
+
+space:   O(n)
+prepend: O(1)
+append:  O(1)
+lookup:  O(n)
+insert:  O(1)
+delete:  O(1) 
+#+END_EXAMPLE
 
 *** Union & Find 
 
