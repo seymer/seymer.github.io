@@ -21,6 +21,11 @@ O(n!): Factorial（阶乘）
 
 [[../resource/bigoposter.pdf][Big O Poster]]
 
+*** Array & Linked List
+[[file:./images/array.tiff]]
+
+*** Union & Find 
+
 *** LRU Cache
 [[file:./images/cpu-socket.png]]
 
