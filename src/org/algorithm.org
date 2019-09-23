@@ -23,6 +23,7 @@ O(n!): Factorial（阶乘）
 
 *** Array & Linked List
 Array
+
 [[file:./images/array-search.png]]
 
 [[file:./images/array-insert-delete.png]]
@@ -36,6 +37,7 @@ Delete: 平均O(n)，如果删除最后一个则是O(1)
 #+END_EXAMPLE
 
 Linked List
+
 [[file:./images/linked-list.png]]
 
 [[file:./images/linked-list-add-node.png]]
@@ -43,6 +45,7 @@ Linked List
 [[file:.//images/linked-list-delete-node.png]]
 
 Doubly Linked List
+
 [[file:./images/doubly-linked-list.png]]
 
 #+BEGIN_EXAMPLE
