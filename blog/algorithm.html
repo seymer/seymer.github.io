@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>算法通关40讲</title>
-<!-- 2019-09-23 Mon 21:49 -->
+<!-- 2019-09-23 Mon 23:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -20,10 +20,14 @@
 <li><a href="#sec-1">1. 算法/数据结构/系统设计</a></li>
 <li><a href="#sec-2">2. 时间复杂度/空间复杂度</a></li>
 <li><a href="#sec-3">3. Array &amp; Linked List</a></li>
-<li><a href="#sec-4">4. Union &amp; Find</a></li>
-<li><a href="#sec-5">5. LRU Cache</a></li>
-<li><a href="#sec-6">6. Bloom Filter</a></li>
-<li><a href="#sec-7">7. 总结</a></li>
+<li><a href="#sec-4">4. Stack &amp; queue</a></li>
+<li><a href="#sec-5">5. PriorityQueue</a></li>
+<li><a href="#sec-6">6. HashTable &amp; Set</a></li>
+<li><a href="#sec-7">7. Tree &amp; Binary Tree &amp; Binary Search Tree</a></li>
+<li><a href="#sec-8">8. Union &amp; Find</a></li>
+<li><a href="#sec-9">9. LRU Cache</a></li>
+<li><a href="#sec-10">10. Bloom Filter</a></li>
+<li><a href="#sec-11">11. 总结</a></li>
 </ul>
 </div>
 </div>
@@ -139,12 +143,99 @@ delete:  O(1)
 </div>
 
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Union &amp; Find</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> Stack &amp; queue</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+Stack - First In First Out (FIFO)
+Queue - First In Last Out (FILO)
+</pre>
+
+
+<div class="figure">
+<p><img src="./images/stack.png" alt="stack.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/queue.png" alt="queue.png" />
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> LRU Cache</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> PriorityQueue</h2>
 <div class="outline-text-2" id="text-5">
+<pre class="example">
+Stack - First In First Out (FIFO)
+Queue - First In Last Out (FILO)
+PoriorityQueue - 优先队列
+</pre>
+
+<p>
+实现机制
+</p>
+
+<ol class="org-ol">
+<li>Heap (Binary, Binomial, Fibonacci)
+</li>
+<li>Binary Search Tree
+</li>
+</ol>
+
+<p>
+两种堆
+</p>
+
+<ol class="org-ol">
+<li>小顶堆
+</li>
+<li>大顶堆
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> HashTable &amp; Set</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+1. Hash Function
+2. Hash Collisions
+</pre>
+
+
+<div class="figure">
+<p><img src="./images/hash-function.png" alt="hash-function.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/hash-collisions.png" alt="hash-collisions.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./listvsmapvsset.png" alt="listvsmapvsset.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Tree &amp; Binary Tree &amp; Binary Search Tree</h2>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Union &amp; Find</h2>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> LRU Cache</h2>
+<div class="outline-text-2" id="text-9">
 
 <div class="figure">
 <p><img src="./images/cpu-socket.png" alt="cpu-socket.png" />
@@ -187,9 +278,9 @@ delete:  O(1)
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Bloom Filter</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Bloom Filter</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 两个特点：
 </p>
@@ -222,9 +313,9 @@ delete:  O(1)
 </div>
 </div>
 
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> 总结</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> 总结</h2>
+<div class="outline-text-2" id="text-11">
 </div>
 </div>
 </div>

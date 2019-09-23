@@ -59,6 +59,47 @@ insert:  O(1)
 delete:  O(1) 
 #+END_EXAMPLE
 
+*** Stack & queue
+#+BEGIN_EXAMPLE
+Stack - First In First Out (FIFO)
+Queue - First In Last Out (FILO)
+#+END_EXAMPLE
+
+[[file:./images/stack.png]]
+
+[[file:./images/queue.png]]
+
+*** PriorityQueue
+#+BEGIN_EXAMPLE
+Stack - First In First Out (FIFO)
+Queue - First In Last Out (FILO)
+PoriorityQueue - 优先队列
+#+END_EXAMPLE
+
+实现机制
+
+1. Heap (Binary, Binomial, Fibonacci)
+3. Binary Search Tree
+
+两种堆
+
+1. 小顶堆
+2. 大顶堆
+
+*** HashTable & Set
+#+BEGIN_EXAMPLE
+1. Hash Function
+2. Hash Collisions
+#+END_EXAMPLE
+
+[[file:./images/hash-function.png]]
+
+[[file:./images/hash-collisions.png]]
+
+[[file:./listvsmapvsset.png]]
+
+*** Tree & Binary Tree & Binary Search Tree
+
 *** Union & Find 
 
 *** LRU Cache
