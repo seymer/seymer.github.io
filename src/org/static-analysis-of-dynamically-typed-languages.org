@@ -1,0 +1,11 @@
+#+TITLE: 静态分析动态类型语言
+#+DATE: [2019-09-24 Tue 08:30]
+
+*** 什么是静态分析
+
+*** 如何进行静态分析
+
+*** 总结
+
+*** 参考
++ http://www.yinwang.org/resources/pysonar-slides.pdf

@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:static-analysis-of-dynamically-typed-languages.org][2019-09-24 静态分析动态类型语言]]
    + [[file:algorithm.org][2019-09-22 算法通关40讲]]
    + [[file:learn-LaTex-in-ten-minutes.org][2019-09-14 Learn LaTeX in ten minutes]]
    + [[file:googles-engineering-practices-documentation.org][2019-09-13 Google's Engineering Practices documentation]]
