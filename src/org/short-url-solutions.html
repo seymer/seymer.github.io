@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>短链接实现方案</title>
+<!-- 2019-09-25 Wed 08:59 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">短链接实现方案</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 介绍</a></li>
+<li><a href="#sec-2">2. 作用</a></li>
+<li><a href="#sec-3">3. 实现</a></li>
+<li><a href="#sec-4">4. 踩过的坑</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 介绍</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+短链接是一种通过一定规则，将源链接置换为由短域名+随机字符的链接形式。当用户点击短链接后，通过HTTP重定向到源链接。本质上是一种映射关系。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 作用</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>美化
+</li>
+<li>跟踪点击
+</li>
+<li>伪装底层地址
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 实现</h2>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 踩过的坑</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+function foo($left_operand, $modulus)
+{
+  if (!function_exist('bcmod')) {
+    return $left_operand % $modulus;
+  } else {
+    return bcmod($left_operand, $modulus);
+  }
+}
+</pre>
+
+<p>
+初看是不是感觉没什么问题，判断bcmod函数是否存在，如果不存在则作取模运算，否则存在就调用bcmod函数进行取模运算。但是，等等。取模运算符 % 等同于 bcmod() 吗？通过测试，你发现二者并不等同。如果知道bcmod()函数的生产机制，我们是不是可以写出来等同的函数来，理论上，是可以的。这里我也在官方手册下方找到一个用户提交的函数。
+</p>
+
+<pre class="example">
+&lt;?php 
+
+// my_bcmod - get modulus (substitute for bcmod) 
+// string my_bcmod ( string left_operand, int modulus ) 
+// left_operand can be really big, but be carefull with modulus :( 
+// by Andrius Baranauskas and Laurynas Butkus :) Vilnius, Lithuania 
+
+function my_bcmod( $x, $y ) 
+{ 
+    // how many numbers to take at once? carefull not to exceed (int) 
+    $take = 5;     
+    $mod = ''; 
+
+    do 
+    { 
+        $a = (int)$mod.substr( $x, 0, $take ); 
+        $x = substr( $x, $take ); 
+        $mod = $a % $y;    
+    } 
+    while ( strlen($x) ); 
+
+    return (int)$mod; 
+} 
+
+// example 
+echo my_bcmod( "7044060001970316212900", 150 ); 
+?&gt;
+</pre>
+
+<p>
+通过简单测试，我们发现这个 my<sub>bcmod</sub>() 函数和 bcmod() 函数给定相同输入，返回相同输出。这样我们是不是可以用 my<sub>bcmod</sub>() 替换那个简单的取模运算符了。答案是No。即使现在我们看来二者貌似等同。那为什么呢，首先先不论该函数是否真的和bcmod()函数使用了相同的生产机制，就算等同，最好也不应该那么做。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2019-09-24 Tue 23:17]</span></span></p>
+<p class="author">Author: Siqing Mu</p>
+<p class="date">Created: 2019-09-25 Wed 08:59</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
