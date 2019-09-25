@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>短链接实现方案</title>
-<!-- 2019-09-24 Tue 23:21 -->
+<!-- 2019-09-25 Wed 08:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -17,13 +17,119 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 介绍</a></li>
+<li><a href="#sec-0-0-1">0.0.1. 介绍</a></li>
+<li><a href="#sec-0-0-2">0.0.2. 作用</a></li>
+<li><a href="#sec-0-0-3">0.0.3. 实现</a></li>
+<li><a href="#sec-0-0-4">0.0.4. 踩过的坑</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1">1. my_bcmod - get modulus (substitute for bcmod)</a></li>
+<li><a href="#sec-2">2. string my_bcmod ( string left_operand, int modulus )</a></li>
+<li><a href="#sec-3">3. left_operand can be really big, but be carefull with modulus :(</a></li>
+<li><a href="#sec-4">4. by Andrius Baranauskas and Laurynas Butkus :) Vilnius, Lithuania</a></div>
+</div>
+
+<div id="outline-container-sec-0-0-1" class="outline-4">
+<h4 id="sec-0-0-1"><span class="section-number-4">0.0.1</span> 介绍</h4>
+<div class="outline-text-4" id="text-0-0-1">
+<p>
+短链接是一种通过一定规则，将源链接置换为由短域名+随机字符的链接形式。当用户点击短链接后，通过HTTP重定向到源链接。本质上是一种映射关系。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-0-0-2" class="outline-4">
+<h4 id="sec-0-0-2"><span class="section-number-4">0.0.2</span> 作用</h4>
+<div class="outline-text-4" id="text-0-0-2">
+<ul class="org-ul">
+<li>美化
+</li>
+<li>跟踪点击
+</li>
+<li>伪装底层地址
+</li>
 </ul>
 </div>
 </div>
 
+<div id="outline-container-sec-0-0-3" class="outline-4">
+<h4 id="sec-0-0-3"><span class="section-number-4">0.0.3</span> 实现</h4>
+</div>
+
+<div id="outline-container-sec-0-0-4" class="outline-4">
+<h4 id="sec-0-0-4"><span class="section-number-4">0.0.4</span> 踩过的坑</h4>
+<div class="outline-text-4" id="text-0-0-4">
+<pre class="example">
+function foo($left_operand, $modulus)
+{
+  if (!function_exist('bcmod')) {
+    return $left_operand % $modulus;
+  } else {
+    return bcmod($left_operand, $modulus);
+  }
+}
+</pre>
+
+<p>
+初看是不是感觉没什么问题，判断bcmod函数是否存在，如果不存在则作取模运算，否则存在就调用bcmod函数进行取模运算。但是，等等。取模运算符 % 等同于 bcmod() 吗？通过测试，你发现二者并不等同。如果知道bcmod()函数的生产机制，我们是不是可以写出来等同的函数来，理论上，是可以的。这里我也在官方手册下方找到一个用户提交的函数。
+</p>
+
+<p>
+#+BEGIN_EXAMPLE
+&lt;?php 
+/** 
+</p>
+</div>
+</div>
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 介绍</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> my_bcmod - get modulus (substitute for bcmod)</h2>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> string my_bcmod ( string left_operand, int modulus )</h2>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> left_operand can be really big, but be carefull with modulus :(</h2>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> by Andrius Baranauskas and Laurynas Butkus :) Vilnius, Lithuania</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+**/ 
+function my_bcmod( $x, $y ) 
+{ 
+    // how many numbers to take at once? carefull not to exceed (int) 
+    $take = 5;     
+    $mod = ''; 
+</p>
+
+<p>
+do 
+{ 
+    $a = (int)$mod.substr( $x, 0, $take ); 
+    $x = substr( $x, $take ); 
+    $mod = $a % $y;    
+} 
+while ( strlen($x) ); 
+</p>
+
+<p>
+    return (int)$mod; 
+} 
+</p>
+
+<p>
+// example 
+echo my_bcmod( "7044060001970316212900", 150 ); 
+?&gt;
+#+END_EXAMPLE
+</p>
+
+<p>
+通过简单测试，我们发现这个 my_bcmod() 函数和 bcmod() 函数给定相同输入，返回相同输出。这样我们是不是可以用 my_bcmod() 替换那个简单的取模运算符了。答案是No。即使现在我们看来二者貌似等同。那为什么呢，首先先不论该函数是否真的和bcmod()函数使用了相同的生产机制，就算等同，最好也不应该那么做。
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

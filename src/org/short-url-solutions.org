@@ -2,4 +2,57 @@
 #+DATE: [2019-09-24 Tue 23:17]
 
 *** 介绍
+短链接是一种通过一定规则，将源链接置换为由短域名+随机字符的链接形式。当用户点击短链接后，通过HTTP重定向到源链接。本质上是一种映射关系。
 
+*** 作用
++ 美化
++ 跟踪点击
++ 伪装底层地址
+
+*** 实现
+
+*** 踩过的坑
+#+BEGIN_EXAMPLE
+function foo($left_operand, $modulus)
+{
+  if (!function_exist('bcmod')) {
+    return $left_operand % $modulus;
+  } else {
+    return bcmod($left_operand, $modulus);
+  }
+}
+#+END_EXAMPLE
+
+初看是不是感觉没什么问题，判断bcmod函数是否存在，如果不存在则作取模运算，否则存在就调用bcmod函数进行取模运算。但是，等等。取模运算符 % 等同于 bcmod() 吗？通过测试，你发现二者并不等同。如果知道bcmod()函数的生产机制，我们是不是可以写出来等同的函数来，理论上，是可以的。这里我也在官方手册下方找到一个用户提交的函数。
+
+#+BEGIN_EXAMPLE
+<?php 
+/** 
+* my_bcmod - get modulus (substitute for bcmod) 
+* string my_bcmod ( string left_operand, int modulus ) 
+* left_operand can be really big, but be carefull with modulus :( 
+* by Andrius Baranauskas and Laurynas Butkus :) Vilnius, Lithuania 
+**/ 
+function my_bcmod( $x, $y ) 
+{ 
+    // how many numbers to take at once? carefull not to exceed (int) 
+    $take = 5;     
+    $mod = ''; 
+
+    do 
+    { 
+        $a = (int)$mod.substr( $x, 0, $take ); 
+        $x = substr( $x, $take ); 
+        $mod = $a % $y;    
+    } 
+    while ( strlen($x) ); 
+
+    return (int)$mod; 
+} 
+
+// example 
+echo my_bcmod( "7044060001970316212900", 150 ); 
+?>
+#+END_EXAMPLE
+
+通过简单测试，我们发现这个 my_bcmod() 函数和 bcmod() 函数给定相同输入，返回相同输出。这样我们是不是可以用 my_bcmod() 替换那个简单的取模运算符了。答案是No。即使现在我们看来二者貌似等同。那为什么呢，首先先不论该函数是否真的和bcmod()函数使用了相同的生产机制，就算等同，最好也不应该那么做。
