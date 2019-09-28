@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>算法通关40讲</title>
-<!-- 2019-09-28 Sat 22:52 -->
+<!-- 2019-09-28 Sat 23:26 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -26,11 +26,14 @@
 <li><a href="#sec-7">7. Tree &amp; Binary Tree &amp; Binary Search Tree</a></li>
 <li><a href="#sec-8">8. 二叉树遍历</a></li>
 <li><a href="#sec-9">9. 递归 &amp; 分治</a></li>
-<li><a href="#sec-10">10. </a></li>
-<li><a href="#sec-11">11. Union &amp; Find</a></li>
-<li><a href="#sec-12">12. LRU Cache</a></li>
-<li><a href="#sec-13">13. Bloom Filter</a></li>
-<li><a href="#sec-14">14. 总结</a></li>
+<li><a href="#sec-10">10. 贪心算法（Greedy Algorithms)</a></li>
+<li><a href="#sec-11">11. 广度优先搜索（Breeadth-First-Search）</a></li>
+<li><a href="#sec-12">12. 深度优先搜索（Depth-First-Search）</a></li>
+<li><a href="#sec-13">13. 二分查找（Binary Search）</a></li>
+<li><a href="#sec-14">14. Union &amp; Find</a></li>
+<li><a href="#sec-15">15. LRU Cache</a></li>
+<li><a href="#sec-16">16. Bloom Filter</a></li>
+<li><a href="#sec-17">17. 总结</a></li>
 </ul>
 </div>
 </div>
@@ -262,7 +265,7 @@ Tree 就是特殊化的 Graph
 
 
 <div class="figure">
-<p><img src="../images/binary-search-tree.png" alt="binary-search-tree.png" />
+<p><img src="./images/binary-search-tree.png" alt="binary-search-tree.png" />
 </p>
 </div>
 
@@ -273,15 +276,14 @@ Tree 就是特殊化的 Graph
 </div>
 
 <pre class="example">
-</pre>
-<p>
 TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if (root <code>= null || root =</code> p || root == q) return root;
+    if (root == null || root == p || root == q) return root;
     TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
-        return left <code>= null ? right : right =</code> null ? left : root;
+	TreeNode right = lowestCommonAncestor(root.right, p, q);
+	return left == null ? right : right == null ? left : root;
 }
-</p>
+</pre>
+
 <pre class="example">
 def lowestCommonAncestor(self, root, p, q):
     if p.val &lt; root.val &gt; q.val:
@@ -340,7 +342,16 @@ def postorder(self, root):
 <div class="outline-text-2" id="text-9">
 <p>
 Recursion
+<img src="./images/recursion.png" alt="recursion.png" />
+<img src="./images/recursive.png" alt="recursive.png" />
 </p>
+
+<p>
+<img src="./images/recursion-fib.png" alt="recursion-fib.png" />
+<img src="./images/recursive-fib.png" alt="recursive-fib.png" />
+</p>
+
+
 <pre class="example">
 def recursion(level, param1, param2, ...):
     # recursion terminator
@@ -359,8 +370,10 @@ def recursion(level, param1, param2, ...):
 </pre>
 
 <p>
-Divde &amp; Conquer
+Divide &amp; Conquer
+<img src="./images/Divide.png" alt="Divide.png" />
 </p>
+
 <pre class="example">
 def divide_conquer(problem, param1, param2, ...):
     
@@ -386,15 +399,107 @@ def divide_conquer(problem, param1, param2, ...):
 </div>
 
 <div id="outline-container-sec-10" class="outline-2">
-<h2 id="sec-10"><span class="section-number-2">10</span> </h2>
+<h2 id="sec-10"><span class="section-number-2">10</span> 贪心算法（Greedy Algorithms)</h2>
+<div class="outline-text-2" id="text-10">
+
+<div class="figure">
+<p><img src="./images/greedy.png" alt="greedy.png" />
+</p>
 </div>
+</div>
+</div>
+
 <div id="outline-container-sec-11" class="outline-2">
-<h2 id="sec-11"><span class="section-number-2">11</span> Union &amp; Find</h2>
+<h2 id="sec-11"><span class="section-number-2">11</span> 广度优先搜索（Breeadth-First-Search）</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+How a BFS Would Traverse This Tree
+<img src="./images/BFS.png" alt="BFS.png" />
+</p>
+
+<pre class="example">
+def BFS(graph, start, end)
+    
+    queue = []
+    queue.append([start])
+    visited.add(start)
+    
+    while queue:
+        node = queue.pop()
+        visited.add(node)
+        
+        process(node)
+        nodes = generate_related_nodes(node)
+        queue.push(nodes)
+        
+    # other processing work
+</pre>
+</div>
 </div>
 
 <div id="outline-container-sec-12" class="outline-2">
-<h2 id="sec-12"><span class="section-number-2">12</span> LRU Cache</h2>
+<h2 id="sec-12"><span class="section-number-2">12</span> 深度优先搜索（Depth-First-Search）</h2>
 <div class="outline-text-2" id="text-12">
+<p>
+How a DFS Would Traverse This Tree
+<img src="./images/DFS.png" alt="DFS.png" />
+</p>
+
+<p>
+BFS vs DFS
+<img src="./images/bfs-vs-dfs.png" alt="bfs-vs-dfs.png" />
+</p>
+
+<p>
+DFS 递归写法
+</p>
+<pre class="example">
+visited = set()
+def dfs(node, visited):
+    visited.add(node)
+    # process current node here.
+    ...
+    for next_node in node.children():
+        if not next_node in visited:
+            dfs(next_node, visited)
+</pre>
+
+<p>
+DFS 非递归写法
+</p>
+<pre class="example">
+def DFS(self, tree):
+    
+    if tree.root is None:
+        return []
+    
+    visited, stack = [], [tree.root]
+    
+    while stack:
+        node = stack.pop()
+        visited.add(node)
+        
+        process(node)
+        nodes = generate_related_nodes(node)
+        stack.push(nodes)
+        
+    # other processing work
+    ...
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> 二分查找（Binary Search）</h2>
+</div>
+
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> Union &amp; Find</h2>
+</div>
+
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> LRU Cache</h2>
+<div class="outline-text-2" id="text-15">
 
 <div class="figure">
 <p><img src="./images/cpu-socket.png" alt="cpu-socket.png" />
@@ -437,9 +542,9 @@ def divide_conquer(problem, param1, param2, ...):
 </div>
 </div>
 
-<div id="outline-container-sec-13" class="outline-2">
-<h2 id="sec-13"><span class="section-number-2">13</span> Bloom Filter</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> Bloom Filter</h2>
+<div class="outline-text-2" id="text-16">
 <p>
 两个特点：
 </p>
@@ -472,9 +577,9 @@ def divide_conquer(problem, param1, param2, ...):
 </div>
 </div>
 
-<div id="outline-container-sec-14" class="outline-2">
-<h2 id="sec-14"><span class="section-number-2">14</span> 总结</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> 总结</h2>
+<div class="outline-text-2" id="text-17">
 </div>
 </div>
 </div>

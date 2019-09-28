@@ -112,19 +112,19 @@ Tree 就是特殊化的 Graph
 
 [[file:./images/tree-language.png]]
 
-[[file:../images/binary-search-tree.png]]
+[[file:./images/binary-search-tree.png]]
 
 [[file:./images/binary-search-tree-img.png]]
 
 #+BEGIN_EXAMPLE
-
-#+END_EXAMPLE
 TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if (root == null || root == p || root == q) return root;
     TreeNode left = lowestCommonAncestor(root.left, p, q);
 	TreeNode right = lowestCommonAncestor(root.right, p, q);
 	return left == null ? right : right == null ? left : root;
 }
+#+END_EXAMPLE
+
 #+BEGIN_EXAMPLE
 def lowestCommonAncestor(self, root, p, q):
     if p.val < root.val > q.val:
@@ -174,6 +174,13 @@ def postorder(self, root):
 
 *** 递归 & 分治
 Recursion
+[[file:./images/recursion.png]]
+[[file:./images/recursive.png]]
+
+[[file:./images/recursion-fib.png]]
+[[file:./images/recursive-fib.png]]
+
+
 #+BEGIN_EXAMPLE
 def recursion(level, param1, param2, ...):
     # recursion terminator
@@ -191,7 +198,9 @@ def recursion(level, param1, param2, ...):
     reverse_state(level)
 #+END_EXAMPLE
 
-Divde & Conquer
+Divide & Conquer
+[[file:./images/Divide.png]]
+
 #+BEGIN_EXAMPLE
 def divide_conquer(problem, param1, param2, ...):
     
@@ -214,7 +223,73 @@ def divide_conquer(problem, param1, param2, ...):
     result = process_result(subresult1, subresult2, subresult3, ...)
 #+END_EXAMPLE
 
-*** 
+*** 贪心算法（Greedy Algorithms)
+[[file:./images/greedy.png]]
+
+*** 广度优先搜索（Breeadth-First-Search）
+How a BFS Would Traverse This Tree
+[[file:./images/BFS.png]]
+
+#+BEGIN_EXAMPLE
+def BFS(graph, start, end)
+    
+    queue = []
+    queue.append([start])
+    visited.add(start)
+    
+    while queue:
+        node = queue.pop()
+        visited.add(node)
+        
+        process(node)
+        nodes = generate_related_nodes(node)
+        queue.push(nodes)
+        
+    # other processing work
+#+END_EXAMPLE
+
+*** 深度优先搜索（Depth-First-Search）
+How a DFS Would Traverse This Tree
+[[file:./images/DFS.png]]
+
+BFS vs DFS
+[[file:./images/bfs-vs-dfs.png]]
+
+DFS 递归写法
+#+BEGIN_EXAMPLE
+visited = set()
+def dfs(node, visited):
+    visited.add(node)
+    # process current node here.
+    ...
+    for next_node in node.children():
+        if not next_node in visited:
+            dfs(next_node, visited)            
+#+END_EXAMPLE
+
+DFS 非递归写法
+#+BEGIN_EXAMPLE
+def DFS(self, tree):
+    
+    if tree.root is None:
+        return []
+    
+    visited, stack = [], [tree.root]
+    
+    while stack:
+        node = stack.pop()
+        visited.add(node)
+        
+        process(node)
+        nodes = generate_related_nodes(node)
+        stack.push(nodes)
+        
+    # other processing work
+    ...
+#+END_EXAMPLE
+
+*** 二分查找（Binary Search）
+
 *** Union & Find 
 
 *** LRU Cache
