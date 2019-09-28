@@ -99,7 +99,122 @@ PoriorityQueue - 优先队列
 [[file:./images/listvsmapvsset.png]]
 
 *** Tree & Binary Tree & Binary Search Tree
+[[file:./images/tree.png]]
 
+[[file:./images/binaryTree.png]]
+
+[[file:./images/graph.png]]
+
+#+BEGIN_EXAMPLE
+Linked List 就是特殊化的 Tree
+Tree 就是特殊化的 Graph
+#+END_EXAMPLE
+
+[[file:./images/tree-language.png]]
+
+[[file:../images/binary-search-tree.png]]
+
+[[file:./images/binary-search-tree-img.png]]
+
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if (root == null || root == p || root == q) return root;
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+	TreeNode right = lowestCommonAncestor(root.right, p, q);
+	return left == null ? right : right == null ? left : root;
+}
+#+BEGIN_EXAMPLE
+def lowestCommonAncestor(self, root, p, q):
+    if p.val < root.val > q.val:
+        return self.lowestCommonAncestor(root.left, p, q)
+    if p.val > root.val < q.val:
+        return self.lowestCommonAncestor(root.right, p, q)
+    return root
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+def lowestCommonAncestor(self, root, p, q):
+    while root:
+        if p.val < root.val > q.val:
+            root = root.left
+        elif p.val > root.val < q.val:
+            root = root.right
+        else:
+            return root        
+#+END_EXAMPLE
+
+*** 二叉树遍历
+#+BEGIN_EXAMPLE
+前序（Pre-order）根-左-右
+中序（In-order）左-根-右
+后序（Post-order）左-右-根
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+def preorder(self, root):
+    if root:
+        self.traverse_path.append(root.val)
+        self.preorder(root.left)
+        self.preorder(root.right)
+        
+def inorder(self, root):
+    if root:
+        self.inorder(root.left)
+        self.traverse_path.append(root.val)
+        self.inorder(root.right)
+        
+def postorder(self, root):
+    if root:
+        self.postorder(root.left)
+        self.postorder(root.right)
+        self.traverse_path.append(root.val)
+#+END_EXAMPLE
+
+*** 递归 & 分治
+Recursion
+#+BEGIN_EXAMPLE
+def recursion(level, param1, param2, ...):
+    # recursion terminator
+    if level > MAX_LEVEL:
+        print_result
+        return
+    
+    # process logic in current level
+    pocess_data(level, data...)
+    
+    # drill down
+    self.recursion(level + 1, p1, ...)
+    
+    # reverse the current level status if needed
+    reverse_state(level)
+#+END_EXAMPLE
+
+Divde & Conquer
+#+BEGIN_EXAMPLE
+def divide_conquer(problem, param1, param2, ...):
+    
+    # recursion terminator
+    if problem is None:
+        print_result
+        return
+    
+    # prepare data
+    data = prepare_data(problem)
+    subproblems = split_problem(problem, data)
+    
+    #conquer subproblems
+    subresult1 = self.divide_conquer(subproblems[0], p1, ...)
+    subresult2 = self.divide_conquer(subproblems[1], p1, ...)
+    subresult3 = self.divide_conquer(subproblems[2], p1, ...)
+    ...
+    
+    # process and generate the final result
+    result = process_result(subresult1, subresult2, subresult3, ...)
+#+END_EXAMPLE
+
+*** 
 *** Union & Find 
 
 *** LRU Cache
