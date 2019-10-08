@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>解决彩云小译样式混乱问题</title>
-<!-- 2019-10-08 Tue 22:24 -->
+<!-- 2019-10-08 Tue 22:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -58,6 +58,7 @@ Ubuntu (Linux)
 <pre class="example">
 chrome-extension://jmpepeebcbihafjjadogphmbgiffiajh/options.html
 </pre>
+
 <ol class="org-ol">
 <li>打开Terminal终端，进入如下目录，后面的字符串为上一步复制所得。
 </li>
@@ -65,6 +66,7 @@ chrome-extension://jmpepeebcbihafjjadogphmbgiffiajh/options.html
 <pre class="example">
 /home/abc/.config/google-chrome-beta/Default/Extensions/jmpepeebcbihafjjadogphmbgiffiajh
 </pre>
+
 <ol class="org-ol">
 <li>这时可以看到版本号文件夹目录1.0.2_0，进入后打开 tbn.js 文件，搜索如下链接并替换为#号。
 </li>
@@ -72,6 +74,7 @@ chrome-extension://jmpepeebcbihafjjadogphmbgiffiajh/options.html
 <pre class="example">
 https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css
 </pre>
+
 <ol class="org-ol">
 <li>保存，完事。希望彩云小译团队在下个版本中能解决这个问题。
 </li>
