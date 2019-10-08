@@ -3,24 +3,32 @@
 
 最近发现使用彩云小译扩展程序时，会将原网页样式搞得非常混乱，严重影响阅读体验。现将临时解决方案放到下方，仅供参考。
 
-当前使用版本：
+*** 当前使用版本：
+#+BEGIN_EXAMPLE
 彩云小译 V1.0.2 
+#+END_EXAMPLE
 
-当前使用操作系统：
+*** 当前使用操作系统：
+#+BEGIN_EXAMPLE
 Ubuntu (Linux)
+#+END_EXAMPLE
 
-步骤
+*** 步骤
 1. 获取彩云小译代码放置位置
 首先，右击选择Options选项，可以看到地址栏类似如下所示。（复制中间字符串，下一步会用到）
+#+BEGIN_EXAMPLE
 chrome-extension://jmpepeebcbihafjjadogphmbgiffiajh/options.html
-
+#+END_EXAMPLE
 2. 打开Terminal终端，进入如下目录，后面的字符串为上一步复制所得。
+#+BEGIN_EXAMPLE
 /home/abc/.config/google-chrome-beta/Default/Extensions/jmpepeebcbihafjjadogphmbgiffiajh
-
+#+END_EXAMPLE
 3. 这时可以看到版本号文件夹目录1.0.2_0，进入后打开 tbn.js 文件，搜索如下链接并替换为#号。
+#+BEGIN_EXAMPLE
 https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css
-
+#+END_EXAMPLE
 4. 保存，完事。希望彩云小译团队在下个版本中能解决这个问题。
+
 
 
 
