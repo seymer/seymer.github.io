@@ -22,7 +22,12 @@ chrome-extension://jmpepeebcbihafjjadogphmbgiffiajh/options.html
 
 + 打开Terminal终端，进入如下目录，后面的字符串为上一步复制所得。
 #+BEGIN_EXAMPLE
-/home/abc/.config/google-chrome-beta/Default/Extensions/jmpepeebcbihafjjadogphmbgiffiajh
+~/.config/google-chrome-beta/Default/Extensions/jmpepeebcbihafjjadogphmbgiffiajh
+#+END_EXAMPLE
+
+MacOS 系统下所在地址
+#+BEGIN_EXAMPLE
+~/Library/Application Support/Google/Chrome/Default/Extensions/jmpepeebcbihafjjadogphmbgiffiajh/1.0.2_0
 #+END_EXAMPLE
 
 + 这时可以看到版本号文件夹目录1.0.2_0，进入后打开 tbn.js 文件，搜索如下链接并替换为#号。
