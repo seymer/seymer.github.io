@@ -240,12 +240,12 @@ a:hover {
 }
 
 a:link {
-    color: #5d5d5d;
+    color: #9caec7;
     text-decoration: none
 }
 
 a:visited {
-    color: #393f4e;
+    color: #5d5d5d;
 }
 
 img {
