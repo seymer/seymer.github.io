@@ -252,3 +252,15 @@ img.displayed {
     content: "\2766";
     font-size: 34px;
 }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+    color: #e4e4e4;
+  }
+  a {
+    color: #e39777;
+  }
+  img {
+    filter: grayscale(30%);
+  }
+}
