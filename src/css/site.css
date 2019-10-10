@@ -66,11 +66,11 @@ pre {
 
     background: #000;
     color: #fff;
-    padding: 1em;
+    padding: 8px;
     font-size: 90%;
     overflow: auto;
     font-family: courier;
-    border: solid;
+    /* border: solid; */
     border-width: thin;
     border-radius: 4px;
 
