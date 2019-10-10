@@ -230,7 +230,7 @@ a {
     /* border-bottom: 1px dashed Red; */
     padding: 1px;
     # color: black;
-    color: #c03
+    color: #778087;
 }
 
 
@@ -240,12 +240,12 @@ a:hover {
 }
 
 a:link {
-    color: #c03;
+    color: #778087;
     text-decoration: none
 }
 
 a:visited {
-    color: #c03
+    color: #9caec7
 }
 
 img {
