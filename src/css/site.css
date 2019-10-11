@@ -5,7 +5,8 @@ html {
     /* -moz-background-size: cover;
     /* -o-background-size: cover;
     /* background-size: cover;*/
-    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    /* font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif; */
+    font-family: Georgia,hoefler text,"dejavu serif","bistream vera serif",lucida bright,serif;
     border-top: 3px solid #990000;    
 }
 
@@ -66,7 +67,7 @@ pre {
 
     background: #000;
     color: #fff;
-    padding: 8px;
+    padding: 6px;
     font-size: 90%;
     overflow: auto;
     font-family: courier;
@@ -214,6 +215,8 @@ pre {
     line-height: 130%;
     margin-left: 10px;
     width: 95%; */
+    font-weight: 600;    
+    color: #afa;
 }
 
 
