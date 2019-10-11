@@ -230,7 +230,7 @@ a {
     /* border-bottom: 1px dashed Red; */
     padding: 1px;
     # color: black;
-    color: #afb9c1;
+    color: #5d5d5d;
 }
 
 
@@ -240,12 +240,12 @@ a:hover {
 }
 
 a:link {
-    color: #9caec7;
+    /* color: #9caec7; */
     text-decoration: none
 }
 
 a:visited {
-    color: #5d5d5d;
+    color: #afb9c1;
 }
 
 img {
