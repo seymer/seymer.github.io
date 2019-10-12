@@ -243,13 +243,13 @@ a:hover {
 }
 
 a:link {
-    /* color: #9caec7; */
+    color: #9caec7;
     text-decoration: none
 }
 
 a:visited {
     color: #afb9c1;
-}
+} 
 
 img {
     box-shadow: 0 0 10px #555;
@@ -280,11 +280,18 @@ img.displayed {
     background-color: #18222D;
     color: #e4e4e4;
   }
-  a:link {
-    color: #9caec7;
+
+  img {
+    filter: grayscale(30%);
   }
-  a:visited {
-     color: #afb9c1
+}
+/*@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+    color: #e4e4e4;
+  }
+  a {
+    color: #e39777;
   }
   img {
     filter: grayscale(30%);
