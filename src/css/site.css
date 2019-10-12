@@ -248,7 +248,8 @@ a:link {
 }
 
 a:visited {
-    color: #afb9c1;
+    /* color: #afb9c1; */
+    color: #555d63;    
 } 
 
 img {
