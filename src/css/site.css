@@ -277,7 +277,7 @@ img.displayed {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #444;
+    background-color: #18222D;
     color: #e4e4e4;
   }
   a {
