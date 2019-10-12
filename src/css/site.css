@@ -217,6 +217,7 @@ pre {
     width: 95%; */
     font-weight: 600;    
     color: #afa;
+    
 }
 
 
@@ -294,6 +295,11 @@ img.displayed {
 
   img {
     filter: grayscale(30%);
+  }
+
+  pre {
+     background: #1d1f21;
+     color: #c5c8c6;
   }
 }
 /*@media (prefers-color-scheme: dark) {
