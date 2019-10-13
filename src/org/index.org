@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:configure-dns-over-https-in-firefox.org][2019-10-13 在Firefox中配置DNS over HTTPS]]
+   + [[file:configure-dns-over-https-in-firefox.org][2019-10-13 在 Firefox 中配置DNS over HTTPS]]
    + [[file:lingocloud-css-issue.org][2019-10-08 解决彩云小译样式混乱问题]]
    + [[file:short-url-solutions.org][2019-09-24 短链接实现方案]]
    + [[file:static-analysis-of-dynamically-typed-languages.org][2019-09-24 静态分析动态类型语言]]

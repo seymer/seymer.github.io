@@ -1,11 +1,9 @@
-#+TITLE: 在Firefox中配置DNS over HTTPS
+#+TITLE: 在 Firefox 中配置DNS over HTTPS
 #+DATE: [2019-10-13 Sun 16:29]
 
-Firefox Developer Edition
+*** Firefox 配置
 
-https://www.mozilla.org/en-US/firefox/developer/
-
-并且在 about:config 里打开以下选项(非开发版也可以设置)：
+在 about:config 里打开以下选项(非开发版也可以设置)：
 
 + network.trr.bootstrapAddress 设置为 1.1.1.1
 + network.trr.mode 设置为 2
@@ -14,7 +12,7 @@ https://www.mozilla.org/en-US/firefox/developer/
 
 + network.security.esni.enabled 设置为 true
 
-公共服务列表
+*** 公共服务列表
 
 + https://github.com/curl/curl/wiki/DNS-over-HTTPS
 
