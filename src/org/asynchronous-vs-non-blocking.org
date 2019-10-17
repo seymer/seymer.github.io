@@ -1,0 +1,8 @@
+#+TITLE: 同步，异步，阻塞和非阻塞
+#+DATE: [2019-10-13 Sun 18:55]
+
+link:
+https://en.wikipedia.org/wiki/Asynchronous_I/O
+https://stackoverflow.com/questions/2625493/asynchronous-vs-non-blocking
+https://ring0.me/2014/11/sync-async-blocked/
+

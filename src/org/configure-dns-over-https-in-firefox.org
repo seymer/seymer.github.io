@@ -12,6 +12,10 @@
 
 + network.security.esni.enabled 设置为 true
 
+顺便把远超解析DNS功能也打开吧
+
++ network.proxy.socks_remote_dns 设置为 true
+
 *** 公共服务列表
 
 + https://github.com/curl/curl/wiki/DNS-over-HTTPS
