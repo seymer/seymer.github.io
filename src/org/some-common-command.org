@@ -26,6 +26,7 @@ lsof -i:port  #查看占用端口
 ssh online-machine "sudo tcpdump -s 0 -U -n -i eth0 not port 22 -w -" | wireshark -k -i -\n  #在本地捕获远端服务器数据包
 luyten Java反编译
 jad Java反编译
+jd-gui Java反编译
 
 #+END_EXAMPLE
 
