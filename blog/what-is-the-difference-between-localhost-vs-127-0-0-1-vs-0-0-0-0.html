@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>127.0.0.1 vs localhost vs 0.0.0.0 之间有什么区别</title>
-<!-- 2019-11-16 Sat 14:56 -->
+<!-- 2019-11-16 Sat 15:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -117,7 +117,16 @@ localhost:8080
 <ul class="org-ul">
 <li>localhost 是一个方便输入的字符，是127.0.0.1的映射。另外因为相对输入IP来讲，一个单词或字符会更符合人们的习惯，也更便于记忆。这也就是域名的由来。当然，如果你不喜欢localhost，比如改成cat，也是可以的，随你喜欢。如果你去掉/etc/hosts文件中配置的映射关系，localhost就仅是一个单词。
 </li>
-<li>在当前上下文中，0.0.0.0 相当于 127.0.0.1，环回地址127.0.01属于最初/终的地址。如果把他想象成一个环，它既是起点，也是终点。
+<li>在当前上下文中，0.0.0.0 相当于 127.0.0.1，环回地址127.0.01属于最初/终的地址。如果把他想象成一个环，它既是起点，也是终点。0.0.0.0是不可路由的元地址。
+</li>
+</ul>
+
+<p>
+reference
+</p>
+
+<ul class="org-ul">
+<li><a href="https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0">https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0</a>
 </li>
 </ul>
 </div>
