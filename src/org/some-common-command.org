@@ -14,6 +14,7 @@ usermod -aG sudo $USER  #将用户添加到指定群组，这里的sudo是举例
 sudo adduser username sudo #新增用户并添加到sudo群组
 sudo update-alternatives --config editor #修改默认浏览器
 netstat -lntp #显示服务端口
+netstat -a -n | grep -i listen # MacOS查看服务端口
 wrk #HTTP测试工具
 ipef3 #测试网络带宽的工具
 perf stat -r N -d #测量整条命令的运行时间,比time精确, 比如我们测试ls命令：perf stat -r N -d ls
@@ -27,6 +28,7 @@ ssh online-machine "sudo tcpdump -s 0 -U -n -i eth0 not port 22 -w -" | wireshar
 luyten Java反编译
 jad Java反编译
 jd-gui Java反编译
+jps -l Java process status
 
 #+END_EXAMPLE
 
