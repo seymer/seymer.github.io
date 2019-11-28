@@ -29,7 +29,7 @@ luyten Java反编译
 jad Java反编译
 jd-gui Java反编译
 jps -l Java process status
-
+dd if=/dev/zero of=50M.txt bs=50m count=1 生成一个50M的文件
 #+END_EXAMPLE
 
 使用ssh-keygen生成公私钥，并设置仅自己可读

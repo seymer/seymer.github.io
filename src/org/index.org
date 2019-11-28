@@ -1,5 +1,7 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:mysql-optimization-tips.org][2019-11-28 MySQL optimization tips]]
+   + [[file:how-to-design-and-implement-a-highly-available-order-system.org][2019-11-23 如何设计并实现一个高可用的订单系统]]
    + [[file:what-is-the-difference-between-localhost-vs-127-0-0-1-vs-0-0-0-0.org][2019-11-16 127.0.0.1 vs localhost vs 0.0.0.0 之间有什么区别]]
    + [[file:asynchronous-vs-non-blocking.org][2019-10-13 同步，异步，阻塞和非阻塞]]
    + [[file:configure-dns-over-https-in-firefox.org][2019-10-13 在 Firefox 中配置DNS over HTTPS]]

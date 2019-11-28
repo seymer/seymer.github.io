@@ -1,0 +1,6 @@
+#+TITLE: MySQL optimization tips
+#+DATE: [2019-11-28 Thu 08:41]
+#+AUTHOR: Siqing Mu
+
+
+*** 优化指标基础概念
