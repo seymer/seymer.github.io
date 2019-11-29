@@ -1,22 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>一些常用命令</title>
-<!-- 2019-11-29 Fri 09:03 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
-<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
-</head>
-<body>
-<div id="content">
-<h1 class="title">一些常用命令</h1>
-<p>
+>#+TITLE: 一些常用命令
+#+DATE: [2019-09-01 Sun 23:13]
+
 一般性命令
-</p>
-<pre class="example">
+#+BEGIN_EXAMPLE
 df -h #查看挂载设备和挂载点
 fdisk -l #查看所有驱动器
 lsblk -f #查看文件类型系统
@@ -44,60 +30,46 @@ jad Java反编译
 jd-gui Java反编译
 jps -l Java process status
 dd if=/dev/zero of=50M.txt bs=50m count=1 生成一个50M的文件
-</pre>
+#+END_EXAMPLE
 
-<p>
-Debian or Ubuntu source select
-</p>
-<pre class="example">
-netselect
-netselect-apt
-</pre>
-
-<p>
 使用ssh-keygen生成公私钥，并设置仅自己可读
-</p>
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]
 chmod 400 ~/.ssh/[KEY_FILENAME]
-</pre>
+#+END_EXAMPLE
 
-<p>
 使用sshuttle代理
-</p>
-<pre class="example">
+#+BEGIN_EXAMPLE
 sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa.pub'
 sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa.pub'
-</pre>
+#+END_EXAMPLE
 
-<p>
 使用SSH代理
-</p>
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh -C -f -N -g -L 1080:10.65.33.82:8000 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 # ssh -C -f -N -g -L local_port:remote_host:remote_port user@remote_host
 //将远程服务转发到本地，remote_host也可以为127.0.0.1，指的是远程主机的环回地址。
-</pre>
+#+END_EXAMPLE
 
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh -C -f -N -g -L 1080:10.65.33.72:8000 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 //ssh -C -f -N -g -L local_port:jump_host:remote_port user@remote_host
 //将远程服务通过跳板机转发到本地，这样增加了数据访问的安全性，也就是说你是通过跳板机去访问远程服务的，便于隐匿自身（访问者）。
-</pre>
+#+END_EXAMPLE
 
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh -C -f -N -g -R 8000:localhost:80 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 # ssh -C -f -N -g -R remote_port:local_host:local_port user@remote_host
 //将本地服务转发到远程， local_host为本机localhost或者127.0.0.1或者本地机器ip
-</pre>
+#+END_EXAMPLE
 
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh -C -f -N -g -R 8001:192.168.30.64:8000 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 //ssh -C -f -N -g -R remote_port:target_host:target_port user@remote_host
 //将目标服务转发到远程， 这里我们将一个可以从本机访问的内容转发到远程主机，让远程主机也可以访问。和上面的区别,其实没有本质区别，本地服务也就是目标服务。但形式上，该行表示为将A机器上的服务通过本机B转发给另外一台C机器。
-</pre>
+#+END_EXAMPLE
 
-<pre class="example">
+#+BEGIN_EXAMPLE
 ssh -N -D 1080 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 //-N 参数必须放在-D前面，表示不执行远程命令，即不会登录到远程主机。
 
@@ -109,47 +81,25 @@ ssh -C -f -N -D 1080 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 
 ssh -C -f -N -g -D 1080 musiqing@10.65.33.82 -i /path/to/.ssh/id_rsa
 //-g 参数表示允许远程主机连接本地转发端口，即设置为 0.0.0.0 上，从而使其他主机可以连接该代理。如果不加该参数，则默认绑定为127.0.0.1。
-</pre>
+#+END_EXAMPLE
 
-<p>
 安全相关
-</p>
-<pre class="example">
+#+BEGIN_EXAMPLE
 unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0; export HISTFILESIZE=0  #不记录history
 python -c 'import pty; pty.spawn("/bin/sh")'  #使用交互shell
 ssh -C -f -N -g -R local_port:localhost:remote_port user@remote_host  #将远程端口服务转发到本地端口
 ssh -C -f -N -g -L local_port:localhost:remote_port user@remote_host  #将本地端口服务转发到远程端口
 ssh -C -f -N -g -D local_port user@remote_host #动态端口转发，socks5代理
-</pre>
+#+END_EXAMPLE
 
 
-<p>
 参考
-</p>
-<ul class="org-ul">
-<li><a href="https://zhuanlan.zhihu.com/p/57630633">https://zhuanlan.zhihu.com/p/57630633</a>
-</li>
-</ul>
-</div>
-<div id="postamble" class="status">
-<div id="disqus_thread"></div>
-            <script type="text/javascript">
-            var disqus_shortname = 'seymer';
-            (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-            </script>
-            <script>
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
++ https://zhuanlan.zhihu.com/p/57630633
 
-              ga('create', 'UA-110114842-1', 'auto');
-              ga('send', 'pageview');
-            </script>
-</div>
-</body>
-</html>
+
+
+
+
+
+
+

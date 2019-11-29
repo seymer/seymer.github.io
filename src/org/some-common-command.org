@@ -32,6 +32,12 @@ jps -l Java process status
 dd if=/dev/zero of=50M.txt bs=50m count=1 生成一个50M的文件
 #+END_EXAMPLE
 
+Debian or Ubuntu source select
+#+BEGIN_EXAMPLE
+netselect
+netselect-apt
+#+END_EXAMPLE
+
 使用ssh-keygen生成公私钥，并设置仅自己可读
 #+BEGIN_EXAMPLE
 ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]
