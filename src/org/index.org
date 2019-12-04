@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:medical-handbook.org][2019-12-04 医学手册]]
    + [[file:mysql-optimization-tips.org][2019-11-28 MySQL optimization tips]]
    + [[file:how-to-design-and-implement-a-highly-available-order-system.org][2019-11-23 如何设计并实现一个高可用的订单系统]]
    + [[file:what-is-the-difference-between-localhost-vs-127-0-0-1-vs-0-0-0-0.org][2019-11-16 127.0.0.1 vs localhost vs 0.0.0.0 之间有什么区别]]
