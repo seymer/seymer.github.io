@@ -7,7 +7,7 @@
 + https://www.17ce.com/
 
 *** 传输文件工具
-https://anonfile.com/
-http://send.firefox.com/
++ https://anonfile.com/
++ http://send.firefox.com/
 
 

@@ -11,7 +11,7 @@
 
 最后，在同事的协助下，搜索到以下两个类似问题，现象简直一模一样。
 
-https://www.cnblogs.com/dachenzi/p/8031647.html
-https://segmentfault.com/a/1190000004994583
++ https://www.cnblogs.com/dachenzi/p/8031647.html
++ https://segmentfault.com/a/1190000004994583
 
 原来是思科设备把2000端口给占用了，用于SCCP服务，该服务有个特点，它只接收SCCP协议的数据包，其余的一律丢弃。
