@@ -1,0 +1,22 @@
+#+TITLE: Thought works 技术雷达
+#+DATE: [2020-01-07 Tue 08:32]
+
+link: https://assets.thoughtworks.com/assets/technology-radar-vol-21-cn.pdf
+
++ 云：多即是少？
++ 保护软件供应链
++ 打开机器学习的黑匣子。在选择机器学习模型时，将可解释性视为第一要务。
++ 软件开发是一项团队运动。不提倡 **10倍工程师** 的理念，应专注创建和赋能 **10倍团队**。
+
+
+*** 技术
++ Container security scanning  容器的安全扫描
++ Data integrity at the origin 数据在源头的准确性
++ Micro frontends 微前端
++ Pipelines for infrastructure as code 使用流水线基础架构作为代码开发中的一环。
+
+CI/CD工具能够被用来测试服务器的配置（如Chef cookbooks，Puppet modules和Ansible playbooks），服务器的镜像构建（如Packer），环境的生成（如Terraform，CloudFormation）和环境间的集成。将流水线用于基础设施即代码，可以让你在变更应用于运行环境（包括开发和测试环境）之前就发现错误。
+
++ Run cost as an architecture fitness function 
+
+
