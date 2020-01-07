@@ -1,6 +1,10 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:simple-tutorial-for-nubula.org][2020-01-07 Nebula 简易手册]]
    + [[file:technology-radar.org][2020-01-07 Thought works 技术雷达]]
+   + [[file:list.org][2020-01-02 工具箱]]
+   + [[file:oh-shit-2000-port.org][2020-01-02 oh shit! 2000 端口]]
+   + [[file:cloning-a-git-repo-and-it-already-has-a-dirty-working.org][2020-01-02 新克隆的仓库，什么都没做，却存在修改，为什么？]]
    + [[file:medical-handbook.org][2019-12-04 医学手册]]
    + [[file:mysql-optimization-tips.org][2019-11-28 MySQL optimization tips]]
    + [[file:how-to-design-and-implement-a-highly-available-order-system.org][2019-11-23 如何设计并实现一个高可用的订单系统]]

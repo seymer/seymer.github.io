@@ -1,0 +1,84 @@
+#+TITLE: Nebula 简易手册
+#+DATE: [2020-01-07 Tue 22:24]
+
+现在有三台机器A，B，C，分别对应
+
+#+BEGIN_EXAMPLE
+A【laptop】 比如你的MacBook，内网
+B【lighthouse】 比如你的VPS，这个需要有公网IP
+C【server】比如你的Ubuntu，内网
+#+END_EXAMPLE
+
+1. 安装软件，针对不同平台选择不同包[1]，然后下载解压到 /usr/local/bin 目录。
+
+2. 进入B机器也就是lighthouse节点，我们先创建存放配置文件的目录。
+#+BEGIN_EXAMPLE
+    > mkdir -p /etc/nebula/
+#+END_EXAMPLE
+  
+   接着签发一个组织认证证书。
+#+BEGIN_EXAMPLE
+    > nebula-cert ca -name "Myorganization, Inc"
+#+END_EXAMPLE
+
+
+3. 还是在B机器，我们要签发B【lighthouse】和其他节点(A【laptop】C【server】)的证书。
+#+BEGIN_EXAMPLE
+    > nebula-cert sign -name "lighthouse" -ip "192.168.100.1/24"
+    > nebula-cert sign -name "laptop" -ip "192.168.100.2/24”
+    > nebula-cert sign -name "server" -ip "192.168.100.3/24"
+#+END_EXAMPLE
+
+4. 将生成的 ca.crt, laptop.crt, laptop.key 复制到 A 机器一份。
+   再将 ca.crt, server.crt, server.key 复制到 B 机器一份。
+
+5. 接下来，下载默认配置文件[2]到各个节点的 /etc/nebula/ 目录下，命名为 config.yaml。然后，各节点配置修改如下关键点。
+#+BEGIN_EXAMPLE  
+   lighthouse 节点：
+   1）pki 的证书对应路径，本例 B 节点是
+    ca: /etc/nebula/ca.crt
+    cert: /etc/nebula/lighthouse.crt
+    key: /etc/nebula/lighthouse.key
+
+   2）am_lighthouse: true
+
+   3）static_host_map "192.168.100.1": ["公网IP:4242"]
+#+END_EXAMPLE
+   其他节点：
+
+#+BEGIN_EXAMPLE
+   1）pki 的证书对应路径，
+   本例 A 节点是
+    ca: /etc/nebula/ca.crt
+    cert: /etc/nebula/laptop.crt
+    key: /etc/nebula/laptop.key
+   本例 C 节点是
+    ca: /etc/nebula/ca.crt
+    cert: /etc/nebula/server.crt
+    key: /etc/nebula/server.key
+
+   2）am_lighthouse: false 
+   3）static_host_map "192.168.100.1": ["公网IP:4242"]
+#+END_EXAMPLE
+6. 在所有节点启动应用
+#+BEGIN_EXAMPLE
+nebula -config /etc/nebula/config.yaml
+#+END_EXAMPLE
+
+P.S. 如果你用 ubuntu 机器 ping 不通你的macbook，可以打开系统偏好设置，关闭防火墙选项，或者取消勾选隐身模式
+
+link：
++ [1] https://github.com/slackhq/nebula/releases
++ [2] https://github.com/slackhq/nebula/blob/master/examples/config.yml
+
+***** 项目地址
+https://github.com/slackhq/nebula
+
+overlay network
+竞品 tinc，zerotier，openvpn
+
+***** 其他教程链接
++ https://runtime.pw/nebula-tutorials/
++ https://runtime.pw/nebula-docker-compile/
+
+

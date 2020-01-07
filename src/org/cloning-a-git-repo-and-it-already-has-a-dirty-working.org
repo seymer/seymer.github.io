@@ -1,0 +1,23 @@
+#+TITLE: 新克隆的仓库，什么都没做，却存在修改，为什么？
+#+DATE: [2020-01-02 四 09:50]
+
+前两天，发现新克隆的一个项目仓库，克隆时就发现，其中有一行警告。git status 之后显示有修改。这就很奇怪了，明明什么都没做，为什么会有修改呢？
+
+#+BEGIN_EXAMPLE
+warning: the following paths have collided (e.g. case-sensitive paths on a case-insensitive filesystem) and only one from the same colliding group is in the working tree
+#+END_EXAMPLE
+
+细看这行警告发现，是路径发生冲突。因为我现在用的是一台Macbook Pro, 它的文件系统是不区分大小写的。所以，当你在同一目录下创建相同文件或文件夹会被告知文件已存在。
+
+去gitlab上查看有修改的路径，发现确实是有相同文件名，但是是不同大小写的文件及文件夹。
+
+这样，问题就比较清晰了。
+
+那为什么会出现这种情况呢。因为这个项目是我和同事共同开发，冲突的那块是因为当时我先写了，他也用生成工具自动生成了。自动生成工具默认文件及文件名都是小写的，而我则采用驼峰之类的命名规范。
+这就导致我们各自有一份，在合并到gitlab之后，gitlab并不认为这是两个相同的文件。所以，就保存两者了。然后，因为mac的文件系统是不区分大小写的，它会认为这是同一文件，所以就出现了上面的警告及修改。
+
+这里额外说明一点，Linux(ubuntu)是区分大小写的。
+
+所以我们由此可以得出结论
+
+MacOS 目前使用的文件系统是不区分大小写的，Linux（ubuntu）是区分大小写的。

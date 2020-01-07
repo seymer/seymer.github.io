@@ -1,0 +1,13 @@
+#+TITLE: 工具箱
+
+*** ping工具列表
++ https://ping.pe/
++ https://asm.ca.com/en/ping.php
++ https://maplatency.com/
++ https://www.17ce.com/
+
+*** 传输文件工具
+https://anonfile.com/
+http://send.firefox.com/
+
+
