@@ -1,13 +1,13 @@
 #+TITLE: Thought works 技术雷达
 #+DATE: [2020-01-07 Tue 08:32]
 
-link: https://assets.thoughtworks.com/assets/technology-radar-vol-21-cn.pdf
 
+#+BEGIN_QUOTE 
 + 云：多即是少？
 + 保护软件供应链
 + 打开机器学习的黑匣子。在选择机器学习模型时，将可解释性视为第一要务。
-+ 软件开发是一项团队运动。不提倡 **10倍工程师** 的理念，应专注创建和赋能 **10倍团队**。
-
++ 软件开发是一项团队运动。不提倡 **10倍工程师** 的理念，应专注创建和赋能 **10倍团队** 
+#+END_QUOTE
 
 *** 技术
 + Container security scanning  容器的安全扫描
@@ -17,6 +17,23 @@ link: https://assets.thoughtworks.com/assets/technology-radar-vol-21-cn.pdf
 
 CI/CD工具能够被用来测试服务器的配置（如Chef cookbooks，Puppet modules和Ansible playbooks），服务器的镜像构建（如Packer），环境的生成（如Terraform，CloudFormation）和环境间的集成。将流水线用于基础设施即代码，可以让你在变更应用于运行环境（包括开发和测试环境）之前就发现错误。
 
-+ Run cost as an architecture fitness function 
++ Run cost as an architecture fitness function
++ Testing using real device
++ Automated machine learning(AutoML)
+Google的AutoML，DataRobot和H2O AutoML Interface。
++ Binary attestation
+二进制鉴证就是一项实现部署时安全控制的技术，用密码学技术验证部署用的二进制镜像。使用这项技术，一个签证人，一个自动构建流程，或者一个安全小组可以签发已经通过安全检查、测试，并得到授权的待部署镜像。支持在部署前创建证明和验证镜像签名，除了Grafeas的GCP Binary Authorization服务，还有in-toto和Docker Notary这样的工具。
++ Continuous delivery for machine learning(CD4ML)
++ Data discoverability 数据的可发现性
+工具包括Lyft的Amundsen和LinkedIn的WhereHows。
++ Dependency drift fitness function
+依赖漂移适应度函数是一项引入了特定的演进式架构适应度函数的技术，它能随着时间推移追踪这些依赖，从而能够指出可能需要的工作，以及某个潜在问题是在好转还是恶化。
++ Design systems
++ Experiment tracking tools for machine learning 
+用于机器学习的实验跟踪工具,是诸如MLflow和Weights＆Biases之类的工具，Comet和Neptune之类的平台
+
+link: https://assets.thoughtworks.com/assets/technology-radar-vol-21-cn.pdf
+
+
 
 
