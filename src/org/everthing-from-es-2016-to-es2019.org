@@ -69,9 +69,41 @@ async function go() {
   console.log(res);
   const res2 = await walk(900);
   console.log(res2);
+  const res3 = await walk(600);
+  console.log(res3);
+  const res4 = await walk(400);
+  console.log(res4)
 }
+
+go();
+// you walked for 500ms
+// you walked for 900ms
+// you walked for 600ms
+// uncaught exception: the value is too small
 #+END_EXAMPLE
 
 *** ES2018
+Rest / Spread for Objects
+#+BEGIN_EXAMPLE
+let myObj = {
+  a: 1,
+  b: 3,
+  c: 5,
+  d: 8
+}
+
+// we use the rest operator to grab everythong
+// else left in the object.
+
+let {a, b, ...z} = myObj;
+console.log(a); // 1
+console.log(b); // 3
+console.log(z); // {c:5, d:8}
+
+// using the spread syntax we cloned our object
+let clone = {...myObj};
+console.log(clone);
+//{a:1, b:3, c:5, d:8}
+#+END_EXAMPLE
 
 *** ES2019
