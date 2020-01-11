@@ -1,4 +1,5 @@
 #+TITLE: ECMAScript 2016 到 2019 的所有新功能
+#+DATE: [2020-01-11 Sat 18:56]
 
 *** ES2016
 Array.prototype.includes()
@@ -106,4 +107,164 @@ console.log(clone);
 //{a:1, b:3, c:5, d:8}
 #+END_EXAMPLE
 
+Lifting tagged template literals restrictions
+#+BEGIN_EXAMPLE
+function tag(strs) {
+  strs[0] === undefined
+  strs.raw[0] === "\\unicode and \\u{55}";
+}
+tag \unicode and \u{55}
+// This loosening of the escape sequence restriction
+// only applies to tagged
+// template literals; untagged templates
+// still throw an early error
+// for invalid escape sequences:
+
+
+let bad = escape sequence: \unicode;
+// throws early error
+#+END_EXAMPLE
+
+Asynchronous iteration
+#+BEGIN_EXAMPLE
+// iterate asynchronously over our data
+// using a for-await-of loop.
+for wait (const line of readLines(filePath)) {
+  console.log(line);
+}
+#+END_EXAMPLE
+
+Promise.prototype.finally()
+#+BEGIN_EXAMPLE
+fetch("your-url")
+  .then(result => {
+    // do something with the result
+  })  
+  .catch(error => {
+    // do something with the error
+  })
+  .finally(() => {
+    // do something once the promise is finished
+  })
+#+END_EXAMPLE
+
+RegExp features
+#+BEGIN_EXAMPLE
+// s (dotAll) flag for regular expressions
+/ foo.bar/s.test('foo\nbar');
+// -> true
+
+// RegExp named capture groups
+let re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/u;
+let result = re.exec('2015-01-02');
+// result.groups.year === '2015';
+// result.groups.month === '01';
+
+
+// RegExp Lookbehind Assertions
+// make sure that a pattern is or isn't preceded by another
+
+
+// RegExp Unicode Property Escapes
+const regexGreekSymbol = /\p{Script=Greek}/u;
+regexGreekSymbol.test('n');
+// - true
+#+END_EXAMPLE
+
 *** ES2019
+Array.prototype.flat()
+#+BEGIN_EXAMPLE
+const letters = ['a', 'b', ['c', 'd', ['e', 'f']]];
+// default depth of 1
+letters.flat();
+// ['a', 'b', 'c', 'd', ['e', 'f']]
+
+
+// depth of 2
+letters.flat(2);
+// ['a', 'b', 'c', 'd', 'e', 'f']
+
+// which is the same as executing flat with depth of 1 twice
+letters.flat().flat();
+// ['a', 'b', 'c', 'd', 'e', 'f']
+
+
+// Flattens recursively until the array contains no nested arrays
+letters.flat(Infinity)
+// ['a', 'b', 'c', 'd', 'e', 'f']
+#+END_EXAMPLE
+
+Array.prototype.flatMap()
+#+BEGIN_EXAMPLE
+let greeting = ["Greetings from", " ", "Vietnam"];
+
+// let's first try using a normal `map()` function
+greeting.map(x => x.split(" "));
+// ["Greetings", "from"]
+// ["", ""]
+// ["Vietnam"]
+
+// flatten the array and map over it
+greeting.flatMap(x => x.split(" "))
+// ["Greetings", "from", "", "", "Vietnam"]
+#+END_EXAMPLE
+
+Object.fromEntries()
+#+BEGIN_EXAMPLE
+const keyValueArray = [
+  ['key1', 'value1'],
+  ['key2', 'value2']
+]
+
+// transforms a list of key-value
+// pairs into an object
+const obj = Object.fromEntries(keyValueArray)
+// {key1: "value1", key2: "value2"}
+#+END_EXAMPLE
+
+Function.prototype.toString()
+#+BEGIN_EXAMPLE
+function sum(a, b) {
+  return a + b;
+}
+
+// return a string representing
+// the source code of the function.
+console.log(sum.toString());
+// function sum(a, b) {
+//    return a + b;
+// }
+#+END_EXAMPLE
+
+String.prototype.trimStart()`/`.trimEnd()
+#+BEGIN_EXAMPLE
+let str = "    the string has a lot of whitespace   ";
+
+str.length;
+// 42
+
+// remove white space from the beginning of a string
+str = str.trimStart();
+// "this string has a lot of whitespace  "
+str.length;
+// 38
+
+// // removes white space from the end of a string
+str = str.trimEnd();
+// "this string has a lot of whitespace"
+str.length;
+// 35
+#+END_EXAMPLE
+
+Symbol.prototype.description
+#+BEGIN_EXAMPLE
+const me = Symbol("Alberto");
+// returns the optional description of a `Symbol` Object.
+me.description;
+// "Alberto"
+
+me.toString()
+// "Symbol(Alberto)"
+#+END_EXAMPLE
+
+link: https://inspiredwebdev.com/everything-from-es-2016-to-es-2019
