@@ -268,3 +268,4 @@ me.toString()
 #+END_EXAMPLE
 
 link: https://inspiredwebdev.com/everything-from-es-2016-to-es-2019
+pic: https://i.v2ex.co/QQxrT01m.png
