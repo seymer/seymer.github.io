@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:compile-openwrt-for-newifi.org][2020-01-14 Compile openwrt for newifi]]
    + [[file:everthing-from-es-2016-to-es2019.org][2020-01-11 ECMAScript 2016 到 2019 的所有新功能]]
    + [[file:programming-philosophy.org][2020-01-09 编程的智慧]]
    + [[file:cooking-notes.org][2020-01-07 烹饪笔记]]

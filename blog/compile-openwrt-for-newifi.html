@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Compile openwrt for newifi</title>
+<!-- 2020-01-14 Tue 22:08 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Compile openwrt for newifi</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 依赖安装</a></li>
+<li><a href="#sec-2">2. 项目地址</a></li>
+<li><a href="#sec-3">3. 编译</a></li>
+<li><a href="#sec-4">4. newifi-d2 配置</a></li>
+<li><a href="#sec-5">5. 编译包位置</a></li>
+</ul>
+</div>
+</div>
+<p>
+#+DATE <span class="timestamp-wrapper"><span class="timestamp">[2020-01-14 Tue 22:06]</span></span>
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 依赖安装</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 项目地址</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+git clone <a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a>
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 编译</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+cd lede   
+git pull  
+./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a  
+rm -rf ./tmp &amp;&amp; rm -rf .config      
+make menuconfig
+make -j1 V=s
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> newifi-d2 配置</h2>
+<div class="outline-text-2" id="text-4">
+<blockquote>
+<p>
+Target System (MediaTek Ralink MIPS)
+Subtarget (MT7621 based boards)
+Target Profile (Newifi D2)
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 编译包位置</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+lede/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

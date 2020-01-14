@@ -1,0 +1,35 @@
+#+TITLE: Compile openwrt for newifi
+#+DATE [2020-01-14 Tue 22:06]
+
+*** 依赖安装
+#+BEGIN_QUOTE
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint
+#+END_QUOTE
+
+*** 项目地址
+#+BEGIN_QUOTE
+git clone https://github.com/coolsnowwolf/lede
+#+END_QUOTE
+
+*** 编译
+#+BEGIN_QUOTE
+cd lede   
+git pull  
+./scripts/feeds update -a && ./scripts/feeds install -a  
+rm -rf ./tmp && rm -rf .config      
+make menuconfig
+make -j1 V=s
+#+END_QUOTE
+
+*** newifi-d2 配置
+#+BEGIN_QUOTE
+Target System (MediaTek Ralink MIPS)
+Subtarget (MT7621 based boards)
+Target Profile (Newifi D2)
+#+END_QUOTE
+
+*** 编译包位置
+#+BEGIN_EXAMPLE
+lede/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
+#+END_EXAMPLE
+
