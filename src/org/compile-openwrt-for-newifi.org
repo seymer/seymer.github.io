@@ -1,5 +1,5 @@
 #+TITLE: Compile openwrt for newifi
-#+DATE [2020-01-14 Tue 22:06]
+#+DATE: [2020-01-14 Tue 22:06]
 
 *** 依赖安装
 #+BEGIN_QUOTE
