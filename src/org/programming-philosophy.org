@@ -1,7 +1,7 @@
 #+TITLE: 编程的智慧
 #+DATE: [2020-01-09 Thu 09:05]
 
-以下是两篇关于编程技巧的文章，或许不能很快提高你的编程能力，但倘若你认真读完，相信肯定对你代码的整洁度有好处。
+以下是两篇关于编程技巧的文章，看完它并不能很快提高你的编程能力，但肯定让你的代码的可读性更高。
 
-[1] http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy
-[2] https://stackoverflow.blog/2019/12/19/what-senior-developers-can-learn-from-beginners/?cb=1
++ [1] http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy
++ [2] https://stackoverflow.blog/2019/12/19/what-senior-developers-can-learn-from-beginners/?cb=1
