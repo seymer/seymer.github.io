@@ -34,7 +34,7 @@ sudo adduser username sudo
 
 #+BEGIN_EXAMPLE
 ➜  ~ sudo adduser foo
-➜  ~ sudo adduser foot sudo
+➜  ~ sudo adduser foo sudo
 #+END_EXAMPLE
 
 

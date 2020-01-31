@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:the-debian-system-setup.org][2020-01-31 Debian 系统安装后的设置]]
    + [[file:compile-openwrt-for-newifi.org][2020-01-14 Compile openwrt for newifi]]
    + [[file:everthing-from-es-2016-to-es2019.org][2020-01-11 ECMAScript 2016 到 2019 的所有新功能]]
    + [[file:programming-philosophy.org][2020-01-09 编程的智慧]]
@@ -57,7 +58,6 @@
    + [[file:installing-the-Go-programming-language-on-Debian.org][2018-11-01 Installing the Go programming language on Debian GNU/Linux]]
    + [[file:wsl-issue.org][2018-11-01 wsl-issue-and-reference]]
    + [[file:ansi-common-lisp.org][2018-09-27 ANSI Common Lisp]]
-   + [[file:the-debian-system-setup.org][2018-09-26 Debian 系统安装后的设置]]
    + [[file:high-level-organization-of-the-standard.org][2018-09-09 High Level Organization of the Standard]]
    + [[file:sudo.org][2018-07-05 关于 sudo 的一些事]]
    + [[file:generate-ssh-key-to-connect-host.org][2018-07-03 如何生成密钥连接Linux实例]]
