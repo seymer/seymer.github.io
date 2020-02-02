@@ -46,8 +46,8 @@ chmod 400 ~/.ssh/[KEY_FILENAME]
 
 使用sshuttle代理
 #+BEGIN_EXAMPLE
-sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa.pub'
-sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa.pub'
+sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa'
+sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa'
 #+END_EXAMPLE
 
 使用SSH代理

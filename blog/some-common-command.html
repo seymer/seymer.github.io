@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>一些常用命令</title>
-<!-- 2019-11-29 Fri 09:03 -->
+<!-- 2020-02-02 Sun 18:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -66,8 +66,8 @@ chmod 400 ~/.ssh/[KEY_FILENAME]
 使用sshuttle代理
 </p>
 <pre class="example">
-sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa.pub'
-sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa.pub'
+sshuttle --dns -vr admin@ip 0/0 --ssh-cmd 'ssh -i /path/to/.ssh/id_rsa'
+sshuttle -r admin@ip 0/0 -e 'ssh -i /path/to/.ssh/id_rsa'
 </pre>
 
 <p>
