@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:spoken-englist.org][2020-02-03 英语口语]]
    + [[file:the-debian-system-setup.org][2020-01-31 Debian 系统安装后的设置]]
    + [[file:compile-openwrt-for-newifi.org][2020-01-14 Compile openwrt for newifi]]
    + [[file:everthing-from-es-2016-to-es2019.org][2020-01-11 ECMAScript 2016 到 2019 的所有新功能]]
