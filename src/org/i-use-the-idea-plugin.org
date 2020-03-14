@@ -6,6 +6,7 @@
 + JRebel and XRebel for IntelliJ
 + Lombok
 + MyBatis Log Plugin
++ Grep Console
 + MyBatisCodeHelperPro
 
 [[https://jrebel.qekang.com/][JRebel 注册地址]]
