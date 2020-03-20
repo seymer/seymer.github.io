@@ -1,12 +1,12 @@
 #+TITLE: 我用的IDEA插件
 
 + Alibaba Java Codeing Guidelines 
-+ Free MyBatis Plugin
 + GitToolBox
 + JRebel and XRebel for IntelliJ
 + Lombok
 + MyBatis Log Plugin
 + Grep Console
++ Nyan Progress Bar
 + MyBatisCodeHelperPro
 
 [[https://jrebel.qekang.com/][JRebel 注册地址]]
