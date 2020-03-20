@@ -1,36 +1,38 @@
 #+TITLE: 当JDBC执行删改时，会返回什么值
 #+AUTHOR: Siqing Mu
-#DATE: [2020-03-16 一 21:13]
+#+DATE: [2020-03-16 一 21:13]
 
 由于之前写PHP时，在做更新操作时，成功返回1，失败返回-1，无影响返回0。
 前两天用Java语言写更新操作时，却掉坑里了。
 
-
+#+BEGIN_EXAMPLE
 jdbc:mysql://${jdbc.host}/${jdbc.db}?useAffectedRows=true
+#+END_EXAMPLE
 
 根据连接串配置，如果useAffectedRows等于true
 
+#+BEGIN_EXAMPLE
 成功：
 返回实际更新的行数
 无更新（影响）返回0
 
 失败：
 会报异常
+#+END_EXAMPLE
 
 如果useAffectedRows等于false，默认等于false。
 
+#+BEGIN_EXAMPLE
 成功：
 返回更新的行数，无论有没有真正修改数据。
 
 失败：
 会报异常
-
+#+END_EXAMPLE
 
 结论：
 1. 我们不能通过简单判断，觉得大于0就是更新成功，还需要根据useAffectedRows是true或着false来决定。
 2. 判断失败是根据Checked Exception（CE）来决定，而不是根据else条件。
-
-
 
 *** 扩展
 
