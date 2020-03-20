@@ -1,0 +1,50 @@
+#+TITLE: 在Java中如何写一个正确的单例模式？
+#+DATE: [2020-02-03 一 23:18]
+#+AUTHOR: 徐隆曦
+
+*** 什么是单例模式
+#+BEGIN_EXAMPLE
+保证一个类只有一个实例，并且提供一个全局可以访问的入口。
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+public class ExpensiveResource {
+    public ExpensiveResource() {
+        field1 = //查询数据库
+        field2 = //然后对查到的数据做大量计算
+        field3 = //加密、压缩等耗时操作
+    }
+}
+#+END_EXAMPLE
+
+*** 使用场景
+1. 无状态的工具类
+   + 日志工具
+   + 字符串工具
+   + ...
+
+2. 全局信息类
+   + 全局计数
+   + 环境变量
+   + ...
+
+*** 常见单例模式写法
++ 饿汉式
++ 懒汉式
++ 静态内部类式
++ 双重检查式
++ 枚举式
+
+**** 饿汉式
+#+BEGIN_EXAMPLE
+public class Singleton {
+  private static Singleton singleton = new Singleton();
+
+  private Singleton(){}
+
+  public static Singleton getInstance() {
+    return singleton;
+  }
+}
+#+END_EXAMPLE
+

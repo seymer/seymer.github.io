@@ -1,0 +1,15 @@
+#+TITLE: CAS机制中的ABA问题
+#+DATE: [2020-03-17 二 10:57]
+
+CAS (compare-and-swap) 比较并交换指令用于多线程以实现同步的原子指令。
+
+
+
++ https://en.wikipedia.org/wiki/Compare-and-swap
++ https://www.cnblogs.com/frankltf/p/10554965.html
++ https://baijiahao.baidu.com/s?id=1648077822185803003&wfr=spider&for=pc
+
+test:
+
++ https://github.com/seymer/CASExample
+

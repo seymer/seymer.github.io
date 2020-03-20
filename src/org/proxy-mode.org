@@ -1,0 +1,28 @@
+#+TITLE: 代理模式
+#+DATE: [2020-03-17 二 16:38]
+
+*** 代理模式
++ 静态代理模式
++ 动态代理模式
+
+*** 转储生成的代理类文件的简单办法
+#+BEGIN_EXAMPLE
+java -Dsun.misc.ProxyGenerator.saveGeneratedFiles=true MainClass
+#+END_EXAMPLE
+
+*** 查看代理类结构
+#+BEGIN_EXAMPLE
+javap -v com.sun.proxy.\$Proxy0
+#+END_EXAMPLE
+
+*** 其他转储方法
+http://scz.617.cn:8/misc/201911291425.txt
+
+*** 练习示例
+1. https://github.com/seymer/DynamicProxyExample
+2. https://github.com/seymer/proxymode
+
+*** 参考来源
+1. http://scz.617.cn:8/misc/201911291425.txt
+2. https://javahowto.blogspot.com/2011/12/java-dynamic-proxy-example.html
+

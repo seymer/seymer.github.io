@@ -1,0 +1,17 @@
+#+TITLE: Docker Cookbook
+#+DATE: [2020-01-23 四 16:57]
+
+*** 安装
+#+BEGIN_EXAMPLE
+$ sudo apt-get update
+$ sudo apt-get install -y wget
+$ sudo wget -qO- https://get.docker.com/ | sh
+#+END_EXAMPLE
+
+如果你想直接以一个非 root 用户的身份来运行 docker 命令，可以将该用户
+添加到 docker 用户组，如下所示。
+#+BEGIN_EXAMPLE
+sudo gpasswd -a <user> docker
+#+END_EXAMPLE
+退出当前 shell 然后重新登录，或者重新启动一个新 shell，就能使用上面的配置了。
+

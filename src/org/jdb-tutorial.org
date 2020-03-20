@@ -1,0 +1,26 @@
+#+TITLE: JDB 使用教程
+#+DATE: [2020-03-17 二 12:27]
+
+*** 使用
+在项目文件目录分别打开两个命令行窗口，参数如下。
+#+BEGIN_EXAMPLE
+java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8005,server=y,suspend=y TicketServiceClient2
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8005
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+java -agentlib:jdwp=help
+#+END_EXAMPLE
+
+*** 练习项目
+https://github.com/seymer/proxymode
+
+
+*** 参考
++ https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html
++ https://mahmoudanouti.wordpress.com/2019/07/07/remote-debugging-java-applications-with-jdwp/
+
+
