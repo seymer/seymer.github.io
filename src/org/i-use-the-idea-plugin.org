@@ -9,7 +9,8 @@
 + MyBatis Log Plugin
 + MyBatisCodeHelperPro
 + Nyan Progress Bar
-+ Save Actions 
++ Save Actions
++ Translation
 
 [[https://jrebel.qekang.com/][JRebel 注册地址]]
 
