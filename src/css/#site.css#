@@ -299,7 +299,7 @@ img.displayed {
 
   pre {
      background: #1d1f21;
-     /*color: #c5c8c6;*/
+     color: #c5c8c6;
   }
 }
 /*@media (prefers-color-scheme: dark) {
