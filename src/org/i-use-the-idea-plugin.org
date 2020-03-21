@@ -2,12 +2,14 @@
 
 + Alibaba Java Codeing Guidelines 
 + GitToolBox
++ google-java-format
++ Grep Console
 + JRebel and XRebel for IntelliJ
 + Lombok
 + MyBatis Log Plugin
-+ Grep Console
-+ Nyan Progress Bar
 + MyBatisCodeHelperPro
++ Nyan Progress Bar
++ Save Actions 
 
 [[https://jrebel.qekang.com/][JRebel 注册地址]]
 

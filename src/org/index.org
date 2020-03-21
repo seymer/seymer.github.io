@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:i-use-the-idea-plugin.org][2020-03-20 我用的IDEA插件]]
+   + [[file:i-use-the-idea-plugin.org][2020-03-21 我用的IDEA插件]]
    + [[file:proxy-mode.org][2020-03-17 代理模式]]
    + [[file:jdb-tutorial.org][2020-03-17 JDB 使用教程]]
    + [[file:aba-issue-of-cas.org][2020-03-17 CAS机制中的ABA问题]]
