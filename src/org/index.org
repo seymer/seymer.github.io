@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:my-mvn-notes.org][2020-03-25 My MVN Notes]]
    + [[file:i-use-the-idea-plugin.org][2020-03-21 我用的IDEA插件]]
    + [[file:proxy-mode.org][2020-03-17 代理模式]]
    + [[file:jdb-tutorial.org][2020-03-17 JDB 使用教程]]

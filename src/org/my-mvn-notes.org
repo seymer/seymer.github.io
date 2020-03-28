@@ -1,0 +1,40 @@
+#+TITLE: My MVN Notes
+#+DATE: [2020-03-25 Wed 08:21]
+
+1. To view dependency tree:
+#+BEGIN_EXAMPLE
+mvn dependency:tree
+#+END_EXAMPLE
+2. To skip running test:
+#+BEGIN_EXAMPLE
+mvn install -DskipTests
+mvn install -DskipTests=true  //to override skipTests property in pom
+#+END_EXAMPLE
+3. To skip compiling and runing tests:
+#+BEGIN_EXAMPLE
+mvn install -Dmaven.test.skip=true
+#+END_EXAMPLE
+4. To run maven in offline mode, to avoid downloading:
+#+BEGIN_EXAMPLE
+mvn -o install
+mvn --offline install
+#+END_EXAMPLE
+5. To force check for updates of snapshots and releases from remote repositories:
+#+BEGIN_EXAMPLE
+mvn -U install
+mvn --update-snapshots install
+#+END_EXAMPLE
+6. To list all maven profiles, and see which is the active profile:
+#+BEGIN_EXAMPLE
+mvn help:all-profiles
+#+END_EXAMPLE
+7. To override maven surefire plugin forkMode:
+#+BEGIN_EXAMPLE
+mvn test -DforkMode=never
+mvn test -DforkMode=always
+#+END_EXAMPLE
+
+
+source: http://javahowto.blogspot.com/search/label/Tools
+
+
