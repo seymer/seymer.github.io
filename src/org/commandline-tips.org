@@ -1,0 +1,36 @@
+#+TITLE: 命令行操作小技巧
+#+DATE: [2020-03-29 Sun 10:00]
+
+
+[[moving_cli.png]]
+
+### Bash shortcuts 
+
+| Command       | Description   |
+| ------------- | ------------- |
+| Ctrl + a      | To the beginning of the line  |
+| Ctrl + e      | To the end of the line        |
+| Alt + b       | One word back                 |
+| Alt + f       | One word forward |
+| Ctrl + k      | Delete to the end of the line |
+| Ctrl + u      | Delete to the beginning of the line |
+| Alt + d       | Delete to the end of the word |
+| Ctrl + w      | Delete to the beginning of the word |
+| Ctrl + p      | Previous command or arrow up |
+| Ctrl + n      | Next command or arrow down |
+| Ctrl + r      | Search history ([fzf](https://github.com/junegunn/fzf) is a good, 3rd party alternative) | 
+| Ctrl + u      | Remove line |
+| Ctrl + l      | Clear screen |
+| Ctrl + b      | Move back one character |
+| Ctrl + f      | Move forward one character |
+| Ctrl + d      | Delete current character |
+| Ctrl + -      | Undo |
+| Ctrl + y      | Paste the last cut |
+
+### Others
+
+- [z](https://github.com/rupa/z) is a good util to jump around folders. 
+- [jq](https://stedolan.github.io/jq/) is a fast and flexible command line JSON processor.
+- [httpie](https://httpie.org/) is a fancy cURL alternative.
+- [ExplainShell](http://explainshell.com/) is great website to explain how a command or chain of commands work.
+- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
