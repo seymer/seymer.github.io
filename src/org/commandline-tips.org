@@ -36,7 +36,7 @@
 - [[http://explainshell.com/][ExplainShell]] is great website to explain how a command or chain of commands work.
 - [[https://github.com/jlevy/the-art-of-command-line][The Art of Command Line]]
 
-*** imagic
+*** magic
 
 + !   加id可以直接复用改id之前的输入
 + !$  也可以先按esc 然后按点 . 会自动出来，重复上面输入的最后一段参数。 Alt + dot 同时按也是同样的操作
