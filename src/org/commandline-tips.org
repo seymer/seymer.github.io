@@ -1,6 +1,7 @@
 #+TITLE: 命令行操作小技巧
 #+DATE: [2020-03-29 Sun 10:00]
 
+*** Aerial View
 
 [[file:./images/moving_cli.png]]
 
@@ -18,7 +19,7 @@
 | Ctrl + w | Delete to the beginning of the word                                                      |
 | Ctrl + p | Previous command or arrow up                                                             |
 | Ctrl + n | Next command or arrow down                                                               |
-| Ctrl + r | Search history ([fzf](https://github.com/junegunn/fzf) is a good, 3rd party alternative) |
+| Ctrl + r | Search history ([[https://github.com/junegunn/fzf][fzf]] is a good, 3rd party alternative) |
 | Ctrl + u | Remove line                                                                              |
 | Ctrl + l | Clear screen                                                                             |
 | Ctrl + b | Move back one character                                                                  |
@@ -34,3 +35,11 @@
 - [[https://httpie.org/][httpie]] is a fancy cURL alternative.
 - [[http://explainshell.com/][ExplainShell]] is great website to explain how a command or chain of commands work.
 - [[https://github.com/jlevy/the-art-of-command-line][The Art of Command Line]]
+
+*** imagic
+
++ !   加id可以直接复用改id之前的输入
++ !$  也可以先按esc 然后按点 . 会自动出来，重复上面输入的最后一段参数。 Alt + dot 同时按也是同样的操作
++ !!  重复上面输入的整行. Control + p 也可以达到同样的效果
++ !*  将除了第一个单词后面的所有参数打印出来
++ !c  搜索历史中以c开头的字符输入
