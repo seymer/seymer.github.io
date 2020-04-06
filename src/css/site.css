@@ -263,6 +263,7 @@ img {
     -webkit-box-shadow: 0 0 10px #555;
     width: 100%;
     max-width: 1200px;
+    background-color: bisque;
 }
 
 img.displayed {

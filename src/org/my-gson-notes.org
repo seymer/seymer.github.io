@@ -1,0 +1,11 @@
+#+TITLE: Gson 笔记
+#+DATE: [2020-03-31 Tue 23:40]
+#+AUTHOR: Siqing Mu
+
+Gson (also known as Google Gson) is an open-source Java library to serialize and deserialize Java objects to (and from) JSON.
+
+lsr
+
+reference:
++ https://en.wikipedia.org/wiki/Gson
++ 
