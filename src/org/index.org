@@ -1,9 +1,9 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:i-use-the-idea-plugin.org][2020-04-10 我用的IDEA插件]]
    + [[file:my-gson-notes.org][2020-03-31 Gson 笔记]]
    + [[file:commandline-tips.org][2020-03-29 命令行操作小技巧]]
    + [[file:my-mvn-notes.org][2020-03-25 My MVN Notes]]
-   + [[file:i-use-the-idea-plugin.org][2020-03-21 我用的IDEA插件]]
    + [[file:proxy-mode.org][2020-03-17 代理模式]]
    + [[file:jdb-tutorial.org][2020-03-17 JDB 使用教程]]
    + [[file:aba-issue-of-cas.org][2020-03-17 CAS机制中的ABA问题]]

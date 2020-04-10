@@ -8,6 +8,7 @@
 + Lombok
 + MyBatis Log Plugin
 + MyBatisCodeHelperPro
++ Maven Helper
 + Nyan Progress Bar
 + Save Actions
 + Translation
