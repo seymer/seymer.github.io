@@ -1,0 +1,26 @@
+#+TITLE: 一些常用docker容器
+#+DATE: [2020-04-21 Tue 22:22]
+
+
+*** phpMyAdmin
+#+BEGIN_EXAMPLE
+docker run --name pma -d -e PMA_HOST=docker.for.mac.localhost -p 8888:80 phpmyadmin/phpmyadmin
+#+END_EXAMPLE
+
+*** mongo
+#+BEGIN_EXAMPLE
+docker run --name mongo -p 27017:27017 -v ~/docker-data/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo
+#+END_EXAMPLE
+
+*** Jekyll[fn:1]
+#+BEGIN_EXAMPLE
+docker run --mount type=bind,source=$(pwd),target=/srv/jekyll \
+-p 4000:4000 --name blog -it jekyll/jekyll \
+jekyll serve
+#+END_EXAMPLE
+
+
+
+
+[fn:1] https://livid.v2ex.com/essays/2018/12/31/jekyll-docker.html
+
