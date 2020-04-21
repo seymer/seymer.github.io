@@ -9,5 +9,9 @@
 *** 传输文件工具
 + https://anonfile.com/
 + http://send.firefox.com/
++ https://cowtransfer.com/
++ https://wetransfer.com/
++ https://www.filemail.com/
++ https://send-anywhere.com/
 
 

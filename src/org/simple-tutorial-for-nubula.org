@@ -25,7 +25,7 @@ C【server】比如你的Ubuntu，内网
 3. 还是在B机器，我们要签发B【lighthouse】和其他节点(A【laptop】C【server】)的证书。
 #+BEGIN_EXAMPLE
     > nebula-cert sign -name "lighthouse" -ip "192.168.100.1/24"
-    > nebula-cert sign -name "laptop" -ip "192.168.100.2/24”
+    > nebula-cert sign -name "laptop" -ip "192.168.100.2/24"
     > nebula-cert sign -name "server" -ip "192.168.100.3/24"
 #+END_EXAMPLE
 

@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:list.org][2020-04-21 工具箱]]
    + [[file:i-use-the-idea-plugin.org][2020-04-10 我用的IDEA插件]]
    + [[file:my-gson-notes.org][2020-03-31 Gson 笔记]]
    + [[file:commandline-tips.org][2020-03-29 命令行操作小技巧]]
@@ -25,7 +26,6 @@
    + [[file:programming-philosophy.org][2020-01-09 编程的智慧]]
    + [[file:cooking-notes.org][2020-01-07 烹饪笔记]]
    + [[file:oh-shit-2000-port.org][2020-01-07 oh shit! 2000 端口]]
-   + [[file:list.org][2020-01-07 工具箱]]
    + [[file:simple-tutorial-for-nubula.org][2020-01-07 Nebula 简易手册]]
    + [[file:technology-radar.org][2020-01-07 Thought works 技术雷达]]
    + [[file:cloning-a-git-repo-and-it-already-has-a-dirty-working.org][2020-01-02 新克隆的仓库，什么都没做，却存在修改，为什么？]]
