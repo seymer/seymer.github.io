@@ -2,17 +2,17 @@
 #+DATE: [2020-04-21 Tue 22:22]
 
 
-*** phpMyAdmin
+*** phpMyAdmin[fn:1]
 #+BEGIN_EXAMPLE
 docker run --name pma -d -e PMA_HOST=docker.for.mac.localhost -p 8888:80 phpmyadmin/phpmyadmin
 #+END_EXAMPLE
 
-*** mongo
+*** mongo[fn:2]
 #+BEGIN_EXAMPLE
 docker run --name mongo -p 27017:27017 -v ~/docker-data/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo
 #+END_EXAMPLE
-
-*** Jekyll[fn:1]
+   
+*** Jekyll[fn:3]
 #+BEGIN_EXAMPLE
 docker run --mount type=bind,source=$(pwd),target=/srv/jekyll \
 -p 4000:4000 --name blog -it jekyll/jekyll \
@@ -22,5 +22,6 @@ jekyll serve
 
 
 
-[fn:1] https://livid.v2ex.com/essays/2018/12/31/jekyll-docker.html
-
+[fn:1] https://www.v2ex.com/t/580501?p=1
+[fn:2] https://mp.weixin.qq.com/s?__biz=Mzg3MzAyODY2Nw==&mid=100000009&idx=1&sn=bcb5680973c15835be0abd50f4d290ff&chksm=4ee70c5d7990854bdcfca932d05aab2ba17acec4ef3224e29a593fcdcadd1981154638c3fad4#rd
+[fn:3] https://livid.v2ex.com/essays/2018/12/31/jekyll-docker.html    

@@ -30,6 +30,7 @@ jad Java反编译
 jd-gui Java反编译
 jps -l Java process status
 dd if=/dev/zero of=50M.txt bs=50m count=1 生成一个50M的文件
+mkcert 生成本地证书
 #+END_EXAMPLE
 
 Debian or Ubuntu source select
@@ -98,6 +99,12 @@ ssh -C -f -N -g -L local_port:localhost:remote_port user@remote_host  #将本地
 ssh -C -f -N -g -D local_port user@remote_host #动态端口转发，socks5代理
 #+END_EXAMPLE
 
+openssl
+#+BEGIN_EXAMPLE
+brew install openssl
+openssl genrsa -out RegPrivateKey.pem 2048
+openssl rsa -in RegPrivateKey.pem -pubout -out rpk
+#+END_EXAMPLE
 
 参考
 + https://zhuanlan.zhihu.com/p/57630633

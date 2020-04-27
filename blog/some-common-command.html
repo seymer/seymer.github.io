@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>一些常用命令</title>
-<!-- 2020-02-02 Sun 18:13 -->
+<!-- 2020-04-27 Mon 09:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -44,6 +44,7 @@ jad Java反编译
 jd-gui Java反编译
 jps -l Java process status
 dd if=/dev/zero of=50M.txt bs=50m count=1 生成一个50M的文件
+mkcert 生成本地证书
 </pre>
 
 <p>
@@ -122,6 +123,14 @@ ssh -C -f -N -g -L local_port:localhost:remote_port user@remote_host  #将本地
 ssh -C -f -N -g -D local_port user@remote_host #动态端口转发，socks5代理
 </pre>
 
+<p>
+openssl
+</p>
+<pre class="example">
+brew install openssl
+openssl genrsa -out RegPrivateKey.pem 2048
+openssl rsa -in RegPrivateKey.pem -pubout -out rpk
+</pre>
 
 <p>
 参考
