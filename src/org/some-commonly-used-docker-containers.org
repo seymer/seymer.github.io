@@ -19,9 +19,20 @@ docker run --mount type=bind,source=$(pwd),target=/srv/jekyll \
 jekyll serve
 #+END_EXAMPLE
 
-
+*** Portainer[fn:4]
+#+BEGIN_EXAMPLE
+docker run -d -p 9000:9000 \
+  --restart always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ~/workspace/portainer/data:/data \
+  -v ~/workspace/portainer/certs:/certs \
+  --name my-portainer \
+  portainer/portainer \
+  --ssl --sslcert /certs/localhost.pem --sslkey /certs/localhost-key.pem
+#+END_EXAMPLE
 
 
 [fn:1] https://www.v2ex.com/t/580501?p=1
 [fn:2] https://mp.weixin.qq.com/s?__biz=Mzg3MzAyODY2Nw==&mid=100000009&idx=1&sn=bcb5680973c15835be0abd50f4d290ff&chksm=4ee70c5d7990854bdcfca932d05aab2ba17acec4ef3224e29a593fcdcadd1981154638c3fad4#rd
 [fn:3] https://livid.v2ex.com/essays/2018/12/31/jekyll-docker.html    
+[fn:4] https://janikarhunen.fi/portainer-up-and-running
