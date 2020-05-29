@@ -58,15 +58,14 @@ ol { padding-left: 20px; }
 #postamble p, #preamble p { font-size: 90%; margin: .2em; }
 p.verse { margin-left: 3%; }
 pre {
-    /* border: 1px solid #ccc;
+    border: 1px solid #E0E0E0;
     box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
     margin: 1.2em; */
 
-    background: #000;
-    color: #fff;
+    background-color: #FAFAFA;
     padding: 6px;
     font-size: 90%;
     overflow: auto;

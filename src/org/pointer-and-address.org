@@ -35,7 +35,7 @@ printf("the int stored at addressOfI is %d\n", *addressOfI);
 int i = 17;
 printf("i stores its value at %p\n", &i);
 #+END_EXAMPLE
-*** 
+*** Visual are more powerful than words
 
 [[file:./images/ptr.png]]
 
