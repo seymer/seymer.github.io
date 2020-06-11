@@ -91,7 +91,7 @@ ssh -f -N -D 1080 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 ssh -C -f -N -D 1080 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 //-C 参数表示compression，即压缩传输所有数据
 
-ssh -C -f -N -g -D 1080 musiqing@10.65.33.82 -i /path/to/.ssh/id_rsa
+ssh -C -f -N -g -D 1080 user@10.65.33.82 -i /path/to/.ssh/id_rsa
 //-g 参数表示允许远程主机连接本地转发端口，即设置为 0.0.0.0 上，从而使其他主机可以连接该代理。如果不加该参数，则默认绑定为127.0.0.1。
 #+END_EXAMPLE
 

@@ -1,383 +1,316 @@
-/*!
- * LaTeX.css (https://latex.now.sh/)
- *
- * Source: https://github.com/vincentdoerig/latex-css
- * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
-*/
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/LM-regular.woff2') format('woff2'),
-    url('./fonts/LM-regular.woff') format('woff'),
-    url('./fonts/LM-regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/LM-italic.woff2') format('woff2'),
-    url('./fonts/LM-italic.woff') format('woff'),
-    url('./fonts/LM-italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: normal;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/LM-bold.woff2') format('woff2'),
-    url('./fonts/LM-bold.woff') format('woff'),
-    url('./fonts/LM-bold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
-    url('./fonts/LM-bold-italic.woff') format('woff'),
-    url('./fonts/LM-bold-italic.ttf') format('truetype');
-}
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Make default font-size 1rem and add smooth scrolling to anchors */
 html {
-  font-size: 1rem;
-  scroll-behavior: smooth;
+    /*font-family: Georgia, "Microsoft Yahei", "WenQuanYi Micro Hei";
+    /* background: linear-gradient(to bottom, #024d68, #b2b2b2) no-repeat center center fixed;
+    /* -webkit-background-size: cover;
+    /* -moz-background-size: cover;
+    /* -o-background-size: cover;
+    /* background-size: cover;*/
+    /* font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif; */
+    font-family: Georgia,hoefler text,"dejavu serif","bistream vera serif",lucida bright,serif;
+    border-top: 3px solid #990000;    
 }
+
+/* body { */
+/*  color: #fff;
+/*  background-color: #fff;
+/*  background-image: url("//cdn.v2ex.com/assets/bgs/reading.jpg");
+/*  background-repeat: no-repeat;
+/*  background-position: 50% 0;
+/*  background-attachment: fixed;
+/*  background-size: cover;
+/* }*/
+
+/* pre { */
+/*     background-color: #eee; */
+/*     box-shadow: 5px 5px 5px #888; */
+/*     border: none; */
+/*     padding: 5pt; */
+/*     margin-bottom: 14pt; */
+/*     color: black; */
+/*     padding: 12pt; */
+/*     font-family: Consolas; */
+/*     font-size: 95%; */
+/*     overflow: auto; */
+/* } */
+
+.title  { /* text-align: center; */
+          margin-bottom: 1em; }
+.subtitle { /* text-align: center; */
+            font-size: medium;
+            font-weight: bold;
+            margin-top:0; }
+.todo   { font-family: monospace; color: red; }
+.done   { font-family: monospace; color: green; }
+.priority { font-family: monospace; color: orange; }
+.tag    { background-color: #eee; font-family: monospace;
+          padding: 2px; font-size: 80%; font-weight: normal; }
+.timestamp { color: #bebebe; }
+.timestamp-kwd { color: #5f9ea0; }
+.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.org-center { margin-left: auto; margin-right: auto; text-align: center; }
+.org-ul { padding-left: 10px; }
+.org-ol { padding-left: 20px; }
+ul { padding-left: 10px; }
+ol { padding-left: 20px; }
+
+.underline { text-decoration: underline; }
+#postamble p, #preamble p { font-size: 90%; margin: .2em; }
+p.verse { margin-left: 3%; }
+pre {
+    border: 1px solid #E0E0E0;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em; */
+
+    background-color: #FAFAFA;
+    padding: 6px;
+    font-size: 90%;
+    overflow: auto;
+    font-family: courier;
+    /* border: solid; */
+    border-width: thin;
+    border-radius: 4px;
+
+}
+pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+}
+pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+}
+pre.src:hover:before { display: inline;}
+pre.src-sh:before    { content: 'sh'; }
+pre.src-bash:before  { content: 'sh'; }
+pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+pre.src-R:before     { content: 'R'; }
+pre.src-perl:before  { content: 'Perl'; }
+pre.src-java:before  { content: 'Java'; }
+pre.src-sql:before   { content: 'SQL'; }
+
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.org-right  { text-align: center;  }
+th.org-left   { text-align: center;   }
+th.org-center { text-align: center; }
+td.org-right  { text-align: right;  }
+td.org-left   { text-align: left;   }
+td.org-center { text-align: center; }
+dt { font-weight: bold; }
+.footpara { display: inline; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { /* text-align: center; */ }
+.inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+}
+#org-div-home-and-up
+{ text-align: right; font-size: 70%; white-space: nowrap; }
+textarea { overflow-x: auto; }
+.linenr { font-size: smaller }
+.code-highlighted { background-color: #ffff00; }
+.org-info-js_info-navigation { border-style: none; }
+#org-info-js_console-label
+{ font-size: 10px; font-weight: bold; white-space: nowrap; }
+.org-info-js_search-highlight
+{ background-color: #ffff00; color: #000000; font-weight: bold; }
+
 
 body {
-  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
-  line-height: 1.8;
-
-  max-width: 80ch;
-  min-height: 100vh;
-  overflow-x: hidden;
-  margin: 0 auto;
-  padding: 2rem 1.25rem;
-
-  counter-reset: theorem;
-  counter-reset: definition;
-
-  color: hsl(0, 5%, 10%);
-  background-color: hsl(210, 20%, 98%);
-
-  text-rendering: optimizeLegibility;
+    /* font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; */
+    font-size: 18px;
+    margin: 5% 5% 5% 5%;
+    padding: 2% 5% 5% 5%;
+    width: 80%;
+    line-height: 150%;
+    border: 1px solid LightGrey;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    border-radius: .28571429rem;
 }
 
-/* Justify and hyphenate all paragraphs */
-p {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  margin-top: 1rem;
+H1 {
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif; */
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+H2 {
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif; */
+    margin-bottom: 60px;
+    margin-bottom: 40px;
+    padding: 5px;
+    border-bottom: 2px LightGrey solid;
+    width: 98%;
+    line-height: 150%;
+    color: #666666;
 }
 
-/* Make links red */
-a,
-a:visited {
-  color: #a00;
+
+H3 {
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif; */
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px LightGrey solid;
+    width: 98%;
+    line-height: 150%;
+    color: #666666;
 }
 
-a:focus {
-  outline-offset: 2px;
-  outline: 2px solid hsl(220, 90%, 52%);
+
+H4 {
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif; */
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px LightGrey solid;
+    width: 98%;
+    line-height: 150%;
+    color: #666666;
 }
 
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
+
+li {
+    margin-left: 10px;
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
+li {
+  /* display: block; */
+  line-height:38px;
+
+  /* padding: 10px 15px; */
+  /* padding: inherit; */
+  /* margin-left: 2px; */
+  /* background-color: #fff;
+  border: 1px solid #ddd; */
 }
 
-/* Prevent textarea from overflowing */
-textarea {
-  width: 100%;
+
+blockquote {
+    border-left: 4px lightgrey solid;
+    padding-left: 5px;
+    margin-left: 20px;
 }
 
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
 
-/* Styles for inline code or code snippets */
-code,
-pre,
-kbd {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  font-size: 85%;
-}
 pre {
-  padding: 1rem 1.4rem;
-  max-width: 100%;
-  overflow: auto;
-  border-radius: 4px;
-  background: hsl(210, 28%, 93%);
-}
-pre code {
-  font-size: 95%;
-  position: relative;
-}
-kbd {
-  background: hsl(210, 5%, 100%);
-  border: 1px solid hsl(210, 5%, 70%);
-  border-radius: 2px;
-  padding: 2px 4px;
-  font-size: 75%;
+    /* font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-size: 75%;
+    border: solid 1px lightgrey;
+    background-color: Ivory;
+    padding: 5px;
+    line-height: 130%;
+    margin-left: 10px;
+    width: 95%; */
+    font-weight: 400;    
+    color: #ec0909;
+    
 }
 
-/* Make table 100% width, add borders between rows */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  max-width: 100%;
-}
-th,
-td {
-  text-align: left;
-  padding: 0.5rem;
-}
-td {
-  border-bottom: 1px solid hsl(0, 0%, 85%);
-}
-thead th {
-  border-bottom: 2px solid hsl(0, 0%, 70%);
-}
-tfoot th {
-  border-top: 2px solid hsl(0, 0%, 70%);
+
+code {
+    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-size: 90%;
 }
 
-/* Center align the title */
-h1:first-child {
-  text-align: center;
+
+a {
+    /* display: block; */
+    text-decoration: none;
+    # cursor: crosshair;
+    /* border-bottom: 1px dashed Red; */
+    padding: 1px;
+    color: black;
+    /* color: #5d5d5d; */
 }
 
-/* Nested ordered list for ToC */
-nav ol {
-  counter-reset: item;
-  padding-left: 2rem;
-}
-nav li {
-  display: block;
-}
-nav li:before {
-  content: counters(item, '.') ' ';
-  counter-increment: item;
-  padding-right: 0.85rem;
+
+a:hover {
+	/* background-color: #EEE; */
+  border-bottom: 1px dashed Red;
 }
 
-/* Center definitions (most useful for display equations) */
-dl dd {
-  text-align: center;
+a:link {
+   /* color: #9caec7; */
+    text-decoration: none
 }
 
-/* Theorem */
-.theorem {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
+a:visited {
+  /*  color: #afb9c1; */
+    color: #555d63;  
+} 
+
+img {
+    box-shadow: 0 0 10px #555;
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 10px #555;
+    width: 100%;
+    max-width: 1200px;
+    background-color: bisque;
 }
 
-/* Lemma */
-.lemma {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.lemma::before {
-  content: 'Lemma ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Proof */
-.proof {
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-  position: relative;
+#postamble:after {
+    text-align: center;
+    display: block;
+    content: "\2766";
+    font-size: 34px;
 }
-.proof::before {
-  content: 'Proof. ' attr(title);
-  font-style: italic;
-}
-.proof:after {
-  content: '◾️';
-  position: absolute;
-  right: -12px;
-  bottom: -2px;
-}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #18222D;
+    color: #e4e4e4;
+  }
 
-/* Definition */
-.definition {
-  counter-increment: definition;
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-}
-.definition::before {
-  content: 'Definition ' counter(definition) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
+  a:link {
+      color: #9caec7;
+      text-decoration: none
+  }
 
-/* Center align author name, use small caps and add vertical spacing  */
-.author {
-  margin: 0.85rem 0;
-  font-variant-caps: small-caps;
-  text-align: center;
-}
+  a:visited {
+      /* color: #afb9c1; */
+      color: #555d63;    
+  } 
 
-/* Make footnote text smaller and left align it (looks bad with long URLs) */
-.footnotes p {
-  text-align: left;
-  line-height: 1.5;
-  font-size: 85%;
-  margin-bottom: 0.4rem;
-}
-.footnotes {
-  border-top: 1px solid hsl(0, 0%, 39%);
-}
+  img {
+    filter: grayscale(30%);
+  }
 
-/* Center title and paragraph */
-.abstract,
-.abstract p {
-  text-align: center;
+  pre {
+     background: #121212;
+     color: #579bda;
+  }
 }
-.abstract {
-  margin: 2.25rem 0;
-}
-
-/* Format the LaTeX symbol correctly (a higher up, e lower) */
-.latex span:nth-child(1) {
-  text-transform: uppercase;
-  font-size: 0.75em;
-  vertical-align: 0.28em;
-  margin-left: -0.48em;
-  margin-right: -0.15em;
-  line-height: 1ex;
-}
-
-.latex span:nth-child(2) {
-  text-transform: uppercase;
-  vertical-align: -0.5ex;
-  margin-left: -0.1667em;
-  margin-right: -0.125em;
-  line-height: 1ex;
-}
-
-/* Heading typography */
-h1 {
-  font-size: 2.5rem;
-  line-height: 3.25rem;
-  margin-bottom: 1.625rem;
-}
-
-h2 {
-  font-size: 1.7rem;
-  line-height: 2rem;
-  margin-top: 3rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-top: 2.5rem;
-}
-
-h4 {
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-h5 {
-  font-size: 1rem;
-  margin-top: 1.8rem;
-}
-
-h6 {
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: normal;
-  margin-top: 2.5rem;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.625rem;
-}
-
-h1 + h2 {
-  margin-top: 1.625rem;
-}
-
-h2 + h3,
-h3 + h4,
-h4 + h5 {
-  margin-top: 0.8rem;
-}
-
-h5 + h6 {
-  margin-top: -0.8rem;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 0.8rem;
+/*@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+    color: #e4e4e4;
+  }
+  a {
+    color: #e39777;
+  }
+  img {
+    filter: grayscale(30%);
+  }
 }
