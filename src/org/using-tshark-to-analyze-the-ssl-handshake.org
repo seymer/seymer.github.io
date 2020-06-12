@@ -1,0 +1,21 @@
+#+TITLE: 使用tshark分析SSL握手
+#+DATE: [2020-06-12 Fri 11:23]
+
+*** 提取SNI（Server Name Indication）字段
+#+BEGIN_EXAMPLE
+sudo tshark -T fields -e ssl.handshake.extensions_server_name -Y ssl.handshake.type==1
+#+END_EXAMPLE
+
+或者使用下面的，简单说TLS是SSL的的新版本。我在macOS上只能用上面的。
+#+BEGIN_EXAMPLE
+sudo tshark -T fields -e tls.handshake.extensions_server_name -Y tls.handshake.type==1
+#+END_EXAMPLE
+
+*** 追加提取目标IP及端口
+#+BEGIN_EXAMPLE
+sudo tshark -T fields -e ip.dst -e tcp.srcport -e ssl.handshake.extensions_server_name -Y ssl.handshake.type==1
+#+END_EXAMPLE
+
+*** reference:
+https://isc.sans.edu/forums/diary/Who+got+the+bad+SSL+Certificate+Using+tshark+to+analyze+the+SSL+handshake/19455/
+
