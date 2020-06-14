@@ -12,8 +12,8 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 
 我们也可以直接用IDEA创建。
 
-[[file:./images/idea-new-project-001]]
-[[file:./images/idea-new-project-002]]
-[[file:./images/idea-new-project-003]]
-[[file:./images/idea-new-project-004]]
-[[file:./images/idea-new-project-005]]
+[[file:./images/idea-new-project-001.png]]
+[[file:./images/idea-new-project-002.png]]
+[[file:./images/idea-new-project-003.png]]
+[[file:./images/idea-new-project-004.png]]
+[[file:./images/idea-new-project-005.png]]
