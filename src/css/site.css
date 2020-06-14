@@ -111,7 +111,7 @@ td.org-center { text-align: center; }
 dt { font-weight: bold; }
 .footpara { display: inline; }
 .footdef  { margin-bottom: 1em; }
-.figure { padding: 1em; }
+/*.figure { padding: 1em; }*/
 .figure p { /* text-align: center; */ }
 .inlinetask {
     padding: 10px;

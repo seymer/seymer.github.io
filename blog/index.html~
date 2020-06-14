@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2020-06-12 Fri 12:30 -->
+<!-- 2020-06-14 Sun 13:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,6 +14,8 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="getting-started-with-spring-boot.html">2020-06-14 Spring Boot 入门</a>
+</li>
 <li><a href="using-tshark-to-analyze-the-ssl-handshake.html">2020-06-12 使用tshark分析SSL握手</a>
 </li>
 <li><a href="pointer-and-address.html">2020-05-28 指针与地址</a>

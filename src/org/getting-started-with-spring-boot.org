@@ -6,12 +6,14 @@
 Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 Spring 的 Web 应用程序。
 
 *** 单模块项目创建
-创建一个单模块项目，我们可以使用 https://start.spring.io 网站创建。
+创建一个单模块项目，我们可以使用 https://start.spring.io 网站生成，然后用IDEA打开。
 
 [[file:./images/spring-initializr.png]]
 
-生成后解压用IDEA打开。
+我们也可以直接用IDEA创建。
 
-这里，我们也可以直接用IDEA创建。
-
-
+[[file:./images/idea-new-project-001]]
+[[file:./images/idea-new-project-002]]
+[[file:./images/idea-new-project-003]]
+[[file:./images/idea-new-project-004]]
+[[file:./images/idea-new-project-005]]
