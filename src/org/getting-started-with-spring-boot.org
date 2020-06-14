@@ -1,0 +1,17 @@
+#+TITLE: Spring Boot 入门
+#+AUTHOR: Siqing Mu
+#+DATE: [2020-06-14 Sun 00:45]
+
+*** Spring Boot
+Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 Spring 的 Web 应用程序。
+
+*** 单模块项目创建
+创建一个单模块项目，我们可以使用 https://start.spring.io 网站创建。
+
+[[file:./images/spring-initializr.png]]
+
+生成后解压用IDEA打开。
+
+这里，我们也可以直接用IDEA创建。
+
+
