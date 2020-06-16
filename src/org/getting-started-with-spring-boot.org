@@ -75,13 +75,13 @@ public class GreetingController {
     }
 }
 #+END_EXAMPLE
+最后的目录结构如图
+[[file:./images/idea-new-project-006.png]]
 试试在浏览器访问http://127.0.0.1:8080/greeting
 
 
 *** 多模块项目创建
-一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。
-
-如何划分模块呢，一般根据项目类型决定，没有一定之规。但还是有一些规律可循，比如经典的MVC架构模式，即Model（模型）、View（视图）、Controller（控制器）。对应Spring Web 应用，我们可以这样设计：
+一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。那如何划分模块呢，一般根据项目类型决定，没有一定之规。但还是有一些规律可循，比如经典的MVC架构模式，即Model（模型）、View（视图）、Controller（控制器）。对应Spring Web 应用，我一般使用这样的设计及命名：
 #+BEGIN_EXAMPLE
 web web层一般位于应用程序的最上层，也就是入口层，用于处理用户输入及响应。其实就是MVC中的Controller。
 service service层位于web层之下，充当事务边界。一般作为公共API。
@@ -90,11 +90,26 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 #+END_EXAMPLE
 
 [[file:./images/multiple-module-001.png]]
+这次什么也不用选，因为我们是在创建外层结构。外层pom.xml属于管理和统筹项目信息及依赖，这里不需要Spring Web。或者说放到web模块的pom里更合适些。
 [[file:./images/multiple-module-002.png]]
+删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。之后就可以删了。
 [[file:./images/multiple-module-003.png]]
+依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 [[file:./images/multiple-module-004.png]]
+如果你现在启动，会发现如下图console所示，那是因为我们还没有添加 Spring Web 依赖。我们在demo-web下的pom.xml添加
+#+BEGIN_EXAMPLE
+<dependencies>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+</dependencies>
+#+END_EXAMPLE
+再次运行，可以发现tomcat为我们启动了8080端口。如下图。
 [[file:./images/multiple-module-005.png]]
+同样，我们也添加下Greeting,GreetingController文件测试下。
 [[file:./images/multiple-module-006.png]]
+
 [[file:./images/multiple-module-007.png]]
 
 
