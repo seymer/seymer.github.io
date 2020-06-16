@@ -20,14 +20,36 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 #+BEGIN_EXAMPLE
 GroupID    项目组织的唯一标识符，遵循Java包名规则，以反向域名开始。
 ArtifactID 项目的唯一标识符，即项目名称。小写字母，不要有特殊字符。
-Version    项目版本号，开发阶段使用版本号后接 *-SNAPSHOT* 方便开发，发布部署后去掉。
+Version    项目版本号，开发阶段使用版本号后接 -SNAPSHOT 方便开发，发布部署后去掉。
 Name       项目名称，和 ArtifactID 保持一致。
 Package    项目包名，一般为GroupID + ArtifactID。
 #+END_EXAMPLE
 
 [[file:./images/idea-new-project-003.png]]
+这里我们可以选择项目依赖，比如Spring Web。当然你也可以什么也不选，等项目创建完后在 *pom.xml* 依赖项里添加。
 [[file:./images/idea-new-project-004.png]]
 [[file:./images/idea-new-project-005.png]]
+至此，我们就创建好单模块项目了。
+
+*** 多模块项目创建
+一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。
+
+如何划分模块呢，一般根据项目类型决定，没有一定之规。但还是有一些规律可循，比如经典的MVC架构模式，即Model（模型）、View（视图）、Controller（控制器）。对应Spring Web 应用，我们可以这样设计：
+#+BEGIN_EXAMPLE
+web web层一般位于应用程序的最上层，也就是入口层，用于处理用户输入及响应。其实就是MVC中的Controller。
+service service层位于web层之下，充当事务边界。一般作为公共API。
+domain  域模型[fn:2]通常是用于数据库的持久化，在 Java 中，它们通常符合 javabean 规范，即它们具有 get 和 set 方法来表示单个属性和一个无参数的构造函数。是领域驱动设计里的一个重要概念。
+dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接口。
+#+END_EXAMPLE
+
+[[file:./images/multiple-module-001.png]]
+[[file:./images/multiple-module-002.png]]
+[[file:./images/multiple-module-003.png]]
+[[file:./images/multiple-module-004.png]]
+[[file:./images/multiple-module-005.png]]
+[[file:./images/multiple-module-006.png]]
+[[file:./images/multiple-module-007.png]]
+
 
 
 *** reference
@@ -36,3 +58,5 @@ Package    项目包名，一般为GroupID + ArtifactID。
 
  
 [fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
+[fn:2][[https://stackoverflow.com/questions/4913673/what-is-java-domain-model][what is java domain model]]
+[fn:3][[https://en.wikipedia.org/wiki/Domain-driven_design][Domain-driven design]]
