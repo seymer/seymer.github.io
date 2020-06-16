@@ -13,7 +13,25 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 我们也可以直接用IDEA创建。
 
 [[file:./images/idea-new-project-001.png]]
+左侧菜单栏选择 Spring Initializr，然后 Next。
+
 [[file:./images/idea-new-project-002.png]]
+这里我们需要填写项目的Metadata信息[fn:1]
+#+BEGIN_EXAMPLE
+Group
+Artifact
+Version
+Name
+Description
+Package
+#+END_EXAMPLE
+
 [[file:./images/idea-new-project-003.png]]
 [[file:./images/idea-new-project-004.png]]
 [[file:./images/idea-new-project-005.png]]
+
+
+*** reference
++ [fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
++ [[https://blog.csdn.net/zhangxingyu126/article/details/81013315][maven中的GroupID和ArtifactID怎么写]]
++ 

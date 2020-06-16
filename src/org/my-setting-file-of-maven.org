@@ -1,0 +1,42 @@
+#+TITLE: 我的maven setting.xml文件
+#+DATE: [2020-06-14 Sun 14:41]
+
+
+#+BEGIN_EXAMPLE
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>${user.home}/.m2/repository</localRepository>
+  <pluginGroups>
+  </pluginGroups>
+  <proxies>
+  </proxies>
+  <servers>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>alimaven</id>
+      <mirrorOf>central</mirrorOf>
+      <name>aliyun maven</name>
+      <url>https://maven.aliyun.com/nexus/content/repositories/central/</url>
+    </mirror>
+    <mirror>
+        <id>central</id>
+        <name>Maven Repository Switchboard</name>
+        <url>https://repo1.maven.org/maven2/</url>
+        <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+  <profiles>
+  </profiles>
+</settings>
+#+END_EXAMPLE
+
+
+
+
+reference:
++ [[https://blog.csdn.net/belalds/article/details/79959181][快照版本和发布版本的区别]]
++ [[https://howtodoinjava.com/maven/maven-settings-file/][maven tutorial]]
+
