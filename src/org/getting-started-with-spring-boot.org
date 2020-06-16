@@ -26,10 +26,57 @@ Package    项目包名，一般为GroupID + ArtifactID。
 #+END_EXAMPLE
 
 [[file:./images/idea-new-project-003.png]]
-这里我们可以选择项目依赖，比如Spring Web。当然你也可以什么也不选，等项目创建完后在 *pom.xml* 依赖项里添加。
+这里我们可以选择项目依赖，比如Spring Web。它使用Spring MVC框架，Tomcat作为默认嵌入式容器（服务器），并且包含RESTful。
 [[file:./images/idea-new-project-004.png]]
 [[file:./images/idea-new-project-005.png]]
-至此，我们就创建好单模块项目了。
+至此，我们就创建好单模块项目了。测试一下吧。
+添加Greeting.java
+#+BEGIN_EXAMPLE
+package com.example.demo.controller;
+
+public class Greeting {
+
+    private final long id;
+    private final String content;
+
+    public Greeting(long id, String content) {
+        this.id = id;
+        this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+}
+#+END_EXAMPLE
+GreetingController.java
+#+BEGIN_EXAMPLE
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+@RestController
+public class GreetingController {
+
+    private static final String template = "Hello, %s!";
+    private final AtomicLong counter = new AtomicLong();
+
+    @GetMapping("/greeting")
+    public Greeting greeting(@RequestParam(value = "name", defaultValue = "world") String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+}
+#+END_EXAMPLE
+试试在浏览器访问http://127.0.0.1:8080/greeting
+
 
 *** 多模块项目创建
 一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。
