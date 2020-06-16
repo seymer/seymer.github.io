@@ -18,12 +18,11 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 [[file:./images/idea-new-project-002.png]]
 这里我们需要填写项目的Metadata信息[fn:1]
 #+BEGIN_EXAMPLE
-Group
-Artifact
-Version
-Name
-Description
-Package
+GroupID    项目组织的唯一标识符，遵循Java包名规则，以反向域名开始。
+ArtifactID 项目的唯一标识符，即项目名称。小写字母，不要有特殊字符。
+Version    项目版本号，开发阶段使用版本号后接 *-SNAPSHOT* 方便开发，发布部署后去掉。
+Name       项目名称，和 ArtifactID 保持一致。
+Package    项目包名，一般为GroupID + ArtifactID。
 #+END_EXAMPLE
 
 [[file:./images/idea-new-project-003.png]]
@@ -32,6 +31,8 @@ Package
 
 
 *** reference
-+ [fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
 + [[https://blog.csdn.net/zhangxingyu126/article/details/81013315][maven中的GroupID和ArtifactID怎么写]]
-+ 
++
+
+ 
+[fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
