@@ -79,7 +79,6 @@ public class GreetingController {
 [[file:./images/idea-new-project-006.png]]
 试试在浏览器访问http://127.0.0.1:8080/greeting
 
-
 *** 多模块项目创建
 一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。那如何划分模块呢，一般根据项目类型决定，没有一定之规。但还是有一些规律可循，比如经典的MVC架构模式，即Model（模型）、View（视图）、Controller（控制器）。对应Spring Web 应用，我一般使用这样的设计及命名：
 #+BEGIN_EXAMPLE
@@ -92,7 +91,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 [[file:./images/multiple-module-001.png]]
 这次什么也不用选，因为我们是在创建外层结构。外层pom.xml属于管理和统筹项目信息及依赖，这里不需要Spring Web。或者说放到web模块的pom里更合适些。
 [[file:./images/multiple-module-002.png]]
-删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。之后就可以删了。
+删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。之后就可以删了。
 [[file:./images/multiple-module-003.png]]
 依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 [[file:./images/multiple-module-004.png]]
@@ -107,16 +106,137 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 #+END_EXAMPLE
 再次运行，可以发现tomcat为我们启动了8080端口。如下图。
 [[file:./images/multiple-module-005.png]]
-同样，我们也添加下Greeting,GreetingController文件测试下。
+同样，我们也添加下Greeting.java，GreetingController.java文件测试下。代码可以参照单项目创建示例。
 [[file:./images/multiple-module-006.png]]
-
 [[file:./images/multiple-module-007.png]]
+在浏览器访问http://127.0.0.1:8080/greeting?name=Tom
 
+现在其实也还是单模块运行，我们先整理下父pom.xml文件。一步步来。
+
+1. 删除 dependencies 标签及其依赖，因为 Spring Boot 提供的父工程已包含，并且父 pom 原则上都是通过 dependencyManagement 标签管理依赖包。
+2. 删除 build 标签及其中的所有内容。spring-boot-maven-plugin 插件作用是打一个可运行的包，多模块项目仅仅需要在入口类所在的模块添加打包插件，这里父模块不需要打包运行。而且该插件已被包含在 Spring Boot 提供的父工程中，这里删掉即可。
+3. 配置模块间依赖关系
+在父pom文件里添加
+#+BEGIN_EXAMPLE
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-web</artifactId>
+            <version>${demo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-service</artifactId>
+            <version>${demo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-dao</artifactId>
+            <version>${demo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>demo-domain</artifactId>
+            <version>${demo.version}</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+注意：为了方便及统一管理各子模块的版本，我们将它定义在properties标签里。通过 ${demo.version} 获取。
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+<properties>
+    <java.version>1.8</java.version>
+    <demo.version>0.0.1-SNAPSHOT</demo.version>
+</properties>
+#+END_EXAMPLE
+
+根据依赖关系，我们在demo-dao模块的pom文件添加
+#+BEGIN_EXAMPLE
+<dependencies>
+    <dependency>
+        <groupId>com.example</groupId>
+        <artifactId>demo-domain</artifactId>
+    </dependency>
+</dependencies>
+#+END_EXAMPLE
+
+在demo-service模块的pom文件里添加
+#+BEGIN_EXAMPLE
+<dependencies>
+    <dependency>
+        <groupId>com.example</groupId>
+        <artifactId>demo-domain</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.example</groupId>
+        <artifactId>demo-dao</artifactId>
+    </dependency>
+</dependencies>
+#+END_EXAMPLE
+
+在demo-web模块的pom文件里添加，这里因为我们已经在之前添加Spring Web依赖了，我们直接把dependency项追加到dependencies项就好。如下：
+#+BEGIN_EXAMPLE
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.example</groupId>
+        <artifactId>demo-service</artifactId>
+    </dependency>
+</dependencies>
+#+END_EXAMPLE
+
+上面子模块中依赖无需添加版本号，它们会从父模块自动查找。
+
+接着，我们测试下通过web层调取service层是否正常。
+
+首先在demo-service层创建com.example.demo.service包，然后创建DemoService接口类及impl目录（用于存放接口实现类），接着创建接口实现类DemoServiceImpl
+DemoService.java
+#+BEGIN_EXAMPLE
+package com.example.demo.service;
+
+public interface DemoService {
+    String test();
+}
+#+END_EXAMPLE
+
+DemoServiceImpl.java
+#+BEGIN_EXAMPLE
+package com.example.demo.service.impl;
+
+import com.example.demo.service.DemoService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DemoServiceImpl implements DemoService {
+
+    @Override
+    public String test() {
+        return "interface test";
+    }
+}
+#+END_EXAMPLE
+
+
+这里使用到 *@Service* 注解，我们需要在demo-service模块的pom.xml依赖项里追加此依赖
+#+BEGIN_EXAMPLE
+<dependency>
+   <groupId>org.springframework</groupId>
+   <artifactId>spring-context</artifactId>
+</dependency>
+#+END_EXAMPLE
 
 
 *** reference
 + [[https://blog.csdn.net/zhangxingyu126/article/details/81013315][maven中的GroupID和ArtifactID怎么写]]
-+
++ [[https://blog.csdn.net/snn1410/article/details/52859788][dependencyManagement 及 dependencies 的区别]]
 
  
 [fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
