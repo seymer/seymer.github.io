@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Spring Boot 入门</title>
-<!-- 2020-06-17 Wed 15:10 -->
+<!-- 2020-06-17 Wed 20:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -147,7 +147,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <img src="./images/multiple-module-001.png" alt="multiple-module-001.png" />
 这次什么也不用选，因为我们是在创建外层结构。外层pom.xml属于管理和统筹项目信息及依赖，这里不需要Spring Web。或者说放到web模块的pom里更合适些。
 <img src="./images/multiple-module-002.png" alt="multiple-module-002.png" />
-删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。之后就可以删了。
+删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 <b>注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。</b> 之后就可以删了。
 <img src="./images/multiple-module-003.png" alt="multiple-module-003.png" />
 依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 <img src="./images/multiple-module-004.png" alt="multiple-module-004.png" />
@@ -166,7 +166,6 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <img src="./images/multiple-module-005.png" alt="multiple-module-005.png" />
 同样，我们也添加下Greeting.java，GreetingController.java文件测试下。代码可以参照单项目创建示例。
 <img src="./images/multiple-module-006.png" alt="multiple-module-006.png" />
-<img src="./images/multiple-module-007.png" alt="multiple-module-007.png" />
 在浏览器访问<a href="http://127.0.0.1:8080/greeting?name=Tom">http://127.0.0.1:8080/greeting?name=Tom</a>
 </p>
 
