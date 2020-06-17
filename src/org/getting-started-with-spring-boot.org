@@ -245,7 +245,7 @@ public String test() {
 }
 #+END_EXAMPLE
 
-在浏览器访问 http://127.0.0.1:8080/hello/test，返回 interface test 表明一切正常。
+在浏览器访问 http://127.0.0.1:8080/hello/test 返回 interface test 表明一切正常。
 
 *** 集成MyBatis
 
