@@ -91,11 +91,13 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 [[file:./images/multiple-module-001.png]]
 这次什么也不用选，因为我们是在创建外层结构。外层pom.xml属于管理和统筹项目信息及依赖，这里不需要Spring Web。或者说放到web模块的pom里更合适些。
 [[file:./images/multiple-module-002.png]]
-删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 *注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。* 之后就可以删了。
+删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。
 [[file:./images/multiple-module-003.png]]
 依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
+
+如果你现在启动，会发现如下图console所示，
 [[file:./images/multiple-module-004.png]]
-如果你现在启动，会发现如下图console所示，那是因为我们还没有添加 Spring Web 依赖。我们在demo-web下的pom.xml添加
+那是因为我们还没有添加 Spring Web 依赖。我们在demo-web下的pom.xml添加
 #+BEGIN_EXAMPLE
 <dependencies>
    <dependency>
@@ -232,10 +234,29 @@ public class DemoServiceImpl implements DemoService {
 </dependency>
 #+END_EXAMPLE
 
+我们打开web层的GreetingController文件，添加：
+#+BEGIN_EXAMPLE
+@Autowired
+private DemoService demoService;
+
+@GetMapping("/test")
+public String test() {
+   return demoService.test();
+}
+#+END_EXAMPLE
+
+在浏览器访问 http://127.0.0.1:8080/hello/test，返回 interface test 表明一切正常。
+
+*** 集成MyBatis
 
 *** reference
 + [[https://blog.csdn.net/zhangxingyu126/article/details/81013315][maven中的GroupID和ArtifactID怎么写]]
 + [[https://blog.csdn.net/snn1410/article/details/52859788][dependencyManagement 及 dependencies 的区别]]
++ [[https://symonlin.github.io/2019/01/15/springboot-1/][Maven 多模块项目搭建]]
++ [[https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/][spring-boot官方手册]]
++ [[https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/][Understanding Spring Web Application Architecture: The Classic Way]]
++ [[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
+
 
  
 [fn:1][[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
