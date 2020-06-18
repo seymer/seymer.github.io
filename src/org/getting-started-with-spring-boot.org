@@ -248,6 +248,96 @@ public String test() {
 在浏览器访问 http://127.0.0.1:8080/hello/test 返回 interface test 表明一切正常。
 
 *** 集成MyBatis
+在父pom.xml文件添加依赖
+#+BEGIN_EXAMPLE
+<dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+    <version>2.1.3</version>
+</dependency>
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.12</version>
+    <scope>provided</scope>
+</dependency>
+#+END_EXAMPLE
+添加到dependencyManagement下的依赖属于声明，并不会自动引入，所以需要在子模块下引入。
+#+BEGIN_EXAMPLE
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+</dependency>
+#+END_EXAMPLE
+通过mybatis-generator工具生成dao层相关文件，我这里使用的是IDEA插件 *MyBatisCodeHelperPro* 生成的。使用它需要先用IDEA连接数据库，然后选择表，右键选择Mybatis generator，配置存放位置。
+[[file:./images/mybatis-generator.png]]
+
+我们在demo-service子模块调用，打开DemoServiceImpl文件，使用 *@Autowired* 注入，具体如下。
+#+BEGIN_EXAMPLE
+@Autowired
+private SysDictMapper sysDictMapper;
+
+@Override
+public String test() {
+    SysDict sysDict = sysDictMapper.selectByPrimaryKey(1);
+    return sysDict.toString();
+}
+#+END_EXAMPLE
+
+这种注入方式已不被推荐，所以也可以这样写
+#+BEGIN_EXAMPLE
+private final SysDictMapper sysDictMapper;
+
+public DemoServiceImpl(SysDictMapper sysDictMapper) {
+    this.sysDictMapper = sysDictMapper;
+}
+
+@Override
+public String test() {
+    SysDict sysDict = sysDictMapper.selectByPrimaryKey(1);
+    return sysDict.toString();
+}
+#+END_EXAMPLE
+
+在demo-web模块下的resources文件夹下创建属性配置文件: *application.properties* ,然后添加配置
+#+BEGIN_EXAMPLE
+spring.datasource.driverClassName = com.mysql.cj.jdbc.Driver
+spring.datasource.url = jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
+spring.datasource.username = root
+spring.datasource.password = 
+
+mybatis.mapper-locations = classpath:mybatis/*.xml
+mybatis.type-aliases-package = com.example.demo.dao.entity
+#+END_EXAMPLE
+
+我们运行下发现会报错
+#+BEGIN_EXAMPLE
+Description:
+
+Field sysDictMapper in com.example.demo.service.impl.DemoServiceImpl required a bean of type 'com.example.demo.dao.mapper.SysDictMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.example.demo.dao.mapper.SysDictMapper' in your configuration.
+#+END_EXAMPLE
+
+解决这个问题有两种方法
+1. 在SysDictMapper接口增加 *@Mapper* 注解，确保扫描注册时可以识别到这个接口。
+2. 在启动类上增加 *@MapperScan* 注解，并设置搜索包。
+#+BEGIN_EXAMPLE
+@MapperScan("com.example.demo.dao.mapper")
+#+END_EXAMPLE
+
+再次启动，访问http://127.0.0.1:8080/hello/test 可以发现我们获取到了数据库内的信息。
 
 *** reference
 + [[https://blog.csdn.net/zhangxingyu126/article/details/81013315][maven中的GroupID和ArtifactID怎么写]]
