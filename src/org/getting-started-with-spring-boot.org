@@ -93,7 +93,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 [[file:./images/multiple-module-002.png]]
 删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。
 [[file:./images/multiple-module-003.png]]
-依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
+依次创建web模块，service模块，domain[fn:2]模块[fn:3]，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 
 如果你现在启动，会发现如下图console所示，
 [[file:./images/multiple-module-004.png]]
@@ -382,6 +382,7 @@ spring.datasource.password =
 + [[https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/][spring-boot官方手册]]
 + [[https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/][Understanding Spring Web Application Architecture: The Classic Way]]
 + [[https://maven.apache.org/guides/mini/guide-naming-conventions.html][Guide to naming conventions on groupId, artifactId, and version]]
++ [[https://spring.io/guides/gs/rest-service/][Building a RESTful Web Service]]
 
 
  

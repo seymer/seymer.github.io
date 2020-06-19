@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Spring Boot 入门</title>
-<!-- 2020-06-18 Thu 13:45 -->
+<!-- 2020-06-19 Fri 14:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -151,7 +151,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <img src="./images/multiple-module-002.png" alt="multiple-module-002.png" />
 删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。
 <img src="./images/multiple-module-003.png" alt="multiple-module-003.png" />
-依次创建web模块，service模块，domain模块，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
+依次创建web模块，service模块，domain<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>模块<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 </p>
 
 <p>
@@ -529,6 +529,8 @@ spring.datasource.password =
 </li>
 <li><a href="https://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId, and version</a>
 </li>
+<li><a href="https://spring.io/guides/gs/rest-service/">Building a RESTful Web Service</a>
+</li>
 </ul>
 </div>
 </div>
@@ -538,6 +540,14 @@ spring.datasource.password =
 
 <div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
 <a href="https://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId, and version</a>
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+<a href="https://stackoverflow.com/questions/4913673/what-is-java-domain-model">what is java domain model</a>
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain-driven design</a>
 </p></div>
 
 
