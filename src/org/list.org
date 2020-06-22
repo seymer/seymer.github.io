@@ -13,5 +13,12 @@
 + https://wetransfer.com/
 + https://www.filemail.com/
 + https://send-anywhere.com/
++ https://filetransfer.io/
++ https://app.tmp.link/
++ https://www.file.io/
+
+*** 录音服务
++ https://vocaroo.com
+
 
 
