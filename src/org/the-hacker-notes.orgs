@@ -1,0 +1,7 @@
+#+TITLE: 渗透测试笔记
+
+
++ https://github.com/cheetz The hackerplaybook 作者的github
++ https://github.com/gentilkiwi/mimikatz Mimikatz 工具获取内存密码
++ psexec_ntdsgrab 工具可以从域控服务器导出哈希值，然后清除痕迹。msf有
++ 

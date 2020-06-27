@@ -1,0 +1,54 @@
+#+TITLE: 字段注入，构造函数注入，setter注入
+
+#+BEGIN_EXAMPLE
+class FooService {
+  @Autowired
+  private BarDao barDao;
+  
+  @Autowired
+  private BazDao bazDao;
+  
+  ...
+}
+
+class FooService {
+  private final BarDao barDao;
+  private final BazDao bazDao;
+  
+  @Autowired
+  public FooService(BarDao barDao, BazDao bazDao) { 
+      this.barDao = barDao;
+      this.bazDao = bazDao;
+  }
+  
+  ...
+}
+
+class FooService {                                                                                                    
+  private BarDao barDao;                                                                                              
+  private BazDao bazDao;                                                                                              
+                                                                                                                     
+  public BarDao getBarDao() {
+  	return barDao;
+  }
+  
+  @Autowired
+  public void setBarDao(BarDao barDao) {
+  	this.barDao = barDao;
+  }    
+  
+  public BarDao getBazDao() {
+  	return bazDao;
+  }
+  
+  @Autowired
+  public void setBazDao(BazDao bazDao) {
+  	this.bazDao = bazDao;
+  }
+
+  ...                                                                                                     
+}
+#+END_EXAMPLE
+
+推荐使用构造函数注入方式。
+link: https://www.petrikainulainen.net/software-development/design/why-i-changed-my-mind-about-field-injection/
