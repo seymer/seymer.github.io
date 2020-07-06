@@ -35,6 +35,7 @@
 - [[https://httpie.org/][httpie]] is a fancy cURL alternative.
 - [[http://explainshell.com/][ExplainShell]] is great website to explain how a command or chain of commands work.
 - [[https://github.com/jlevy/the-art-of-command-line][The Art of Command Line]]
+- pbcopy & pbpaste
 
 *** magic
 
