@@ -1,12 +1,33 @@
 #+TITLE: 语言学习之工具篇
 #+DATE: <2020-08-26 Wed>
 
+*** LLY
+Language Learning with Youtube 简称为LLY。它可以帮助你通过字幕来查询相关内容，这里还有两个推荐，一个是VoiceTube,一个是Yonglish。另外也可以将字幕以两种语言显示，并且可以通过简单按键控制播放。比如
+#+BEGIN_EXAMPLE
+'a' for the previous subtitle.
+'s' to repeat a subtitle.
+'d' for the next subtitle.
+'space bar' to play/pause playback
+#+END_EXAMPLE
+[[file:./images/LLY.png]]
+
+*** IINA
+IINA 是一款在 macOS 平台下的媒体播放器。我们如何用它来模拟LLY的功能呢。首先打开Preferences，中文应该叫首选项。
+在 Key Bindings 一栏，当前默认选择为IINA Default，我们点击 Duplicate Configuration 复制一份，自定义为Custom。
+接着将 Seek to previous subtitle 映射改为 A， 将 Seek to next subtitle 映射改为 D。
 [[file:./images/iina.png]]
 
+默认配置里没有重复字幕这一配置，需要我们自定义，如下图。
+[[file:./images/iina-keybind.png]]
 
+视频、字幕从哪里找？IINA提供了自动在线搜索字幕功能。我们也可以自己找，最后两个是中英文字幕网站。
++ [[https://subscene.com/][Subscene]]
++ [[https://yts-subs.com/][YIFY Subtitles]]
++ [[https://www.opensubtitles.org/en/search/subs][opensubtitles]]
++ [[https://www.a4k.net/][a4k]]
++ [[https://assrt.net/][伪射手]]
 
-
-
+*** 链接
 + [[https://chrome.google.com/webstore/detail/language-learning-with-yo/jkhhdcaafjabenpmpcpgdjiffdpmmcjb?hl=en][Language Learning with Youtube BETA]]
 + [[https://chrome.google.com/webstore/detail/language-learning-with-ne/hoombieeljmmljlkjmnheibnpciblicm?hl=en][Language Learning with Netflix]]
 + [[https://www.voicetube.com/][VoiceTube]]
