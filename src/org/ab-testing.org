@@ -1,0 +1,16 @@
+#+TITLE: A/B testing
+#+DATE: 
+
+#+BEGIN_QUOTE
+A/B 测试(也称为桶测试或分割运行测试)是一种用户体验研究方法。 A/B 测试是由两个变量 a 和 b 组成的随机化实验，包括统计学领域中的统计假设测试或“两个样本的假设测试“的应用。A/B 测试是一种比较单一变量的两个版本的方法，通常是通过测试受试者对变量 a 和变量 b的反馈，并确定两个变量中哪一个更有效。
+#+END_QUOTE
+
+
+source:
++ https://datarangers.com.cn/
++ https://www.douban.com/note/698028685/
++ https://en.wikipedia.org/wiki/A/B_testing
++ https://segmentfault.com/a/1190000021843467
++ https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36500.pdf
++ https://tech.meituan.com/2019/11/28/advertising-performance-experiment-configuration-platform.html
++ https://blog.csdn.net/DevolperFront/article/details/99263059?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-8.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-8.nonecase

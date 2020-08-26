@@ -1,0 +1,42 @@
+#+TITLE: 重新思考语言学习这件事
+#+DATE: [2020-08-12 Wed 17:52]
+
+1. How to stop translating in your head
+2. 听说读写
+3. 回音法
+4. 你是如何教你的外国朋友中文的
+5. 你是如何学习中文的
+6. 精读
+7.  
+8. 你是否需要一个外教，
+9. 一个人练口语最好的办法就是跟读
+
+
+方法
+量化
+
+量化你的进步，不是简单打卡。
+
+
+语音语调现象
++ 闪音
++ 连读
+  + 辅元连读
+  + 辅辅连读
+  + 元元连读
++ 缩读
++ 重读与弱读
++ 语调
+
+
+
+
+
+
++ [[https://www.yinwang.org/blog-cn/2020/03/06/english-learning-tips][英语学习的一些经验]]
++ [[https://homepage.ntu.edu.tw/~karchung/][史嘉琳老师的主页]]
++ [[https://homepage.ntu.edu.tw/~karchung/pubs/CET6970.pdf][史嘉琳讲回音法]]
++ [[https://www.youtube.com/watch?v=sQEWEPIHLzQ][史嘉琳老师TED演讲]]
++ [[https://www.youtube.com/watch?v=ERZbALcRnnM][如何用英文思考-哥伦布发音库]]
++ [[https://www.youtube.com/channel/UCvn_XCl_mgQmt3sD753zdJA][Rachel's English]]
++ [[https://www.youtube.com/watch?v=N4fi3v0iNhM&t=3s][6种语言学习者使用的英语听力理解方法-口语老炮儿马思瑞]]

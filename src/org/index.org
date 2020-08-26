@@ -1,5 +1,8 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:tools-for-language-learning.org][2020-08-26 语言学习之工具篇]]
+   + [[file:rethinking-language-learning.org][2020-08-12 重新思考语言学习这件事]]
+   + [[file:ab-testing.org][2020-07-24 A/B testing]]
    + [[file:about-field-injection-versus-constructor-injection-versus-setter-injection.org][2020-06-27 字段注入，构造函数注入，setter注入]]
    + [[file:list.org][2020-06-22 工具箱]]
    + [[file:my-setting-file-of-maven.org][2020-06-14 我的maven setting.xml文件]]
