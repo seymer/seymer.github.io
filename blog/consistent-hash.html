@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>分布式系统中一致性哈希算法</title>
-<!-- 2020-11-02 Mon 12:34 -->
+<!-- 2020-11-02 Mon 12:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -36,9 +36,6 @@
 </ul>
 </div>
 </div>
-<p>
-source: <a href="https://www.cnblogs.com/jajian/p/10896624.html">https://www.cnblogs.com/jajian/p/10896624.html</a>
-</p>
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> 业务场景</h2>
@@ -151,7 +148,7 @@ System.out.println("存储：" + v2);// 存储：0
 
 
 <div class="figure">
-<p><img src="./consistent-hash-03.png" alt="consistent-hash-03.png" />
+<p><img src="./images/consistent-hash-03.png" alt="consistent-hash-03.png" />
 </p>
 </div>
 
@@ -210,7 +207,7 @@ public static int hash(Object... values) {
 
 
 <div class="figure">
-<p><img src="./consistent-hash-04.png" alt="consistent-hash-04.png" />
+<p><img src="./images/consistent-hash-04.png" alt="consistent-hash-04.png" />
 </p>
 </div>
 
@@ -386,6 +383,10 @@ hash("192.168.32.132#B") % 2^32
 
 <p>
 另外，我们都知道 hash算法 有一个避免不了的问题，就是哈希冲突。对于用户请求IP的哈希冲突，其实只是不同用户被分配到了同一台服务器上，这个没什么影响。但是如果是服务节点有哈希冲突呢？这会导致两个服务节点在哈希环上对应同一个点，其实我感觉这个问题也不大，因为一方面哈希冲突的概率比较低，另一方面我们可以通过虚拟节点也可减少这种情况。
+</p>
+
+<p>
+source: <a href="https://www.cnblogs.com/jajian/p/10896624.html">https://www.cnblogs.com/jajian/p/10896624.html</a>
 </p>
 </div>
 </div>
