@@ -98,6 +98,6 @@ public class RedisDistributedLock {
 
 
 source: 
-- [1] https://www.cnblogs.com/kyoner/p/12298902.html
-- [2] https://www.cnblogs.com/linjiqin/p/8003838.html
-- [3] https://blog.csdn.net/w372426096/article/details/103761286
+- https://www.cnblogs.com/kyoner/p/12298902.html
+- https://www.cnblogs.com/linjiqin/p/8003838.html
+- https://blog.csdn.net/w372426096/article/details/103761286
