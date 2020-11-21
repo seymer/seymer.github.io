@@ -10,15 +10,14 @@ docker run -it -d --name lnmp -p 8080:80 -v ~/workspace:/usr/local/src/ debian
 #+END_EXAMPLE
 
 参数解释
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 docker run：开始运行一个容器
 -it 参数：-i：交互式执行容器。-t：分配虚拟终端。一般搭配使用。
 -d 参数：容器以后台运行并输出容器ID。
 -–name 参数：给容器分配一个识别符，方便将来的启动，停止，删除等操作。
 -p 参数：容器的80端口映射到本机的8080 端口。
 -v 参数：挂载卷（volume），冒号后面是容器的路径，冒号前面是宿主机的路径。
-#+END_QUOTE
-
+#+END_EXAMPLE
 一些常用命令
 #+BEGIN_EXAMPLE
 docker ps -as
@@ -64,11 +63,22 @@ apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,curl}
 apt-get install nginx php7.4-fpm
 #+END_EXAMPLE
 
+启动
+#+BEGIN_EXAMPLE
+/etc/init.d/nginx start
+/etc/init.d/php7.4-fpm start
+#+END_EXAMPLE
+
+*** nginx 配置的一些注意点
+
+美化URI
+#+BEGIN_EXAMPLE
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+#+END_EXAMPLE
+
+nginx配置fastcgi_pass可能和php版本不一致，需要去php pool里去查看对应设置。
 
 
-
-
-
-
-
-
+reference: https://computingforgeeks.com/how-to-install-latest-php-on-debian/
