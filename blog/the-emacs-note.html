@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs 使用笔记</title>
-<!-- 2019-04-28 Sun 16:42 -->
+<!-- 2020-11-21 Sat 15:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -39,8 +39,35 @@
 </li>
 <li>C-u C-c ! 插入日期时间
 </li>
-<li></li>
 </ul>
+
+<p>
+多行注释： 
+</p>
+<ol class="org-ol">
+<li>选中一段区域到最后一行行首（！很重要！）；
+</li>
+<li>按 C-x r t ；
+</li>
+<li>输入注释内容；
+</li>
+</ol>
+
+<p>
+反多行注释： 
+</p>
+<ol class="org-ol">
+<li>选中一段区域到最后一行，紧挨着注释字符之后的位置（！很重要！）；
+</li>
+<li>按 c-x r k；
+</li>
+</ol>
+
+
+<p>
+Emacs默认的标记的快捷键是ctrl+空格和ctrl+@。前者和中文系统的输入法切换有冲突，后者其实是ctrl+shift+2，极度难按。所以如果经常按请重新设置键位。
+按完之后就进入了标记状态，然后以任意方式移动光标，标记起始位和光标之间的内容都会被选中，然后根据情况你就能复制或者剪切。如果要多行，那么先ctrl-a到开头，然后ctrl+shift+2标记，ctrl+n移动数行，ctrl+e到行尾。然后该剪切剪切（ctrl+w），该复制复制（alt+w）。
+</p>
 </div>
 </div>
 </div>
