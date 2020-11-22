@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>如何在docker上安装php环境</title>
-<!-- 2020-11-21 Sat 17:43 -->
+<!-- 2020-11-22 Sun 21:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -43,6 +43,7 @@ docker run：开始运行一个容器
 -it 参数：-i：交互式执行容器。-t：分配虚拟终端。一般搭配使用。
 -d 参数：容器以后台运行并输出容器ID。
 -–name 参数：给容器分配一个识别符，方便将来的启动，停止，删除等操作。
+--restart always: 配置容器启动类型，always 即为 docker 服务重新启动时自动启动本容器
 -p 参数：容器的80端口映射到本机的8080 端口。
 -v 参数：挂载卷（volume），冒号后面是容器的路径，冒号前面是宿主机的路径。
 </pre>
