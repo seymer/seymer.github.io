@@ -6,7 +6,7 @@
 
 创建并启动容器
 #+BEGIN_EXAMPLE
-docker run -it -d --name lnmp -p 8080:80 -v ~/workspace:/usr/local/src/ debian
+docker run -it -d --name lnmp --restart always -p 8080:80 -v ~/workspace:/usr/local/src/ debian
 #+END_EXAMPLE
 
 参数解释
