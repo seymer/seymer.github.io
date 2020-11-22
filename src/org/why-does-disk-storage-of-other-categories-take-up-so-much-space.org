@@ -2,7 +2,7 @@
 #+DATE: [2020-11-22 Sun 20:32]
 #+AUTHOR: ibuick
 
-请问，mac finder存储里的“其他”区域该如何清理? 大别您好！请问mac finder里的“其他”区域该如何清理？我在网上查了好久都没查明白，library里的caches也清理干净了，网上说的omnidisksweeper也尝试过了，都没作用，请问该如何操作啊？谢谢！！！
+** 请问，mac finder存储里的“其他”区域该如何清理? 大别您好！请问mac finder里的“其他”区域该如何清理？我在网上查了好久都没查明白，library里的caches也清理干净了，网上说的omnidisksweeper也尝试过了，都没作用，请问该如何操作啊？谢谢！！！
 
 其实，这个问题其实已经讨论过多次，简单来说，macOS 文件系统 HFS+ 也好，APFS 也罢，在你创建文件后，它们都会动用 mds (metadata server, spotlight 功能的后端服务) 对文件进行扫描归类，创建统计数据，这个统计数据就是 关于本机，存储里面显示分类空间占用的由来。 
 
