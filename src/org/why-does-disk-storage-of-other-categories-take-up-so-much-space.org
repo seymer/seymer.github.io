@@ -1,6 +1,7 @@
 #+TITLE: 为什么磁盘存储其他分类占用那么多空间
 #+DATE: [2020-11-22 Sun 20:32]
 #+AUTHOR: ibuick
+#+OPTION: TOC
 
 ** 请问，mac finder存储里的“其他”区域该如何清理? 大别您好！请问mac finder里的“其他”区域该如何清理？我在网上查了好久都没查明白，library里的caches也清理干净了，网上说的omnidisksweeper也尝试过了，都没作用，请问该如何操作啊？谢谢！！！
 
