@@ -1,0 +1,42 @@
+#+TITLE: 如何管理Java的多版本
+#+DATE: [2020-12-05 Sat 19:46]
+
+
+*** 第一种方法
+#+BEGIN_EXAMPLE
+brew install jenv
+#+END_EXAMPLE
+
+*** 第二种方法
+我们可以使用如下命令查看我们已安装的版本
+#+BEGIN_EXAMPLE
+/usr/libexec/java_home -V
+或
+/usr/libexec/java_home -verbose
+#+END_EXAMPLE
+
+添加如下函数到 *~/.zshrc* 或 *~/.bashrc*
+#+BEGIN_EXAMPLE
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+}
+#+END_EXAMPLE
+保存退出后
+#+BEGIN_EXAMPLE
+source .zshrc
+或
+source .bashrc
+#+END_EXAMPLE
+
+切换版本
+#+BEGIN_EXAMPLE
+jdk 1.8
+jdk 15
+#+END_EXAMPLE
+
+
+reference:
++ https://www.jenv.be/
++ https://github.com/AdoptOpenJDK/homebrew-openjdk#switch-between-different-jdk-versions

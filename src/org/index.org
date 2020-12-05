@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:how-to-manage-multiple-version-of-java.org][2020-12-05 如何管理Java的多版本]]
    + [[file:why-does-disk-storage-of-other-categories-take-up-so-much-space.org][2020-11-22 为什么磁盘存储其他分类占用那么多空间]]
    + [[file:salary-submissions.org][2020-11-22 全球薪酬报告网站]]
    + [[file:how-to-install-php-environment-on-docker.org][2020-11-21 如何在docker上安装php环境]]
