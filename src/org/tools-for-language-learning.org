@@ -34,3 +34,4 @@ IINA 是一款在 macOS 平台下的媒体播放器。我们如何用它来模�
 + [[https://youglish.com/][Youglish]]
 + [[https://vocaroo.com/][Vocaroo]]
 + [[https://iina.io/][IINA]]
++ [[https://netspeak.org/][netspeak]]
