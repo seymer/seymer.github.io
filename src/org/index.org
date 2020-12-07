@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:ab-testing.org][2020-12-07 A/B testing]]
    + [[file:how-to-manage-multiple-version-of-java.org][2020-12-05 如何管理Java的多版本]]
    + [[file:why-does-disk-storage-of-other-categories-take-up-so-much-space.org][2020-11-22 为什么磁盘存储其他分类占用那么多空间]]
    + [[file:salary-submissions.org][2020-11-22 全球薪酬报告网站]]
@@ -8,7 +9,6 @@
    + [[file:consistent-hash.org][2020-11-02 分布式系统中一致性哈希算法]]
    + [[file:tools-for-language-learning.org][2020-08-26 语言学习之工具篇]]
    + [[file:rethinking-language-learning.org][2020-08-12 重新思考语言学习这件事]]
-   + [[file:ab-testing.org][2020-07-24 A/B testing]]
    + [[file:about-field-injection-versus-constructor-injection-versus-setter-injection.org][2020-06-27 字段注入，构造函数注入，setter注入]]
    + [[file:list.org][2020-06-22 工具箱]]
    + [[file:my-setting-file-of-maven.org][2020-06-14 我的maven setting.xml文件]]
