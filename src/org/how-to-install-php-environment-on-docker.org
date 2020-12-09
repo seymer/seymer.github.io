@@ -53,7 +53,7 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt
 apt-get update & apt-get install -y php7.4
 #+END_EXAMPLE
 
-安装php扩展
+安装php扩展。如果没有指定版本，可以试着将版本去掉，比如redis扩展。
 #+BEGIN_EXAMPLE
 apt-get install php7.4-xxx
 apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip,curl}
