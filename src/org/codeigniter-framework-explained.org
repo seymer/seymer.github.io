@@ -5,6 +5,7 @@
 CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时，官方也从 CodeIgniter 3 升级到了CodeIginter 4，说升级其实是有些不准确的，准确来讲是基本重写了整个框架，并且不向前兼容。那我们今天就来重新回顾下这个框架。
 
 我们先来看下CodeIgniter 3 框架的流程图
+
 [[file:./images/appflowchart.gif]]
 
 我们再来看下框架目录结构，CodeIgniter 3 分为两个部分，应用部分和框架部分。
