@@ -1,0 +1,15 @@
+#+TITLE: CodeIgniter 框架
+#+DATE: [2020-12-13 Sun 20:55]
+
+CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时，官方也从 CodeIgniter 3 升级到了CodeIginter 4，说升级其实是有些不准确的，准确来讲是基本重写了整个框架，并且不向前兼容。那我们今天就来重新回顾下这个框架。
+
+*** CodeIginter 3 应用流程图
+
+[[file:./images/appflowchart.gif]]
+
+*** 进入框架
+
+
+
+
++ https://codeigniter.com/userguide3/index.html
