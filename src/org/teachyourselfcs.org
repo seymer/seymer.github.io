@@ -1,0 +1,61 @@
+#+TITLE: 自学计算机科学
+#+DATE: [2020-12-12 Sat 18:16]
+
+
+site list: 
++ https://teachyourselfcs.com/
++ https://missing.csail.mit.edu/
++ [[https://dancres.github.io/Pages/][A Distributed Systems Reading List]]
++ https://online-learning.harvard.edu/catalog/FRee
+
+
+blog list:
++ Stripe https://stripe.com/blog
++ Netflix - https://netflixtechblog.com/
++ Cloudflare - https://blog.cloudflare.com/
++ Lyft — https://eng.lyft.com/
++ Uber — https://eng.uber.com/
++ Instagram — https://instagram-engineering.com/
++ Facebook — https://engineering.fb.com/
++ Google Ai — https://ai.googleblog.com/
++ Netflix — https://medium.com/netflix-techblog
++ Line Chat — https://engineering.linecorp.com/en/blog/
++ Airbnb — https://medium.com/airbnb-engineering
++ Andela — https://andela.com/insights/
++ Soundcloud — https://developers.soundcloud.com/blog/
++ Discord — https://blog.discordapp.com
++ Softcom DevX — https://devx.blog/
++ Interswitch — https://medium.com/interswitch-engineering-blog
++ Carbon — https://blog.getcarbon.co/category/carbon-engineering/
++ Github — https://github.blog/category/engineering/
++ Gitlab — https://about.gitlab.com/blog/categories/engineering/
++ Heroku — https://blog.heroku.com/engineering
++ BBC — https://medium.com/bbc-design-engineering
++ Booking — https://blog.booking.com/
++ Coursera — https://blog.coursera.org/
++ Dropbox — https://blogs.dropbox.com/tech/
++ eBay — https://www.ebayinc.com/stories/blogs/tech/
++ Etsy — https://codeascraft.com/
++ Eventbrite — https://codeascraft.com/
++ Evernote — https://evernote.com/blog/
++ LinkedIn — https://engineering.linkedin.com/blog
++ Medium — https://medium.engineering/
++ Mixpanel — https://mixpanel.com/blog/
++ Pinterest — https://medium.com/@Pinterest_Engineering
++ Quora — https://engineering.quora.com/
++ Reddit — https://redditblog.com/
++ Riot Games — https://engineering.riotgames.com/
++ Salesforce — https://developer.salesforce.com/blogs/engineering/
++ Shopify — https://engineering.shopify.com/
++ Spotify — https://labs.spotify.com/
++ Twitter — https://blog.twitter.com/engineering/en_us.html
++ Yelp — https://engineeringblog.yelp.com/
++ YouTube — https://youtube-eng.googleblog.com/
++ Flosports - https://engineering.flosports.tv/
+
+
+
+
+reference: 
+1. https://medium.com/@jamesagwa/38-company-engineering-blogs-to-follow-as-a-software-engineer-c369e4be9afe
+2. https://github.com/kilimchoi/engineering-blogs
