@@ -1,13 +1,72 @@
 #+TITLE: CodeIgniter 框架
 #+DATE: [2020-12-13 Sun 20:55]
 
+*** CodeIginter
 CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时，官方也从 CodeIgniter 3 升级到了CodeIginter 4，说升级其实是有些不准确的，准确来讲是基本重写了整个框架，并且不向前兼容。那我们今天就来重新回顾下这个框架。
 
-*** CodeIginter 3 应用流程图
-
+我们先来看下CodeIgniter 3 框架的流程图
 [[file:./images/appflowchart.gif]]
 
+我们再来看下框架目录结构，CodeIgniter 3 分为两个部分，应用部分和框架部分。
+#+BEGIN_EXAMPLE
+.
+├── application
+│   ├── cache
+│   ├── config
+│   ├── controllers
+│   ├── core
+│   ├── helpers
+│   ├── hooks
+│   ├── language
+│   ├── libraries
+│   ├── logs
+│   ├── models
+│   ├── third_party
+│   └── views
+└── system
+    ├── core
+    ├── database
+    ├── fonts
+    ├── helpers
+    ├── language
+    └── libraries
+
+#+END_EXAMPLE
+
+应用部分除了config里包含一些基本配置，其余都是空文件夹，很好的让框架和业务代码分离开来。项目根目录最外层由index.php进入整个框架。
+
 *** 进入框架
+index.php 定义了环境变量，分为开发，测试，生产三个部分。另外根据环境变量的不同决定错误输出与否。还有一些目录及终端进入的设置，接着进入引导程序 CodeIgniter.php。
+
+引导程序存放在 system/core/ 文件目录下。引导程序主要用来加载框架路由，全局函数，基础控制类及一些安全方面的东西。可以说就是Core下的其他东西。
+#+BEGIN_EXAMPLE
+.
+├── Benchmark.php
+├── CodeIgniter.php
+├── Common.php
+├── Config.php
+├── Controller.php
+├── Exceptions.php
+├── Hooks.php
+├── Input.php
+├── Lang.php
+├── Loader.php
+├── Log.php
+├── Model.php
+├── Output.php
+├── Router.php
+├── Security.php
+├── URI.php
+├── Utf8.php
+├── compat
+│   ├── hash.php
+│   ├── index.html
+│   ├── mbstring.php
+│   ├── password.php
+│   └── standard.php
+└── index.html
+
+#+END_EXAMPLE
 
 
 
