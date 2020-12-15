@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:legally-free-python-books-list.org][2020-12-15 免费python书列表]]
    + [[file:data-erasure.org][2020-12-15 数据如何安全擦除]]
    + [[file:codeigniter-framework-explained.org][2020-12-13 CodeIgniter 框架]]
    + [[file:teachyourselfcs.org][2020-12-12 自学计算机科学]]

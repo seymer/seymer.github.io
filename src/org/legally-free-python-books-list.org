@@ -1,0 +1,4 @@
+#+TITLE: 免费python书列表
+#+DATE: [2020-12-15 Tue 23:18]
+
+link: https://www.pythonkitchen.com/legally-free-python-books-list/

@@ -2,7 +2,7 @@
 #+DATE: [2020-12-15 Tue 23:00]
 
 
-**This project records the secure erasure of all data in the Linux system.**
+*** This project records the secure erasure of all data in the Linux system.
 
 OS:Centos
 If you use other Linux distributions, please obtain the following programs through the corresponding package manager.
@@ -10,28 +10,28 @@ If you use other Linux distributions, please obtain the following programs throu
 
 plan 1: Secure-Delete
 
-```
+#+BEGIN_EXAMPLE
 sudo yum install secure-delete
-```
+#+END_EXAMPLE
 
 then, you can use the `srm` command to delete files.
 The `srm` command works similarly to the `rm` command, but it is more than just deleting a file. It first rewrites the file several times with some random data, and then deletes the file completely.
 
-```
+#+BEGIN_EXAMPLE
 sudo srm  /datas/*
-```
+#+END_EXAMPLE
 
 `sfill` detects the space marked as free or available in the specified partition or directory, and then uses its own algorithm to fill it with some random data. Therefore, it ensures that there are no files or folders that can be recovered on this partition.
 
-```
+#+BEGIN_EXAMPLE
 sudo sfill /home
-```
+#+END_EXAMPLE
 
 The `sswap` command is used to safely clear your swap partition. The swap partition is used to store data for running programs.
 
-```
+#+BEGIN_EXAMPLE
 sudo sswap /dev/sda5
-```
+#+END_EXAMPLE
 
 `Smem` is used to clean up the content in the memory. Although the content in the random access memory (RAM) will be cleaned up when the system is restarted or shut down, some residual traces of data will still remain in the memory. This command provides safe memory cleaning, just run the `smem` command in the terminal.
 
@@ -39,31 +39,31 @@ sudo sswap /dev/sda5
 plan2: shred
 
 Use the shred tool to run the following command to delete the file:
-```
+#+BEGIN_EXAMPLE
 shred /home/test.jpg
-```
+#+END_EXAMPLE
 
 plan3: dd (recommend)
 
-```
+#+BEGIN_EXAMPLE
 dd if=/dev/zero of=/dev/sda bs=2MB oflag=nonblock
-```
+#+END_EXAMPLE
 
 plan4: wipe(slow)
 
-```
+#+BEGIN_EXAMPLE
 sudo yum install wipe
-```
+#+END_EXAMPLE
 
 Delete Files:
-```
+#+BEGIN_EXAMPLE
 wipe filename
-```
+#+END_EXAMPLE
 
 Delete the contents of the complete partition:
-```
+#+BEGIN_EXAMPLE
 wipe /dev/sda1
-```
+#+END_EXAMPLE
 
 
 source: https://github.com/ixiniansec/Data-erasure
