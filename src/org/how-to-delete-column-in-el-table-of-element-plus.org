@@ -1,0 +1,7 @@
+#+TITLE: element-plus/element-ui如何删除某一行数据
+#+DATE: [2020-12-23 Wed 00:03]
+
+在element-ui或者elment-plus模版框架中，如何删除某一行数据。
+
+
+link: https://segmentfault.com/q/1010000011291069

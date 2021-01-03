@@ -1,5 +1,7 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:ranking-algorithm.org][2021-01-03 排名算法]]
+   + [[file:how-to-delete-column-in-el-table-of-element-plus.org][2020-12-23 element-plus/element-ui如何删除某一行数据]]
    + [[file:legally-free-python-books-list.org][2020-12-15 免费python书列表]]
    + [[file:data-erasure.org][2020-12-15 数据如何安全擦除]]
    + [[file:codeigniter-framework-explained.org][2020-12-13 CodeIgniter 框架]]
