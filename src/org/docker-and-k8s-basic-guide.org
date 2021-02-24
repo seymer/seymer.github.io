@@ -20,7 +20,7 @@ brew install docker-machine-driver-hyperkit
 
 **** 启动minikube
 #+BEGIN_EXAMPLE
-minikube start --vm-driver hyperkit
+minikube start --driver hyperkit
 #+END_EXAMPLE
 
 Minikube 启动时会自动配置 kubectl，把它指向 Minikube 提供的 Kubernetes API 服务。可以用下面的命令确认：
