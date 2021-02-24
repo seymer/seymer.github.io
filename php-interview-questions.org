@@ -1,0 +1,33 @@
+#+TITLE: PHP 面试题
+
+
+#+BEGIN_EXAMPLE
+<?php
+
+$arr = array('a','b','c','d','e');
+
+foreach($arr as $key => $value){
+    if($value=='b'){
+        continue;
+    }
+    if($value=='c'){
+        unset($arr[$key]);
+        break;
+    }
+
+}
+var_dump($arr);
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+array(4) {
+  [0]=>
+  string(1) "a"
+  [1]=>
+  string(1) "b"
+  [3]=>
+  string(1) "d"
+  [4]=>
+  string(1) "e"
+}
+#+END_EXAMPLE

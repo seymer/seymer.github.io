@@ -1,0 +1,75 @@
+#+TITLE: 无用的把戏
+#+DATE: [2021-01-15 Fri 19:22]
+
+*** PHP
+#+BEGIN_EXAMPLE
+<?php
+function testRand($randFunction, $groupsNumber = 10, $rollsNumber = 200)
+{
+    $frequencies = array_fill(0, $groupsNumber, 0);
+    foreach (range(1, $rollsNumber) as $ignored) {
+        if ($randFunction == 'lcg_value') {
+            $frequencies[$randFunction() * 10]++;
+        } else {
+            $frequencies[$randFunction(0, $groupsNumber - 1)]++;
+        }
+    }
+
+    echo PHP_EOL, "------- results for `$randFunction` -------", PHP_EOL;
+    $cum = 0;
+    foreach ($frequencies as $index => $frequency) {
+        $percent = $frequency * 100 / $rollsNumber;
+        $cum += $percent;
+        echo sprintf("%d\t|\t%4d\t%6.2f\t%6.2f", $index, $frequency, $percent, $cum), PHP_EOL;
+    }
+}
+
+testRand('rand');
+testRand('mt_rand');
+testRand('lcg_value');
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+$$
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+...
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+<?php
+    $a = [1,2,3];
+    $b = ['a', 'b', 'c', 'd'];
+
+    $i = 0;
+    $a_len = count($a);
+
+    $res = [];
+
+    foreach ($b as $key => $value) {
+        $k = $i < $a_len ? $i : $i % $a_len;
+
+        $res[$a[$k]][] = $value;
+        $i++;
+    }
+
+var_dump($res);
+#+END_EXAMPLE
+*** Mysql
+137 文件权限
+当你需要在一个字段中使用多个值代表不同的意思，但这些值又需要去组合代表不同的意义时，可以考虑参考文件权限的思想。
+例如：你有一个类型字段type，你
+#+BEGIN_EXAMPLE
+CREATE TABLE `testing` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `room_number` int unsigned NOT NULL DEFAULT '0',
+  `score` int NOT NULL,
+  `node` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `room_number` (`room_number`),
+  KEY `rs` (`room_number`,`score`),
+  KEY `ns` (`node`,`score`)
+) ENGINE=InnoDB;
+#+END_EXAMPLE

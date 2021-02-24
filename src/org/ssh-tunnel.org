@@ -9,6 +9,7 @@ SSH隧道是一个强大但鲜为人知的特性，它允许你在本地主机�
 man ssh
 #+END_EXAMPLE
 
+link: https://robotmoon.com/ssh-tunnels/
 
 
 

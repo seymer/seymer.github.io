@@ -1,5 +1,11 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:docker-and-k8s-basic-guide.org][2021-02-24 docker 和 k8s 基础教程]]
+   + [[file:how-to-learn-efficiently.org][2021-02-20 如何有效学习]]
+   + [[file:git-style-guide.org][2021-02-19 Git 风格指南]]
+   + [[file:how-can-i-determine-if-a-machine-is-online-without-using-ping.org][2021-02-07 没有ping工具如何确定机器是否联网]]
+   + [[file:useless-tricks.org][2021-01-15 无用的把戏]]
+   + [[file:how-to-determine-whether-a-string-ends-with-a-specified-substring.org][2021-01-03 JavaScript中如何判断字符串以指定子串结尾]]
    + [[file:ranking-algorithm.org][2021-01-03 排名算法]]
    + [[file:how-to-delete-column-in-el-table-of-element-plus.org][2020-12-23 element-plus/element-ui如何删除某一行数据]]
    + [[file:legally-free-python-books-list.org][2020-12-15 免费python书列表]]

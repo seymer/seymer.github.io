@@ -1,0 +1,88 @@
+#+TITLE: JavaScript中如何判断字符串以指定子串结尾
+#+DATE: [2021-01-03 Sun 23:35]
+
+#### 内置版本
+#+BEGIN_EXAMPLE
+if ( a.endsWith( b ) )
+#+END_EXAMPLE
+
+#### 我最初的2B版本，用substring()实现，而且用"=="，没用"==="
+#+BEGIN_EXAMPLE
+String.prototype.endsWith   =
+function ( str )
+{
+    if ( str == null || str.length > this.length )
+    {
+        return false;
+    }
+    if ( this.substring( this.length - str.length ) == str )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+};
+
+if ( a.endsWith( b ) )
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+function PrivateStringEndWith ( a, b )
+{
+    if ( b == null || a == null || b.length > a.length )
+    {
+        return false;
+    }
+    if ( a.substring( a.length - b.length ) == b )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+if ( PrivateStringEndWith( a, b ) )
+#+END_EXAMPLE
+
+#### 用indexOf()实现
+#+BEGIN_EXAMPLE
+String.prototype.endsWith   =
+function ( str )
+{
+    return this.indexOf( str, this.length - str.length ) !== -1;
+};
+#+END_EXAMPLE 
+
+#### 用substr()实现
+#+BEGIN_EXAMPLE
+String.prototype.endsWith   =
+function ( str )
+{
+    return this.substr( -str.length ) === str;
+};
+#+END_EXAMPLE
+可以多一个预检查，没有内置版本时才自己实现
+if ( typeof String.prototype.endsWith !== 'function' )
+{
+    String.prototype.endsWith   =
+    function ( str )
+    {
+        return this.substr( -str.length ) === str;
+    }
+};
+#### 用正则表达式实现
+#+BEGIN_EXAMPLE
+String.prototype.endsWith   =
+function ( str )
+{
+    var reg = new RegExp( str+"$" );
+
+    return reg.test( this );
+};
+#+END_EXAMPLE
+
+source: http://scz.617.cn:8/

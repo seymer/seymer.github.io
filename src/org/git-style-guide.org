@@ -1,0 +1,15 @@
+#+TITLE: Git 风格指南
+#+DATE: [2021-02-19 Fri 19:38]
+
+*** Git Log Style Reference
++ https://open.leancloud.cn/git-commit-message/
++ https://www.conventionalcommits.org/en/v1.0.0/
++ https://github.com/angular/angular/blob/master/CONTRIBUTING.md
+
+*** Git Tag Version Style Reference
++ https://semver.org/lang/zh-CN/
++ https://en.wikipedia.org/wiki/Software_versioning
+
+*** Git Branch Style Reference
++ https://open.leancloud.cn/git-branch-guide/
+

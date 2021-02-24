@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>JavaScript中如何判断字符串以指定子串结尾</title>
+<!-- 2021-02-24 Wed 11:06 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">JavaScript中如何判断字符串以指定子串结尾</h1>
+<p>
+#### 内置版本
+</p>
+<pre class="example">
+if ( a.endsWith( b ) )
+</pre>
+
+<p>
+#### 我最初的2B版本，用substring()实现，而且用"<code>="，没用"==</code>"
+</p>
+<pre class="example">
+String.prototype.endsWith   =
+function ( str )
+{
+    if ( str == null || str.length &gt; this.length )
+    {
+        return false;
+    }
+    if ( this.substring( this.length - str.length ) == str )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+};
+
+if ( a.endsWith( b ) )
+</pre>
+
+<pre class="example">
+function PrivateStringEndWith ( a, b )
+{
+    if ( b == null || a == null || b.length &gt; a.length )
+    {
+        return false;
+    }
+    if ( a.substring( a.length - b.length ) == b )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+if ( PrivateStringEndWith( a, b ) )
+</pre>
+
+<p>
+#### 用indexOf()实现
+</p>
+<pre class="example">
+String.prototype.endsWith   =
+function ( str )
+{
+    return this.indexOf( str, this.length - str.length ) !== -1;
+};
+</pre>
+
+<p>
+#### 用substr()实现
+</p>
+<pre class="example">
+String.prototype.endsWith   =
+function ( str )
+{
+    return this.substr( -str.length ) === str;
+};
+</pre>
+<p>
+可以多一个预检查，没有内置版本时才自己实现
+if ( typeof String.prototype.endsWith !== 'function' )
+{
+    String.prototype.endsWith   =
+    function ( str )
+    {
+        return this.substr( -str.length ) <code>=</code> str;
+    }
+};
+#### 用正则表达式实现
+</p>
+<pre class="example">
+String.prototype.endsWith   =
+function ( str )
+{
+    var reg = new RegExp( str+"$" );
+
+    return reg.test( this );
+};
+</pre>
+
+<p>
+source: <a href="http://scz.617.cn:8/">http://scz.617.cn:8/</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

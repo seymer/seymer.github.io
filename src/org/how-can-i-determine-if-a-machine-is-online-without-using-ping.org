@@ -1,0 +1,23 @@
+#+TITLE: 没有ping工具如何确定机器是否联网
+
+Answer useful for Docker
+
+Ping is ICMP, if you blocked ICMP you can't ping.
+
+You might still be able to test TCP or UDP ports if you are accepting TCP/UDP connections.
+
+If you are running your test on containers, which lack ping, nc, telnet and other tools, you can use this trick:
+
+#+BEGIN_EXAMPLE
+(echo >/dev/tcp/${host}/${port}) &>/dev/null && echo "open" || echo "closed"
+#+END_EXAMPLE
+
+This will attempt to connect through tcp/udp through the device (wow, I know) and echo "open" if the port is open or "closed" if it is closed.
+
+It will hang for a while before echoing "close" when that is the case.
+
+link: https://serverfault.com/questions/13780/how-can-i-determine-if-a-machine-is-online-without-using-ping/923193#923193
+
+
+nsenter 命令也是也可以实现宿主机的命令调试容器网络.
+

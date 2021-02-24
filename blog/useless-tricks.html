@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>无用的把戏</title>
+<!-- 2021-02-24 Wed 11:06 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">无用的把戏</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. PHP</a></li>
+<li><a href="#sec-2">2. Mysql</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> PHP</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+&lt;?php
+function testRand($randFunction, $groupsNumber = 10, $rollsNumber = 200)
+{
+    $frequencies = array_fill(0, $groupsNumber, 0);
+    foreach (range(1, $rollsNumber) as $ignored) {
+        if ($randFunction == 'lcg_value') {
+            $frequencies[$randFunction() * 10]++;
+        } else {
+            $frequencies[$randFunction(0, $groupsNumber - 1)]++;
+        }
+    }
+
+    echo PHP_EOL, "------- results for `$randFunction` -------", PHP_EOL;
+    $cum = 0;
+    foreach ($frequencies as $index =&gt; $frequency) {
+        $percent = $frequency * 100 / $rollsNumber;
+        $cum += $percent;
+        echo sprintf("%d\t|\t%4d\t%6.2f\t%6.2f", $index, $frequency, $percent, $cum), PHP_EOL;
+    }
+}
+
+testRand('rand');
+testRand('mt_rand');
+testRand('lcg_value');
+</pre>
+
+<pre class="example">
+$$
+</pre>
+
+<pre class="example">
+...
+</pre>
+
+<pre class="example">
+&lt;?php
+    $a = [1,2,3];
+    $b = ['a', 'b', 'c', 'd'];
+
+    $i = 0;
+    $a_len = count($a);
+
+    $res = [];
+
+    foreach ($b as $key =&gt; $value) {
+        $k = $i &lt; $a_len ? $i : $i % $a_len;
+
+        $res[$a[$k]][] = $value;
+        $i++;
+    }
+
+var_dump($res);
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Mysql</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+137 文件权限
+当你需要在一个字段中使用多个值代表不同的意思，但这些值又需要去组合代表不同的意义时，可以考虑参考文件权限的思想。
+例如：你有一个类型字段type，你
+</p>
+<pre class="example">
+CREATE TABLE `testing` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `room_number` int unsigned NOT NULL DEFAULT '0',
+  `score` int NOT NULL,
+  `node` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `room_number` (`room_number`),
+  KEY `rs` (`room_number`,`score`),
+  KEY `ns` (`node`,`score`)
+) ENGINE=InnoDB;
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
