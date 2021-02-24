@@ -1,12 +1,12 @@
 #+TITLE: JavaScript中如何判断字符串以指定子串结尾
 #+DATE: [2021-01-03 Sun 23:35]
 
-#### 内置版本
+*** 内置版本
 #+BEGIN_EXAMPLE
 if ( a.endsWith( b ) )
 #+END_EXAMPLE
 
-#### 我最初的2B版本，用substring()实现，而且用"=="，没用"==="
+*** 我最初的2B版本，用substring()实现，而且用"=="，没用"==="
 #+BEGIN_EXAMPLE
 String.prototype.endsWith   =
 function ( str )
@@ -48,7 +48,7 @@ function PrivateStringEndWith ( a, b )
 if ( PrivateStringEndWith( a, b ) )
 #+END_EXAMPLE
 
-#### 用indexOf()实现
+*** 用indexOf()实现
 #+BEGIN_EXAMPLE
 String.prototype.endsWith   =
 function ( str )
@@ -57,7 +57,7 @@ function ( str )
 };
 #+END_EXAMPLE 
 
-#### 用substr()实现
+*** 用substr()实现
 #+BEGIN_EXAMPLE
 String.prototype.endsWith   =
 function ( str )
@@ -66,6 +66,7 @@ function ( str )
 };
 #+END_EXAMPLE
 可以多一个预检查，没有内置版本时才自己实现
+#+BEGIN_EXAMPLE
 if ( typeof String.prototype.endsWith !== 'function' )
 {
     String.prototype.endsWith   =
@@ -74,7 +75,9 @@ if ( typeof String.prototype.endsWith !== 'function' )
         return this.substr( -str.length ) === str;
     }
 };
-#### 用正则表达式实现
+#+END_EXAMPLE
+
+*** 用正则表达式实现
 #+BEGIN_EXAMPLE
 String.prototype.endsWith   =
 function ( str )
