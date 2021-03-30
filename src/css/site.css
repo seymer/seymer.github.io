@@ -59,7 +59,7 @@ ol { padding-left: 20px; }
 p.verse { margin-left: 3%; }
 pre {
     border: 1px solid #E0E0E0;
-    box-shadow: 3px 3px 3px #eee;
+    box-shadow: 0.5px 0.5px 0.5px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -314,3 +314,13 @@ img.displayed {
     filter: grayscale(30%);
   }
 }
+
+pre.example {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  font-size: 90%;
+  overflow: auto;
+  font-family: courier;
+}
+

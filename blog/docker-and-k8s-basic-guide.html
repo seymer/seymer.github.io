@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>docker 和 k8s 基础教程</title>
-<!-- 2021-02-24 Wed 18:21 -->
+<!-- 2021-03-30 Tue 16:16 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -104,6 +104,7 @@ eval $(minikube docker-env)
 </pre>
 <p>
 在运行上面的命令后，再运行 docker image ls 时只能看到一些 Minikube 自带的镜像。
+这块注意，两个环境隔离，不能互通。如有些镜像不能访问，或需重新拉取。
 </p>
 </div>
 

@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+   + [[file:design-patterns.org][2021-03-04 设计模式]]
    + [[file:docker-and-k8s-basic-guide.org][2021-02-24 docker 和 k8s 基础教程]]
    + [[file:how-to-learn-efficiently.org][2021-02-20 如何有效学习]]
    + [[file:git-style-guide.org][2021-02-19 Git 风格指南]]

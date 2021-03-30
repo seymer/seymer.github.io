@@ -41,6 +41,7 @@ Minikube 自带了 Docker 引擎，所以我们需要重新配置客户端，让
 eval $(minikube docker-env)
 #+END_EXAMPLE
 在运行上面的命令后，再运行 docker image ls 时只能看到一些 Minikube 自带的镜像。
+这块注意，两个环境隔离，不能互通。如有些镜像不能访问，或需重新拉取。
 
 **** 构建镜像
 我们先构建一个镜像
