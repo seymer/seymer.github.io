@@ -1,0 +1,28 @@
+#+TITLE: Port forwarding for iptables (DMZ)
+#+DATE: [2021-04-02 Fri 23:20]
+
+If you have a network gateway which is running Linux you might sometimes want to allow access to machines behind it from the internet.
+
+This is simple enough to do with iptables, which you will probably be using for the gateway's normal operation anyway.
+
+Normally you'd deny all incoming connections to a gateway machine as opening up services and ports could be a security risk.
+
+If you have a gateway machine and wish to forward connections on port 80 to an internal machine then you'd create the following rules:
+
+#+BEGIN_EXAMPLE
+iptables -A PREROUTING -t nat -i eth1 -p tcp --dport 80 -j DNAT --to 192.168.1.50:80
+iptables -A INPUT -p tcp -m state --state NEW --dport 80 -i eth1 -j ACCEPT
+#+END_EXAMPLE
+
+These two rules are fairly simple - the first says that all incoming tcp connections arriving destined for port 80 should be sent to the internal machine 192.168.1.50 (also on port 80).
+
+This rule alone doesn't do the job though, we also have to accept the incoming connection. This is the job of the second rule which says that new connections on port 80 should be accepted on the external device eth1.
+
+To increase security you could limit this forwarding to only work when connections are coming from a particular address with the use of the "--source" flag:
+
+#+BEGIN_EXAMPLE
+iptables -A PREROUTING -t nat -i eth1 -p tcp --source 11.22.33.44 \
+--dport 80 -j DNAT --to 192.168.1.50:80
+#+END_EXAMPLE
+
+source: https://debian-administration.org/article/73/Port_forwarding_for_iptables_DMZ

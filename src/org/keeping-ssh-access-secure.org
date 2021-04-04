@@ -1,0 +1,68 @@
+#+TITLE: Keeping SSH access secure
+#+DATE: [2021-04-02 Fri 23:57]
+
+There are several worms which attempt to exploit vulnerable SSH servers, by logging in to a host with a collection of usernames and passwords such as "admin/admin", "test/test", "root/root", etc. These shouldn't be of much concern if you're keeping good passwords, but there are simple ways to prevent them regardless.
+
+The most obvious way to prevent people connecting to your host is to only allow connections from small number of IP addresses, by the use of a firewall.
+
+If you're currently running a firewall you can add to it to :
++ Accept incoming SSH connections from a trusted address.
++ Drop all other connections.
+
+Using the iptables firewall commands you can do this as follows:
+#+BEGIN_EXAMPLE
+# All connectsion from address 1.2.3.4 to SSH (port 22)
+iptables -A INPUT -p tcp -m state --state NEW --source 1.2.3.4 --dport 22 -j ACCEPT
+
+# Deny all other SSH connections
+iptables -A INPUT -p tcp --dport 22 -j DROP
+#+END_EXAMPLE
+
+If you're not running a firewall, or you don't wish to mess with the setup you can look at another way of restricting access. The Debian packages of openSSH are compiled with tcpwrappers support, which means you can specify which hosts are allowed to connect without touching your firewall.
+
+The two important files are:
+#+BEGIN_EXAMPLE
+/etc/hosts.allow
+/etc/hosts.deny
+#+END_EXAMPLE
+
+The first can contain entries of hosts which are allowed to connect, the second contains addresses which are blocked.
+
+Assuming that you wish to allow the remote addresses 1.2.3.x, and 192.168.0.x to connect but nothing else you would setup the files as follows. Firstly allow access by placing the following inside /etc/hosts.allow:
+
+#+BEGIN_EXAMPLE
+# /etc/hosts.allow
+sshd: 1.2.3.0/255.255.255.0
+sshd: 192.168.0.0/255.255.255.0
+#+END_EXAMPLE
+
+Then disallow all further access by placing this in /etc/hosts.deny:
+#+BEGIN_EXAMPLE
+# /etc/hosts.deny
+sshd: ALL
+#+END_EXAMPLE
+
+Finally you can look at the ssh configuration itself, this has several useful security options you can enable.
+
+The ssh server is configured by the file /etc/ssh/sshd_config. If you wish you can restrict remote access to specific users.
+
+For example to only allow "bob" and "chris" to login add the following:
+
+#+BEGIN_EXAMPLE
+AllowUsers bob chris
+#+END_EXAMPLE
+
+With this setting in place (after the server has been restarted with "/etc/init.d/ssh restart") all other users will be unable to connect via SSH even if they login with the correct username and password.
+
+You can also explicitly deny particular users:
+#+BEGIN_EXAMPLE
+DenyUsers badness paula
+#+END_EXAMPLE
+
+Probably the most important setting you can change in the sshd_config file is the following:
+#+BEGIN_EXAMPLE
+PermitRootLogin no
+#+END_EXAMPLE
+With this setting set to "no" remote root logins are denied.
+
+source: https://debian-administration.org/articles/87

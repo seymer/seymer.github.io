@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Setting up a simple Debian gateway</title>
+<!-- 2021-04-04 Sun 14:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Setting up a simple Debian gateway</h1>
+<p>
+Many people want to use a dedicated Debian machine as a gateway for a LAN, this has many benefits compared to using a dedicated hardware firewall. For a start it's a lot more flexible, but in addition to this it allows you to offer a lot of extra services to your machines.
+</p>
+
+<p>
+To run a Debian gateway you'll need a machine with two network cards, and you'll need to be able to setup the external one to route to your ISP properly.
+</p>
+
+<p>
+I tend to use eth0 to be the internal network card, this is the one which has an IP address like 192.168.1.1 and is used as the default gateway for your internal machines.
+</p>
+
+<p>
+This leaves eth1 as the external address for your machine.
+</p>
+
+<p>
+In order for your machine to work as a gateway and route packets from your LAN to the world and back it needs to have 'IP forwarding' enabled, and some rules on how to route packets. This can be done with iptables.
+</p>
+
+<p>
+We basically need to have three sets of rules:
+</p>
+<ul class="org-ul">
+<li>Disallow incoming connections to eth1 (the external network interface)
+</li>
+<li>Allow outgoing packets from the LAN (via eth0)
+</li>
+<li>Allow established connections to return.
+</li>
+</ul>
+
+<p>
+This leaves us with a script something like this:
+</p>
+<pre class="example">
+#!/bin/sh
+
+PATH=/usr/sbin:/sbin:/bin:/usr/bin
+
+#
+# delete all existing rules.
+#
+iptables -F
+iptables -t nat -F
+iptables -t mangle -F
+iptables -X
+
+# Always accept loopback traffic
+iptables -A INPUT -i lo -j ACCEPT
+
+
+# Allow established connections, and those not coming from the outside
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -m state --state NEW -i ! eth1 -j ACCEPT
+iptables -A FORWARD -i eth1 -o eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow outgoing connections from the LAN side.
+iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
+
+# Masquerade.
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+# Don't forward from the outside to the inside.
+iptables -A FORWARD -i eth1 -o eth1 -j REJECT
+
+# Enable routing.
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+</pre>
+
+<p>
+If you save this script upon your system you'll want it to run as soon as your network interfaces come up. To do that you can save it in the directory <i>etc/network/if-up.d</i>. Everything inside that directory is executed when an interface comes up, so long as it's executable.
+</p>
+
+<p>
+As the directory contents are executed in order I call my script 00-firewall.
+</p>
+
+<p>
+This should give you a basic gateway now. Any machine on your internal LAN should be able to access the internet whilst your gateway is kept nice and secure.
+</p>
+
+<p>
+Now you can look at adding extra services for your LAN, from the gateway.
+</p>
+
+<p>
+There are a couple of interesting things that you can add to make your life easier, for example rather than giving each of your LAN machines a fixed IP address you can allow them to be dynamic using DHCP.
+</p>
+
+<p>
+You can also install a local nameserver to cache DNS lookups and allow you to recognise your internal machines.
+</p>
+
+<p>
+A great package for this is dnsmasq. This can be installed via apt-get and is configured via a simple readable file /etc/dnsmasq.conf.
+</p>
+
+<p>
+Once this is running you will find that client machines can lookup any host which is included in the /etc/hosts file on the server - so you can start giving machines aliases which can be resolved easily.
+</p>
+
+<p>
+For example if you install a proxy server to cache HTTP downloads on your gateway you can create the name proxy for it:
+</p>
+
+<pre class="example">
+#
+# /etc/hosts
+#
+127.0.0.1       localhost
+
+#
+# Local machines.
+#
+192.168.1.1     gateway         gateway.my.flat       proxy   proxy.my.flat
+</pre>
+
+<p>
+This creates a new name 'proxy' for the machine normally known as 'gateway'.
+</p>
+
+<p>
+source: <a href="https://debian-administration.org/articles/23">https://debian-administration.org/articles/23</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

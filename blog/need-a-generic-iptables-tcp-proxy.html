@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Need a generic iptables tcp proxy?</title>
+<!-- 2021-04-04 Sun 14:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Need a generic iptables tcp proxy?</h1>
+<p>
+Do you ever find yourself in need of a generic TCP proxy? Do you wish you could do it with netfilter? Do you want to proxy a connection to a given port on a given IP address to a completely different port on a totally different host or network?
+</p>
+
+<p>
+It's as easy as the following three iptables calls:
+</p>
+<pre class="example">
+YourIP=1.2.3.4
+YourPort=80
+TargetIP=2.3.4.5
+TargetPort=22
+
+iptables -t nat -A PREROUTING --dst $YourIP -p tcp --dport $YourPort -j DNAT \
+--to-destination $TargetIP:$TargetPort
+iptables -t nat -A POSTROUTING -p tcp --dst $TargetIP --dport $TargetPort -j SNAT \
+--to-source $YourIP
+iptables -t nat -A OUTPUT --dst $YourIP -p tcp --dport $YourPort -j DNAT \
+--to-destination $TargetIP:$TargetPort
+</pre>
+<p>
+In the example above, a user may now ssh to $YourIP (1.2.3.4) on $YourPort (port 80) and they'll be transparently redirected to the $TargetIP (2.3.4.5) on the $TargetPort (22). The remote host ($TargetIP) will see the connection as coming from the server doing the forwarding ($YourIP).
+</p>
+
+<p>
+Why bother with this at all? Why not just change the port that sshd listens on?
+</p>
+
+<p>
+This is useful when a network filters outgoing connections based on destination ports and you don't control the host you want to connect to. If such a network only allowed outgoing connections to port 80, you'd be able to circumvent their filtering. However, if the firewall is doing stateful layer seven inspection, all bets are off. It's trivial to make this work for any other protocol, there is nothing special about ssh - it's just used as an example.
+</p>
+
+<p>
+As a general note, this may invite abuse. It is basically a single hop protocol agnostic TCP proxy in kernel space. It's fast and useful though. You may want to restrict forwarding by source IP addresses if you're worried about letting anyone using you as a single hop bounce. I'll leave that as an exercise for the comments.
+</p>
+
+<p>
+source: <a href="http://www.debian-administration.org/articles/595">http://www.debian-administration.org/articles/595</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

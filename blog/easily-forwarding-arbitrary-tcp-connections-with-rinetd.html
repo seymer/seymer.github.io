@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Easily forwarding arbitrary TCP connections with rinetd</title>
+<!-- 2021-04-04 Sun 14:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Easily forwarding arbitrary TCP connections with rinetd</h1>
+<p>
+In the past we've examined the use of firewall rules for forwarding incoming connections from one machine to another. But there is a simpler approach using the rinetd package. Read on to learn about this tool.
+</p>
+
+<p>
+The rinetd package contains a simple tool which may be configured to listen for connections upon a machine, and silently redirect them to a new destination. In short it acts as a simple to configure TCP proxy.
+</p>
+
+<p>
+You may install this package via :
+</p>
+<pre class="example">
+root@silver:~# apt-get update
+root@silver:~# apt-get install rinetd
+</pre>
+<p>
+(If you prefer you may use "aptitude update; aptitude install rinetd" - old habits die hard with me!)
+</p>
+
+<p>
+Once installed you'll find a configuration file located at /etc/rinetd.conf. This file is used to tell the deamon which ports it should listen for connections upon, and what it should do when they arrive.
+</p>
+
+<p>
+By default no ports are configured for forwarding, and so the file will consist entirely of comments. A default configuration file would look something like this, to give you an idea of the configuration:
+</p>
+<pre class="example">
+#
+# forwarding rules come here
+#
+# you may specify allow and deny rules after a specific forwarding rule
+# to apply to only that forwarding rule
+#
+# bindadress    bindport  connectaddress  connectport
+
+
+# logging information
+logfile /var/log/rinetd.log
+
+# uncomment the following line if you want web-server style logfile format
+# logcommon
+</pre>
+<p>
+Note: There are more details about allowed options in the manpage which you may view by running "man rinetd".
+</p>
+
+<p>
+To demonstrate how the forwarding is configured and used we'll make a simple example. Assume that you have a machine with the IP address 1.2.3.4 which has been running Apache, and that you'd like to move that to the IP address 4.3.2.1..
+</p>
+
+<p>
+You've already updated DNS to point visitors to the new IP address, but you want to ensure that people connecting to the old IP still continue to receive service.
+</p>
+
+<p>
+To handle this case you should update the /etc/rinetd.conf file to read:
+</p>
+<pre class="example">
+# bindadress    bindport  connectaddress  connectport
+1.2.3.4         80        4.3.2.1         80
+1.2.3.4         443       4.3.2.1         443
+</pre>
+<p>
+Once you restart rinetd all incoming connections on port 80 and 443 will be seamlessly redirected from the old IP to the new one - although you will need to restart rinetd after making the change to your configuration file:
+</p>
+<pre class="example">
+root@silver:~# /etc/init.d/rinetd restart
+Stopping internet redirection server: rinetd.
+Starting internet redirection server: rinetd.
+</pre>
+
+<p>
+rinetd is a very small, stable, and simple program, and you might find it simpler to understand than the matching generic iptables TCP proxy solution.
+</p>
+
+<p>
+The only downside to using rinetd is that there is no support for UDP connections, and no support for redirecting FTP access - because of the complex nature of FTP.
+</p>
+
+<p>
+source: <a href="https://debian-administration.org/article/Easily_forwarding_arbitrary_TCP_connections_with_rinetd">https://debian-administration.org/article/Easily_forwarding_arbitrary_TCP_connections_with_rinetd</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+#+TITLE: Using iptables to rate-limit incoming connections
+#+DATE: [2021-04-02 Fri 23:48]
+The iptables firewall has several useful extension modules which can be used to in addition to the basic firewall functionality. One of the more interesting of these extensions is the "recent" module which allows you to match recent connections, and perform simple throttling on incoming connections.
+
+We've previously described keeping SSH access secure by limiting which users can connect, or just firewalling access so that only a small list of trusted IP addresses can connect. In most cases this is sufficient to protect your system.
+
+However there are times when you have to allow arbitary incoming connections, when you are travelling for example.
+
+In these situations you can open up your system to allow incoming connections and be the target of a dictionary attack - literally a machine trying to connect and login over and over again using usernames and passwords from a dictionary.
+
+These attempts will be logged in your /var/log/auth.log file like this:
+
+#+BEGIN_EXAMPLE
+sshd[x]: Illegal user admin from aa.bb.cc.dd
+sshd[x]: Illegal user test from  aa.bb.cc.dd
+sshd[x]: Illegal user guest from aa.bb.cc.dd
+#+END_EXAMPLE
+
+In this situation you can create a collection of firewalling rules which will deny access from remote clients who attempt to connect "too many" times.
+
+If you have an existing firewall in place, using iptables, then adding the rules is very straightforward.
+
+The way the recent module works is fairly straightforward, you basically add IP addresses to a list, which can then be used in the future to test connection attempts against. This allows you to limit the number of connections against either a number of seconds, or connection attempts. In our example we'll do both.
+
+An example is probably the simplest way to illustrate how it works. The following two rules will limit incoming connections to port 22 to no more than 3 attemps in a minute - an more than that will be dropped:
+
+#+BEGIN_EXAMPLE
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
+  --set
+
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
+  --update --seconds 60 --hitcount 4 -j DROP
+#+END_EXAMPLE
+
+The --state flag takes a comma seperated list of connection states as an argument, by using "--state NEW" as we did we make sure that only new connections are managed by the module.
+
+The --set parameter in the first line will make sure that the IP address of the host which initiated the connection will be added to the "recent list", where it can be tested and used again in the future i.e. in our second rule.
+
+The second rule is where the magic actually happens. The --update flag tests whether the IP address is in the list of recent connections, in our case each new connection on port 22 will be in the list because we used the --set flag to add it in the preceeding rule.
+
+Once that's done the --seconds flag is used to make sure that the IP address is only going to match if the last connection was within the timeframe given. The --hitcount flag works in a similar way - matching only if the given count of connection attempts is greater than or equal to the number given.
+
+Together the second line will DROP an incoming connection if:
++ The IP address which initiated the connection has previously been added to the list and
++ The IP address has sent a packet in the past 60 seconds and
++ The IP address has sent more than 4 packets in total.
+
+You can adjust the numbers yourself to limit connections further, so the following example will drop incoming connections which make more than 2 connection attempts upon port 22 within ten minutes:
+#+BEGIN_EXAMPLE
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
+  --set
+
+iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
+  --update --seconds 600 --hitcount 2 -j DROP
+#+END_EXAMPLE
+
+If you wish to test these rules you can script a number of connection attempts from an external host with the netcat package.
+
+The following script attempts to connect to the IP address 192.168.1.1 5 times. The first couple of attempts you should see a welcome banner such as "SSH-2.0-OpenSSH_3.8.1p1 Debian-8.sarge.4" - after that the script will hang as it's packets are dropped and no response is sent:
+
+#+BEGIN_EXAMPLE
+#!/bin/bash
+
+for i in `seq 1 5` ; do
+  echo 'exit' | nc 192.168.1.1 22 ;
+done
+#+END_EXAMPLE
+
+There's a lot of documentation on the netfilter/iptables firewall, and it's available modules which you can find in the Netfilter Extension HOWTO.
+
+This HOWTO contains documentation on many different modules, along with examples. A recommended read if you're interested in Linux firewalling.
+
+If you wish to experiment with rules and testing it's worth remembering how to remove all active rules. The following commands will flush your iptables filewall, and remove all currently active rules:
+#+BEGIN_EXAMPLE
+iptables -F
+iptables -X
+#+END_EXAMPLE
+
+source: https://debian-administration.org/article/187/Using_iptables_to_rate-limit_incoming_connections

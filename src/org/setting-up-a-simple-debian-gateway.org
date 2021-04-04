@@ -1,0 +1,87 @@
+#+TITLE: Setting up a simple Debian gateway
+#+DATE: [2021-04-02 Fri 23:10]
+
+Many people want to use a dedicated Debian machine as a gateway for a LAN, this has many benefits compared to using a dedicated hardware firewall. For a start it's a lot more flexible, but in addition to this it allows you to offer a lot of extra services to your machines.
+
+To run a Debian gateway you'll need a machine with two network cards, and you'll need to be able to setup the external one to route to your ISP properly.
+
+I tend to use eth0 to be the internal network card, this is the one which has an IP address like 192.168.1.1 and is used as the default gateway for your internal machines.
+
+This leaves eth1 as the external address for your machine.
+
+In order for your machine to work as a gateway and route packets from your LAN to the world and back it needs to have 'IP forwarding' enabled, and some rules on how to route packets. This can be done with iptables.
+
+We basically need to have three sets of rules:
++ Disallow incoming connections to eth1 (the external network interface)
++ Allow outgoing packets from the LAN (via eth0)
++ Allow established connections to return.
+
+This leaves us with a script something like this:
+#+BEGIN_EXAMPLE
+#!/bin/sh
+
+PATH=/usr/sbin:/sbin:/bin:/usr/bin
+
+#
+# delete all existing rules.
+#
+iptables -F
+iptables -t nat -F
+iptables -t mangle -F
+iptables -X
+
+# Always accept loopback traffic
+iptables -A INPUT -i lo -j ACCEPT
+
+
+# Allow established connections, and those not coming from the outside
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -m state --state NEW -i ! eth1 -j ACCEPT
+iptables -A FORWARD -i eth1 -o eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow outgoing connections from the LAN side.
+iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
+
+# Masquerade.
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+# Don't forward from the outside to the inside.
+iptables -A FORWARD -i eth1 -o eth1 -j REJECT
+
+# Enable routing.
+echo 1 > /proc/sys/net/ipv4/ip_forward
+#+END_EXAMPLE
+
+If you save this script upon your system you'll want it to run as soon as your network interfaces come up. To do that you can save it in the directory /etc/network/if-up.d/. Everything inside that directory is executed when an interface comes up, so long as it's executable.
+
+As the directory contents are executed in order I call my script 00-firewall.
+
+This should give you a basic gateway now. Any machine on your internal LAN should be able to access the internet whilst your gateway is kept nice and secure.
+
+Now you can look at adding extra services for your LAN, from the gateway.
+
+There are a couple of interesting things that you can add to make your life easier, for example rather than giving each of your LAN machines a fixed IP address you can allow them to be dynamic using DHCP.
+
+You can also install a local nameserver to cache DNS lookups and allow you to recognise your internal machines.
+
+A great package for this is dnsmasq. This can be installed via apt-get and is configured via a simple readable file /etc/dnsmasq.conf.
+
+Once this is running you will find that client machines can lookup any host which is included in the /etc/hosts file on the server - so you can start giving machines aliases which can be resolved easily.
+
+For example if you install a proxy server to cache HTTP downloads on your gateway you can create the name proxy for it:
+
+#+BEGIN_EXAMPLE
+#
+# /etc/hosts
+#
+127.0.0.1       localhost
+
+#
+# Local machines.
+#
+192.168.1.1     gateway         gateway.my.flat       proxy   proxy.my.flat
+#+END_EXAMPLE
+
+This creates a new name 'proxy' for the machine normally known as 'gateway'.
+
+source: https://debian-administration.org/articles/23

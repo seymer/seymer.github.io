@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Keeping SSH access secure</title>
+<!-- 2021-04-04 Sun 14:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Keeping SSH access secure</h1>
+<p>
+There are several worms which attempt to exploit vulnerable SSH servers, by logging in to a host with a collection of usernames and passwords such as "admin/admin", "test/test", "root/root", etc. These shouldn't be of much concern if you're keeping good passwords, but there are simple ways to prevent them regardless.
+</p>
+
+<p>
+The most obvious way to prevent people connecting to your host is to only allow connections from small number of IP addresses, by the use of a firewall.
+</p>
+
+<p>
+If you're currently running a firewall you can add to it to :
+</p>
+<ul class="org-ul">
+<li>Accept incoming SSH connections from a trusted address.
+</li>
+<li>Drop all other connections.
+</li>
+</ul>
+
+<p>
+Using the iptables firewall commands you can do this as follows:
+</p>
+<pre class="example">
+# All connectsion from address 1.2.3.4 to SSH (port 22)
+iptables -A INPUT -p tcp -m state --state NEW --source 1.2.3.4 --dport 22 -j ACCEPT
+
+# Deny all other SSH connections
+iptables -A INPUT -p tcp --dport 22 -j DROP
+</pre>
+
+<p>
+If you're not running a firewall, or you don't wish to mess with the setup you can look at another way of restricting access. The Debian packages of openSSH are compiled with tcpwrappers support, which means you can specify which hosts are allowed to connect without touching your firewall.
+</p>
+
+<p>
+The two important files are:
+</p>
+<pre class="example">
+/etc/hosts.allow
+/etc/hosts.deny
+</pre>
+
+<p>
+The first can contain entries of hosts which are allowed to connect, the second contains addresses which are blocked.
+</p>
+
+<p>
+Assuming that you wish to allow the remote addresses 1.2.3.x, and 192.168.0.x to connect but nothing else you would setup the files as follows. Firstly allow access by placing the following inside /etc/hosts.allow:
+</p>
+
+<pre class="example">
+# /etc/hosts.allow
+sshd: 1.2.3.0/255.255.255.0
+sshd: 192.168.0.0/255.255.255.0
+</pre>
+
+<p>
+Then disallow all further access by placing this in /etc/hosts.deny:
+</p>
+<pre class="example">
+# /etc/hosts.deny
+sshd: ALL
+</pre>
+
+<p>
+Finally you can look at the ssh configuration itself, this has several useful security options you can enable.
+</p>
+
+<p>
+The ssh server is configured by the file /etc/ssh/sshd_config. If you wish you can restrict remote access to specific users.
+</p>
+
+<p>
+For example to only allow "bob" and "chris" to login add the following:
+</p>
+
+<pre class="example">
+AllowUsers bob chris
+</pre>
+
+<p>
+With this setting in place (after the server has been restarted with "/etc/init.d/ssh restart") all other users will be unable to connect via SSH even if they login with the correct username and password.
+</p>
+
+<p>
+You can also explicitly deny particular users:
+</p>
+<pre class="example">
+DenyUsers badness paula
+</pre>
+
+<p>
+Probably the most important setting you can change in the sshd_config file is the following:
+</p>
+<pre class="example">
+PermitRootLogin no
+</pre>
+<p>
+With this setting set to "no" remote root logins are denied.
+</p>
+
+<p>
+source: <a href="https://debian-administration.org/articles/87">https://debian-administration.org/articles/87</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
