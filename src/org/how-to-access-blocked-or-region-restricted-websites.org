@@ -1,0 +1,16 @@
+#+TITLE: 如何访问区域限制的网站
+#+DATE: [2021-04-06 Tue 14:35]
+
+*** 代理软件及注册用临时邮箱
+1. https://www.hidemyass.com
+2. https://tempail.com/en/ (Temporary email address)
+3. https://chrome.google.com/webstore/detail/hma-vpn-proxy-unblocker/poeojclicodamonabcabmapamjkkmnnk/related (Chrome extension)
+4. https://setupvpn.com/
+
+
+*** 资源链接
+1. https://www.crunchyroll.com/  (Animes)
+2. https://www.ondemandchina.com/ (Film and television)
+
+*** 来源
++ https://www.youtube.com/watch?v=ZDclzp1MDXw
