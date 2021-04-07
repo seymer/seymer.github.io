@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2021-04-04 Sun 14:28 -->
+<!-- 2021-04-06 Tue 16:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,6 +14,8 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
+<li><a href="how-to-access-blocked-or-region-restricted-websites.html">2021-04-06 如何访问区域限制的网站</a>
+</li>
 <li><a href="keeping-ssh-access-secure.html">2021-04-02 Keeping SSH access secure</a>
 </li>
 <li><a href="using-iptables-to-rate-limit-incoming-connections.html">2021-04-02 Using iptables to rate-limit incoming connections</a>

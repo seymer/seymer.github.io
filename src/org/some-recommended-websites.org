@@ -1,0 +1,11 @@
+#+TITLE: 一些推荐网站
+#+DATE: [2021-04-06 Tue 21:54]
+
+*** 语言学习词典相关
++ https://freemdict.com/
++ https://search.freemdict.com/
++ https://downloads.freemdict.com/
+
+*** 资源搜索
++ https://z-lib.org/
++ 
