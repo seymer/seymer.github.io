@@ -8,6 +8,8 @@
 
 *** 资源搜索
 + https://z-lib.org/
++ https://www.wdl.org/
+
 *** 影视资源
 + https://www.ondemandchina.com/ （北美区域限制）
 + https://jable.tv/ （注意周围环境）
