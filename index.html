@@ -4,36 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HOME</title>
     <link href="./src/css/bootstrap-social.css" rel="stylesheet">
     <link href="./src/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
     <script src="./src/js/jquery-1.12.4.min.js"></script><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
     <script src="./src/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
-    
-    <script type="text/javascript">
-     function showForm(){
-       document.write('<div style="margin-bottom: 10px" class="input-group">');
-       document.write('<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>');
-       document.write('<input id="email_address" type="text" class="form-control" name="email" value="foo');
-       document.write('@');
-       document.write( 'khow.me" placeholder="foo@example.com" readonly>');
-       document.write('</div>');
-     }
-     $(document).ready(function() {
-       // show active tab on reload
-       if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
-
-       // remember the hash in the URL without jumping
-       $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-         if(history.pushState) {
-           history.pushState(null, null, '#'+$(e.target).attr('href').substr(1));
-         } else {
-           location.hash = '#'+$(e.target).attr('href').substr(1);
-         }
-       });
-     });
-    </script>
 </head>
 <body>
     <div class="container" style="width:100%; padding:0px">
@@ -43,7 +19,7 @@
       </ol>
     </div>
     <div class="container">
-      <!-- <h1>Steve Kemp, <small>Helsinki, Finland</small></h1> -->
+      <h1>KHow <small>Simple Heart, Complicated Brain</small></h1>
       <div class="container-fluid">
 	<div class="row">
 	  <div class="col-sm-2 col-md-2"><p>&nbsp;</p></div>
@@ -57,23 +33,16 @@
 
 	    <div class="tab-content" style="padding:13px;border-left: 1px solid #ddd; border-right:1px solid #ddd; border-bottom: 1px solid #ddd;">
 	      <div id="email" class="tab-pane active in">
-		<script type="text/javascript">
-		//  showForm();
-		</script>
         <div style="margin-bottom: 10px" class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input id="email_address" type="text" class="form-control" name="email" value="siqingmu@gamil.com" placeholder="" readonly=""></div>
-                <a class="btn btn-block btn-social btn-pinterest" href="#"><span class="fa fa-key"></span>GPG Key</a>
-                <noscript><code>steve # steve.fi</code></noscript>
+              <input id="email_address" type="text" class="form-control" name="email" value="siqingmu@gmail.com" placeholder="" readonly=""></div>
+                <a class="btn btn-block btn-social btn-pinterest" href="https://keys.openpgp.org/vks/v1/by-fingerprint/FD57D3D81D5EA693ABFB86C0E93189F8A4067C84"><span class="fa fa-key"></span>GPG Key</a>
+                <noscript><code>siqingmu@gmail.com</code></noscript>
 	      </div>
 	      <div id="online" class="tab-pane fade">
           <a class="btn btn-block btn-social btn-openid" href="https://www.khow.me/blog/"><span class="fa fa-rss"></span>Blog</a>
-	        <!-- <a class="btn btn-block btn-social btn-facebook" href="https://facebook.com/forename.surname"><span class="fa fa-facebook"></span>Facebook</a> -->
 	        <a class="btn btn-block btn-social btn-github" href="https://github.com/seymer"><span class="fa fa-github"></span>Github</a>
 	        <a class="btn btn-block btn-social btn-soundcloud" href="https://www.khow.me/englishpod/"><span class="fa fa-rss"></span>EnglishPod</a>
-	        <!-- <a class="btn btn-block btn-social btn-instagram" href="https://www.instagram.com/helsinki_photography/"><span class="fa fa-instagram"></span>Instagram</a> -->
-	        <!-- <a class="btn btn-block btn-social btn-linkedin" href="https://www.linkedin.com/in/steve-kemp-0357b464"><span class="fa fa-linkedin"></span>Linkedin</a> -->
-	        <!-- <a class="btn btn-block btn-social btn-soundcloud" href="https://interesting.photography/"><span class="fa fa-camera"></span>Photography</a> -->
 	        <a class="btn btn-block btn-social btn-reddit" href="https://www.khow.me/"><span class="fa fa-external-link"></span>My Website</a>
 	      </div>
 	    </div>
