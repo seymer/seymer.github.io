@@ -1,0 +1,10 @@
+#+TITLE: MySQL是如何设计的
+#+DATE: [2021-04-14 Wed 14:15]
+
+*** MySQL服务器逻辑架构
+首先，我们先来看下 MySQL 服务器的逻辑架构图。
+[[file:./images/mysql-architecture.png]]
+
+*** 存储引擎
+
+
