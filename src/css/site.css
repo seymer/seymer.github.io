@@ -227,9 +227,9 @@ code {
 
 
 a {
-    /* display: block; */
+    /** display: block; */
     text-decoration: none;
-    # cursor: crosshair;
+    /* cursor: crosshair; */
     /* border-bottom: 1px dashed Red; */
     padding: 1px;
     color: black;
