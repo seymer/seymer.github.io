@@ -1,4 +1,4 @@
-html {
+Html {
     /*font-family: Georgia, "Microsoft Yahei", "WenQuanYi Micro Hei";
     /* background: linear-gradient(to bottom, #024d68, #b2b2b2) no-repeat center center fixed;
     /* -webkit-background-size: cover;
@@ -227,9 +227,9 @@ code {
 
 
 a {
-    /** display: block; */
+    /* display: block; */
     text-decoration: none;
-    /* cursor: crosshair; */
+    # cursor: crosshair;
     /* border-bottom: 1px dashed Red; */
     padding: 1px;
     color: black;
