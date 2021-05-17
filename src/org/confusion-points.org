@@ -1,0 +1,19 @@
+#+TITLE: 混淆点
+#+DATE: [2021-05-12 Wed 12:59]
+#+AUTHOR: Siqing Mu
+
+各类语言经常有一些容易让人产生的混淆点，今天我们列举一下：
+
+*** 地址和指针（Addresses and Pointers）
+
+*** 帧和栈 (Frames and Stack)
+
+*** 栈和堆 (Stack and Heap)
+
+*** 局部变量/全局变量/静态变量 （Local Variables / Global Variables / Static Variables）
+
+*** public / private / protected
+
+*** 值传递和引用传递
+
+
