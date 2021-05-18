@@ -5,7 +5,32 @@
 各类语言经常有一些容易让人产生的混淆点，今天我们列举一下：
 
 *** 地址和指针（Addresses and Pointers）
+关于地址和指针，在理解变量状态及操作可以说很重要也很基础的概念。之前有写过可以在下面找到。作为补充，下面有个容易混淆的概念。
+#+BEGIN_EXAMPLE
+ini i = 17;
+int *addressOfI = &i;
+*addressOfI = 89;
+#+END_EXAMPLE
 
+星号有两种不同用法
++ 第一种，声明指针：将变量addressOfI声明为 int *, 即指向保存int值的内存地址。
++ 第二种，去引用： 访问保存在addressOfI地址中的int值，指针也称为引用，所以通过指针访问某个地址中的数据这一过程，有时也称去引用。
+
+& 运算符，可以得到变量的地址。
+
+#+BEGIN_EXAMPLE
+    int x = 1;
+    int *y = &x; // &x 变量x地址赋给y指针
+    printf("x value is %d\n", x);  // x的值
+    printf("x self address is %p\n", &x); // x自身的地址
+    printf("y stored address is %p\n", y); // y存储的指针地址
+    printf("y self address is %p\n", &y); //y自身的地址
+    printf("y stored address is %p\n", *&y);//y存储的地址
+#+END_EXAMPLE
+简单来讲：
+1. int *指向的是存储的变量地址，而非自身地址。
+2. * 指向的是值。
+3. & 变量的地址。
 *** 帧和栈 (Frames and Stack)
 
 *** 栈和堆 (Stack and Heap)
@@ -17,3 +42,4 @@
 *** 值传递和引用传递
 
 
+https://www.khow.me/blog/pointer-and-address.html

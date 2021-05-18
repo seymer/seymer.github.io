@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>The Three Way Handshake Of TCP</title>
-<!-- 2021-05-17 Mon 19:56 -->
+<!-- 2021-05-18 Tue 21:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -30,13 +30,18 @@
 </div>
 </div>
 <p>
-<img src="./images/tcp-header.png" alt="tcp-header.png" />
 从没想过会有人问我三次握手和四次挥手，我一时也是比较无语。那么这个到底是什么呢？为什么是三次握手，四次挥手呢？这个问题很蠢，蠢到我再也不想回答。我习惯把这个过程解释为「确权」，但它不能简单理解为「确认权利」的缩写。因为它是为了确定或者确认某些事情是否如同双方约定或认为的那样，而不是其他别的什么样。
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> TCP的整个通信过程</h2>
 <div class="outline-text-2" id="text-1">
+
+<div class="figure">
+<p><img src="./images/tcp-header.png" alt="tcp-header.png" />
+</p>
+</div>
+
 <p>
 TCP的整个通信过程，可简单总结为以下三个阶段。
 </p>
