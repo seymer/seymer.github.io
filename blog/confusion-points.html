@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>混淆点</title>
-<!-- 2021-05-18 Tue 21:45 -->
+<!-- 2021-05-21 Fri 13:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -21,8 +21,7 @@
 <li><a href="#sec-2">2. 帧和栈 (Frames and Stack)</a></li>
 <li><a href="#sec-3">3. 栈和堆 (Stack and Heap)</a></li>
 <li><a href="#sec-4">4. 局部变量/全局变量/静态变量 （Local Variables / Global Variables / Static Variables）</a></li>
-<li><a href="#sec-5">5. public / private / protected</a></li>
-<li><a href="#sec-6">6. 值传递和引用传递</a></li>
+<li><a href="#sec-5">5. 值传递和引用传递</a></li>
 </ul>
 </div>
 </div>
@@ -80,7 +79,62 @@ printf("y stored address is %p\n", *&amp;y);//y存储的地址
 </div>
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> 帧和栈 (Frames and Stack)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+为了理解这两个概念，我们先看一个函数执行过程。
+</p>
+<pre class="example">
+#include &lt;stdio.h&gt;
+
+void singSongFor(int numberOfBottles)
+{
+    if (numberOfBottles == 0) {
+        printf("There are simple no more bottles of beer on the wall.\n");
+    } else {
+        printf("%d bottles of beer on the wall. %d bottles of beer.\n", numberOfBottles, numberOfBottles);
+        
+        int oneFewer = numberOfBottles - 1;
+        printf("Take one down, pass it around, %d bottles of beer on the wall.\n", oneFewer);
+        singSongFor(oneFewer);
+        
+        printf("Put a bottle in the recycling, %d empty bottles in the bin.\n", numberOfBottles);
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    singSongFor(4);
+    return 0;
+}
+</pre>
+
+<p>
+再来看一下它的输出。
+</p>
+<pre class="example">
+4 bottles of beer on the wall. 4 bottles of beer.
+Take one down, pass it around, 3 bottles of beer on the wall.
+3 bottles of beer on the wall. 3 bottles of beer.
+Take one down, pass it around, 2 bottles of beer on the wall.
+2 bottles of beer on the wall. 2 bottles of beer.
+Take one down, pass it around, 1 bottles of beer on the wall.
+1 bottles of beer on the wall. 1 bottles of beer.
+Take one down, pass it around, 0 bottles of beer on the wall.
+There are simple no more bottles of beer on the wall.
+Put a bottle in the recycling, 1 empty bottles in the bin.
+Put a bottle in the recycling, 2 empty bottles in the bin.
+Put a bottle in the recycling, 3 empty bottles in the bin.
+Put a bottle in the recycling, 4 empty bottles in the bin.
+Program ended with exit code: 0
+</pre>
+
+<p>
+有没有疑问，比如说为什么后面变成了1234，而不是4321。
+</p>
 </div>
+</div>
+
+
 
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> 栈和堆 (Stack and Heap)</h2>
@@ -91,15 +145,14 @@ printf("y stored address is %p\n", *&amp;y);//y存储的地址
 </div>
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> public / private / protected</h2>
-</div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> 值传递和引用传递</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-<a href="https://www.khow.me/blog/pointer-and-address.html">https://www.khow.me/blog/pointer-and-address.html</a>
-</p>
+<h2 id="sec-5"><span class="section-number-2">5</span> 值传递和引用传递</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><a href="https://www.khow.me/blog/pointer-and-address.html">https://www.khow.me/blog/pointer-and-address.html</a>
+</li>
+<li><a href="https://www.cs.rutgers.edu/~pxk/419/notes/frames.html">https://www.cs.rutgers.edu/~pxk/419/notes/frames.html</a>
+</li>
+</ul>
 </div>
 </div>
 </div>

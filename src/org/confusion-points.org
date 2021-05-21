@@ -32,14 +32,60 @@ int *addressOfI = &i;
 2. * 指向的是值。
 3. & 变量的地址。
 *** 帧和栈 (Frames and Stack)
+为了理解这两个概念，我们先看一个函数执行过程。
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+
+void singSongFor(int numberOfBottles)
+{
+    if (numberOfBottles == 0) {
+        printf("There are simple no more bottles of beer on the wall.\n");
+    } else {
+        printf("%d bottles of beer on the wall. %d bottles of beer.\n", numberOfBottles, numberOfBottles);
+        
+        int oneFewer = numberOfBottles - 1;
+        printf("Take one down, pass it around, %d bottles of beer on the wall.\n", oneFewer);
+        singSongFor(oneFewer);
+        
+        printf("Put a bottle in the recycling, %d empty bottles in the bin.\n", numberOfBottles);
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    singSongFor(4);
+    return 0;
+}
+#+END_EXAMPLE
+
+再来看一下它的输出。
+#+BEGIN_EXAMPLE
+4 bottles of beer on the wall. 4 bottles of beer.
+Take one down, pass it around, 3 bottles of beer on the wall.
+3 bottles of beer on the wall. 3 bottles of beer.
+Take one down, pass it around, 2 bottles of beer on the wall.
+2 bottles of beer on the wall. 2 bottles of beer.
+Take one down, pass it around, 1 bottles of beer on the wall.
+1 bottles of beer on the wall. 1 bottles of beer.
+Take one down, pass it around, 0 bottles of beer on the wall.
+There are simple no more bottles of beer on the wall.
+Put a bottle in the recycling, 1 empty bottles in the bin.
+Put a bottle in the recycling, 2 empty bottles in the bin.
+Put a bottle in the recycling, 3 empty bottles in the bin.
+Put a bottle in the recycling, 4 empty bottles in the bin.
+Program ended with exit code: 0
+#+END_EXAMPLE
+
+有没有疑问，比如说为什么后面变成了1234，而不是4321。
+
+
 
 *** 栈和堆 (Stack and Heap)
 
 *** 局部变量/全局变量/静态变量 （Local Variables / Global Variables / Static Variables）
 
-*** public / private / protected
-
 *** 值传递和引用传递
 
 
-https://www.khow.me/blog/pointer-and-address.html
++ https://www.khow.me/blog/pointer-and-address.html
++ https://www.cs.rutgers.edu/~pxk/419/notes/frames.html
