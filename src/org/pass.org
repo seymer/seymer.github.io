@@ -1,0 +1,66 @@
+#+TITLE: pass
+#+DATE: [2021-07-04 Sun 11:28]
+
+Pass 是一个标准的 unix 密码管理器。
+
+
+*** 基础操作
+**** 初始化
+**** 创建密码
+***** 生成密码，你也可以通过insert密码
+#+BEGIN_EXAMPLE
+pass generate Email/jasondonenfeld.com 15
+The generated password to Email/jasondonenfeld.com is:
+$(-QF&Q=IN2nFBx
+#+END_EXAMPLE
+**** 查看密码
+***** 列出所有密码项
+#+BEGIN_EXAMPLE
+pass
+#+END_EXAMPLE
+或者
+#+BEGIN_EXAMPLE
+pass ls
+#+END_EXAMPLE
+或者
+#+BEGIN_EXAMPLE
+pass show
+#+END_EXAMPLE
+***** 显示某个密码项中的密码
+#+BEGIN_EXAMPLE
+zx2c4@laptop ~ $ pass Email/zx2c4.com
+sup3rh4x3rizmynam3
+#+END_EXAMPLE
+***** 直接复制到粘贴板
+#+BEGIN_EXAMPLE
+zx2c4@laptop ~ $ pass -c Email/zx2c4.com
+Copied Email/jason@zx2c4.com to clipboard. Will clear in 45 seconds.
+#+END_EXAMPLE
+***** 通过二维码显示
+#+BEGIN_EXAMPLE
+zx2c4@laptop ~ $ pass -q Email/zx2c4.com
+#+END_EXAMPLE
+**** 修改密码
+
+**** 删除密码
+#+BEGIN_EXAMPLE
+zx2c4@laptop ~ $ pass rm Business/cheese-whiz-factory
+rm: remove regular file ‘/home/zx2c4/.password-store/Business/cheese-whiz-factory.gpg’? y
+removed ‘/home/zx2c4/.password-store/Business/cheese-whiz-factory.gpg’
+#+END_EXAMPLE
+
+
+
+
+
+*** 其他
+在使用 iterm 终端删除密码或覆盖密码时二次确认，会让输入y回车确认。如果回车失败，显示^M 的符号，可以使用下面命令恢复。
+#+BEGIN_EXAMPLE
+stty sane
+#+END_EXAMPLE
+
++ https://www.passwordstore.org/
++ https://wiki.archlinux.org/title/Pass
++ https://blog.sanctum.geek.nz/gnu-linux-crypto-passwords/
++ https://keyring.debian.org/creating-key.html
++ https://wiki.debian.org/Subkeys?action=show&redirect=subkeys

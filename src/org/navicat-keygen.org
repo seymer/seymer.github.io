@@ -1,0 +1,22 @@
+#+TITLE: Navicat Premium Keygen
+#+DATE: [2021-07-18 Sun 23:01]
+
+*** 软件下载地址
++ https://dn.navicat.com/download/navicat120_premium_en.dmg
++ https://dn.navicat.com/download/navicat150_premium_en.dmg
+  
+*** 项目地址
++ https://github.com/1178947261/navicat-keygen
++ https://github.com/HeQuanX/navicat-keygen-tools
++ https://github.com/HeQuanX/navicat-keygen-tools/issues/3
+
+*** 其他  
++ make all 报错找不到-lplist++ 
+#+BEGIN_EXAMPLE
+问题原因：libplist最新版本2.2.0修改了包名，“Rename library and all related files by adding an API version resulting in libplist-2.0 and libplist++-2.0”，
+参考地址：https://github.com/libimobiledevice/libplist/releases/2.2.0
+解决方案：修改Makefile文件，将“-lplist++”改为“-lplist++-2.0”。
+#+END_EXAMPLE
+
++ 自签证书
+通过钥匙串访问进入证书助理，创建证书颁发机构，在用户证书一栏，一定要注意选择代码签名，切记。

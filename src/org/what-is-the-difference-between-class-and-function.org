@@ -49,7 +49,7 @@ Please let me know if you find any errors or unclear wording. Any corrections wi
 脚本语言一般都是解释执行， 放在已经成型的项目中作为扩展功能使用例如 unix 和shell 就是最好的例子， 而且一个函数可以直接执行，方便使用，如果涉及成面向对象使用起来就比较麻烦， 例如打印 Hello world ， Python print ("Hello world") 就搞定了， 面向对象可以好3-5代码才能实现。
 #+END_QUOTE
 
-就是可能拆开更灵活，而java不想这么做，java对oop实现的比较纯粹，也是想这一概念能够深入人心。
+就是可能拆开更灵活，而java不想这么做，java对oop实现的比较纯粹，也是想这一概念能够深入人心。另一方面也体现了代码封装的思想和重要性。
 
 
 
