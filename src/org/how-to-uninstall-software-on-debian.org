@@ -1,4 +1,0 @@
-#+TITLE: 如何在debian/ubuntu系统干净地卸载软件
-#+DATE: [2021-07-18 Sun 23:22]
-
-

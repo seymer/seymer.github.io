@@ -1,6 +1,5 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:how-to-uninstall-software-on-debian.org][2021-07-18 如何在debian/ubuntu系统干净地卸载软件]]
    + [[file:navicat-keygen.org][2021-07-18 Navicat Premium Keygen]]
    + [[file:pass.org][2021-07-04 pass]]
    + [[file:what-is-the-difference-between-class-and-function.org][2021-05-21 类和函数有什么区别]]
