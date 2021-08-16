@@ -53,7 +53,7 @@ COPY "atlassian-agent.jar" /opt/atlassian/jira/
 RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"' >> /opt/atlassian/jira/bin/setenv.sh
 #+END_EXAMPLE
 
-MYSQL my.cnf
+MySQL my.cnf
 #+BEGIN_EXAMPLE
 [mysqld]
 default-storage-engine=INNODB
@@ -75,9 +75,6 @@ CREATE DATABASE jira CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,INDEX,REFERENCES on jira.* TO 'jira'@'%' IDENTIFIED BY 'xxxxxxxxxxxx';
 flush privileges;
 #+END_EXAMPLE
-
-破解文件
-[[../../resource/atlassian-agent-v1.2.3.zip][download]]
 
 破解
 #+BEGIN_EXAMPLE
@@ -157,3 +154,6 @@ Reference:
 + [[https://xiexinyang.gitee.io/post/docker-compose-install-confluence/][Docker-Compose安装Confluence破解版]]
 + [[https://wiki.liutyi.info/display/DEVOPS/Attlassian+Confluence+using+docker-compose][Atlassian Confluence using docker compose]]
 + [[https://github.com/seymer/confluence][Confluence and PostgreSQL]]
++ [[../../resource/atlassian-agent-v1.2.3.zip][atlassian-agent破解包下载]]
+
+
