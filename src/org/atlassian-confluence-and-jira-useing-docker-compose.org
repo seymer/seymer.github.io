@@ -10,11 +10,9 @@
 ├── data
 │   ├── confluence
 │   │   ├── logs
-│   │   ├── conf
 │   │   └── var
 │   ├── jira
 │   │   ├── logs
-│   │   ├── conf
 │   │   └── var
 │   └── mysql
 │       ├── backup
@@ -100,7 +98,7 @@ services:
     networks:
       - mbs-net
     environment:
-      - MYSQL_ROOT_PASSWORD=UR329Tgj9gf2KhmEh3
+      - MYSQL_ROOT_PASSWORD=password
     volumes:
       - ./data/mysql/data:/var/lib/mysql/
       - ./data/mysql/conf.d/:/etc/mysql/conf.d/
