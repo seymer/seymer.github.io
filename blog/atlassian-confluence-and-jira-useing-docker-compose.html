@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Confluence and Jira using docker-compose</title>
-<!-- 2021-08-17 Tue 01:18 -->
+<!-- 2021-08-17 Tue 12:02 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -145,7 +145,6 @@ services:
     volumes:
         - ./data/jira/var/:/var/atlassian/jira/
         - ./data/jira/logs/:/opt/atlassian/jira/logs/
-        - ./data/jira/conf/:/opt/atlassian/jira/conf/
     depends_on:
       - mysql
 
@@ -163,7 +162,6 @@ services:
     volumes:
       - ./data/confluence/var/:/var/atlassian/confluence/
       - ./data/confluence/logs/:/opt/atlassian/confluence/logs/
-      - ./data/confluence/conf/:/opt/atlassian/confluence/conf/
     depends_on:
       - mysql
 
