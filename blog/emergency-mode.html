@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Emergency Mode</title>
+<!-- 2021-08-17 Tue 13:36 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Emergency Mode</h1>
+<p>
+前几天朋友机器开机出现"You are in emergency mode. After logiing in,&#x2026;.Give root password for maintenance"，登进去之后，按理应该type"journalctl -xb"便一目了然。但由于机器在远端，朋友告诉说上面提示"Give root password for maintenance (or type Control-D continue)"，然后就让他登录进去，进去之后。我这边尝试用普通用户远程登录，拒绝登录。便让其查看sshd进程是否开启
+</p>
+<pre class="example">
+ps -ef | grep ssh
+</pre>
+<p>
+确实没有，然后让他启动sshd却发现没有这个目录，接着让他执行
+</p>
+<pre class="example">
+which ssh
+</pre>
+<p>
+确实没有，原来在紧急模式下这些命令都不存在的。于是接着执行
+</p>
+<pre class="example">
+mount -o remount rw /
+</pre>
+<p>
+这次有了，便开启sshd
+</p>
+<pre class="example">
+/etc/init.d/ssh start
+</pre>
+<p>
+开启之后，以为这次就可以顺利登入了，结果得到如下提示：
+</p>
+<pre class="example">
+"System is booting up. Unprivileged users are not permitted to log in yet. Please come back later. For technical details, see pam_nologin(8)."
+</pre>
+<p>
+输入,移除限制
+</p>
+<pre class="example">
+rm /run/nologin
+</pre>
+<p>
+这次终于登录进去了。经过一番望闻问切得知，朋友昨天换过硬盘，然后通过
+</p>
+<pre class="example">
+lsblk
+</pre>
+<p>
+查看发现并没有发现这块硬盘，那就是没有挂载上。反复尝试插拔，也没有发现，怀疑是sata接口线有问题，便大概知道什么原因了，移除/etc/fstab文件下该盘的自动挂载记录
+</p>
+<pre class="example">
+/dev/sda /data ext4 defaults 0 0
+</pre>
+<p>
+重启，该问题消失。
+</p>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

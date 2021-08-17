@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Create a new SSH key</title>
+<!-- 2021-08-17 Tue 13:36 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Siqing Mu" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Create a new SSH key</h1>
+<ol class="org-ol">
+<li>Open a terminal on your workstation and use the ssh-keygen command to generate a new key
+</li>
+</ol>
+<pre class="example">
+ssh-keygen -t rsa -f ~/.ssh/[KEY_FILENAME] -C [USERNAME]
+</pre>
+
+<ol class="org-ol">
+<li>Restrict access to your private key so that only you can read it and nobody can write to it.
+</li>
+</ol>
+<pre class="example">
+chmod 400 ~/.ssh/[KEY_FILENAME]
+</pre>
+
+<ol class="org-ol">
+<li>Generate a new SSH key that uses Ed25519 algorithm
+</li>
+</ol>
+<pre class="example">
+ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "john@example.com"
+</pre>
+
+<ol class="org-ol">
+<li>Adding your key to ssh agent
+</li>
+</ol>
+<pre class="example">
+ssh-add ~/.ssh/id_ed25519
+</pre>
+
+
+<p>
+Reference:
+</p>
+<ul class="org-ul">
+<li><a href="https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys">https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys</a>
+</li>
+<li><a href="https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54">https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54</a>
+</li>
+</ul>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

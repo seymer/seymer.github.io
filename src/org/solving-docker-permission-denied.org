@@ -1,0 +1,23 @@
+#+TITLE: Solving Docker Permission Denied
+#+DATE: [2021-08-17 Tue 12:54]
+
+当你试图不是用 sudo 去使用 docker 命令时，则可能会遇到如上提示。这是由于当前用户不属于 docker 群组，所以我们需要将当前用户添加到 docker 群组。你可以使用如下两种方法解决。
+
+*** 第一种
+#+BEGIN_EXAMPLE
+sudo usermod -a -G docker $USER
+#+END_EXAMPLE
+
+*** 第二种
+#+BEGIN_EXAMPLE
+sudo gpasswd -a $USER docker
+#+END_EXAMPLE
+
+*** 生效
+接着使用如下命令让其立即生效（推荐）
+#+BEGIN_EXAMPLE
+newgrp docker
+#+END_EXAMPLE
+或者你也可以通过新建 session （登出/登入）查看生效。
+
+如果登录登出还没能让其生效，则可能需重启机器令其生效。

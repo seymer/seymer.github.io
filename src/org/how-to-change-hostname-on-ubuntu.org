@@ -1,0 +1,26 @@
+#+TITLE: How to Change Hostname on Ubuntu
+#+DATE: [2021-08-17 Tue 12:41]
+
+**** 临时更改
+#+BEGIN_EXAMPLE
+hostname newHostName
+#+END_EXAMPLE
+
+**** 永久更改
+#+BEGIN_EXAMPLE
+hostnamectl set-hostname newHostName
+#+END_EXAMPLE
+更改后新 session 连接即可查看到变化
+
+**** 手动修改（不推荐，需重启）
+需要修改以下两个文件
+#+BEGIN_EXAMPLE
+sudo emacs /etc/hostname
+sudo vim /etc/hosts
+#+END_EXAMPLE
+
+接着重启才能生效
+#+BEGIN_EXAMPLE
+sudo systemctl reboot
+#+END_EXAMPLE
+

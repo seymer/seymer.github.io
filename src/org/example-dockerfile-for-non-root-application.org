@@ -1,0 +1,27 @@
+#+TITLE: Example Dockerfile for non-root application
+#+DATE: [2021-08-17 Tue 13:29]
+
+The following example is a Dockerfile that runs an application as a non-root user with non-group membership. 
+
+
+Dockerfile
+#+BEGIN_EXAMPLE
+FROM ubuntu:latest
+ 
+#Update and install the make utility
+RUN apt update && apt install -y make
+ 
+#Copy the source from a folder called “code” and build the application with the make utility
+COPY . /code
+RUN make /code
+ 
+#Create a new user (user1) and new group (group1); then switch into that user’s context
+RUN useradd user1 && groupadd group1
+USER user1:group1
+ 
+#Set the default entrypoint for the container
+CMD /code/app
+#+END_EXAMPLE
+
+Reference:
++ https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF

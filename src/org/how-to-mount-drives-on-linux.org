@@ -1,0 +1,27 @@
+#+TITLE: How To Mount Drives on Linux
+#+DATE: [2021-08-17 Tue 12:33]
+
+列出块设备
+#+BEGIN_EXAMPLE
+lsblk
+#+END_EXAMPLE
+
+格式化磁盘
+#+BEGIN_EXAMPLE
+sudo mkfs.ext4 /dev/sda
+#+END_EXAMPLE
+
+挂载磁盘
+#+BEGIN_EXAMPLE
+sudo mount /dev/sda /mnt
+#+END_EXAMPLE
+
+启动自动挂载
+#+BEGIN_EXAMPLE
+sudo emacs /etc/fstab
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+/dev/sda /mnt ext4 defaults 0 0
+#+END_EXAMPLE
+
