@@ -1,4 +1,4 @@
-#+TITLE: 语言学习之IINA 工具篇
+#+TITLE: 语言学习之IINA工具篇
 #+DATE: <2020-08-26 Wed>
 
 *** LLY

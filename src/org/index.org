@@ -1,6 +1,6 @@
 #+TITLE: Siqing's Blog
 
-   + [[file:anki-tools-for-language-learning.org][2022-04-25 语言学习之Anki 工具篇]]
+   + [[file:anki-tools-for-language-learning.org][2022-04-25 语言学习之Anki工具篇]]
    + [[file:example-dockerfile-for-non-root-application.org][2021-08-17 Example Dockerfile for non-root application]]
    + [[file:emergency-mode.org][2021-08-17 Emergency Mode]]
    + [[file:solving-docker-permission-denied.org][2021-08-17 Solving Docker Permission Denied]]
@@ -44,7 +44,7 @@
    + [[file:how-to-install-php-environment-on-docker.org][2020-11-21 如何在docker上安装php环境]]
    + [[file:distributed-locks-for-redis.org][2020-11-02 Redis 的分布式锁]]
    + [[file:consistent-hash.org][2020-11-02 分布式系统中一致性哈希算法]]
-   + [[file:iina-tools-for-language-learning.org][2020-08-26 语言学习之IINA 工具篇]]
+   + [[file:iina-tools-for-language-learning.org][2020-08-26 语言学习之IINA工具篇]]
    + [[file:rethinking-language-learning.org][2020-08-12 重新思考语言学习这件事]]
    + [[file:about-field-injection-versus-constructor-injection-versus-setter-injection.org][2020-06-27 字段注入，构造函数注入，setter注入]]
    + [[file:list.org][2020-06-22 工具箱]]

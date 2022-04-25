@@ -1,4 +1,4 @@
-#+TITLE: 语言学习之Anki 工具篇
+#+TITLE: 语言学习之Anki工具篇
 #+DATE: <2022-04-25 Mon>
 
 *** Anki
