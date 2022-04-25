@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Siqing's Blog</title>
-<!-- 2022-04-25 Mon 15:17 -->
+<!-- 2022-04-25 Mon 15:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -14,7 +14,7 @@
 <div id="content">
 <h1 class="title">Siqing's Blog</h1>
 <ul class="org-ul">
-<li><a href="anki-tools-for-language-learning.html">2022-04-25 语言学习之Anki 工具篇</a>
+<li><a href="anki-tools-for-language-learning.html">2022-04-25 语言学习之Anki工具篇</a>
 </li>
 <li><a href="example-dockerfile-for-non-root-application.html">2021-08-17 Example Dockerfile for non-root application</a>
 </li>
@@ -102,7 +102,7 @@
 </li>
 <li><a href="consistent-hash.html">2020-11-02 分布式系统中一致性哈希算法</a>
 </li>
-<li><a href="iina-tools-for-language-learning.html">2020-08-26 语言学习之IINA 工具篇</a>
+<li><a href="iina-tools-for-language-learning.html">2020-08-26 语言学习之IINA工具篇</a>
 </li>
 <li><a href="rethinking-language-learning.html">2020-08-12 重新思考语言学习这件事</a>
 </li>

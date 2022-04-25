@@ -18,6 +18,11 @@ customize
 <div class=jp> <ruby> {{Expression}} <rp>(</rp><rt> {{furigana:Reading}} </rt><rp>)</rp> </ruby> {{Audio}} </Divc><br>
 {{Meaning}}
 #+END_EXAMPLE
+
+*** Japanese Support
+Tools -> Add-ons -> Get Add-ons -> 3918629684
+
+Restart Anki
 *** Anki Connect
 Tools -> Add-ons -> Get Add-ons -> 2055492159
 
@@ -37,6 +42,7 @@ customize
 *** 链接
 + https://apps.ankiweb.net/
 + https://ankiweb.net/
++ https://ankiweb.net/shared/info/3918629684
 + https://foosoft.net/projects/yomichan/
 + https://foosoft.net/projects/anki-connect/
 + https://freemdict.com/2019/11/18/yomichan-all-dictionaries/
