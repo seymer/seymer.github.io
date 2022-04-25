@@ -3,12 +3,12 @@
 
 *** Anki
 1. Tools -> Manage Note Types -> Add -> Japanese(recognition)
-2. Japanese(recognition) -> Fields -> Add -> Sentence / Audio
+2. Japanese(recognition) -> Fields -> Add -> Sentence / Audio / Furigana
 3. Japanese(recognition) -> Cards -> Back Template
 #+BEGIN_EXAMPLE
 <hr id=answer>
 
-<div class=jp> {{Expression}} {{Audio}} </div><br>
+<div class=jp> {{Furigana}} {{Audio}} </div><br>
 {{Meaning}}
 #+END_EXAMPLE
 customize
