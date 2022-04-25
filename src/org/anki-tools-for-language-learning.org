@@ -1,0 +1,44 @@
+#+TITLE: 语言学习之Anki 工具篇
+#+DATE: <2022-04-25 Mon>
+
+*** Anki
+1. Tools -> Manage Note Types -> Add -> Japanese(recognition)
+2. Japanese(recognition) -> Fields -> Add -> Sentence / Audio
+3. Japanese(recognition) -> Cards -> Back Template
+#+BEGIN_EXAMPLE
+<hr id=answer>
+
+<div class=jp> {{Expression}} {{Audio}} </div><br>
+{{Meaning}}
+#+END_EXAMPLE
+customize
+#+BEGIN_EXAMPLE
+<hr id=answer>
+
+<div class=jp> <ruby> {{Expression}} <rp>(</rp><rt> {{furigana:Reading}} </rt><rp>)</rp> </ruby> {{Audio}} </Divc><br>
+{{Meaning}}
+#+END_EXAMPLE
+*** Anki Connect
+Tools -> Add-ons -> Get Add-ons -> 2055492159
+
+MacOS Users Notice
+#+BEGIN_EXAMPLE
+defaults write net.ankiweb.dtop NSAppSleepDisabled -bool true
+defaults write net.ichi2.anki NSAppSleepDisabled -bool true
+defaults write org.qt-project.Qt.QtWebEngineCore NSAppSleepDisabled -bool true
+#+END_EXAMPLE
+Restart Anki
+*** Yomichan 
+[[file:./images/furigana.png]]
+
+customize
+[[file:./images/expression.png]]
+
+*** 链接
++ https://apps.ankiweb.net/
++ https://ankiweb.net/
++ https://foosoft.net/projects/yomichan/
++ https://foosoft.net/projects/anki-connect/
++ https://freemdict.com/2019/11/18/yomichan-all-dictionaries/
++ https://tatsumoto-ren.github.io/blog/yomichan-and-epwing-dictionaries.html
++ https://blog.gimo.me/posts/anki-the-best-memory-app-for-learning-japanese/
