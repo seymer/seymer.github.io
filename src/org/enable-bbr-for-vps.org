@@ -1,0 +1,33 @@
+#+TITLE: 为VPS启用BBR算法
+#+DATE: <2022-06-14 Tue 12:01>
+
+*** 手动执行，用于4.9内核以上。
+查看内核版本
+#+BEGIN_EXAMPLE
+uname -r
+#+END_EXAMPLE
+
+手动执行如下命令:
+#+BEGIN_EXAMPLE
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+#+END_EXAMPLE
+
+检查是否成功。如果执行结果都有bbr，则证明已启用。
+#+BEGIN_EXAMPLE
+sysctl net.ipv4.tcp_available_congestion_control
+lsmod | grep bbr
+#+END_EXAMPLE
+
+*** 一键安装最新内核并开启 BBR 脚本
+
+这里推荐秋水逸冰的一键脚本:
+#+BEGIN_EXAMPLE
+wget --no-check-certificate -O /opt/bbr.sh https://github.com/teddysun/across/raw/master/bbr.sh
+chmod 755 /opt/bbr.sh
+/opt/bbr.sh
+#+END_EXAMPLE
+
+参考链接：
+1. https://teddysun.com/489.html
