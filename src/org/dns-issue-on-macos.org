@@ -1,0 +1,35 @@
+#+TITLE: macOS 系统上的DNS问题
+#+DATE: [2022-06-15 Wed 20:51]
+
+今天花了很多时间在这个问题上，真是太难受了，不过总算是解决了。
+
+*** 现象描述
+前段时间购买了一个dev域名，配置好之后。该系统通过VPN访问，结果发现自己电脑访问不了。但是发现nslookup/dig这个域名都能解析到ip，但是ping/curl却不通。直接ping/curl ip却可以通。是不是感觉很奇怪。
+
+刚开始以为是远端系统配置问题，最终在另一台电脑发现一切正常。既然远端系统没问题，那问题就出在我本机电脑。猜测可能是跟DNS有关，于是查看/etc/resolv.conf里nameserver也没有问题。是不是自己配置的dnsmasq的问题或者dnscrypt导致解析出了问题呢。dnscrypt经过排查没有问题，dnsmasq排查也没有发现问题。把两个可能有影响的都卸载掉，再试，依然发现不通。最终经过一番搜索依然一无所获，但却给了一些思路和灵感。
+
+*** 解决方案
+查看DNS列表
+#+BEGIN_EXAMPLE
+scutil --dns
+#+END_EXAMPLE
+突然发现有个dev域名的dns解析到127.0.0.1。这就不对了，我之前是在dnsmasq里/usr/local/etc/dnsmasq.conf配置过，但是已经删除卸载掉了。
+#+BEGIN_EXAMPLE
+address=/dev/127.0.0.1
+#+END_EXAMPLE
+
+最后才根据之前配置文档找到之前配置过一个resolver，按图索骥，终于找到之前创建过一个目录和配置
+#+BEGIN_EXAMPLE
+/etc/resolver/dev
+nameserver 127.0.0.1
+#+END_EXAMPLE
+删除掉就好了。
+
+
+参考链接：
++ https://passingcuriosity.com/2013/dnsmasq-dev-osx/
++ https://www.v2ex.com/t/353226
++ https://v2ex.com/t/750492
+
+
+
