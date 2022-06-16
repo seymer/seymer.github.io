@@ -1,0 +1,31 @@
+#+TITLE: 为VPS启用ipv6
+#+DATE: [2022-06-16 Thu 21:16]
+
+当你发现通过ifconfig或ip命令查看自己已分配的ipv6地址，却仍不能使用ipv6时，可以根据以下步骤开启。环境为deiban系。
+*** 步骤
+
+emacs /etc/sysctl.conf
+添加如下参数
+#+BEGIN_EXAMPLE
+net.ipv6.conf.all.autoconf = 0
+net.ipv6.conf.all.accept_ra = 0
+net.ipv6.conf.eth0.autoconf = 0
+net.ipv6.conf.eth0.accept_ra = 0
+#+END_EXAMPLE
+
+执行生效
+#+BEGIN_EXAMPLE
+sysctl -p
+#+END_EXAMPLE
+
+接着重启网络
+#+BEGIN_EXAMPLE
+systemctl restart networking
+#+END_EXAMPLE
+
+检查是否启用
+#+BEGIN_EXAMPLE
+ping6 ipv6.google.com
+#+END_EXAMPLE
+
+如果仍不工作，试着重启你的VPS。
