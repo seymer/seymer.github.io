@@ -3,20 +3,20 @@
 
 *** 步骤
 
-0. 注册Tunnel Broker 账号
+- 注册Tunnel Broker 账号
 https://www.tunnelbroker.net
-1. 点击左侧的 Create Regular Tunnel（创建常规隧道）
+- 点击左侧的 Create Regular Tunnel（创建常规隧道）
 
-2. 输入你的客户端IPv4 地址，然后选择一个隧道服务，点击Create Tunnel（创建隧道）即可。
+- 输入你的客户端IPv4 地址，然后选择一个隧道服务，点击Create Tunnel（创建隧道）即可。
 
-3. Tunnel Details 选项可以看到申请到的地址，切换到Example Configuration 选项卡，选择我们使用的客户端系统，根据选择显示配置。
+- Tunnel Details 选项可以看到申请到的地址，切换到Example Configuration 选项卡，选择我们使用的客户端系统，根据选择显示配置。
 
 注：如果你的客户端是在NAT之后，需要在添加隧道时将公网IP换成内网IP。
 
-4. 配置好之后，通过浏览器访问下方地址，即可查看是否成功配置。
+- 配置好之后，通过浏览器访问下方地址，即可查看是否成功配置。
 https://test-ipv6.com
 
-如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。
++ 如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。
 #+BEGIN_EXAMPLE
 ping6 google.com
 ping -6 google.com
