@@ -1,0 +1,54 @@
+#+TITLE: 给你的电脑或VPS添加IPv6
+#+DATE: [2022-06-17 Fri 23:28]
+
+*** 步骤
+
+注册Tunnel Broker 账号
+https://www.tunnelbroker.net
+点击左侧的 Create Regular Tunnel（创建常规隧道）
+
+输入你的客户端IPv4 地址，然后选择一个隧道服务，点击Create Tunnel（创建隧道）即可。
+
+Tunnel Details 选项可以看到申请到的地址，切换到Example Configuration 选项卡，选择我们使用的客户端系统，根据选择显示配置。
+
+注：如果你的客户端是在NAT之后，需要在添加隧道时将公网IP换成内网IP。
+
+配置好之后，通过浏览器访问下方地址，即可查看是否成功配置。
+https://test-ipv6.com
+
+如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。
+#+BEGIN_EXAMPLE
+ping6 google.com
+ping -6 google.com
+curl -6 ip.sb
+curl ipv6.ip.sb
+#+END_EXAMPLE
+
+*** 各系统会用到的命令
+
+MacOS
+#+BEGIN_EXAMPLE
+sudo ifconfig gif0 up #启动接口
+sudo ifconfig gif0 down #关闭接口
+sudo ifconfig gif0 down unplumb #删除接口
+#+END_EXAMPLE
+
+Ubuntu/Debian
+#+BEGIN_EXAMPLE
+sudo ifup he-ipv6
+sudo systemctl restart networking
+sudo ifdown he-ipv6
+sudo rm -f /etc/network/interfaces.d/he-ipv6
+#+END_EXAMPLE
+
+Windows
+#+BEGIN_EXAMPLE
+netsh interface ipv6 delete interface ip6tunnel
+netsh interface ipv6 reset all
+#+END_EXAMPLE
+
+参考链接
++ https://pa.ci/113.html
++ https://zhuji.gd/5858.html
++ https://docs.oracle.com/cd/E24847_01/html/819-7058/fpcso.html#scrolltoc
++ https://p3terx.com/archives/use-he-tunnel-broker-to-add-public-network-ipv6-support-to-ipv4-vps-for-free.html
