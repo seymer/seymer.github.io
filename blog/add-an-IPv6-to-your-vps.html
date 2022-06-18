@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>给你的电脑或VPS添加IPv6</title>
-<!-- 2022-06-18 Sat 10:14 -->
+<!-- 2022-06-18 Sat 15:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Siqing Mu" />
@@ -50,6 +50,8 @@
 <blockquote>
 <p>
 &gt; 注：如果你的客户端是在NAT之后，需要在添加隧道时将公网IP换成内网IP。
+&gt; 在创建隧道服务时，需要填写的公网IP地址需要开启ICMP。如果你没有公网IP，那看看运营商有没有禁用上游IPv4的ICMP，不过大多数都是关闭的。
+&gt; 最好选加州节点。试用了日本节点，发现访问美国加州vps会很慢，四百左右的时延。选择加州节点去访问加州vps，就和ipv4访问时延差不多。猜测应该是多绕了一圈。
 </p>
 </blockquote>
 
