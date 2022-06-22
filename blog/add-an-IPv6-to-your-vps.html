@@ -3,17 +3,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-22 Wed 14:07 -->
+<!-- 2022-06-22 Wed 14:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>给你的电脑或VPS添加IPv6</title>
+<title>给你的电脑添加IPv6</title>
 <meta name="author" content="Siqing Mu" />
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">给你的电脑或VPS添加IPv6</h1>
+<h1 class="title">给你的电脑添加IPv6</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -74,7 +74,7 @@
 <ul class="org-ul">
 <li>如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。</li>
 </ul>
-<pre class="example" id="orgffb6fc1">
+<pre class="example" id="org99513f7">
 ping6 google.com
 ping -6 google.com
 curl -6 ip.sb
@@ -89,7 +89,7 @@ curl ipv6.ip.sb
 <p>
 MacOS
 </p>
-<pre class="example" id="org808e220">
+<pre class="example" id="org7a6a074">
 sudo ifconfig gif0 up #启动接口
 sudo ifconfig gif0 down #关闭接口
 sudo ifconfig gif0 down unplumb #删除接口
@@ -98,7 +98,7 @@ sudo ifconfig gif0 down unplumb #删除接口
 <p>
 Ubuntu/Debian
 </p>
-<pre class="example" id="org79312b2">
+<pre class="example" id="org01aac0e">
 sudo ifup he-ipv6
 sudo systemctl restart networking
 sudo ifdown he-ipv6
@@ -108,7 +108,7 @@ sudo rm -f /etc/network/interfaces.d/he-ipv6
 <p>
 Windows
 </p>
-<pre class="example" id="org1ec4395">
+<pre class="example" id="orgdea2881">
 netsh interface ipv6 delete interface ip6tunnel
 netsh interface ipv6 reset all
 </pre>
