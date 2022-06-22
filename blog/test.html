@@ -6,83 +6,17 @@
 <!-- 2022-06-22 Wed 14:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>如何管理Java的多版本</title>
+<title>test</title>
 <meta name="author" content="Siqing Mu" />
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">如何管理Java的多版本</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgc85eb56">1. 第一种方法</a></li>
-<li><a href="#org0e8a355">2. 第二种方法</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-orgc85eb56" class="outline-2">
-<h2 id="orgc85eb56"><span class="section-number-2">1.</span> 第一种方法</h2>
-<div class="outline-text-2" id="text-1">
-<pre class="example" id="org8e395e7">
-brew install jenv
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org0e8a355" class="outline-2">
-<h2 id="org0e8a355"><span class="section-number-2">2.</span> 第二种方法</h2>
-<div class="outline-text-2" id="text-2">
+<h1 class="title">test</h1>
 <p>
-我们可以使用如下命令查看我们已安装的版本
+afsdadsfdsaasfdsafdsafdsafsdafadsfdsafdasfsdafdddafdsdasfdsfafd
 </p>
-<pre class="example" id="orgc5a8aca">
-/usr/libexec/java_home -V
-或
-/usr/libexec/java_home -verbose
-</pre>
-
-<p>
-添加如下函数到 <b>~/.zshrc</b> 或 <b>~/.bashrc</b>
-</p>
-<pre class="example" id="orgf020ba1">
-jdk() {
-        version=$1
-        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
-        java -version
-}
-</pre>
-<p>
-保存退出后
-</p>
-<pre class="example" id="org364edd3">
-source .zshrc
-或
-source .bashrc
-</pre>
-
-<p>
-切换版本
-</p>
-<pre class="example" id="orgdcfa503">
-jdk 1.8
-jdk 15
-</pre>
-
-
-<p>
-reference:
-</p>
-<ul class="org-ul">
-<li><a href="https://www.jenv.be/">https://www.jenv.be/</a></li>
-<li><a href="https://github.com/AdoptOpenJDK/homebrew-openjdk#switch-between-different-jdk-versions">https://github.com/AdoptOpenJDK/homebrew-openjdk#switch-between-different-jdk-versions</a></li>
-</ul>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <div id="disqus_thread"></div>

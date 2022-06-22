@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Debian 系统安装后的设置</title>
-<!-- 2020-01-31 Fri 16:33 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Debian 系统安装后的设置</h1>
 <p>
 新装 debian 系统后，非 root 用户在使用 sudo 命令安装应用会发现未找到此命令，因为 debian 系统默认是不安装的，所以我们
@@ -21,7 +22,7 @@
 <p>
 切换到 root 用户
 </p>
-<pre class="example">
+<pre class="example" id="org7fa64a2">
 su -
 </pre>
 
@@ -37,20 +38,20 @@ apt-get install sudo
 <p>
 安装完成后，将普通用户添加到 sudo 群组
 </p>
-<pre class="example">
+<pre class="example" id="org3970d8e">
 gpasswd sudo -a username
 </pre>
 <p>
 或者
 </p>
-<pre class="example">
+<pre class="example" id="orge61b591">
 usermod -aG sudo username
 </pre>
 <p>
 后续如果需要添加新的用户到 sudo 组也可以, 或者先切换到 root 用户，再添加
 （推荐）
 </p>
-<pre class="example">
+<pre class="example" id="org575abd8">
 sudo adduser username sudo
 </pre>
 
@@ -58,7 +59,7 @@ sudo adduser username sudo
 注意⚠️  添加到新组后，用户必须注销后重新登录才能生效。
 </p>
 
-<pre class="example">
+<pre class="example" id="org1911075">
 ➜  ~ sudo adduser foo
 ➜  ~ sudo adduser foo sudo
 </pre>
@@ -68,7 +69,7 @@ sudo adduser username sudo
 如果需要编辑 sudoer 配置文件，可以 visudo, 但是默认是 nano 编辑器，我们可以输入
 </p>
 
-<pre class="example">
+<pre class="example" id="orgbab074d">
 sudo update-alternatives --config editor
 </pre>
 
@@ -79,7 +80,7 @@ sudo update-alternatives --config editor
 <p>
 如果你想使用 root 密码来使用 sudo 而不是用户密码，请添加以下行：
 </p>
-<pre class="example">
+<pre class="example" id="org2ac481e">
 Defaults rootpw
 </pre>
 
@@ -87,12 +88,9 @@ Defaults rootpw
 参考链接：
 </p>
 <ul class="org-ul">
-<li>【1】<a href="https://imtx.me/archives/2375.html">https://imtx.me/archives/2375.html</a>
-</li>
-<li>【2】<a href="https://wiki.debian.org/sudo">https://wiki.debian.org/sudo</a>
-</li>
-<li>【3】<a href="https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936">https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936</a>
-</li>
+<li>【1】<a href="https://imtx.me/archives/2375.html">https://imtx.me/archives/2375.html</a></li>
+<li>【2】<a href="https://wiki.debian.org/sudo">https://wiki.debian.org/sudo</a></li>
+<li>【3】<a href="https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936">https://unix.stackexchange.com/questions/354928/bash-sudo-command-not-found/354936</a></li>
 </ul>
 </div>
 <div id="postamble" class="status">

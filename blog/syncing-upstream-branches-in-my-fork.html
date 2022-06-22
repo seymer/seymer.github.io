@@ -3,22 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>同步上游分支到我的fork</title>
-<!-- 2019-01-27 Sun 22:56 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">同步上游分支到我的fork</h1>
 <p>
 几个月前fork了一个仓库开发，前两天同事告诉我他建了个新分支，已经push到upstream了，让我同步下，我竟然一下子不知道该怎么办。
 因为该分支是基于develop分支开发的，但是develop分支都已经更新过好几个版本了，而且我们用的git flow工具，显然我不能直接基于develop创建新分支，
 再把upstream上的这个分支pull（fetch &amp;&amp; merge)下来。这样如果提交上去肯定会带有一些不该有的东西。经过搜索果然找到了解决方案。现记录如下：
 </p>
-<pre class="example">
+<pre class="example" id="org38a039e">
 git checkout -b &lt;分支名&gt; upstream/&lt;要同步的分支&gt;
 git push -u origin &lt;分支名&gt;
 </pre>
@@ -34,12 +35,9 @@ git push -u origin &lt;分支名&gt;
 参考链接：
 </p>
 <ul class="org-ul">
-<li><a href="https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612">https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612</a>
-</li>
-<li><a href="https://help.github.com/articles/syncing-a-fork/">https://help.github.com/articles/syncing-a-fork/</a>
-</li>
-<li><a href="https://git-scm.com/doc">https://git-scm.com/doc</a>
-</li>
+<li><a href="https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612">https://github.community/t5/How-to-use-Git-and-GitHub/Syncing-upstream-branches-in-my-fork/td-p/7612</a></li>
+<li><a href="https://help.github.com/articles/syncing-a-fork/">https://help.github.com/articles/syncing-a-fork/</a></li>
+<li><a href="https://git-scm.com/doc">https://git-scm.com/doc</a></li>
 </ul>
 </div>
 <div id="postamble" class="status">

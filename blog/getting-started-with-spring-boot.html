@@ -3,32 +3,33 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Spring Boot 入门</title>
-<!-- 2020-06-19 Fri 14:19 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Spring Boot 入门</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. Spring Boot</a></li>
-<li><a href="#sec-2">2. 单模块项目创建</a></li>
-<li><a href="#sec-3">3. 多模块项目创建</a></li>
-<li><a href="#sec-4">4. 集成MyBatis</a></li>
-<li><a href="#sec-5">5. 多环境属性配置</a></li>
-<li><a href="#sec-6">6. reference</a></li>
+<li><a href="#org2422f51">1. Spring Boot</a></li>
+<li><a href="#org69d959a">2. 单模块项目创建</a></li>
+<li><a href="#orgea71fa6">3. 多模块项目创建</a></li>
+<li><a href="#orgec3ea00">4. 集成MyBatis</a></li>
+<li><a href="#org15dc2b4">5. 多环境属性配置</a></li>
+<li><a href="#orgbe65ccf">6. reference</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Spring Boot</h2>
+<div id="outline-container-org2422f51" class="outline-2">
+<h2 id="org2422f51"><span class="section-number-2">1.</span> Spring Boot</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 Spring 的 Web 应用程序。
@@ -36,15 +37,15 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 单模块项目创建</h2>
+<div id="outline-container-org69d959a" class="outline-2">
+<h2 id="org69d959a"><span class="section-number-2">2.</span> 单模块项目创建</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 创建一个单模块项目，我们可以使用 <a href="https://start.spring.io">https://start.spring.io</a> 网站生成，然后用IDEA打开。
 </p>
 
 
-<div class="figure">
+<div id="org5c1c558" class="figure">
 <p><img src="./images/spring-initializr.png" alt="spring-initializr.png" />
 </p>
 </div>
@@ -60,9 +61,9 @@ Spring Boot 是一个可以让你轻松创建独立的、生产级的、基于 S
 
 <p>
 <img src="./images/idea-new-project-002.png" alt="idea-new-project-002.png" />
-这里我们需要填写项目的Metadata信息<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
+这里我们需要填写项目的Metadata信息<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
 </p>
-<pre class="example">
+<pre class="example" id="orgaffa9fc">
 GroupID    项目组织的唯一标识符，遵循Java包名规则，以反向域名开始。
 ArtifactID 项目的唯一标识符，即项目名称。小写字母，不要有特殊字符。
 Version    项目版本号，开发阶段使用版本号后接 -SNAPSHOT 方便开发，发布部署后去掉。
@@ -78,7 +79,7 @@ Package    项目包名，一般为GroupID + ArtifactID。
 至此，我们就创建好单模块项目了。测试一下吧。
 添加Greeting.java
 </p>
-<pre class="example">
+<pre class="example" id="orgfcc35e4">
 package com.example.demo.controller;
 
 public class Greeting {
@@ -103,7 +104,7 @@ public class Greeting {
 <p>
 GreetingController.java
 </p>
-<pre class="example">
+<pre class="example" id="org5765534">
 package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -132,13 +133,13 @@ public class GreetingController {
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 多模块项目创建</h2>
+<div id="outline-container-orgea71fa6" class="outline-2">
+<h2 id="orgea71fa6"><span class="section-number-2">3.</span> 多模块项目创建</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 一般情况下，大中型项目都会划分模块，一方面是为了遵循面向对象设计原则，同时也是因为模块化设计可以提高项目结构清晰度，方便扩展，重用等。那如何划分模块呢，一般根据项目类型决定，没有一定之规。但还是有一些规律可循，比如经典的MVC架构模式，即Model（模型）、View（视图）、Controller（控制器）。对应Spring Web 应用，我一般使用这样的设计及命名：
 </p>
-<pre class="example">
+<pre class="example" id="orga49b730">
 web web层一般位于应用程序的最上层，也就是入口层，用于处理用户输入及响应。其实就是MVC中的Controller。
 service service层位于web层之下，充当事务边界。一般作为公共API。
 domain  域模型[fn:2]通常是用于数据库的持久化，在 Java 中，它们通常符合 javabean 规范，即它们具有 get 和 set 方法来表示单个属性和一个无参数的构造函数。是领域驱动设计里的一个重要概念。
@@ -151,7 +152,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <img src="./images/multiple-module-002.png" alt="multiple-module-002.png" />
 删掉 .mvn 目录、 mvnw 及 mvnw.cmd 文件，保留.gitignore，demo.iml，pom.xml。.idea是IDEA编辑器的一些配置信息，也需要保留。src目录，暂时先不要删，我们待会需要将DemoApplication启动文件放到创建好的web模块的包下。这块有个细节要 注意DemoApplication启动文件，也就是主类应该放到根包中，位于其他类之上。它隐式地定义了一个基本的“搜索包”，如果您正在编写一个 JPA 应用程序,@enableautoconfiguration 注释类的包将用于搜索@entity 项。另外如果主类在根包中，不需要指定 basePackage 属性。
 <img src="./images/multiple-module-003.png" alt="multiple-module-003.png" />
-依次创建web模块，service模块，domain<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>模块<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
+依次创建web模块，service模块，domain<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>模块<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>，dao模块。为了方便区分，我们在创建时加上前缀如demo-web、demo-service、demo-domain、demo-dao。
 </p>
 
 <p>
@@ -159,7 +160,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <img src="./images/multiple-module-004.png" alt="multiple-module-004.png" />
 那是因为我们还没有添加 Spring Web 依赖。我们在demo-web下的pom.xml添加
 </p>
-<pre class="example">
+<pre class="example" id="org92db00b">
 &lt;dependencies&gt;
    &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -180,17 +181,14 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 </p>
 
 <ol class="org-ol">
-<li>删除 dependencies 标签及其依赖，因为 Spring Boot 提供的父工程已包含，并且父 pom 原则上都是通过 dependencyManagement 标签管理依赖包。
-</li>
-<li>删除 build 标签及其中的所有内容。spring-boot-maven-plugin 插件作用是打一个可运行的包，多模块项目仅仅需要在入口类所在的模块添加打包插件，这里父模块不需要打包运行。而且该插件已被包含在 Spring Boot 提供的父工程中，这里删掉即可。
-</li>
-<li>配置模块间依赖关系
-</li>
+<li>删除 dependencies 标签及其依赖，因为 Spring Boot 提供的父工程已包含，并且父 pom 原则上都是通过 dependencyManagement 标签管理依赖包。</li>
+<li>删除 build 标签及其中的所有内容。spring-boot-maven-plugin 插件作用是打一个可运行的包，多模块项目仅仅需要在入口类所在的模块添加打包插件，这里父模块不需要打包运行。而且该插件已被包含在 Spring Boot 提供的父工程中，这里删掉即可。</li>
+<li>配置模块间依赖关系</li>
 </ol>
 <p>
 在父pom文件里添加
 </p>
-<pre class="example">
+<pre class="example" id="org2f678f7">
 &lt;dependencyManagement&gt;
     &lt;dependencies&gt;
         &lt;dependency&gt;
@@ -223,7 +221,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 </p>
 </blockquote>
 
-<pre class="example">
+<pre class="example" id="org85f0dfb">
 &lt;properties&gt;
     &lt;java.version&gt;1.8&lt;/java.version&gt;
     &lt;demo.version&gt;0.0.1-SNAPSHOT&lt;/demo.version&gt;
@@ -233,7 +231,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <p>
 根据依赖关系，我们在demo-dao模块的pom文件添加
 </p>
-<pre class="example">
+<pre class="example" id="orgeb5ca01">
 &lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;com.example&lt;/groupId&gt;
@@ -245,7 +243,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <p>
 在demo-service模块的pom文件里添加
 </p>
-<pre class="example">
+<pre class="example" id="org7b0395b">
 &lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;com.example&lt;/groupId&gt;
@@ -261,7 +259,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 <p>
 在demo-web模块的pom文件里添加，这里因为我们已经在之前添加Spring Web依赖了，我们直接把dependency项追加到dependencies项就好。如下：
 </p>
-<pre class="example">
+<pre class="example" id="org79125c7">
 &lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -286,7 +284,7 @@ dao DAO全称数据访问对象，可以理解为对数据库 CRUD 的操作接�
 首先在demo-service层创建com.example.demo.service包，然后创建DemoService接口类及impl目录（用于存放接口实现类），接着创建接口实现类DemoServiceImpl
 DemoService.java
 </p>
-<pre class="example">
+<pre class="example" id="orgca49591">
 package com.example.demo.service;
 
 public interface DemoService {
@@ -297,7 +295,7 @@ public interface DemoService {
 <p>
 DemoServiceImpl.java
 </p>
-<pre class="example">
+<pre class="example" id="org4299955">
 package com.example.demo.service.impl;
 
 import com.example.demo.service.DemoService;
@@ -317,7 +315,7 @@ public class DemoServiceImpl implements DemoService {
 <p>
 这里使用到 <b>@Service</b> 注解，我们需要在demo-service模块的pom.xml依赖项里追加此依赖
 </p>
-<pre class="example">
+<pre class="example" id="org57dea73">
 &lt;dependency&gt;
    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
@@ -327,7 +325,7 @@ public class DemoServiceImpl implements DemoService {
 <p>
 我们打开web层的GreetingController文件，添加：
 </p>
-<pre class="example">
+<pre class="example" id="org957b6d1">
 @Autowired
 private DemoService demoService;
 
@@ -343,13 +341,13 @@ public String test() {
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 集成MyBatis</h2>
+<div id="outline-container-orgec3ea00" class="outline-2">
+<h2 id="orgec3ea00"><span class="section-number-2">4.</span> 集成MyBatis</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 在父pom.xml文件添加依赖
 </p>
-<pre class="example">
+<pre class="example" id="org10ad09e">
 &lt;dependency&gt;
     &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
     &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
@@ -365,7 +363,7 @@ public String test() {
 <p>
 添加到dependencyManagement下的依赖属于声明，并不会自动引入，所以需要在子模块下引入。
 </p>
-<pre class="example">
+<pre class="example" id="orgaa640a1">
 &lt;dependency&gt;
     &lt;groupId&gt;mysql&lt;/groupId&gt;
     &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
@@ -387,7 +385,7 @@ public String test() {
 <p>
 我们在demo-service子模块调用，打开DemoServiceImpl文件，使用 <b>@Autowired</b> 注入，具体如下。
 </p>
-<pre class="example">
+<pre class="example" id="orgaa0fe63">
 @Autowired
 private SysDictMapper sysDictMapper;
 
@@ -401,7 +399,7 @@ public String test() {
 <p>
 这种注入方式已不被推荐，所以也可以这样写
 </p>
-<pre class="example">
+<pre class="example" id="org595c8e4">
 private final SysDictMapper sysDictMapper;
 
 public DemoServiceImpl(SysDictMapper sysDictMapper) {
@@ -418,7 +416,7 @@ public String test() {
 <p>
 在demo-web模块下的resources文件夹下创建属性配置文件: <b>application.properties</b> ,然后添加配置
 </p>
-<pre class="example">
+<pre class="example" id="orga774f2c">
 spring.datasource.driverClassName = com.mysql.cj.jdbc.Driver
 spring.datasource.url = jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8
 spring.datasource.username = root
@@ -431,7 +429,7 @@ mybatis.type-aliases-package = com.example.demo.dao.entity
 <p>
 我们运行下发现会报错
 </p>
-<pre class="example">
+<pre class="example" id="org5dcbf06">
 Description:
 
 Field sysDictMapper in com.example.demo.service.impl.DemoServiceImpl required a bean of type 'com.example.demo.dao.mapper.SysDictMapper' that could not be found.
@@ -446,12 +444,10 @@ Consider defining a bean of type 'com.example.demo.dao.mapper.SysDictMapper' in 
 解决这个问题有两种方法
 </p>
 <ol class="org-ol">
-<li>在SysDictMapper接口增加 <b>@Mapper</b> 注解，确保扫描注册时可以识别到这个接口。
-</li>
-<li>在启动类上增加 <b>@MapperScan</b> 注解，并设置搜索包。
-</li>
+<li>在SysDictMapper接口增加 <b>@Mapper</b> 注解，确保扫描注册时可以识别到这个接口。</li>
+<li>在启动类上增加 <b>@MapperScan</b> 注解，并设置搜索包。</li>
 </ol>
-<pre class="example">
+<pre class="example" id="orgcc24665">
 @MapperScan("com.example.demo.dao.mapper")
 </pre>
 
@@ -461,13 +457,13 @@ Consider defining a bean of type 'com.example.demo.dao.mapper.SysDictMapper' in 
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 多环境属性配置</h2>
+<div id="outline-container-org15dc2b4" class="outline-2">
+<h2 id="org15dc2b4"><span class="section-number-2">5.</span> 多环境属性配置</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 一般情况，我们都会有【开发】【测试】【正式】环境，所以不同环境间的配置也就不同。我们在上面已经新建了一个 <b>application.properties</b> 配置文件。接下来我们再新建三个配置文件，分别为：
 </p>
-<pre class="example">
+<pre class="example" id="orgcf5862a">
 application-dev.properties
 application-test.properties
 application-prod.properties
@@ -476,7 +472,7 @@ application-prod.properties
 application.properties 为主配置，注意用于环境区分和公共配置。各环境配置文件为各自环境配置。
 例如主配置为
 </p>
-<pre class="example">
+<pre class="example" id="org103c8a0">
 server.port = 8080
 spring.profiles.active=dev
 spring.application.name=demo
@@ -490,7 +486,7 @@ mybatis.type-aliases-package = com.example.demo.dao.entity
 <p>
 开发环境配置为
 </p>
-<pre class="example">
+<pre class="example" id="org3d7f480">
 spring.datasource.driverClassName = com.mysql.cj.jdbc.Driver
 spring.datasource.url = jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8
 spring.datasource.username = root
@@ -504,7 +500,7 @@ spring.datasource.password =
 <p>
 另外提醒下在连接mysql后面有一堆参数，一定要知道其含义再使用，否则会带来意想不到的问题
 </p>
-<pre class="example">
+<pre class="example" id="org3331370">
 ?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;autoReconnect=true&amp;useAffectedRows=true
 </pre>
 <p>
@@ -513,24 +509,17 @@ spring.datasource.password =
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> reference</h2>
+<div id="outline-container-orgbe65ccf" class="outline-2">
+<h2 id="orgbe65ccf"><span class="section-number-2">6.</span> reference</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li><a href="https://blog.csdn.net/zhangxingyu126/article/details/81013315">maven中的GroupID和ArtifactID怎么写</a>
-</li>
-<li><a href="https://blog.csdn.net/snn1410/article/details/52859788">dependencyManagement 及 dependencies 的区别</a>
-</li>
-<li><a href="https://symonlin.github.io/2019/01/15/springboot-1/">Maven 多模块项目搭建</a>
-</li>
-<li><a href="https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/">spring-boot官方手册</a>
-</li>
-<li><a href="https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/">Understanding Spring Web Application Architecture: The Classic Way</a>
-</li>
-<li><a href="https://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId, and version</a>
-</li>
-<li><a href="https://spring.io/guides/gs/rest-service/">Building a RESTful Web Service</a>
-</li>
+<li><a href="https://blog.csdn.net/zhangxingyu126/article/details/81013315">maven中的GroupID和ArtifactID怎么写</a></li>
+<li><a href="https://blog.csdn.net/snn1410/article/details/52859788">dependencyManagement 及 dependencies 的区别</a></li>
+<li><a href="https://symonlin.github.io/2019/01/15/springboot-1/">Maven 多模块项目搭建</a></li>
+<li><a href="https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/">spring-boot官方手册</a></li>
+<li><a href="https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/">Understanding Spring Web Application Architecture: The Classic Way</a></li>
+<li><a href="https://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId, and version</a></li>
+<li><a href="https://spring.io/guides/gs/rest-service/">Building a RESTful Web Service</a></li>
 </ul>
 </div>
 </div>
@@ -538,17 +527,17 @@ spring.datasource.password =
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId, and version</a>
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://stackoverflow.com/questions/4913673/what-is-java-domain-model">what is java domain model</a>
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain-driven design</a>
-</p></div>
+</p></div></div>
 
 
 </div>

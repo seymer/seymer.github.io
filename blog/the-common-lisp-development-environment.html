@@ -3,20 +3,20 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-09 Sat 19:13 -->
+<!-- 2022-06-22 Wed 14:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何搭建 SLIME 环境</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">如何搭建 SLIME 环境</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#org3f84102">1. sbcl</a></li>
 <li><a href="#org55cdb78">2. Emacs</a></li>
@@ -33,23 +33,23 @@
 </div>
 
 <div id="outline-container-org3f84102" class="outline-2">
-<h2 id="org3f84102"><span class="section-number-2">1</span> sbcl</h2>
+<h2 id="org3f84102"><span class="section-number-2">1.</span> sbcl</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example">
+<pre class="example" id="org02ce0d8">
 brew install sbcl
 </pre>
 </div>
 </div>
 <div id="outline-container-org55cdb78" class="outline-2">
-<h2 id="org55cdb78"><span class="section-number-2">2</span> Emacs</h2>
+<h2 id="org55cdb78"><span class="section-number-2">2.</span> Emacs</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example">
+<pre class="example" id="orga6c4654">
 brew install emacs
 </pre>
 </div>
 </div>
 <div id="outline-container-orga5aabf6" class="outline-2">
-<h2 id="orga5aabf6"><span class="section-number-2">3</span> Quicklisp</h2>
+<h2 id="orga5aabf6"><span class="section-number-2">3.</span> Quicklisp</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Quicklisp is a library manager for Common Lisp. It works with your existing Common Lisp implementation to download,
@@ -59,9 +59,9 @@ ABCL, Allegro CL, Clasp, Clozure CL, CLISP, CMUCL, ECL, LispWorks, MKCL, SBCL, a
 </div>
 
 <div id="outline-container-orgc6f157e" class="outline-3">
-<h3 id="orgc6f157e"><span class="section-number-3">3.1</span> Slime</h3>
+<h3 id="orgc6f157e"><span class="section-number-3">3.1.</span> Slime</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example">
+<pre class="example" id="org9cd3316">
 
 curl -O https://beta.quicklisp.org/quicklisp.lisp
 
@@ -80,9 +80,9 @@ sbcl --load quicklisp.lisp
 </div>
 
 <div id="outline-container-orgc68c310" class="outline-3">
-<h3 id="orgc68c310"><span class="section-number-3">3.2</span> 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</h3>
+<h3 id="orgc68c310"><span class="section-number-3">3.2.</span> 如上用 quicklisp 包管理工具安装 slime 完成后会输出配置 .emacs 代码</h3>
 <div class="outline-text-3" id="text-3-2">
-<pre class="example">
+<pre class="example" id="orgac2e1df">
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; Replace "sbcl" with the path to your implementation
@@ -94,15 +94,15 @@ sbcl --load quicklisp.lisp
 </div>
 
 <div id="outline-container-org15b98e1" class="outline-2">
-<h2 id="org15b98e1"><span class="section-number-2">4</span> start</h2>
+<h2 id="org15b98e1"><span class="section-number-2">4.</span> start</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example">
+<pre class="example" id="org5b5b5c9">
 M-x slime
 </pre>
 </div>
 </div>
 <div id="outline-container-org902c8fc" class="outline-2">
-<h2 id="org902c8fc"><span class="section-number-2">5</span> table notes</h2>
+<h2 id="org902c8fc"><span class="section-number-2">5.</span> table notes</h2>
 <div class="outline-text-2" id="text-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -189,8 +189,7 @@ M-x slime
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="postamble">Last Updated 2018-01-27 Sat 11:01. Created by Siqing Mu</p>
-            <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'seymer';
             (function() {

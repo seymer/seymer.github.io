@@ -3,21 +3,22 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何解决systemuiserver无响应问题</title>
-<!-- 2019-05-05 Sun 14:17 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">如何解决systemuiserver无响应问题</h1>
 <p>
 最近发现，在连接wifi时会出现无响应问题，经过一番搜索，除了重启电脑，也可以执行下面这行代码：
 </p>
 
-<pre class="example">
+<pre class="example" id="org90435b7">
 sudo kill -9 `ps aux | grep -v grep | grep /usr/libexec/airportd | awk '{print $2}'`
 </pre>
 

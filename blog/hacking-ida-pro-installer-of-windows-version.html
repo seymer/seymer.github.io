@@ -3,42 +3,39 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>破解IDA Pro 7.2版本（windows version）</title>
-<!-- 2019-06-29 Sat 17:28 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">破解IDA Pro 7.2版本（windows version）</h1>
 <p>
-前几天听(scz)说有人搞定了IDA 7.2及以前版本的安装密码生成算法<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>，有人也直接在reddit上贴出来跑出来的7.2安装密码 <b>7JpT48a7Y2fv</b> ，经测试是可以安装的。感兴趣也可以通过公布的算法自己跑下。当然这里并不是鼓励大家用盗版（非官方授权），倘若你以此（安全研究）为生，如有余力，还是尽量买正版吧。当然如果你仅是想评估下，官方是有评估版和免费版下载<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>的。
+前几天听(scz)说有人搞定了IDA 7.2及以前版本的安装密码生成算法<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>，有人也直接在reddit上贴出来跑出来的7.2安装密码 <b>7JpT48a7Y2fv</b> ，经测试是可以安装的。感兴趣也可以通过公布的算法自己跑下。当然这里并不是鼓励大家用盗版（非官方授权），倘若你以此（安全研究）为生，如有余力，还是尽量买正版吧。当然如果你仅是想评估下，官方是有评估版和免费版下载<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>的。
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 原始软件md5值</h2>
+<div id="outline-container-org7a145b9" class="outline-2">
+<h2 id="org7a145b9"><span class="section-number-2">1.</span> 原始软件md5值</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example">
+<pre class="example" id="org5b91a47">
 &gt; md5sum IDA-Pro-v7.2-nopasswd.exe 
 f1982a5c602ee0930160b6b52e76c031
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 下载地址及百度云资源不限速下载工具</h2>
+<div id="outline-container-orgffe6654" class="outline-2">
+<h2 id="orgffe6654"><span class="section-number-2">2.</span> 下载地址及百度云资源不限速下载工具</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>下载地址1: <a href="https://www.ninefile.com/op5ovxo5d9wn.html">https://www.ninefile.com/op5ovxo5d9wn.html</a>
-</li>
-<li>下载地址2: <a href="https://pan.baidu.com/s/1F758v3fQ9egeyCCPDiGLNA">https://pan.baidu.com/s/1F758v3fQ9egeyCCPDiGLNA</a>  提取码: <b>u05x</b>
-</li>
-<li>下载地址3: <a href="https://share.weiyun.com/5Eg1MVA">https://share.weiyun.com/5Eg1MVA</a>
-</li>
-<li>下载工具: <a href="https://www.baiduwp.com/">https://www.baiduwp.com/</a>
-</li>
+<li>下载地址1: <a href="https://www.ninefile.com/op5ovxo5d9wn.html">https://www.ninefile.com/op5ovxo5d9wn.html</a></li>
+<li>下载地址2: <a href="https://pan.baidu.com/s/1F758v3fQ9egeyCCPDiGLNA">https://pan.baidu.com/s/1F758v3fQ9egeyCCPDiGLNA</a>  提取码: <b>u05x</b></li>
+<li>下载地址3: <a href="https://share.weiyun.com/5Eg1MVA">https://share.weiyun.com/5Eg1MVA</a></li>
+<li>下载工具: <a href="https://www.baiduwp.com/">https://www.baiduwp.com/</a></li>
 </ul>
 </div>
 </div>
@@ -46,13 +43,13 @@ f1982a5c602ee0930160b6b52e76c031
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://devco.re/blog/2019/06/21/operation-crack-hacking-IDA-Pro-installer-PRNG-from-an-unusual-way-en/">https://devco.re/blog/2019/06/21/operation-crack-hacking-IDA-Pro-installer-PRNG-from-an-unusual-way-en/</a>
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://www.hex-rays.com/products/ida/support/download.shtml">https://www.hex-rays.com/products/ida/support/download.shtml</a>
-</p></div>
+</p></div></div>
 
 
 </div>

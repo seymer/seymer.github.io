@@ -3,32 +3,32 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>给你的电脑或VPS添加IPv6</title>
-<!-- 2022-06-18 Sat 16:21 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">给你的电脑或VPS添加IPv6</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 步骤</a></li>
-<li><a href="#sec-2">2. 各系统会用到的命令</a></li>
+<li><a href="#org17b7bf4">1. 步骤</a></li>
+<li><a href="#orgbfd9fd4">2. 各系统会用到的命令</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 步骤</h2>
+<div id="outline-container-org17b7bf4" class="outline-2">
+<h2 id="org17b7bf4"><span class="section-number-2">1.</span> 步骤</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>注册Tunnel Broker 账号
-</li>
+<li>注册Tunnel Broker 账号</li>
 </ul>
 <blockquote>
 <p>
@@ -37,14 +37,11 @@
 </blockquote>
 
 <ul class="org-ul">
-<li>点击左侧的 Create Regular Tunnel（创建常规隧道）
-</li>
+<li>点击左侧的 Create Regular Tunnel（创建常规隧道）</li>
 
-<li>输入你的客户端IPv4 地址，然后选择一个隧道服务，点击Create Tunnel（创建隧道）即可。
-</li>
+<li>输入你的客户端IPv4 地址，然后选择一个隧道服务，点击Create Tunnel（创建隧道）即可。</li>
 
-<li>Tunnel Details 选项可以看到申请到的地址，切换到Example Configuration 选项卡，选择我们使用的客户端系统，根据选择显示配置。
-</li>
+<li>Tunnel Details 选项可以看到申请到的地址，切换到Example Configuration 选项卡，选择我们使用的客户端系统，根据选择显示配置。</li>
 </ul>
 
 <blockquote>
@@ -66,8 +63,7 @@
 </blockquote>
 
 <ul class="org-ul">
-<li>配置好之后，通过浏览器访问下方地址，即可查看是否成功配置。
-</li>
+<li>配置好之后，通过浏览器访问下方地址，即可查看是否成功配置。</li>
 </ul>
 <blockquote>
 <p>
@@ -76,10 +72,9 @@
 </blockquote>
 
 <ul class="org-ul">
-<li>如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。
-</li>
+<li>如果你的客户端无图形桌面环境，可以通过下方任意一行命令检测。</li>
 </ul>
-<pre class="example">
+<pre class="example" id="orgffb6fc1">
 ping6 google.com
 ping -6 google.com
 curl -6 ip.sb
@@ -88,13 +83,13 @@ curl ipv6.ip.sb
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 各系统会用到的命令</h2>
+<div id="outline-container-orgbfd9fd4" class="outline-2">
+<h2 id="orgbfd9fd4"><span class="section-number-2">2.</span> 各系统会用到的命令</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 MacOS
 </p>
-<pre class="example">
+<pre class="example" id="org808e220">
 sudo ifconfig gif0 up #启动接口
 sudo ifconfig gif0 down #关闭接口
 sudo ifconfig gif0 down unplumb #删除接口
@@ -103,7 +98,7 @@ sudo ifconfig gif0 down unplumb #删除接口
 <p>
 Ubuntu/Debian
 </p>
-<pre class="example">
+<pre class="example" id="org79312b2">
 sudo ifup he-ipv6
 sudo systemctl restart networking
 sudo ifdown he-ipv6
@@ -113,7 +108,7 @@ sudo rm -f /etc/network/interfaces.d/he-ipv6
 <p>
 Windows
 </p>
-<pre class="example">
+<pre class="example" id="org1ec4395">
 netsh interface ipv6 delete interface ip6tunnel
 netsh interface ipv6 reset all
 </pre>
@@ -122,14 +117,10 @@ netsh interface ipv6 reset all
 参考链接
 </p>
 <ul class="org-ul">
-<li><a href="https://pa.ci/113.html">https://pa.ci/113.html</a>
-</li>
-<li><a href="https://zhuji.gd/5858.html">https://zhuji.gd/5858.html</a>
-</li>
-<li><a href="https://docs.oracle.com/cd/E24847_01/html/819-7058/fpcso.html#scrolltoc">https://docs.oracle.com/cd/E24847_01/html/819-7058/fpcso.html#scrolltoc</a>
-</li>
-<li><a href="https://p3terx.com/archives/use-he-tunnel-broker-to-add-public-network-ipv6-support-to-ipv4-vps-for-free.html">https://p3terx.com/archives/use-he-tunnel-broker-to-add-public-network-ipv6-support-to-ipv4-vps-for-free.html</a>
-</li>
+<li><a href="https://pa.ci/113.html">https://pa.ci/113.html</a></li>
+<li><a href="https://zhuji.gd/5858.html">https://zhuji.gd/5858.html</a></li>
+<li><a href="https://docs.oracle.com/cd/E24847_01/html/819-7058/fpcso.html#scrolltoc">https://docs.oracle.com/cd/E24847_01/html/819-7058/fpcso.html#scrolltoc</a></li>
+<li><a href="https://p3terx.com/archives/use-he-tunnel-broker-to-add-public-network-ipv6-support-to-ipv4-vps-for-free.html">https://p3terx.com/archives/use-he-tunnel-broker-to-add-public-network-ipv6-support-to-ipv4-vps-for-free.html</a></li>
 </ul>
 </div>
 </div>

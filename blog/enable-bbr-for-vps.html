@@ -3,40 +3,41 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>为VPS启用BBR算法</title>
-<!-- 2022-06-14 Tue 12:25 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">为VPS启用BBR算法</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 手动执行，用于4.9内核以上。</a></li>
-<li><a href="#sec-2">2. 一键安装最新内核并开启 BBR 脚本</a></li>
+<li><a href="#orgd3bab3d">1. 手动执行，用于4.9内核以上。</a></li>
+<li><a href="#orgeb2d497">2. 一键安装最新内核并开启 BBR 脚本</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 手动执行，用于4.9内核以上。</h2>
+<div id="outline-container-orgd3bab3d" class="outline-2">
+<h2 id="orgd3bab3d"><span class="section-number-2">1.</span> 手动执行，用于4.9内核以上。</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 查看内核版本
 </p>
-<pre class="example">
+<pre class="example" id="orgf8ad69b">
 uname -r
 </pre>
 
 <p>
 手动执行如下命令:
 </p>
-<pre class="example">
+<pre class="example" id="orgfbe3e48">
 echo "net.core.default_qdisc=fq" &gt;&gt; /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" &gt;&gt; /etc/sysctl.conf
 sysctl -p
@@ -45,20 +46,20 @@ sysctl -p
 <p>
 检查是否成功。如果执行结果都有bbr，则证明已启用。
 </p>
-<pre class="example">
+<pre class="example" id="org18df1ed">
 sysctl net.ipv4.tcp_available_congestion_control
 lsmod | grep bbr
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 一键安装最新内核并开启 BBR 脚本</h2>
+<div id="outline-container-orgeb2d497" class="outline-2">
+<h2 id="orgeb2d497"><span class="section-number-2">2.</span> 一键安装最新内核并开启 BBR 脚本</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 这里推荐秋水逸冰的一键脚本:
 </p>
-<pre class="example">
+<pre class="example" id="org330db46">
 wget --no-check-certificate -O /opt/bbr.sh https://github.com/teddysun/across/raw/master/bbr.sh
 chmod 755 /opt/bbr.sh
 /opt/bbr.sh
@@ -68,8 +69,7 @@ chmod 755 /opt/bbr.sh
 参考链接：
 </p>
 <ol class="org-ol">
-<li><a href="https://teddysun.com/489.html">https://teddysun.com/489.html</a>
-</li>
+<li><a href="https://teddysun.com/489.html">https://teddysun.com/489.html</a></li>
 </ol>
 </div>
 </div>

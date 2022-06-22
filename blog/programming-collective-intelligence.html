@@ -3,80 +3,82 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming Collective Intelligence</title>
-<!-- 2018-06-14 Thu 17:17 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Programming Collective Intelligence</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. Introduction to Collection Intelligence</a>
+<li><a href="#org70473c2">1. Introduction to Collection Intelligence</a>
 <ul>
-<li><a href="#sec-1-1">1.1. What Is Collective Intelligence?</a></li>
-<li><a href="#sec-1-2">1.2. What Is Machine Learning?</a></li>
-<li><a href="#sec-1-3">1.3. Limits of Machine Learning</a></li>
-<li><a href="#sec-1-4">1.4. Real-Life Examples</a></li>
-<li><a href="#sec-1-5">1.5. Other Uses for Learning Algorithms</a>
+<li><a href="#orgad841cf">1.1. What Is Collective Intelligence?</a></li>
+<li><a href="#org43c0c6b">1.2. What Is Machine Learning?</a></li>
+<li><a href="#org09b8f09">1.3. Limits of Machine Learning</a></li>
+<li><a href="#org53594b4">1.4. Real-Life Examples</a></li>
+<li><a href="#org0f5da40">1.5. Other Uses for Learning Algorithms</a>
 <ul>
-<li><a href="#sec-1-5-1">1.5.1. 生物工艺学</a></li>
-<li><a href="#sec-1-5-2">1.5.2. 金融欺诈侦测</a></li>
-<li><a href="#sec-1-5-3">1.5.3. 机器视觉</a></li>
-<li><a href="#sec-1-5-4">1.5.4. 产品市场化</a></li>
-<li><a href="#sec-1-5-5">1.5.5. 供应链优化</a></li>
-<li><a href="#sec-1-5-6">1.5.6. 股票市场分析</a></li>
-<li><a href="#sec-1-5-7">1.5.7. 国家安全</a></li>
+<li><a href="#org772dfae">1.5.1. 生物工艺学</a></li>
+<li><a href="#org0c7c2f0">1.5.2. 金融欺诈侦测</a></li>
+<li><a href="#org5f89508">1.5.3. 机器视觉</a></li>
+<li><a href="#org406ddfe">1.5.4. 产品市场化</a></li>
+<li><a href="#org94cd904">1.5.5. 供应链优化</a></li>
+<li><a href="#orgea61db2">1.5.6. 股票市场分析</a></li>
+<li><a href="#orgfd5a686">1.5.7. 国家安全</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-2">2. Making Recommendations</a>
+<li><a href="#org4fad73e">2. Making Recommendations</a>
 <ul>
-<li><a href="#sec-2-1">2.1. Collaborative Filtering （协作型过滤）</a></li>
-<li><a href="#sec-2-2">2.2. Collecting Preferences （搜集偏好）</a></li>
-<li><a href="#sec-2-3">2.3. Finding Similar Users （寻找相近的用户）</a></li>
-<li><a href="#sec-2-4">2.4. Euclidean Distance Score （欧几里德距离评价）</a></li>
-<li><a href="#sec-2-5">2.5. Pearson Correlation Score （皮尔逊相关度评价）</a></li>
-<li><a href="#sec-2-6">2.6. Which Similarity Metric Should You Use? （应该选用哪一种相似性度量方法）</a></li>
-<li><a href="#sec-2-7">2.7. Ranking the Critics （为评论者打分）</a></li>
-<li><a href="#sec-2-8">2.8. Recommending Items （推荐物品）</a></li>
-<li><a href="#sec-2-9">2.9. Matching Products （匹配商品）</a></li>
-<li><a href="#sec-2-10">2.10. Building a del.icio.us Link Recommender （构建一个基于 del.icio.us 的链接推荐系统）</a>
+<li><a href="#orgb7c9a39">2.1. Collaborative Filtering （协作型过滤）</a></li>
+<li><a href="#org8ca99ad">2.2. Collecting Preferences （搜集偏好）</a></li>
+<li><a href="#org6fbfbe5">2.3. Finding Similar Users （寻找相近的用户）</a></li>
+<li><a href="#org0a1e35f">2.4. Euclidean Distance Score （欧几里德距离评价）</a></li>
+<li><a href="#orga85c574">2.5. Pearson Correlation Score （皮尔逊相关度评价）</a></li>
+<li><a href="#orge10b3c6">2.6. Which Similarity Metric Should You Use? （应该选用哪一种相似性度量方法）</a></li>
+<li><a href="#org372c799">2.7. Ranking the Critics （为评论者打分）</a></li>
+<li><a href="#org9a84e50">2.8. Recommending Items （推荐物品）</a></li>
+<li><a href="#org60c4ce5">2.9. Matching Products （匹配商品）</a></li>
+<li><a href="#org6cc101e">2.10. Building a del.icio.us Link Recommender （构建一个基于 del.icio.us 的链接推荐系统）</a>
 <ul>
-<li><a href="#sec-2-10-1">2.10.1. Building the Dataset （构造数据集）</a></li>
-<li><a href="#sec-2-10-2">2.10.2. Recommending Neighbors and Links （推荐近邻与链接）</a></li>
-<li><a href="#sec-2-10-3">2.10.3. Item-Based Filtering （基于物品的过滤）</a></li>
-<li><a href="#sec-2-10-4">2.10.4. Building the Comparison Dataset （构造物品比较数据集）</a></li>
-<li><a href="#sec-2-10-5">2.10.5. Getting Recommendations （获得推荐）</a></li>
+<li><a href="#org568bbcc">2.10.1. Building the Dataset （构造数据集）</a></li>
+<li><a href="#org54b7615">2.10.2. Recommending Neighbors and Links （推荐近邻与链接）</a></li>
+<li><a href="#org53aa2d7">2.10.3. Item-Based Filtering （基于物品的过滤）</a></li>
+<li><a href="#org61e1ffb">2.10.4. Building the Comparison Dataset （构造物品比较数据集）</a></li>
+<li><a href="#org91bd490">2.10.5. Getting Recommendations （获得推荐）</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-11">2.11. Using the MovieLens Dataset （使用 MovieLens 数据集）</a></li>
-<li><a href="#sec-2-12">2.12. User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）</a></li>
+<li><a href="#org6c952d4">2.11. Using the MovieLens Dataset （使用 MovieLens 数据集）</a></li>
+<li><a href="#org9b12eca">2.12. User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Introduction to Collection Intelligence</h2>
+<div id="outline-container-org70473c2" class="outline-2">
+<h2 id="org70473c2"><span class="section-number-2">1.</span> Introduction to Collection Intelligence</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> What Is Collective Intelligence?</h3>
+</div>
+<div id="outline-container-orgad841cf" class="outline-3">
+<h3 id="orgad841cf"><span class="section-number-3">1.1.</span> What Is Collective Intelligence?</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 通常是指：为了创造新的想法，而将一群人的行为、偏好或思想结合在一起。
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> What Is Machine Learning?</h3>
+<div id="outline-container-org43c0c6b" class="outline-3">
+<h3 id="org43c0c6b"><span class="section-number-3">1.2.</span> What Is Machine Learning?</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
     机器学习是人工智能（AI，Artificial Intelligence）领域中与算法相关的一个子域，它允许计算机不断地进行学习。在大多数情况下，这相当于将一组数据传递给算法，并由算法推断出与这些数据的属性相关的信息。
@@ -85,144 +87,148 @@
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Limits of Machine Learning</h3>
+<div id="outline-container-org09b8f09" class="outline-3">
+<h3 id="org09b8f09"><span class="section-number-3">1.3.</span> Limits of Machine Learning</h3>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Real-Life Examples</h3>
+<div id="outline-container-org53594b4" class="outline-3">
+<h3 id="org53594b4"><span class="section-number-3">1.4.</span> Real-Life Examples</h3>
 </div>
 
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Other Uses for Learning Algorithms</h3>
+<div id="outline-container-org0f5da40" class="outline-3">
+<h3 id="org0f5da40"><span class="section-number-3">1.5.</span> Other Uses for Learning Algorithms</h3>
 <div class="outline-text-3" id="text-1-5">
-</div><div id="outline-container-sec-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 生物工艺学</h4>
+</div>
+<div id="outline-container-org772dfae" class="outline-4">
+<h4 id="org772dfae"><span class="section-number-4">1.5.1.</span> 生物工艺学</h4>
 </div>
 
-<div id="outline-container-sec-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> 金融欺诈侦测</h4>
+<div id="outline-container-org0c7c2f0" class="outline-4">
+<h4 id="org0c7c2f0"><span class="section-number-4">1.5.2.</span> 金融欺诈侦测</h4>
 </div>
 
-<div id="outline-container-sec-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> 机器视觉</h4>
+<div id="outline-container-org5f89508" class="outline-4">
+<h4 id="org5f89508"><span class="section-number-4">1.5.3.</span> 机器视觉</h4>
 </div>
 
-<div id="outline-container-sec-1-5-4" class="outline-4">
-<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> 产品市场化</h4>
+<div id="outline-container-org406ddfe" class="outline-4">
+<h4 id="org406ddfe"><span class="section-number-4">1.5.4.</span> 产品市场化</h4>
 </div>
 
-<div id="outline-container-sec-1-5-5" class="outline-4">
-<h4 id="sec-1-5-5"><span class="section-number-4">1.5.5</span> 供应链优化</h4>
+<div id="outline-container-org94cd904" class="outline-4">
+<h4 id="org94cd904"><span class="section-number-4">1.5.5.</span> 供应链优化</h4>
 </div>
 
-<div id="outline-container-sec-1-5-6" class="outline-4">
-<h4 id="sec-1-5-6"><span class="section-number-4">1.5.6</span> 股票市场分析</h4>
+<div id="outline-container-orgea61db2" class="outline-4">
+<h4 id="orgea61db2"><span class="section-number-4">1.5.6.</span> 股票市场分析</h4>
 </div>
 
-<div id="outline-container-sec-1-5-7" class="outline-4">
-<h4 id="sec-1-5-7"><span class="section-number-4">1.5.7</span> 国家安全</h4>
+<div id="outline-container-orgfd5a686" class="outline-4">
+<h4 id="orgfd5a686"><span class="section-number-4">1.5.7.</span> 国家安全</h4>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Making Recommendations</h2>
+<div id="outline-container-org4fad73e" class="outline-2">
+<h2 id="org4fad73e"><span class="section-number-2">2.</span> Making Recommendations</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Collaborative Filtering （协作型过滤）</h3>
+</div>
+<div id="outline-container-orgb7c9a39" class="outline-3">
+<h3 id="orgb7c9a39"><span class="section-number-3">2.1.</span> Collaborative Filtering （协作型过滤）</h3>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Collecting Preferences （搜集偏好）</h3>
+<div id="outline-container-org8ca99ad" class="outline-3">
+<h3 id="org8ca99ad"><span class="section-number-3">2.2.</span> Collecting Preferences （搜集偏好）</h3>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Finding Similar Users （寻找相近的用户）</h3>
+<div id="outline-container-org6fbfbe5" class="outline-3">
+<h3 id="org6fbfbe5"><span class="section-number-3">2.3.</span> Finding Similar Users （寻找相近的用户）</h3>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Euclidean Distance Score （欧几里德距离评价）</h3>
+<div id="outline-container-org0a1e35f" class="outline-3">
+<h3 id="org0a1e35f"><span class="section-number-3">2.4.</span> Euclidean Distance Score （欧几里德距离评价）</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 计算每一轴向上的差值，求平方后再相加，最后对总和求平方根。
 </p>
 <div class="org-src-container">
+<pre class="src src-python">
+<span class="org-keyword">from</span> math <span class="org-keyword">import</span> sqrt
 
-<pre class="src src-python">from math import sqrt
+<span class="org-comment-delimiter"># </span><span class="org-comment">Returns a distance-based similarity score for person1 and person2</span>
+<span class="org-keyword">def</span> <span class="org-function-name">sim_distance</span><span class="org-rainbow-delimiters-depth-1">(</span>prefs,person1,person2<span class="org-rainbow-delimiters-depth-1">)</span>:
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Get the list of shared_items</span>
+    <span class="org-variable-name">si</span>=<span class="org-rainbow-delimiters-depth-1">{}</span>
+    <span class="org-keyword">for</span> item <span class="org-keyword">in</span> <span class="org-variable-name">prefs</span><span class="org-rainbow-delimiters-depth-1">[</span>person1<span class="org-rainbow-delimiters-depth-1">]</span>:
+        <span class="org-keyword">if</span> item <span class="org-keyword">in</span> prefs<span class="org-rainbow-delimiters-depth-1">[</span>person2<span class="org-rainbow-delimiters-depth-1">]</span>: si<span class="org-rainbow-delimiters-depth-1">[</span><span class="org-variable-name">item</span><span class="org-rainbow-delimiters-depth-1">]</span>=1
 
-# Returns a distance-based similarity score for person1 and person2
-def sim_distance(prefs,person1,person2):
-    # Get the list of shared_items
-    si={}
-    for item in prefs[person1]:
-	if item in prefs[person2]: si[item]=1
+    <span class="org-comment-delimiter"># </span><span class="org-comment">if they have no ratings in common, return 0</span>
+    <span class="org-keyword">if</span> <span class="org-builtin">len</span><span class="org-rainbow-delimiters-depth-1">(</span>si<span class="org-rainbow-delimiters-depth-1">)</span>==0: <span class="org-keyword">return</span> 0
 
-    # if they have no ratings in common, return 0
-    if len(si)==0: return 0
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Add up the squares of all the differences</span>
+    <span class="org-variable-name">sum_of_squares</span>=<span class="org-builtin">sum</span><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-rainbow-delimiters-depth-2">[</span><span class="org-builtin">pow</span><span class="org-rainbow-delimiters-depth-3">(</span>prefs<span class="org-rainbow-delimiters-depth-4">[</span>person1<span class="org-rainbow-delimiters-depth-4">][</span>item<span class="org-rainbow-delimiters-depth-4">]</span>-prefs<span class="org-rainbow-delimiters-depth-4">[</span>person2<span class="org-rainbow-delimiters-depth-4">][</span>item<span class="org-rainbow-delimiters-depth-4">]</span>,2<span class="org-rainbow-delimiters-depth-3">)</span>
+                        <span class="org-keyword">for</span> item <span class="org-keyword">in</span> prefs<span class="org-rainbow-delimiters-depth-3">[</span>person1<span class="org-rainbow-delimiters-depth-3">]</span> <span class="org-keyword">if</span> item <span class="org-keyword">in</span> prefs<span class="org-rainbow-delimiters-depth-3">[</span>person2<span class="org-rainbow-delimiters-depth-3">]</span><span class="org-rainbow-delimiters-depth-2">]</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-    # Add up the squares of all the differences
-    sum_of_squares=sum([pow(prefs[person1][item]-prefs[person2][item],2)
-			for item in prefs[person1] if item in prefs[person2]])
+    <span class="org-keyword">return</span> 1/<span class="org-rainbow-delimiters-depth-1">(</span>1+sqrt<span class="org-rainbow-delimiters-depth-2">(</span>sum_of_squares<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
 
-    return 1/(1+sqrt(sum_of_squares))
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Pearson Correlation Score （皮尔逊相关度评价）</h3>
+<div id="outline-container-orga85c574" class="outline-3">
+<h3 id="orga85c574"><span class="section-number-3">2.5.</span> Pearson Correlation Score （皮尔逊相关度评价）</h3>
 </div>
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> Which Similarity Metric Should You Use? （应该选用哪一种相似性度量方法）</h3>
+<div id="outline-container-orge10b3c6" class="outline-3">
+<h3 id="orge10b3c6"><span class="section-number-3">2.6.</span> Which Similarity Metric Should You Use? （应该选用哪一种相似性度量方法）</h3>
 </div>
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Ranking the Critics （为评论者打分）</h3>
+<div id="outline-container-org372c799" class="outline-3">
+<h3 id="org372c799"><span class="section-number-3">2.7.</span> Ranking the Critics （为评论者打分）</h3>
 </div>
 
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> Recommending Items （推荐物品）</h3>
+<div id="outline-container-org9a84e50" class="outline-3">
+<h3 id="org9a84e50"><span class="section-number-3">2.8.</span> Recommending Items （推荐物品）</h3>
 </div>
 
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> Matching Products （匹配商品）</h3>
+<div id="outline-container-org60c4ce5" class="outline-3">
+<h3 id="org60c4ce5"><span class="section-number-3">2.9.</span> Matching Products （匹配商品）</h3>
 </div>
 
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> Building a del.icio.us Link Recommender （构建一个基于 del.icio.us 的链接推荐系统）</h3>
+<div id="outline-container-org6cc101e" class="outline-3">
+<h3 id="org6cc101e"><span class="section-number-3">2.10.</span> Building a del.icio.us Link Recommender （构建一个基于 del.icio.us 的链接推荐系统）</h3>
 <div class="outline-text-3" id="text-2-10">
-</div><div id="outline-container-sec-2-10-1" class="outline-4">
-<h4 id="sec-2-10-1"><span class="section-number-4">2.10.1</span> Building the Dataset （构造数据集）</h4>
+</div>
+<div id="outline-container-org568bbcc" class="outline-4">
+<h4 id="org568bbcc"><span class="section-number-4">2.10.1.</span> Building the Dataset （构造数据集）</h4>
 </div>
 
-<div id="outline-container-sec-2-10-2" class="outline-4">
-<h4 id="sec-2-10-2"><span class="section-number-4">2.10.2</span> Recommending Neighbors and Links （推荐近邻与链接）</h4>
+<div id="outline-container-org54b7615" class="outline-4">
+<h4 id="org54b7615"><span class="section-number-4">2.10.2.</span> Recommending Neighbors and Links （推荐近邻与链接）</h4>
 </div>
 
-<div id="outline-container-sec-2-10-3" class="outline-4">
-<h4 id="sec-2-10-3"><span class="section-number-4">2.10.3</span> Item-Based Filtering （基于物品的过滤）</h4>
+<div id="outline-container-org53aa2d7" class="outline-4">
+<h4 id="org53aa2d7"><span class="section-number-4">2.10.3.</span> Item-Based Filtering （基于物品的过滤）</h4>
 </div>
 
-<div id="outline-container-sec-2-10-4" class="outline-4">
-<h4 id="sec-2-10-4"><span class="section-number-4">2.10.4</span> Building the Comparison Dataset （构造物品比较数据集）</h4>
+<div id="outline-container-org61e1ffb" class="outline-4">
+<h4 id="org61e1ffb"><span class="section-number-4">2.10.4.</span> Building the Comparison Dataset （构造物品比较数据集）</h4>
 </div>
 
-<div id="outline-container-sec-2-10-5" class="outline-4">
-<h4 id="sec-2-10-5"><span class="section-number-4">2.10.5</span> Getting Recommendations （获得推荐）</h4>
+<div id="outline-container-org91bd490" class="outline-4">
+<h4 id="org91bd490"><span class="section-number-4">2.10.5.</span> Getting Recommendations （获得推荐）</h4>
 </div>
 </div>
 
-<div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11"><span class="section-number-3">2.11</span> Using the MovieLens Dataset （使用 MovieLens 数据集）</h3>
+<div id="outline-container-org6c952d4" class="outline-3">
+<h3 id="org6c952d4"><span class="section-number-3">2.11.</span> Using the MovieLens Dataset （使用 MovieLens 数据集）</h3>
 </div>
 
-<div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12"><span class="section-number-3">2.12</span> User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）</h3>
+<div id="outline-container-org9b12eca" class="outline-3">
+<h3 id="org9b12eca"><span class="section-number-3">2.12.</span> User-Based or Item-Based Filtering？（基于用户进行过滤还是基于物品进行过滤）</h3>
 </div>
 </div>
 </div>

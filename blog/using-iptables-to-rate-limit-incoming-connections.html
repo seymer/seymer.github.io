@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using iptables to rate-limit incoming connections</title>
-<!-- 2021-04-04 Sun 14:28 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Using iptables to rate-limit incoming connections</h1>
 <p>
 The iptables firewall has several useful extension modules which can be used to in addition to the basic firewall functionality. One of the more interesting of these extensions is the "recent" module which allows you to match recent connections, and perform simple throttling on incoming connections.
@@ -33,7 +34,7 @@ In these situations you can open up your system to allow incoming connections an
 These attempts will be logged in your /var/log/auth.log file like this:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgc8e5886">
 sshd[x]: Illegal user admin from aa.bb.cc.dd
 sshd[x]: Illegal user test from  aa.bb.cc.dd
 sshd[x]: Illegal user guest from aa.bb.cc.dd
@@ -55,7 +56,7 @@ The way the recent module works is fairly straightforward, you basically add IP 
 An example is probably the simplest way to illustrate how it works. The following two rules will limit incoming connections to port 22 to no more than 3 attemps in a minute - an more than that will be dropped:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgd9fbf7a">
 iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
   --set
 
@@ -83,18 +84,15 @@ Once that's done the &#x2013;seconds flag is used to make sure that the IP addre
 Together the second line will DROP an incoming connection if:
 </p>
 <ul class="org-ul">
-<li>The IP address which initiated the connection has previously been added to the list and
-</li>
-<li>The IP address has sent a packet in the past 60 seconds and
-</li>
-<li>The IP address has sent more than 4 packets in total.
-</li>
+<li>The IP address which initiated the connection has previously been added to the list and</li>
+<li>The IP address has sent a packet in the past 60 seconds and</li>
+<li>The IP address has sent more than 4 packets in total.</li>
 </ul>
 
 <p>
 You can adjust the numbers yourself to limit connections further, so the following example will drop incoming connections which make more than 2 connection attempts upon port 22 within ten minutes:
 </p>
-<pre class="example">
+<pre class="example" id="orgb319a57">
 iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent \
   --set
 
@@ -110,7 +108,7 @@ If you wish to test these rules you can script a number of connection attempts f
 The following script attempts to connect to the IP address 192.168.1.1 5 times. The first couple of attempts you should see a welcome banner such as "SSH-2.0-OpenSSH_3.8.1p1 Debian-8.sarge.4" - after that the script will hang as it's packets are dropped and no response is sent:
 </p>
 
-<pre class="example">
+<pre class="example" id="org05ec4c7">
 #!/bin/bash
 
 for i in `seq 1 5` ; do
@@ -129,7 +127,7 @@ This HOWTO contains documentation on many different modules, along with examples
 <p>
 If you wish to experiment with rules and testing it's worth remembering how to remove all active rules. The following commands will flush your iptables filewall, and remove all currently active rules:
 </p>
-<pre class="example">
+<pre class="example" id="org7429586">
 iptables -F
 iptables -X
 </pre>

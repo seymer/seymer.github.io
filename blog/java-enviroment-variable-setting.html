@@ -3,76 +3,56 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java 环境变量设置</title>
-<!-- 2019-04-15 Mon 15:20 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Java 环境变量设置</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 设置环境变量</a></li>
-<li><a href="#sec-2">2. 关于classpath中jar包的含义</a></li>
-<li><a href="#sec-3">3. source link</a></li>
+<li><a href="#org60428d6">1. 设置环境变量</a></li>
+<li><a href="#orgfb9e88f">2. 关于classpath中jar包的含义</a></li>
+<li><a href="#org1db1991">3. source link</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 设置环境变量</h2>
+<div id="outline-container-org60428d6" class="outline-2">
+<h2 id="org60428d6"><span class="section-number-2">1.</span> 设置环境变量</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 在home当前目录下用编辑器打开.zshrc文件并将下面内容添加到其内。
 </p>
-<pre class="example">
+<pre class="example" id="orgf0e5932">
 ##JAVA ENVIROMENT                                                                                                     
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
@@ -84,8 +64,8 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 关于classpath中jar包的含义</h2>
+<div id="outline-container-orgfb9e88f" class="outline-2">
+<h2 id="orgfb9e88f"><span class="section-number-2">2.</span> 关于classpath中jar包的含义</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 dt.jar和tools.jar位于：{Java_Home}/lib/下，而rt.jar位于：{Java_Home}/jre/lib/下,其中：
@@ -105,15 +85,18 @@ tools.jar是工具类库,编译和运行需要的都是toos.jar里面的类分�
 在Classpath设置这几个变量，是为了方便在程序中 import；Web系统都用到tool.jar。
 </p>
 <ol class="org-ol">
-<li>rt.jar
+<li><p>
+rt.jar
 rt.jar 默认就在Root Classloader的加载路径里面的，而在Claspath配置该变量是不需要的；同时jre/lib目录下的
+</p>
 
 <p>
 其他jar:jce.jar、jsse.jar、charsets.jar、resources.jar都在Root Classloader中
-</p>
-</li>
+</p></li>
 
-<li>tools.jar
+<li><p>
+tools.jar
+</p>
 
 <p>
 tools.jar 是系统用来编译一个类的时候用到的，即执行javac的时候用到
@@ -133,24 +116,20 @@ java -Calsspath=%JAVA_HOME%\lib\tools.jar xx.xxx.Main XXX.java
 
 <p>
 javac就是对上面命令的封装 所以tools.jar 也不用加到classpath里面
-</p>
-</li>
+</p></li>
 
 <li>dt.jar
-dt.jar是关于运行环境的类库,主要是swing的包   在用到swing时最好加上。
-</li>
+dt.jar是关于运行环境的类库,主要是swing的包   在用到swing时最好加上。</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> source link</h2>
+<div id="outline-container-org1db1991" class="outline-2">
+<h2 id="org1db1991"><span class="section-number-2">3.</span> source link</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li><a href="https://www.cnblogs.com/jtlgb/p/6039809.html">JDK中rt.jar、tools.jar和dt.jar作用</a>
-</li>
-<li><a href="https://www.cnblogs.com/havenshen/p/3490448.html">mac OS X 10.9.1 配置jdk环境变量</a>
-</li>
+<li><a href="https://www.cnblogs.com/jtlgb/p/6039809.html">JDK中rt.jar、tools.jar和dt.jar作用</a></li>
+<li><a href="https://www.cnblogs.com/havenshen/p/3490448.html">mac OS X 10.9.1 配置jdk环境变量</a></li>
 </ul>
 </div>
 </div>

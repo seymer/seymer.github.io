@@ -3,30 +3,31 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MySQL是如何设计的</title>
-<!-- 2021-04-21 Wed 20:51 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">MySQL是如何设计的</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. MySQL</a></li>
-<li><a href="#sec-2">2. 存储引擎</a></li>
-<li><a href="#sec-3">3. 索引构建器</a></li>
-<li><a href="#sec-4">4. 为什么MySQL(InnoDB)会使用B+ tree，而非哈希表或树等数据结构。</a></li>
+<li><a href="#org68bc5d9">1. MySQL</a></li>
+<li><a href="#org3dd4045">2. 存储引擎</a></li>
+<li><a href="#org3e686ab">3. 索引构建器</a></li>
+<li><a href="#orgbeba3e6">4. 为什么MySQL(InnoDB)会使用B+ tree，而非哈希表或树等数据结构。</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> MySQL</h2>
+<div id="outline-container-org68bc5d9" class="outline-2">
+<h2 id="org68bc5d9"><span class="section-number-2">1.</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 众所周知，MySQL是一个数据库管理系统，它在类别上属于关系型数据库。何为关系型数据库？从字面意思上，我们就可以大概猜到它应该是描述某种关系的数据库，而人类社会本质上是所有关系的总和。从现实世界延伸，人们需要在数字世界去描述这些关系，于是便有了关系型数据库。
@@ -44,27 +45,20 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 存储引擎</h2>
+<div id="outline-container-org3dd4045" class="outline-2">
+<h2 id="org3dd4045"><span class="section-number-2">2.</span> 存储引擎</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 MySQL 支持很多种存储引擎。除了最为大家熟知的MyISAM 和InnoDB，它还支持如下存储引擎。
 </p>
 <ul class="org-ul">
-<li>Archive 引擎
-</li>
-<li>Blackhole 引擎
-</li>
-<li>CSV 引擎
-</li>
-<li>Federated 引擎
-</li>
-<li>Memory 引擎
-</li>
-<li>Merge 引擎
-</li>
-<li>NDB 集群引擎
-</li>
+<li>Archive 引擎</li>
+<li>Blackhole 引擎</li>
+<li>CSV 引擎</li>
+<li>Federated 引擎</li>
+<li>Memory 引擎</li>
+<li>Merge 引擎</li>
+<li>NDB 集群引擎</li>
 </ul>
 <p>
 除了上面列出的。它还支持一些第三方存储引擎，这里不再多说。
@@ -80,8 +74,8 @@ InnoDB 目前是MySQL的默认事务型引擎，也是使用最广泛的存储�
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 索引构建器</h2>
+<div id="outline-container-org3e686ab" class="outline-2">
+<h2 id="org3e686ab"><span class="section-number-2">3.</span> 索引构建器</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 如果词典能够完整地加载到内存，那么所形成的二叉树的搜索效率将会非常高。特别是当二叉树处于平衡状态时，平均进行log2N次查找就能找到单词。
@@ -123,12 +117,11 @@ InnoDB 目前是MySQL的默认事务型引擎，也是使用最广泛的存储�
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 为什么MySQL(InnoDB)会使用B+ tree，而非哈希表或树等数据结构。</h2>
+<div id="outline-container-orgbeba3e6" class="outline-2">
+<h2 id="orgbeba3e6"><span class="section-number-2">4.</span> 为什么MySQL(InnoDB)会使用B+ tree，而非哈希表或树等数据结构。</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li><a href="https://draveness.me/whys-the-design-mysql-b-plus-tree/">https://draveness.me/whys-the-design-mysql-b-plus-tree/</a>
-</li>
+<li><a href="https://draveness.me/whys-the-design-mysql-b-plus-tree/">https://draveness.me/whys-the-design-mysql-b-plus-tree/</a></li>
 </ul>
 
 
@@ -136,10 +129,8 @@ InnoDB 目前是MySQL的默认事务型引擎，也是使用最广泛的存储�
 参考来源：
 </p>
 <ul class="org-ul">
-<li>高性能MySQL
-</li>
-<li>自制搜索引擎
-</li>
+<li>高性能MySQL</li>
+<li>自制搜索引擎</li>
 </ul>
 </div>
 </div>

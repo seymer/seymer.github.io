@@ -3,45 +3,46 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How To Mount Drives on Linux</title>
-<!-- 2021-08-17 Tue 13:36 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">How To Mount Drives on Linux</h1>
 <p>
 列出块设备
 </p>
-<pre class="example">
+<pre class="example" id="org2d41a42">
 lsblk
 </pre>
 
 <p>
 格式化磁盘
 </p>
-<pre class="example">
+<pre class="example" id="orgf853698">
 sudo mkfs.ext4 /dev/sda
 </pre>
 
 <p>
 挂载磁盘
 </p>
-<pre class="example">
+<pre class="example" id="orgf62c2b7">
 sudo mount /dev/sda /mnt
 </pre>
 
 <p>
 启动自动挂载
 </p>
-<pre class="example">
+<pre class="example" id="orgba8b46f">
 sudo emacs /etc/fstab
 </pre>
 
-<pre class="example">
+<pre class="example" id="org214b61e">
 /dev/sda /mnt ext4 defaults 0 0
 </pre>
 </div>

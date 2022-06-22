@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Installing the Go programming language on Debian GNU/Linux</title>
-<!-- 2018-11-01 Thu 18:03 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Steve Kemp" />
+<meta name="author" content="Steve Kemp" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Installing the Go programming language on Debian GNU/Linux</h1>
 <p>
 Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. In this brief article we'll show how to install binary releases of the compiler/toolset, and test them.
@@ -22,8 +23,7 @@ If you're running a recent release of Debian GNU/Linux you'll find the golang-en
 </p>
 
 <ul class="org-ul">
-<li><a href="https://packages.debian.org/golang-go"><a href="https://packages.debian.org/golang-go">https://packages.debian.org/golang-go</a></a>
-</li>
+<li><a href="https://packages.debian.org/golang-go">https://packages.debian.org/golang-go</a></li>
 </ul>
 
 <p>
@@ -38,7 +38,7 @@ You'll want to lookup the latest release upon the download page but for the mome
 To download and install it, assuming you're on a 64-bit system:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgdec89b4">
 # cd /opt
 # curl https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz | tar zxf -
 </pre>
@@ -51,7 +51,7 @@ The golang tooling is pretty opinionated, and wants you to keep your source code
 To configure things you'll want to append the following to your ~/.bashrc file:
 </p>
 
-<pre class="example">
+<pre class="example" id="org3f19cee">
 # Point to the local installation of golang.
 export GOROOT=/opt/go
 
@@ -69,7 +69,7 @@ export PATH=${PATH}:${GOPATH}/bin
 Once you've setup these variables you should source the file to make sure they take effect, then test the download succeeded:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgf211b5a">
 $ source .bashrc
 $ go version
 go version go1.7.4 linux/amd64
@@ -83,7 +83,7 @@ Assuming that you do indeed see output from the "go version"-command you can now
 The go tool allows you to download source from remote repositories, run compilation jobs, reformat code, and several other things. We're just going to use it to download and compile in this simple introduction, by downloading and building a project with go get:
 </p>
 
-<pre class="example">
+<pre class="example" id="org60283b8">
 $ go get github.com/golang/example/hello
 </pre>
 
@@ -92,21 +92,18 @@ When you execute this several things will happen:
 </p>
 
 <ul class="org-ul">
-<li>The github repository <a href="https://github.com/golang/example">https://github.com/golang/example</a> will be cloned to ~/go/src/github.com/golang/example.
-</li>
+<li>The github repository <a href="https://github.com/golang/example">https://github.com/golang/example</a> will be cloned to ~/go/src/github.com/golang/example.</li>
 
-<li>The hello example will be compiled, from the hello subdirectory of the repository which was cloned.
-</li>
+<li>The hello example will be compiled, from the hello subdirectory of the repository which was cloned.</li>
 
-<li>The compiled binary will be installed in ~/go/bin.
-</li>
+<li>The compiled binary will be installed in ~/go/bin.</li>
 </ul>
 
 <p>
 Once the binary has been compiled you can execute it:
 </p>
 
-<pre class="example">
+<pre class="example" id="org30505b1">
 $ hello
 Hello, Go examples!
 </pre>
@@ -115,7 +112,7 @@ Hello, Go examples!
 If you wish to study the source code to the example you can do that:
 </p>
 
-<pre class="example">
+<pre class="example" id="org8ccf9e6">
 $ cd $GOPATH/src/github.com/golang/example/hello/
 $ cat hello.go
 ..
@@ -128,7 +125,7 @@ func main() {
 If you wish to try making changes you can open the file hello.go in your favourite editor. Once you've made a sample change you can compile it in-place:
 </p>
 
-<pre class="example">
+<pre class="example" id="org8e6a36d">
 $ go build .
 $ ls
 hello  hello.go
@@ -138,7 +135,7 @@ hello  hello.go
 In this example we've compiled the binary in the current working directory, previously we'd installed to $GOPATH/bin - if you prefer to do that you'd instead run:
 </p>
 
-<pre class="example">
+<pre class="example" id="org9eded13">
 $ go install .
 </pre>
 
@@ -147,11 +144,9 @@ Future discussion of golang itself is outside the scope of this site, but you'll
 </p>
 
 <ul class="org-ul">
-<li><a href="https://golang.org/">The Go Programming Language</a>
-</li>
+<li><a href="https://golang.org/">The Go Programming Language</a></li>
 
-<li><a href="https://gobyexample.com/">Go by Example</a>
-</li>
+<li><a href="https://gobyexample.com/">Go by Example</a></li>
 </ul>
 </div>
 <div id="postamble" class="status">

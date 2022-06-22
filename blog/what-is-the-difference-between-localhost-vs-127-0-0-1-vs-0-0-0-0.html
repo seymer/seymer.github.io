@@ -3,22 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>127.0.0.1 vs localhost vs 0.0.0.0 之间有什么区别</title>
-<!-- 2019-11-16 Sat 15:08 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">127.0.0.1 vs localhost vs 0.0.0.0 之间有什么区别</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 基础概念</a></li>
-<li><a href="#sec-2">2. 测试</a></li>
+<li><a href="#org1544455">1. 基础概念</a></li>
+<li><a href="#org6a77711">2. 测试</a></li>
 </ul>
 </div>
 </div>
@@ -26,8 +27,8 @@
 前两天问了同事一个问题，我启动了一个8080端口上的服务，是不是不能再启动该端口的服务了。他说当然了，肯定会提示端口占用的。答案是这样吗？我们一起来看下这个问题。
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 基础概念</h2>
+<div id="outline-container-org1544455" class="outline-2">
+<h2 id="org1544455"><span class="section-number-2">1.</span> 基础概念</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 localhost 默认绑定在 127.0.0.1， 可从hosts配置文件看出。
@@ -47,14 +48,14 @@ localhost 默认绑定在 127.0.0.1， 可从hosts配置文件看出。
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 测试</h2>
+<div id="outline-container-org6a77711" class="outline-2">
+<h2 id="org6a77711"><span class="section-number-2">2.</span> 测试</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 假如你现在在MAC电脑起了一个Nginx服务，绑定端口8080，这时候，我们可以看到
 </p>
 
-<pre class="example">
+<pre class="example" id="org39c87d6">
 netstat -a -n | grep -i listen
 
 tcp4       0      0  *.8080                 *.*                    LISTEN
@@ -64,7 +65,7 @@ tcp4       0      0  *.8080                 *.*                    LISTEN
 我们从上面可以看到，Nginx绑定在了 *.8080 ，即0.0.0.0.8080。现在我们分别访问
 </p>
 
-<pre class="example">
+<pre class="example" id="org11d1ad6">
 127.0.0.1:8080
 0.0.0.0:8080
 192.168.1.8:8080
@@ -86,7 +87,7 @@ localhost:8080
 <p>
 通过查询监听端口可得
 </p>
-<pre class="example">
+<pre class="example" id="org94fbf95">
 tcp4       0      0  127.0.0.1.8080         *.*                    LISTEN
 </pre>
 
@@ -97,7 +98,7 @@ tcp4       0      0  127.0.0.1.8080         *.*                    LISTEN
 <p>
 我们发现，以下地址变成了新服务
 </p>
-<pre class="example">
+<pre class="example" id="orgc8054c6">
 127.0.0.1:8080
 localhost:8080
 0.0.0.0:8080
@@ -106,7 +107,7 @@ localhost:8080
 <p>
 以下地址还是老服务
 </p>
-<pre class="example">
+<pre class="example" id="orgced044d">
 192.168.1.8:8080
 </pre>
 
@@ -115,10 +116,8 @@ localhost:8080
 </p>
 
 <ul class="org-ul">
-<li>localhost 是一个方便输入的字符，是127.0.0.1的映射。另外因为相对输入IP来讲，一个单词或字符会更符合人们的习惯，也更便于记忆。这也就是域名的由来。当然，如果你不喜欢localhost，比如改成cat，也是可以的，随你喜欢。如果你去掉/etc/hosts文件中配置的映射关系，localhost就仅是一个单词。
-</li>
-<li>在当前上下文中，0.0.0.0 相当于 127.0.0.1，环回地址127.0.01属于最初/终的地址。如果把他想象成一个环，它既是起点，也是终点。0.0.0.0是不可路由的元地址。
-</li>
+<li>localhost 是一个方便输入的字符，是127.0.0.1的映射。另外因为相对输入IP来讲，一个单词或字符会更符合人们的习惯，也更便于记忆。这也就是域名的由来。当然，如果你不喜欢localhost，比如改成cat，也是可以的，随你喜欢。如果你去掉/etc/hosts文件中配置的映射关系，localhost就仅是一个单词。</li>
+<li>在当前上下文中，0.0.0.0 相当于 127.0.0.1，环回地址127.0.01属于最初/终的地址。如果把他想象成一个环，它既是起点，也是终点。0.0.0.0是不可路由的元地址。</li>
 </ul>
 
 <p>
@@ -126,8 +125,7 @@ reference
 </p>
 
 <ul class="org-ul">
-<li><a href="https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0">https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0</a>
-</li>
+<li><a href="https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0">https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0</a></li>
 </ul>
 </div>
 </div>

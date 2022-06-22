@@ -3,57 +3,38 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>php security check list</title>
-<!-- 2019-03-09 Sat 21:11 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">php security check list</h1>
 <ul class="org-ul">
-<li><a href="https://www.owasp.org/index.php/Full_Path_Disclosure">Full Path Disclosure</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">Arbitrary File Upload</a>
-</li>
-<li><a href="https://www.acunetix.com/vulnerabilities/web/arbitrary-file-deletion/">Arbitrary File Delete</a>
-</li>
-<li><a href="https://resources.infosecinstitute.com/arbitrary-file-download-breaking-into-the-system/#gref">Arbitrary File Download</a>
-</li>
-<li><a href="https://www.offensive-security.com/metasploit-unleashed/file-inclusion-vulnerabilities/">Local File Inclusion</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_Remote_File_Inclusion">Remote File Inclusion</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_cookies_attributes_(OTG-SESS-002)">Cookie Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_HTTP_Parameter_pollution_(OTG-INPVAL-004)">Header Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/SQL_Injection">SQL Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)">XML Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/XML_External_Entity">XXE Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_IMAP/SMTP_Injection_(OTG-INPVAL-011)">Email Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Testing_for_HTML_Injection_(OTG-CLIENT-003)">HTML Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/XPATH_Injection)">xPath Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Code_Injection">Code Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Command_Injection">Command Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/PHP_Object_Injection">Object Injection</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">Cross Site Scripting</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross Site Request Forgery</a>
-</li>
-<li><a href="https://www.owasp.org/index.php/Broken_Authentication_and_Session_Management">Broken Authentication and Session Management</a>
-</li>
+<li><a href="https://www.owasp.org/index.php/Full_Path_Disclosure">Full Path Disclosure</a></li>
+<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">Arbitrary File Upload</a></li>
+<li><a href="https://www.acunetix.com/vulnerabilities/web/arbitrary-file-deletion/">Arbitrary File Delete</a></li>
+<li><a href="https://resources.infosecinstitute.com/arbitrary-file-download-breaking-into-the-system/#gref">Arbitrary File Download</a></li>
+<li><a href="https://www.offensive-security.com/metasploit-unleashed/file-inclusion-vulnerabilities/">Local File Inclusion</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_Remote_File_Inclusion">Remote File Inclusion</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_cookies_attributes_(OTG-SESS-002)">Cookie Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_HTTP_Parameter_pollution_(OTG-INPVAL-004)">Header Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/SQL_Injection">SQL Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)">XML Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/XML_External_Entity">XXE Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_IMAP/SMTP_Injection_(OTG-INPVAL-011)">Email Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_HTML_Injection_(OTG-CLIENT-003)">HTML Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/XPATH_Injection)">xPath Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Code_Injection">Code Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Command_Injection">Command Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/PHP_Object_Injection">Object Injection</a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">Cross Site Scripting</a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross Site Request Forgery</a></li>
+<li><a href="https://www.owasp.org/index.php/Broken_Authentication_and_Session_Management">Broken Authentication and Session Management</a></li>
 </ul>
 
 <p>

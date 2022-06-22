@@ -3,66 +3,60 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My MVN Notes</title>
-<!-- 2020-03-28 Sat 17:39 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">My MVN Notes</h1>
 <ol class="org-ol">
-<li>To view dependency tree:
-</li>
+<li>To view dependency tree:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="orgb846ba5">
 mvn dependency:tree
 </pre>
 <ol class="org-ol">
-<li>To skip running test:
-</li>
+<li>To skip running test:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org9d97757">
 mvn install -DskipTests
 mvn install -DskipTests=true  //to override skipTests property in pom
 </pre>
 <ol class="org-ol">
-<li>To skip compiling and runing tests:
-</li>
+<li>To skip compiling and runing tests:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org85b87af">
 mvn install -Dmaven.test.skip=true
 </pre>
 <ol class="org-ol">
-<li>To run maven in offline mode, to avoid downloading:
-</li>
+<li>To run maven in offline mode, to avoid downloading:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org9a05eb2">
 mvn -o install
 mvn --offline install
 </pre>
 <ol class="org-ol">
-<li>To force check for updates of snapshots and releases from remote repositories:
-</li>
+<li>To force check for updates of snapshots and releases from remote repositories:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org5bc233f">
 mvn -U install
 mvn --update-snapshots install
 </pre>
 <ol class="org-ol">
-<li>To list all maven profiles, and see which is the active profile:
-</li>
+<li>To list all maven profiles, and see which is the active profile:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org540683a">
 mvn help:all-profiles
 </pre>
 <ol class="org-ol">
-<li>To override maven surefire plugin forkMode:
-</li>
+<li>To override maven surefire plugin forkMode:</li>
 </ol>
-<pre class="example">
+<pre class="example" id="org9baac05">
 mvn test -DforkMode=never
 mvn test -DforkMode=always
 </pre>

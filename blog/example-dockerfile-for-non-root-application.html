@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Example Dockerfile for non-root application</title>
-<!-- 2021-08-17 Tue 13:36 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Example Dockerfile for non-root application</h1>
 <p>
 The following example is a Dockerfile that runs an application as a non-root user with non-group membership. 
@@ -21,7 +22,7 @@ The following example is a Dockerfile that runs an application as a non-root use
 <p>
 Dockerfile
 </p>
-<pre class="example">
+<pre class="example" id="org77d236a">
 FROM ubuntu:latest
  
 #Update and install the make utility
@@ -43,8 +44,7 @@ CMD /code/app
 Reference:
 </p>
 <ul class="org-ul">
-<li><a href="https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF">https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF</a>
-</li>
+<li><a href="https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF">https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF</a></li>
 </ul>
 </div>
 <div id="postamble" class="status">

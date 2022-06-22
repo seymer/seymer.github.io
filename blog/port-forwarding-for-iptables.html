@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Port forwarding for iptables (DMZ)</title>
-<!-- 2021-04-04 Sun 14:28 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Port forwarding for iptables (DMZ)</h1>
 <p>
 If you have a network gateway which is running Linux you might sometimes want to allow access to machines behind it from the internet.
@@ -29,7 +30,7 @@ Normally you'd deny all incoming connections to a gateway machine as opening up 
 If you have a gateway machine and wish to forward connections on port 80 to an internal machine then you'd create the following rules:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgaaa30d8">
 iptables -A PREROUTING -t nat -i eth1 -p tcp --dport 80 -j DNAT --to 192.168.1.50:80
 iptables -A INPUT -p tcp -m state --state NEW --dport 80 -i eth1 -j ACCEPT
 </pre>
@@ -46,7 +47,7 @@ This rule alone doesn't do the job though, we also have to accept the incoming c
 To increase security you could limit this forwarding to only work when connections are coming from a particular address with the use of the "&#x2013;source" flag:
 </p>
 
-<pre class="example">
+<pre class="example" id="org2249e4f">
 iptables -A PREROUTING -t nat -i eth1 -p tcp --source 11.22.33.44 \
 --dport 80 -j DNAT --to 192.168.1.50:80
 </pre>

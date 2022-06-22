@@ -3,27 +3,28 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>机器学习规则 - 关于机器学习工程的最佳实践</title>
-<!-- 2018-06-14 Thu 17:17 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="马丁·辛克维奇" />
+<meta name="author" content="马丁·辛克维奇" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">机器学习规则 - 关于机器学习工程的最佳实践</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 术语</a></li>
-<li><a href="#sec-2">2. 概览</a></li>
-<li><a href="#sec-3">3. 在进行机器学习之前</a></li>
-<li><a href="#sec-4">4. 机器学习第一阶段：您的第一个管道</a></li>
-<li><a href="#sec-5">5. 机器学习第二阶段：特征工程</a></li>
-<li><a href="#sec-6">6. 机器学习第三阶段：缓慢增长、优化细化和复杂模型</a></li>
-<li><a href="#sec-7">7. 关于机器学习相关文档和资源</a></li>
+<li><a href="#org60b8271">1. 术语</a></li>
+<li><a href="#org928b5d4">2. 概览</a></li>
+<li><a href="#org698ea6f">3. 在进行机器学习之前</a></li>
+<li><a href="#org8e33028">4. 机器学习第一阶段：您的第一个管道</a></li>
+<li><a href="#orgdc77fe2">5. 机器学习第二阶段：特征工程</a></li>
+<li><a href="#orga41b6f9">6. 机器学习第三阶段：缓慢增长、优化细化和复杂模型</a></li>
+<li><a href="#org60ca50e">7. 关于机器学习相关文档和资源</a></li>
 </ul>
 </div>
 </div>
@@ -31,42 +32,31 @@
 Source: <a href="https://developers.google.com/machine-learning/rules-of-ml/">https://developers.google.com/machine-learning/rules-of-ml/</a>
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 术语</h2>
+<div id="outline-container-org60b8271" class="outline-2">
+<h2 id="org60b8271"><span class="section-number-2">1.</span> 术语</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 在我们讨论有效的机器学习的过程中，会反复提到下列术语：
 </p>
 
 <ul class="org-ul">
-<li><b>实例</b> ：要对其进行预测的事物。例如，实例可以是一个网页，您希望将其分类为“与猫相关”或“与猫无关”。
-</li>
-<li><b>标签</b> ：预测任务的答案，它可以是由机器学习系统生成的答案，也可以是训练数据中提供的正确答案。例如，某个网页的标签可能是“与猫相关”。
-</li>
-<li><b>特征</b> ：预测任务中使用的实例的属性。例如，某个网页可能具有“包含字词‘猫’”这一特征。
-</li>
-<li><b>特征列</b> ：一组相关特征，例如用户可能居住的所有国家/地区的集合。样本的特征列中可能包含一个或多个特征。“特征列”是 Google 专用的术语。特征列在 Yahoo/Microsoft 使用的 VM 系统中被称为“命名空间”或场。
-</li>
-<li>Google 专用的术语。特征列在 Yahoo/Microsoft 使用的 VM 系统中被称为“命名空间”或场。
-</li>
-<li><b>样本</b> ：一个实例（及其特征）和一个标签。
-</li>
-<li><b>模型</b> ：预测任务的统计表示法。您使用样本训练一个模型，然后使用该模型进行预测。
-</li>
-<li><b>指标</b> ：您关心的一个数值。也许（但不一定）可以直接得到优化。
-</li>
-<li><b>目标</b> ：算法尝试优化的一种指标。
-</li>
-<li><b>管道</b> ：机器学习算法的基础架构。管道包括从前端收集数据、将数据放入训练数据文件、训练一个或多个模型以及将模型运用到生产环境。
-</li>
-<li><b>点击率</b> ：点击广告中的链接的网页访问者所占的百分比。
-</li>
+<li><b>实例</b> ：要对其进行预测的事物。例如，实例可以是一个网页，您希望将其分类为“与猫相关”或“与猫无关”。</li>
+<li><b>标签</b> ：预测任务的答案，它可以是由机器学习系统生成的答案，也可以是训练数据中提供的正确答案。例如，某个网页的标签可能是“与猫相关”。</li>
+<li><b>特征</b> ：预测任务中使用的实例的属性。例如，某个网页可能具有“包含字词‘猫’”这一特征。</li>
+<li><b>特征列</b> ：一组相关特征，例如用户可能居住的所有国家/地区的集合。样本的特征列中可能包含一个或多个特征。“特征列”是 Google 专用的术语。特征列在 Yahoo/Microsoft 使用的 VM 系统中被称为“命名空间”或场。</li>
+<li>Google 专用的术语。特征列在 Yahoo/Microsoft 使用的 VM 系统中被称为“命名空间”或场。</li>
+<li><b>样本</b> ：一个实例（及其特征）和一个标签。</li>
+<li><b>模型</b> ：预测任务的统计表示法。您使用样本训练一个模型，然后使用该模型进行预测。</li>
+<li><b>指标</b> ：您关心的一个数值。也许（但不一定）可以直接得到优化。</li>
+<li><b>目标</b> ：算法尝试优化的一种指标。</li>
+<li><b>管道</b> ：机器学习算法的基础架构。管道包括从前端收集数据、将数据放入训练数据文件、训练一个或多个模型以及将模型运用到生产环境。</li>
+<li><b>点击率</b> ：点击广告中的链接的网页访问者所占的百分比。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 概览</h2>
+<div id="outline-container-org928b5d4" class="outline-2">
+<h2 id="org928b5d4"><span class="section-number-2">2.</span> 概览</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 要打造优质的产品：
@@ -81,16 +71,11 @@ Source: <a href="https://developers.google.com/machine-learning/rules-of-ml/">ht
 </p>
 
 <ol class="org-ol">
-<li>确保管道从头到尾都稳固可靠。
-</li>
-<li>从制定合理的目标开始。
-</li>
-<li>以简单的方式添加常识性特征。
-</li>
-<li>确保管道始终稳固可靠。
-</li>
-<li>上述方法将在长时间内取得很好的效果。只要您仍然可以通过某种简单的技巧取得进展，就不应该偏离上述方法。增加复杂性会减缓未来版本的发布。
-</li>
+<li>确保管道从头到尾都稳固可靠。</li>
+<li>从制定合理的目标开始。</li>
+<li>以简单的方式添加常识性特征。</li>
+<li>确保管道始终稳固可靠。</li>
+<li>上述方法将在长时间内取得很好的效果。只要您仍然可以通过某种简单的技巧取得进展，就不应该偏离上述方法。增加复杂性会减缓未来版本的发布。</li>
 </ol>
 
 <p>
@@ -102,26 +87,20 @@ Source: <a href="https://developers.google.com/machine-learning/rules-of-ml/">ht
 </p>
 
 <ol class="org-ol">
-<li>第一部分可帮助您了解构建机器学习系统的时机是否已经成熟。
-</li>
-<li>第二部分介绍了如何部署第一个管道。
-</li>
-<li>第三部分介绍了在向管道添加新特征时如何进行发布和迭代、如何评估模型，以及如何应对训练-应用偏差。
-</li>
-<li>最后一部分介绍了当您达到稳定阶段时该怎么做。
-</li>
-<li>之后是相关资源列表和附录，附录针对多次作为示例在本文档中提及的系统，提供了一些背景信息。
-</li>
+<li>第一部分可帮助您了解构建机器学习系统的时机是否已经成熟。</li>
+<li>第二部分介绍了如何部署第一个管道。</li>
+<li>第三部分介绍了在向管道添加新特征时如何进行发布和迭代、如何评估模型，以及如何应对训练-应用偏差。</li>
+<li>最后一部分介绍了当您达到稳定阶段时该怎么做。</li>
+<li>之后是相关资源列表和附录，附录针对多次作为示例在本文档中提及的系统，提供了一些背景信息。</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 在进行机器学习之前</h2>
+<div id="outline-container-org698ea6f" class="outline-2">
+<h2 id="org698ea6f"><span class="section-number-2">3.</span> 在进行机器学习之前</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>第 1 条规则：不要害怕发布未采用机器学习技术的产品。
-</li>
+<li>第 1 条规则：不要害怕发布未采用机器学习技术的产品。</li>
 </ul>
 <blockquote>
 <p>
@@ -134,8 +113,7 @@ Source: <a href="https://developers.google.com/machine-learning/rules-of-ml/">ht
 </blockquote>
 
 <ul class="org-ul">
-<li>第 2 条规则：首先设计并实现指标。
-</li>
+<li>第 2 条规则：首先设计并实现指标。</li>
 </ul>
 <blockquote>
 <p>
@@ -156,8 +134,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 3 条规则：选择机器学习技术而非复杂的启发式算法。
-</li>
+<li>第 3 条规则：选择机器学习技术而非复杂的启发式算法。</li>
 </ul>
 <blockquote>
 <p>
@@ -167,16 +144,15 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 机器学习第一阶段：您的第一个管道</h2>
+<div id="outline-container-org8e33028" class="outline-2">
+<h2 id="org8e33028"><span class="section-number-2">4.</span> 机器学习第一阶段：您的第一个管道</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 重点关注第一个管道的系统基础架构。虽然展望您将要进行的创新性机器学习的方方面面是一件很有趣的事，但如果您不先确认管道的可靠性，则很难弄清楚所发生的情况。
 </p>
 
 <ul class="org-ul">
-<li>第 4 条规则：确保第一个模型简单易用，并正确实施基础架构。
-</li>
+<li>第 4 条规则：确保第一个模型简单易用，并正确实施基础架构。</li>
 </ul>
 <blockquote>
 <p>
@@ -199,8 +175,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 5 条规则：撇开机器学习，单独测试基础架构。
-</li>
+<li>第 5 条规则：撇开机器学习，单独测试基础架构。</li>
 </ul>
 <blockquote>
 <p>
@@ -215,8 +190,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 6 条规则：复制管道时注意丢弃的数据。
-</li>
+<li>第 6 条规则：复制管道时注意丢弃的数据。</li>
 </ul>
 <blockquote>
 <p>
@@ -225,8 +199,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 7 条规则：将启发式算法转变为特征或在外部处理它们。
-</li>
+<li>第 7 条规则：将启发式算法转变为特征或在外部处理它们。</li>
 </ul>
 <blockquote>
 <p>
@@ -243,8 +216,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 8 条规则：了解您的系统对新鲜程度的要求。
-</li>
+<li>第 8 条规则：了解您的系统对新鲜程度的要求。</li>
 </ul>
 <blockquote>
 <p>
@@ -253,8 +225,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 9 条规则：先检测问题，然后再导出模型。
-</li>
+<li>第 9 条规则：先检测问题，然后再导出模型。</li>
 </ul>
 <blockquote>
 <p>
@@ -267,8 +238,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 10 条规则：注意隐藏的问题。
-</li>
+<li>第 10 条规则：注意隐藏的问题。</li>
 </ul>
 <blockquote>
 <p>
@@ -277,8 +247,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 11 条规则：提供特征列的所有者及相关文档。
-</li>
+<li>第 11 条规则：提供特征列的所有者及相关文档。</li>
 </ul>
 <blockquote>
 <p>
@@ -292,8 +261,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 12 条规则：选择直接优化哪个目标时，不要想太多。
-</li>
+<li>第 12 条规则：选择直接优化哪个目标时，不要想太多。</li>
 </ul>
 <blockquote>
 <p>
@@ -306,8 +274,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 13 条规则：为您的第一个目标选择一个可观察且可归因的简单指标。
-</li>
+<li>第 13 条规则：为您的第一个目标选择一个可观察且可归因的简单指标。</li>
 </ul>
 <blockquote>
 <p>
@@ -348,8 +315,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 14 条规则：从可解释的模型着手可更轻松地进行调试。
-</li>
+<li>第 14 条规则：从可解释的模型着手可更轻松地进行调试。</li>
 </ul>
 <blockquote>
 <p>
@@ -366,8 +332,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 15 条规则：在策略层中区分垃圾内容过滤和质量排名。
-</li>
+<li>第 15 条规则：在策略层中区分垃圾内容过滤和质量排名。</li>
 </ul>
 <blockquote>
 <p>
@@ -380,8 +345,8 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 机器学习第二阶段：特征工程</h2>
+<div id="outline-container-orgdc77fe2" class="outline-2">
+<h2 id="orgdc77fe2"><span class="section-number-2">5.</span> 机器学习第二阶段：特征工程</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 在机器学习系统生命周期的第一阶段，重要的问题涉及以下三个方面：将训练数据导入学习系统、对任何感兴趣的指标进行测量，以及构建应用基础架构。当您构建了一个端到端的可稳定运行的系统，并且制定了系统测试和单元测试后，就可以进入第二阶段了。
@@ -392,8 +357,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </p>
 
 <ul class="org-ul">
-<li>第 16 条规则：制定发布和迭代模型计划。
-</li>
+<li>第 16 条规则：制定发布和迭代模型计划。</li>
 </ul>
 <blockquote>
 <p>
@@ -409,8 +373,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 17 条规则：从可直接观察和报告的特征（而不是经过学习的特征）着手。
-</li>
+<li>第 17 条规则：从可直接观察和报告的特征（而不是经过学习的特征）着手。</li>
 </ul>
 <blockquote>
 <p>
@@ -427,8 +390,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 18 条规则：探索可跨情境泛化的内容的特征。
-</li>
+<li>第 18 条规则：探索可跨情境泛化的内容的特征。</li>
 </ul>
 <blockquote>
 <p>
@@ -437,8 +399,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 19 条规则：尽可能使用非常具体的特征。
-</li>
+<li>第 19 条规则：尽可能使用非常具体的特征。</li>
 </ul>
 <blockquote>
 <p>
@@ -447,8 +408,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 20 条规则：组合和修改现有特征，以便以简单易懂的方式创建新特征。
-</li>
+<li>第 20 条规则：组合和修改现有特征，以便以简单易懂的方式创建新特征。</li>
 </ul>
 <blockquote>
 <p>
@@ -473,8 +433,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 21 条规则：您可以在线性模型中学习的特征权重数目与您拥有的数据量大致成正比。
-</li>
+<li>第 21 条规则：您可以在线性模型中学习的特征权重数目与您拥有的数据量大致成正比。</li>
 </ul>
 <blockquote>
 <p>
@@ -490,8 +449,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 22 条规则：清理不再使用的特征。
-</li>
+<li>第 22 条规则：清理不再使用的特征。</li>
 </ul>
 <blockquote>
 <p>
@@ -513,8 +471,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 23 条规则：您不是典型的最终用户。
-</li>
+<li>第 23 条规则：您不是典型的最终用户。</li>
 </ul>
 <blockquote>
 <p>
@@ -531,8 +488,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 24 条规则：衡量模型间的差异。
-</li>
+<li>第 24 条规则：衡量模型间的差异。</li>
 </ul>
 <blockquote>
 <p>
@@ -541,8 +497,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 25 条规则：选择模型时，实用效果比预测能力更重要。
-</li>
+<li>第 25 条规则：选择模型时，实用效果比预测能力更重要。</li>
 </ul>
 <blockquote>
 <p>
@@ -551,8 +506,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 26 条规则：在衡量的错误中寻找规律，并创建新特征。
-</li>
+<li>第 26 条规则：在衡量的错误中寻找规律，并创建新特征。</li>
 </ul>
 <blockquote>
 <p>
@@ -569,8 +523,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 27 条规则：尝试量化观察到的异常行为。
-</li>
+<li>第 27 条规则：尝试量化观察到的异常行为。</li>
 </ul>
 <blockquote>
 <p>
@@ -579,8 +532,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 28 条规则：请注意，短期行为相同并不意味着长期行为也相同。
-</li>
+<li>第 28 条规则：请注意，短期行为相同并不意味着长期行为也相同。</li>
 </ul>
 <blockquote>
 <p>
@@ -605,8 +557,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 29 条规则：确保训练效果和应用效果一样的最佳方法是，保存在应用时使用的特征集，然后将这些特征通过管道传输到日志，以便在训练时使用。
-</li>
+<li>第 29 条规则：确保训练效果和应用效果一样的最佳方法是，保存在应用时使用的特征集，然后将这些特征通过管道传输到日志，以便在训练时使用。</li>
 </ul>
 <blockquote>
 <p>
@@ -615,8 +566,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 30 条规则：按重要性对采样数据加权，不要随意丢弃它们！
-</li>
+<li>第 30 条规则：按重要性对采样数据加权，不要随意丢弃它们！</li>
 </ul>
 <blockquote>
 <p>
@@ -625,8 +575,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 31 条规则：如果您在训练和应用期间关联表格中的数据，请注意，表格中的数据可能会变化。
-</li>
+<li>第 31 条规则：如果您在训练和应用期间关联表格中的数据，请注意，表格中的数据可能会变化。</li>
 </ul>
 <blockquote>
 <p>
@@ -635,8 +584,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 32 条规则：尽可能在训练管道和应用管道间重复使用代码。
-</li>
+<li>第 32 条规则：尽可能在训练管道和应用管道间重复使用代码。</li>
 </ul>
 <blockquote>
 <p>
@@ -645,8 +593,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 33 条规则：如果您根据 1 月 5 日之前的数据生成模型，则根据 1 月 6 日及之后的数据测试模型。
-</li>
+<li>第 33 条规则：如果您根据 1 月 5 日之前的数据生成模型，则根据 1 月 6 日及之后的数据测试模型。</li>
 </ul>
 <blockquote>
 <p>
@@ -655,8 +602,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 34 条规则：在有关过滤的二元分类（例如，垃圾邮件检测或确定有趣的电子邮件）中，在短期内小小牺牲一下效果，以获得非常纯净的数据。
-</li>
+<li>第 34 条规则：在有关过滤的二元分类（例如，垃圾邮件检测或确定有趣的电子邮件）中，在短期内小小牺牲一下效果，以获得非常纯净的数据。</li>
 </ul>
 <blockquote>
 <p>
@@ -673,8 +619,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 35 条规则：注意排名问题中存在的固有偏差。
-</li>
+<li>第 35 条规则：注意排名问题中存在的固有偏差。</li>
 </ul>
 <blockquote>
 <p>
@@ -689,8 +634,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 36 条规则：通过位置特征避免出现反馈环。
-</li>
+<li>第 36 条规则：通过位置特征避免出现反馈环。</li>
 </ul>
 <blockquote>
 <p>
@@ -703,8 +647,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 37 条规则：测量训练/应用偏差。
-</li>
+<li>第 37 条规则：测量训练/应用偏差。</li>
 </ul>
 <blockquote>
 <p>
@@ -719,16 +662,15 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> 机器学习第三阶段：缓慢增长、优化细化和复杂模型</h2>
+<div id="outline-container-orga41b6f9" class="outline-2">
+<h2 id="orga41b6f9"><span class="section-number-2">6.</span> 机器学习第三阶段：缓慢增长、优化细化和复杂模型</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 第二阶段即将结束时会出现一些信号。首先，月增长开始减弱。您将开始在指标之间做出取舍：在部分试验中，您会看到一些指标上升了，而另一些指标下降了。情况变得有趣起来。由于越来越难实现增长，因此机器学习系统必须变得更加复杂。注意：相比之前两个部分，本部分中会有较多的纯理论性规则。我们见过许多团队在机器学习的第一阶段和第二阶段非常满意。但到了第三阶段后，他们必须找到自己的道路。
 </p>
 
 <ul class="org-ul">
-<li>第 38 条规则：如果目标不协调，并成为问题，就不要在新特征上浪费时间。
-</li>
+<li>第 38 条规则：如果目标不协调，并成为问题，就不要在新特征上浪费时间。</li>
 </ul>
 <blockquote>
 <p>
@@ -737,8 +679,7 @@ Google+ 团队会衡量每次阅读的展开次数、 转发次数、+1 次数�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 39 条规则：发布决策代表的是长期产品目标。
-</li>
+<li>第 39 条规则：发布决策代表的是长期产品目标。</li>
 </ul>
 <blockquote>
 <p>
@@ -757,30 +698,30 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">实验</th>
-<th scope="col" class="left">每日活跃用户数</th>
-<th scope="col" class="left">收入/日</th>
+<th scope="col" class="org-left">实验</th>
+<th scope="col" class="org-left">每日活跃用户数</th>
+<th scope="col" class="org-left">收入/日</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">A</td>
-<td class="left">100万</td>
-<td class="left">400万美元</td>
+<td class="org-left">A</td>
+<td class="org-left">100万</td>
+<td class="org-left">400万美元</td>
 </tr>
 
 <tr>
-<td class="left">B</td>
-<td class="left">200万</td>
-<td class="left">200万美元</td>
+<td class="org-left">B</td>
+<td class="org-left">200万</td>
+<td class="org-left">200万美元</td>
 </tr>
 </tbody>
 </table>
@@ -799,8 +740,7 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 40 条规则：保证集成学习简单化。
-</li>
+<li>第 40 条规则：保证集成学习简单化。</li>
 </ul>
 <blockquote>
 <p>
@@ -813,8 +753,7 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 41 条规则：效果达到平稳后，寻找与现有信号有质的差别的新信息源并添加进来，而不是优化现有信号。
-</li>
+<li>第 41 条规则：效果达到平稳后，寻找与现有信号有质的差别的新信息源并添加进来，而不是优化现有信号。</li>
 </ul>
 <blockquote>
 <p>
@@ -827,8 +766,7 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 42 条规则：不要期望多样性、个性化或相关性与热门程度之间的联系有您认为的那样密切。
-</li>
+<li>第 42 条规则：不要期望多样性、个性化或相关性与热门程度之间的联系有您认为的那样密切。</li>
 </ul>
 <blockquote>
 <p>
@@ -849,8 +787,7 @@ Alice 有一个关于减少预测安装次数的逻辑损失的想法。她添�
 </blockquote>
 
 <ul class="org-ul">
-<li>第 43 条规则：在不同的产品中，您的好友基本保持不变，但您的兴趣并非如此。
-</li>
+<li>第 43 条规则：在不同的产品中，您的好友基本保持不变，但您的兴趣并非如此。</li>
 </ul>
 <blockquote>
 <p>
@@ -860,22 +797,16 @@ Google 的团队通过以下做法取得了大量进展：采用一个预测产�
 </div>
 </div>
 
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> 关于机器学习相关文档和资源</h2>
+<div id="outline-container-org60ca50e" class="outline-2">
+<h2 id="org60ca50e"><span class="section-number-2">7.</span> 关于机器学习相关文档和资源</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
-<li><a href="https://developers.google.com/machine-learning/crash-course/">机器学习速成课程</a>：应用机器学习简介。
-</li>
-<li><a href="https://www.cs.ubc.ca/~murphyk/MLbook/">机器学习：概率法</a>，凯文·墨菲著，帮助了解机器学习领域。
-</li>
-<li><a href="http://www.unofficialgoogledatascience.com/2016/10/practical-advice-for-analysis-of-large.html">分析大型复杂数据集的实用建议</a>：一种考虑数据集的数据科学方法。
-</li>
-<li><a href="http://www.iro.umontreal.ca/~bengioy/dlbook/">深度学习</a>，伊恩·古德费洛等著，帮助学习非线性模型。
-</li>
-<li>关于<a href="http://research.google.com/pubs/pub43146.html">技术负债</a>的 Google 论文，其中提供了许多一般性建议。
-</li>
-<li><a href="https://www.tensorflow.org">Tensorflow 文档</a>。
-</li>
+<li><a href="https://developers.google.com/machine-learning/crash-course/">机器学习速成课程</a>：应用机器学习简介。</li>
+<li><a href="https://www.cs.ubc.ca/~murphyk/MLbook/">机器学习：概率法</a>，凯文·墨菲著，帮助了解机器学习领域。</li>
+<li><a href="http://www.unofficialgoogledatascience.com/2016/10/practical-advice-for-analysis-of-large.html">分析大型复杂数据集的实用建议</a>：一种考虑数据集的数据科学方法。</li>
+<li><a href="http://www.iro.umontreal.ca/~bengioy/dlbook/">深度学习</a>，伊恩·古德费洛等著，帮助学习非线性模型。</li>
+<li>关于<a href="http://research.google.com/pubs/pub43146.html">技术负债</a>的 Google 论文，其中提供了许多一般性建议。</li>
+<li><a href="https://www.tensorflow.org">Tensorflow 文档</a>。</li>
 </ul>
 </div>
 </div>

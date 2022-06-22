@@ -3,31 +3,32 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>docker 和 k8s 基础教程</title>
-<!-- 2021-03-30 Tue 16:16 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">docker 和 k8s 基础教程</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. kubernetes 架构及安装</a>
+<li><a href="#org21dfe10">1. kubernetes 架构及安装</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 安装</a></li>
-<li><a href="#sec-1-2">1.2. 启动minikube</a></li>
+<li><a href="#org1d6783c">1.1. 安装</a></li>
+<li><a href="#org9c63d04">1.2. 启动minikube</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. 部署一个单实例服务</a>
+<li><a href="#org6a8308e">2. 部署一个单实例服务</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 构建镜像</a></li>
-<li><a href="#sec-2-2">2.2. 创建pod.yml文件</a></li>
-<li><a href="#sec-2-3">2.3. 横向扩展、滚动更新、版本回滚</a></li>
+<li><a href="#org6e5291f">2.1. 构建镜像</a></li>
+<li><a href="#orgc51e590">2.2. 创建pod.yml文件</a></li>
+<li><a href="#org98c952a">2.3. 横向扩展、滚动更新、版本回滚</a></li>
 </ul>
 </li>
 </ul>
@@ -37,27 +38,26 @@
 本文来自以下教程链接的实践记录:
 </p>
 <ul class="org-ul">
-<li><a href="https://1byte.io/developer-guide-to-docker-and-kubernetes/">https://1byte.io/developer-guide-to-docker-and-kubernetes/</a>
-</li>
+<li><a href="https://1byte.io/developer-guide-to-docker-and-kubernetes/">https://1byte.io/developer-guide-to-docker-and-kubernetes/</a></li>
 </ul>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> kubernetes 架构及安装</h2>
+<div id="outline-container-org21dfe10" class="outline-2">
+<h2 id="org21dfe10"><span class="section-number-2">1.</span> kubernetes 架构及安装</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 典型的 Kubernetes 集群包含一个 master 和很多 node。Master 是控制集群的中心，node 是提供 CPU、内存和存储资源的节点。Master 上运行着多个进程，包括面向用户的 API 服务、负责维护集群状态的 Controller Manager、负责调度任务的 Scheduler 等。每个 node 上运行着维护 node 状态并和 master 通信的 kubelet，以及实现集群网络服务的 kube-proxy。
 </p>
 </div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org1d6783c" class="outline-3">
+<h3 id="org1d6783c"><span class="section-number-3">1.1.</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 需要安装Kubernetes 的命令行客户端 kubctl
 一个可以在本地跑起来的 Kubernetes 环境 Minikube、
 以及给 Minikube 使用的虚拟化引擎 hyperkit。
 </p>
-<pre class="example">
+<pre class="example" id="org887010e">
 brew install kubectl
 brew install minikube
 brew install docker-machine-driver-hyperkit
@@ -65,32 +65,32 @@ brew install docker-machine-driver-hyperkit
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 启动minikube</h3>
+<div id="outline-container-org9c63d04" class="outline-3">
+<h3 id="org9c63d04"><span class="section-number-3">1.2.</span> 启动minikube</h3>
 <div class="outline-text-3" id="text-1-2">
-<pre class="example">
+<pre class="example" id="org7a32d38">
 minikube start --driver hyperkit
 </pre>
 
 <p>
 Minikube 启动时会自动配置 kubectl，把它指向 Minikube 提供的 Kubernetes API 服务。可以用下面的命令确认：
 </p>
-<pre class="example">
+<pre class="example" id="org519a6fc">
 kubectl config current-context
 </pre>
 
 <p>
 作为一个开发和测试的环境，Minikube 会建立一个有一个 node 的集群，用下面的命令可以看到：
 </p>
-<pre class="example">
+<pre class="example" id="org80b1493">
 kubectl get nodes
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 部署一个单实例服务</h2>
+<div id="outline-container-org6a8308e" class="outline-2">
+<h2 id="org6a8308e"><span class="section-number-2">2.</span> 部署一个单实例服务</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Kubernetes 中部署的最小单位是 pod，而不是 Docker 容器。实时上 Kubernetes 是不依赖于 Docker 的，完全可以使用其他的容器引擎在 Kubernetes 管理的集群中替代 Docker。在与 Docker 结合使用时，一个 pod 中可以包含一个或多个 Docker 容器。但除了有紧密耦合的情况下，通常一个 pod 中只有一个容器，这样方便不同的服务各自独立地扩展。
@@ -99,7 +99,7 @@ Kubernetes 中部署的最小单位是 pod，而不是 Docker 容器。实时上
 <p>
 Minikube 自带了 Docker 引擎，所以我们需要重新配置客户端，让 docker 命令行与 Minikube 中的 Docker 进程通讯：
 </p>
-<pre class="example">
+<pre class="example" id="org4ec585d">
 eval $(minikube docker-env)
 </pre>
 <p>
@@ -108,13 +108,13 @@ eval $(minikube docker-env)
 </p>
 </div>
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 构建镜像</h3>
+<div id="outline-container-org6e5291f" class="outline-3">
+<h3 id="org6e5291f"><span class="section-number-3">2.1.</span> 构建镜像</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 我们先构建一个镜像
 </p>
-<pre class="example">
+<pre class="example" id="orgf3806ce">
 mkdir demo
 cd demo
 mkdir html
@@ -124,7 +124,7 @@ echo '&lt;h1&gt;Hello Docker!&lt;/h1&gt;' &gt; html/index.html
 <p>
 接下来在当前目录创建一个Dockerfile文件，内容为
 </p>
-<pre class="example">
+<pre class="example" id="orgf0c795d">
 FROM nginx
 COPY html/* /usr/share/nginx/html
 </pre>
@@ -132,16 +132,16 @@ COPY html/* /usr/share/nginx/html
 <p>
 用如下命令构建
 </p>
-<pre class="example">
+<pre class="example" id="org1c21771">
 docker build -t k8s-demo:v0.1 .
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 创建pod.yml文件</h3>
+<div id="outline-container-orgc51e590" class="outline-3">
+<h3 id="orgc51e590"><span class="section-number-3">2.2.</span> 创建pod.yml文件</h3>
 <div class="outline-text-3" id="text-2-2">
-<pre class="example">
+<pre class="example" id="orgbc16be0">
 apiVersion: v1
 kind: Pod
 metadata:
@@ -158,14 +158,14 @@ spec:
 <p>
 这里定义了一个叫 k8s-demo 的 Pod，使用我们刚才构建的 k8s-demo:0.1 镜像。这个文件也告诉 Kubernetes 容器内的进程会监听 80 端口。然后把它跑起来：
 </p>
-<pre class="example">
+<pre class="example" id="orgaeaec45">
 kubectl create -f ./pod.yml
 </pre>
 
 <p>
 kubectl 把这个文件提交给 Kubernetes API 服务，然后 Kubernetes Master 会按照要求把 Pod 分配到 node 上。用下面的命令可以看到这个新建的 Pod：
 </p>
-<pre class="example">
+<pre class="example" id="org26f4989">
 kubectl get pods
 </pre>
 
@@ -176,7 +176,7 @@ kubectl get pods
 <p>
 创建一个 Service 的定义文件 svc.yml：
 </p>
-<pre class="example">
+<pre class="example" id="org7e5a03f">
 apiVersion: v1
 kind: Service
 metadata:
@@ -195,40 +195,40 @@ spec:
 <p>
 这个 service 会把容器的 80 端口从 node 的 30050 端口暴露出来。注意文件最后两行的 selector 部分，这里决定了请求会被发送给集群里的哪些 pod。这里的定义是所有包含「app: k8s-demo」这个标签的 pod。可以通过如下命令查看
 </p>
-<pre class="example">
+<pre class="example" id="org99fa14f">
 kubectl describe pods | grep Labels
 </pre>
 
 <p>
 如果pod.yml文件有修改，可以使用如下命令更新应用。
 </p>
-<pre class="example">
+<pre class="example" id="orgf80e115">
 kubectl apply -f ./pod.yml
 </pre>
 
 <p>
 接下来我们创建这个service
 </p>
-<pre class="example">
+<pre class="example" id="org78c37bc">
 kubectl create -f ./svc.yml
 </pre>
 
 <p>
 使用如下的命令就可以得到暴露出的URL，然后就可以在浏览器看到我们之前创建的网页了
 </p>
-<pre class="example">
+<pre class="example" id="org4f7300f">
 minikube service k8s-demo-svc --url
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 横向扩展、滚动更新、版本回滚</h3>
+<div id="outline-container-org98c952a" class="outline-3">
+<h3 id="org98c952a"><span class="section-number-3">2.3.</span> 横向扩展、滚动更新、版本回滚</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 在这一节，我们来实验一下在一个高可用服务的生产环境会常用到的一些操作。在继续之前，先把刚才部署的 pod 删除（但是保留 service，下面还会用到）：
 </p>
-<pre class="example">
+<pre class="example" id="org44c4a11">
 kubectl delete pod k8s-demo
 </pre>
 
@@ -239,7 +239,7 @@ kubectl delete pod k8s-demo
 <p>
 首先我们创建一个定义文件 deployment.yml：
 </p>
-<pre class="example">
+<pre class="example" id="org54c891e">
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -264,21 +264,21 @@ spec:
 <p>
 用如下命令创建
 </p>
-<pre class="example">
+<pre class="example" id="orge927448">
 kubectl create -f ./deployment.yml
 </pre>
 
 <p>
 用下面的命令可以看到这个 deployment 的副本集（replica set），有 10 个 pod 在运行。
 </p>
-<pre class="example">
+<pre class="example" id="org366000f">
 kubectl get rs
 </pre>
 
 <p>
 假设我们对项目做了一些改动，要发布一个新版本。这里作为示例，我们只把 HTML 文件的内容改一下, 然后构建一个新版镜像 k8s-demo:v0.2：
 </p>
-<pre class="example">
+<pre class="example" id="orgc2e7c97">
 echo '&lt;h1&gt;Hello Kubernetes!&lt;/h1&gt;' &gt; html/index.html
 docker build -t k8s-demo:v0.2 .
 </pre>
@@ -286,7 +286,7 @@ docker build -t k8s-demo:v0.2 .
 <p>
 然后更新 deployment.yml：
 </p>
-<pre class="example">
+<pre class="example" id="org4d0adc2">
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -316,41 +316,41 @@ spec:
 <p>
 这里有两个改动，第一个是更新了镜像版本号 image: k8s-demo:v0.2，第二是增加了 minReadySeconds: 10 和 strategy 部分。新增的部分定义了更新策略：minReadySeconds: 10 指在更新了一个 pod 后，需要在它进入正常状态后 10 秒再更新下一个 pod；maxUnavailable: 1 指同时处于不可用状态的 pod 不能超过一个；maxSurge: 1 指多余的 pod 不能超过一个。这样 Kubernetes 就会逐个替换 service 后面的 pod。运行下面的命令开始更新：
 </p>
-<pre class="example">
+<pre class="example" id="org53cedd8">
 kubectl apply -f ./deployment.yml --record=true
 </pre>
 <p>
 这里的 &#x2013;record=true 让 Kubernetes 把这行命令记到发布历史中备查。这时可以马上运行下面的命令查看各个 pod 的状态：
 </p>
-<pre class="example">
+<pre class="example" id="org4b2ac22">
 kubectl get pods
 </pre>
 
 <p>
 从 AGE 列就能看到有一部分 pod 是刚刚新建的，有的 pod 则还是老的。下面的命令可以显示发布的实时状态：
 </p>
-<pre class="example">
+<pre class="example" id="orgad6f26f">
 kubectl rollout status deployment k8s-demo-deployment
 </pre>
 
 <p>
 下面的命令可以查看发布历史，因为第二次发布使用了 &#x2013;record=true 所以可以看到用于发布的命令。
 </p>
-<pre class="example">
+<pre class="example" id="orgef85fb0">
 kubectl rollout history deployment k8s-demo-deployment
 </pre>
 
 <p>
 这时如果刷新浏览器，就可以看到更新的内容「Hello Kubernetes!」。假设新版发布后，我们发现有严重的 bug，需要马上回滚到上个版本，可以用这个很简单的操作：
 </p>
-<pre class="example">
+<pre class="example" id="org893141e">
 kubectl rollout undo deployment k8s-demo-deployment --to-revision=1
 </pre>
 
 <p>
 Kubernetes 会按照既定的策略替换各个 pod，与发布新版本类似，只是这次是用老版本替换新版本：
 </p>
-<pre class="example">
+<pre class="example" id="orgf42de2d">
 kubectl rollout status deployment k8s-demo-deployment
 </pre>
 <p>

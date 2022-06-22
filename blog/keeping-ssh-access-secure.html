@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Keeping SSH access secure</title>
-<!-- 2021-04-04 Sun 14:28 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Keeping SSH access secure</h1>
 <p>
 There are several worms which attempt to exploit vulnerable SSH servers, by logging in to a host with a collection of usernames and passwords such as "admin/admin", "test/test", "root/root", etc. These shouldn't be of much concern if you're keeping good passwords, but there are simple ways to prevent them regardless.
@@ -25,16 +26,14 @@ The most obvious way to prevent people connecting to your host is to only allow 
 If you're currently running a firewall you can add to it to :
 </p>
 <ul class="org-ul">
-<li>Accept incoming SSH connections from a trusted address.
-</li>
-<li>Drop all other connections.
-</li>
+<li>Accept incoming SSH connections from a trusted address.</li>
+<li>Drop all other connections.</li>
 </ul>
 
 <p>
 Using the iptables firewall commands you can do this as follows:
 </p>
-<pre class="example">
+<pre class="example" id="org39d52d8">
 # All connectsion from address 1.2.3.4 to SSH (port 22)
 iptables -A INPUT -p tcp -m state --state NEW --source 1.2.3.4 --dport 22 -j ACCEPT
 
@@ -49,7 +48,7 @@ If you're not running a firewall, or you don't wish to mess with the setup you c
 <p>
 The two important files are:
 </p>
-<pre class="example">
+<pre class="example" id="orgd611851">
 /etc/hosts.allow
 /etc/hosts.deny
 </pre>
@@ -62,7 +61,7 @@ The first can contain entries of hosts which are allowed to connect, the second 
 Assuming that you wish to allow the remote addresses 1.2.3.x, and 192.168.0.x to connect but nothing else you would setup the files as follows. Firstly allow access by placing the following inside /etc/hosts.allow:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgb797d6b">
 # /etc/hosts.allow
 sshd: 1.2.3.0/255.255.255.0
 sshd: 192.168.0.0/255.255.255.0
@@ -71,7 +70,7 @@ sshd: 192.168.0.0/255.255.255.0
 <p>
 Then disallow all further access by placing this in /etc/hosts.deny:
 </p>
-<pre class="example">
+<pre class="example" id="orgacbf3d3">
 # /etc/hosts.deny
 sshd: ALL
 </pre>
@@ -88,7 +87,7 @@ The ssh server is configured by the file /etc/ssh/sshd_config. If you wish you c
 For example to only allow "bob" and "chris" to login add the following:
 </p>
 
-<pre class="example">
+<pre class="example" id="org90bebf7">
 AllowUsers bob chris
 </pre>
 
@@ -99,14 +98,14 @@ With this setting in place (after the server has been restarted with "/etc/init.
 <p>
 You can also explicitly deny particular users:
 </p>
-<pre class="example">
+<pre class="example" id="org91721e8">
 DenyUsers badness paula
 </pre>
 
 <p>
 Probably the most important setting you can change in the sshd_config file is the following:
 </p>
-<pre class="example">
+<pre class="example" id="org7562c8e">
 PermitRootLogin no
 </pre>
 <p>

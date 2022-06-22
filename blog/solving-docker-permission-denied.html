@@ -3,23 +3,24 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Solving Docker Permission Denied</title>
-<!-- 2021-08-17 Tue 13:36 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Solving Docker Permission Denied</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 第一种</a></li>
-<li><a href="#sec-2">2. 第二种</a></li>
-<li><a href="#sec-3">3. 生效</a></li>
+<li><a href="#org22796dd">1. 第一种</a></li>
+<li><a href="#org17d41c8">2. 第二种</a></li>
+<li><a href="#org5eef826">3. 生效</a></li>
 </ul>
 </div>
 </div>
@@ -27,31 +28,31 @@
 当你试图不是用 sudo 去使用 docker 命令时，则可能会遇到如上提示。这是由于当前用户不属于 docker 群组，所以我们需要将当前用户添加到 docker 群组。你可以使用如下两种方法解决。
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 第一种</h2>
+<div id="outline-container-org22796dd" class="outline-2">
+<h2 id="org22796dd"><span class="section-number-2">1.</span> 第一种</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example">
+<pre class="example" id="orgbcc41b2">
 sudo usermod -a -G docker $USER
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 第二种</h2>
+<div id="outline-container-org17d41c8" class="outline-2">
+<h2 id="org17d41c8"><span class="section-number-2">2.</span> 第二种</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example">
+<pre class="example" id="org2d6df5e">
 sudo gpasswd -a $USER docker
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 生效</h2>
+<div id="outline-container-org5eef826" class="outline-2">
+<h2 id="org5eef826"><span class="section-number-2">3.</span> 生效</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 接着使用如下命令让其立即生效（推荐）
 </p>
-<pre class="example">
+<pre class="example" id="orgd6be918">
 newgrp docker
 </pre>
 <p>

@@ -3,22 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine</title>
-<!-- 2018-11-28 Wed 10:05 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Xiao Guo-An" />
+<meta name="author" content="Xiao Guo-An" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">How to Install VirtualBox Guest Additions in Debian 9 Virtual Machine</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. What is VirtualBox Guest Additions?</a></li>
-<li><a href="#sec-2">2. How to Install VirtualBox Guest Additions in Debian 9</a></li>
+<li><a href="#org4e52780">1. What is VirtualBox Guest Additions?</a></li>
+<li><a href="#orgda82bea">2. How to Install VirtualBox Guest Additions in Debian 9</a></li>
 </ul>
 </div>
 </div>
@@ -30,8 +31,8 @@
 This tutorial will show you how to install VirtualBox guest additions in a Debian 9 virtual machine. You need to have a Debian 9 guest OS installed inside VirtualBox to follow the instructions. The type of host OS doesn’t matter.
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> What is VirtualBox Guest Additions?</h2>
+<div id="outline-container-org4e52780" class="outline-2">
+<h2 id="org4e52780"><span class="section-number-2">1.</span> What is VirtualBox Guest Additions?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 VirtualBox guest additions offer the following capabilities:
@@ -47,14 +48,14 @@ Enable bidirectional shared clipboard between host and guest.
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> How to Install VirtualBox Guest Additions in Debian 9</h2>
+<div id="outline-container-orgda82bea" class="outline-2">
+<h2 id="orgda82bea"><span class="section-number-2">2.</span> How to Install VirtualBox Guest Additions in Debian 9</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Boot up your Debian 9 virtual machine. Then switch to root with the following command:
 </p>
 
-<pre class="example">
+<pre class="example" id="orgf2b0c56">
 su -
 </pre>
 
@@ -62,7 +63,7 @@ su -
 Next, update software.
 </p>
 
-<pre class="example">
+<pre class="example" id="orgb1b8b57">
 apt update
 
 apt upgrade
@@ -72,14 +73,14 @@ apt upgrade
 If a new Linux kernel is installed in the upgrade process, then you need to reboot Debian 9 VM. After that, run the following command to install required packages for building kernel modules.
 </p>
 
-<pre class="example">
+<pre class="example" id="org720a657">
 apt install build-essential module-assistant dkms
 </pre>
 
 <p>
 Once the above packages are installed, prepare your Debian 9 system to build kernel module, which is done with the command below.
 </p>
-<pre class="example">
+<pre class="example" id="orgcb95680">
 m-a prepare
 </pre>
 
@@ -99,7 +100,7 @@ If your host OS doesn’t have the guest additions CD image, then it will ask yo
 Ubuntu-based Linux distro can also download the CD image with the following command (with root privilege).
 </p>
 
-<pre class="example">
+<pre class="example" id="orgc21a4eb">
 apt-get install virtualbox-guest-additions-iso
 </pre>
 
@@ -107,7 +108,7 @@ apt-get install virtualbox-guest-additions-iso
 Once you click the Run button, the CD image is mounted at <i>media/cdrom</i> directory. Under <i>media/cdrom</i> directory there’s a shell script named VboxLinuxAdditions.run. Run this script (with root privilege).
 </p>
 
-<pre class="example">
+<pre class="example" id="org1b98ceb">
 sh /media/cdrom/VBoxLinuxAdditions.run
 </pre>
 
@@ -115,7 +116,7 @@ sh /media/cdrom/VBoxLinuxAdditions.run
 Once guest additions is installed, restart your Debian 9 VM.
 </p>
 
-<pre class="example">
+<pre class="example" id="org79e9eaa">
 shutdown -r now
 </pre>
 

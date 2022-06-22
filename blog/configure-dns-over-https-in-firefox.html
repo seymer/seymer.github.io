@@ -3,48 +3,45 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>在 Firefox 中配置DNS over HTTPS</title>
-<!-- 2019-10-19 Sat 10:56 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">在 Firefox 中配置DNS over HTTPS</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. Firefox 配置</a></li>
-<li><a href="#sec-2">2. 公共服务列表</a></li>
+<li><a href="#org0e85385">1. Firefox 配置</a></li>
+<li><a href="#org4d13a8f">2. 公共服务列表</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Firefox 配置</h2>
+<div id="outline-container-org0e85385" class="outline-2">
+<h2 id="org0e85385"><span class="section-number-2">1.</span> Firefox 配置</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 在 about:config 里打开以下选项(非开发版也可以设置)：
 </p>
 
 <ul class="org-ul">
-<li>network.trr.bootstrapAddress 设置为 1.1.1.1
-</li>
-<li>network.trr.mode 设置为 2
-</li>
-<li>network.trr.uri 设置为 <a href="https://1.1.1.1/dns-query">https://1.1.1.1/dns-query</a>
-</li>
+<li>network.trr.bootstrapAddress 设置为 1.1.1.1</li>
+<li>network.trr.mode 设置为 2</li>
+<li>network.trr.uri 设置为 <a href="https://1.1.1.1/dns-query">https://1.1.1.1/dns-query</a></li>
 </ul>
 <p>
 并且打开 ESNI 支持：
 </p>
 
 <ul class="org-ul">
-<li>network.security.esni.enabled 设置为 true
-</li>
+<li>network.security.esni.enabled 设置为 true</li>
 </ul>
 
 <p>
@@ -52,18 +49,16 @@
 </p>
 
 <ul class="org-ul">
-<li>network.proxy.socks_remote_dns 设置为 true
-</li>
+<li>network.proxy.socks_remote_dns 设置为 true</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 公共服务列表</h2>
+<div id="outline-container-org4d13a8f" class="outline-2">
+<h2 id="org4d13a8f"><span class="section-number-2">2.</span> 公共服务列表</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li><a href="https://github.com/curl/curl/wiki/DNS-over-HTTPS">https://github.com/curl/curl/wiki/DNS-over-HTTPS</a>
-</li>
+<li><a href="https://github.com/curl/curl/wiki/DNS-over-HTTPS">https://github.com/curl/curl/wiki/DNS-over-HTTPS</a></li>
 </ul>
 
 

@@ -3,32 +3,33 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VMware Fusion 共享文件夹问题</title>
-<!-- 2019-05-28 Tue 20:32 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">VMware Fusion 共享文件夹问题</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. 操作步骤</a></li>
-<li><a href="#sec-2">2. 参考链接</a></li>
+<li><a href="#org840d9ff">1. 操作步骤</a></li>
+<li><a href="#org772b9dc">2. 参考链接</a></li>
 </ul>
 </div>
 </div>
 <p>
 除了上文中遇到的拷贝粘贴问题，共享文件夹也不好使，又是一番搜索试验，最终找到了正确答案。
 </p>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 操作步骤</h2>
+<div id="outline-container-org840d9ff" class="outline-2">
+<h2 id="org840d9ff"><span class="section-number-2">1.</span> 操作步骤</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example">
+<pre class="example" id="org732f139">
 sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
 </pre>
 <p>
@@ -37,12 +38,11 @@ sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 参考链接</h2>
+<div id="outline-container-org772b9dc" class="outline-2">
+<h2 id="org772b9dc"><span class="section-number-2">2.</span> 参考链接</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li><a href="https://github.com/vmware/open-vm-tools/issues/199">open-vm-tools-issues</a>
-</li>
+<li><a href="https://github.com/vmware/open-vm-tools/issues/199">open-vm-tools-issues</a></li>
 </ul>
 </div>
 </div>

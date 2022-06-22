@@ -3,15 +3,16 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Easily forwarding arbitrary TCP connections with rinetd</title>
-<!-- 2021-04-04 Sun 14:28 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Easily forwarding arbitrary TCP connections with rinetd</h1>
 <p>
 In the past we've examined the use of firewall rules for forwarding incoming connections from one machine to another. But there is a simpler approach using the rinetd package. Read on to learn about this tool.
@@ -24,7 +25,7 @@ The rinetd package contains a simple tool which may be configured to listen for 
 <p>
 You may install this package via :
 </p>
-<pre class="example">
+<pre class="example" id="orgc751e2e">
 root@silver:~# apt-get update
 root@silver:~# apt-get install rinetd
 </pre>
@@ -39,7 +40,7 @@ Once installed you'll find a configuration file located at /etc/rinetd.conf. Thi
 <p>
 By default no ports are configured for forwarding, and so the file will consist entirely of comments. A default configuration file would look something like this, to give you an idea of the configuration:
 </p>
-<pre class="example">
+<pre class="example" id="orgf19cc9c">
 #
 # forwarding rules come here
 #
@@ -70,7 +71,7 @@ You've already updated DNS to point visitors to the new IP address, but you want
 <p>
 To handle this case you should update the /etc/rinetd.conf file to read:
 </p>
-<pre class="example">
+<pre class="example" id="orgcc100b9">
 # bindadress    bindport  connectaddress  connectport
 1.2.3.4         80        4.3.2.1         80
 1.2.3.4         443       4.3.2.1         443
@@ -78,7 +79,7 @@ To handle this case you should update the /etc/rinetd.conf file to read:
 <p>
 Once you restart rinetd all incoming connections on port 80 and 443 will be seamlessly redirected from the old IP to the new one - although you will need to restart rinetd after making the change to your configuration file:
 </p>
-<pre class="example">
+<pre class="example" id="org52db875">
 root@silver:~# /etc/init.d/rinetd restart
 Stopping internet redirection server: rinetd.
 Starting internet redirection server: rinetd.

@@ -3,28 +3,29 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CodeIgniter 框架</title>
-<!-- 2020-12-13 Sun 23:26 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">CodeIgniter 框架</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1. CodeIginter</a></li>
-<li><a href="#sec-2">2. 进入框架</a></li>
+<li><a href="#org05a7ef2">1. CodeIginter</a></li>
+<li><a href="#org66ff224">2. 进入框架</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> CodeIginter</h2>
+<div id="outline-container-org05a7ef2" class="outline-2">
+<h2 id="org05a7ef2"><span class="section-number-2">1.</span> CodeIginter</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时，官方也从 CodeIgniter 3 升级到了CodeIginter 4，说升级其实是有些不准确的，准确来讲是基本重写了整个框架，并且不向前兼容。那我们今天就来重新回顾下这个框架。
@@ -35,7 +36,7 @@ CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时�
 </p>
 
 
-<div class="figure">
+<div id="org21ea10a" class="figure">
 <p><img src="./images/appflowchart.gif" alt="appflowchart.gif" />
 </p>
 </div>
@@ -43,7 +44,7 @@ CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时�
 <p>
 我们再来看下框架目录结构，CodeIgniter 3 分为两个部分，应用部分和框架部分。
 </p>
-<pre class="example">
+<pre class="example" id="orgf801deb">
 .
 ├── application
 │   ├── cache
@@ -65,6 +66,7 @@ CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时�
     ├── helpers
     ├── language
     └── libraries
+
 </pre>
 
 <p>
@@ -73,8 +75,8 @@ CodeIgniter 是我很喜欢的一个PHP框架，但它似乎已经有些过时�
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 进入框架</h2>
+<div id="outline-container-org66ff224" class="outline-2">
+<h2 id="org66ff224"><span class="section-number-2">2.</span> 进入框架</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 index.php 定义了环境变量，分为开发，测试，生产三个部分。另外根据环境变量的不同决定错误输出与否。还有一些目录及终端进入的设置，接着进入引导程序 CodeIgniter.php。
@@ -83,7 +85,7 @@ index.php 定义了环境变量，分为开发，测试，生产三个部分。�
 <p>
 引导程序存放在 system/core/ 文件目录下。引导程序主要用来加载框架路由，全局函数，基础控制类及一些安全方面的东西。可以说就是Core下的其他东西。
 </p>
-<pre class="example">
+<pre class="example" id="org32cdfdd">
 .
 ├── Benchmark.php
 ├── CodeIgniter.php
@@ -109,14 +111,14 @@ index.php 定义了环境变量，分为开发，测试，生产三个部分。�
 │   ├── password.php
 │   └── standard.php
 └── index.html
+
 </pre>
 
 
 
 
 <ul class="org-ul">
-<li><a href="https://codeigniter.com/userguide3/index.html">https://codeigniter.com/userguide3/index.html</a>
-</li>
+<li><a href="https://codeigniter.com/userguide3/index.html">https://codeigniter.com/userguide3/index.html</a></li>
 </ul>
 </div>
 </div>

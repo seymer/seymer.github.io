@@ -3,34 +3,35 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2022-06-22 Wed 14:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何在命令行上将AIFF格式转换为MP3格式</title>
-<!-- 2019-04-28 Sun 16:42 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Siqing Mu" />
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">如何在命令行上将AIFF格式转换为MP3格式</h1>
 <p>
 单个文件转换：
 </p>
-<pre class="example">
+<pre class="example" id="orgefcadff">
 ffmpeg -i myinput.aif -f mp3 -acodec libmp3lame -ab 320000 -ar 44100 myoutput.mp3
 </pre>
 
 <p>
 批量文件转换：
 </p>
-<pre class="example">
+<pre class="example" id="org807e0b5">
 for f in *.aiff; do ffmpeg -i "$f" -f mp3 -acodec libmp3lame -ab 320000 -ar 44100 "${f%.*}.mp3"; done
 </pre>
 
 <p>
 上面指定了比特率，MP3最大为320kbit/s，文件大小会稍微大点，音质会好点，虽然我听不太出来，哈哈，看自己需要。所以你也可以采用默认参数转换，文件会小一半大概，例如：
 </p>
-<pre class="example">
+<pre class="example" id="org0b57974">
 for f in *.aiff; do ffmpeg -i "$f" "${f%.*}.mp3"; done
 </pre>
 
