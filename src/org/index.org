@@ -1,6 +1,5 @@
 #+TITLE: Siqing's Blog
 
-- [[file:test.org][test]]
 - [[file:add-an-IPv6-to-your-vps.org][给你的电脑或VPS添加IPv6]]
 - [[file:enable-ipv6-for-your-vps.org][为VPS启用ipv6]]
 - [[file:dns-issue-on-macos.org][macOS 系统上的DNS问题]]
