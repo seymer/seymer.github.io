@@ -1,5 +1,6 @@
 #+TITLE: Siqing's Blog
 
+- {{{timestamp(2022-06-25)}}} [[file:how-to-create-org-mode-blog.org][如何创建org-mode 博客]]
 - {{{timestamp(2022-06-17)}}} [[file:add-an-IPv6-to-your-vps.org][给你的电脑或VPS添加IPv6]]
 - {{{timestamp(2022-06-16)}}} [[file:enable-ipv6-for-your-vps.org][为VPS启用ipv6]]
 - {{{timestamp(2022-06-15)}}} [[file:dns-issue-on-macos.org][macOS 系统上的DNS问题]]
