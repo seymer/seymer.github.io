@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-06-26 Sun 10:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何创建org-mode 博客</title>
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">如何创建org-mode 博客</h1>
+<p>
+init.el
+</p>
+<pre class="example" id="org0aa4b72">
+;; Snippets E.G. &lt;E
+;;a       ‘#+BEGIN_EXPORT ascii’ … ‘#+END_EXPORT’
+;;c       ‘#+BEGIN_CENTER’ … ‘#+END_CENTER’
+;;C       ‘#+BEGIN_COMMENT’ … ‘#+END_COMMENT’
+;;e       ‘#+BEGIN_EXAMPLE’ … ‘#+END_EXAMPLE’
+;;E       ‘#+BEGIN_EXPORT’ … ‘#+END_EXPORT’
+;;h       ‘#+BEGIN_EXPORT html’ … ‘#+END_EXPORT’
+;;l       ‘#+BEGIN_EXPORT latex’ … ‘#+END_EXPORT’
+;;q       ‘#+BEGIN_QUOTE’ … ‘#+END_QUOTE’
+;;s       ‘#+BEGIN_SRC’ … ‘#+END_SRC’
+;;v       ‘#+BEGIN_VERSE’ … ‘#+END_VERSE’
+(require 'org-tempo)
+
+;; timestamp format
+(setf org-html-metadata-timestamp-format "%Y %b %d")
+(setf org-export-date-timestamp-format "%Y-%m-%d")
+
+;; Truncate line e.g. M-x toggle-truncate-lines
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;; Enable HTML5
+(setq org-html-html5-fancy t
+      org-html-doctype     "html5")
+
+;; Disable ox-html's default CSS and JavaScript
+(setq org-html-head-include-default-style nil
+      org-html-head-include-scripts       nil)
+
+;; Don't show section numbers or table of contents by default
+(setq org-export-with-section-numbers nil
+      org-export-with-toc             nil)
+
+;; TODO: tweak headline id format. I dislike the randomly generated ones.
+;; Look into customizing: :html-format-headline-function and
+;; org-html-format-headline-function
+;; (setq org-html-self-link-headlines 'nil)
+
+(require 'ox-html)
+;; Render ~verbatim~ as kbd tag in HTML
+(add-to-list 'org-html-text-markup-alist '(verbatim . "&lt;kbd&gt;%s&lt;/kbd&gt;"))
+
+;; Enable code syntax highlighting if available
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(setq package-load-list '((htmlize t)))
+(package-initialize)
+
+(unless (package-installed-p 'htmlize)
+  (package-refresh-contents)
+  (package-install 'htmlize))
+
+(if (package-installed-p 'htmlize)
+    (setq org-html-htmlize-output-type 'css)
+  (setq org-html-htmlize-output-type 'nil))
+</pre>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>

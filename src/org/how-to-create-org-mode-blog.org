@@ -1,0 +1,61 @@
+#+TITLE: 如何创建org-mode 博客
+#+DATE: ![2022-06-25 Sat 12:26]
+
+
+init.el
+#+begin_example
+;; Snippets E.G. <E
+;;a       ‘#+BEGIN_EXPORT ascii’ … ‘#+END_EXPORT’
+;;c       ‘#+BEGIN_CENTER’ … ‘#+END_CENTER’
+;;C       ‘#+BEGIN_COMMENT’ … ‘#+END_COMMENT’
+;;e       ‘#+BEGIN_EXAMPLE’ … ‘#+END_EXAMPLE’
+;;E       ‘#+BEGIN_EXPORT’ … ‘#+END_EXPORT’
+;;h       ‘#+BEGIN_EXPORT html’ … ‘#+END_EXPORT’
+;;l       ‘#+BEGIN_EXPORT latex’ … ‘#+END_EXPORT’
+;;q       ‘#+BEGIN_QUOTE’ … ‘#+END_QUOTE’
+;;s       ‘#+BEGIN_SRC’ … ‘#+END_SRC’
+;;v       ‘#+BEGIN_VERSE’ … ‘#+END_VERSE’
+(require 'org-tempo)
+
+;; timestamp format
+(setf org-html-metadata-timestamp-format "%Y %b %d")
+(setf org-export-date-timestamp-format "%Y-%m-%d")
+
+;; Truncate line e.g. M-x toggle-truncate-lines
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;; Enable HTML5
+(setq org-html-html5-fancy t
+      org-html-doctype     "html5")
+
+;; Disable ox-html's default CSS and JavaScript
+(setq org-html-head-include-default-style nil
+      org-html-head-include-scripts       nil)
+
+;; Don't show section numbers or table of contents by default
+(setq org-export-with-section-numbers nil
+      org-export-with-toc             nil)
+
+;; TODO: tweak headline id format. I dislike the randomly generated ones.
+;; Look into customizing: :html-format-headline-function and
+;; org-html-format-headline-function
+;; (setq org-html-self-link-headlines 'nil)
+
+(require 'ox-html)
+;; Render ~verbatim~ as kbd tag in HTML
+(add-to-list 'org-html-text-markup-alist '(verbatim . "<kbd>%s</kbd>"))
+
+;; Enable code syntax highlighting if available
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(setq package-load-list '((htmlize t)))
+(package-initialize)
+
+(unless (package-installed-p 'htmlize)
+  (package-refresh-contents)
+  (package-install 'htmlize))
+
+(if (package-installed-p 'htmlize)
+    (setq org-html-htmlize-output-type 'css)
+  (setq org-html-htmlize-output-type 'nil))
+#+End_Example
