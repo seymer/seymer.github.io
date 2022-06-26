@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-26 Sun 10:25 -->
+<!-- 2022-06-26 Sun 11:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>如何创建org-mode 博客</title>
@@ -15,9 +15,25 @@
 <div id="content" class="content">
 <h1 class="title">如何创建org-mode 博客</h1>
 <p>
+structure
+</p>
+<pre class="example" id="orgd384a72">
+├── makefile
+├── org
+│   ├── blog
+│   │   └── org-mode-blog.org
+│   ├── css
+│   │   ├── modus-operandi.css
+│   │   ├── modus-vivendi.css
+│   │   └── style.css
+│   └── index.org
+└── publish.el
+</pre>
+
+<p>
 init.el
 </p>
-<pre class="example" id="org0aa4b72">
+<pre class="example" id="org0120dd4">
 ;; Snippets E.G. &lt;E
 ;;a       ‘#+BEGIN_EXPORT ascii’ … ‘#+END_EXPORT’
 ;;c       ‘#+BEGIN_CENTER’ … ‘#+END_CENTER’
@@ -72,6 +88,148 @@ init.el
 (if (package-installed-p 'htmlize)
     (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-output-type 'nil))
+</pre>
+
+<p>
+publish.el
+</p>
+<pre class="example" id="orgbec71c1">
+(load "~/.emacs.d/init.el")
+(require 'ox-publish)
+
+(setq org-export-global-macros
+      '(("timestamp" . "@@html:&lt;span class=\"timestamp\"&gt;[$1]&lt;/span&gt;@@")
+	("cc-by-nd" . "@@html:&lt;div class=\"license-notice-container\"&gt;
+  &lt;div class=\"license-notice\"&gt;
+    &lt;div class\"notice\"&gt;
+      &lt;span&gt;&lt;b&gt;Note:&lt;/b&gt;&lt;/span&gt;
+      &lt;span&gt;
+        &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\"&gt;
+          &lt;img alt=\"Creative Commons License\"
+               src=\"https://i.creativecommons.org/l/by-nd/4.0/88x31.png\" /&gt;
+        &lt;/a&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    This post is licensed under the
+    &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\"&gt;
+      CC-BY-ND 4.0
+    &lt;/a&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;@@")
+	("right-justify" . "@@html:&lt;span class=\"right-justify\"&gt;$1&lt;/span&gt;@@")))
+
+(defun org-sitemap-custom-entry-format (entry style project)
+  "Sitemap PROJECT ENTRY STYLE format that includes date."
+  (let ((filename (org-publish-find-title entry project)))
+    (if (= (length filename) 0)
+        (format "*%s*" entry)
+      (format "{{{timestamp(%s)}}} [[file:%s][%s]]"
+              (format-time-string "%Y-%m-%d"
+				  (org-publish-find-date entry project))
+              entry
+              filename))))
+
+(defvar blog-css "&lt;link rel=\"stylesheet\" href=\"/css/style.css\" type=\"text/css\"/&gt;")
+(defvar blog-css-extra "&lt;link rel=\"stylesheet\" media=\"(prefers-color-scheme: light)\" href=\"/css/modus-operandi.css\" type=\"text/css\"/&gt;
+&lt;link rel=\"stylesheet\" media=\"(prefers-color-scheme: dark)\" href=\"/css/modus-vivendi.css\" type=\"text/css\"/&gt;")
+(defvar blog-header "&lt;div id=\"updated\"&gt;Updated: %C&lt;/div&gt;
+&lt;div id=\"org-div-home-and-up\"&gt;
+&lt;a href=\"https://example.com/blog\"&gt;Blog&lt;/a&gt;
+&lt;a href=\"https://example.com/\"&gt;Home&lt;/a&gt;
+&lt;/div&gt;
+")
+
+(defvar blog-footer "&lt;hr/&gt;
+&lt;footer&gt;
+&lt;div class=\"copyright-container\"&gt;
+&lt;div class=\"Copyright\"&gt;
+Copyright &amp;copy; 2017-2022 example some rights reserved&lt;br/&gt;
+Content is available under
+&lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"&gt;
+CC-BY-SA 4.0&lt;/a&gt; unless otherwise noted
+&lt;/div&gt;
+&lt;div class=\"cc-badge\"&gt;
+&lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"&gt;
+&lt;img alt=\"Creative Commons License\"
+     src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=\"banner\"&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=\"generated\"&gt;
+Created with %c on &lt;a href=\"https://www.gnu.org\"&gt;GNU&lt;/a&gt;/&lt;a href=\"https://www.kernel.org/\"&gt;Linux&lt;/a&gt;
+&lt;/div&gt;
+&lt;/footer&gt;")
+
+(defun my/relative-path-expand (path)
+  "Expand relative PATH from current buffer or file to a full path."
+  (concat
+   (if load-file-name
+       (file-name-directory load-file-name)
+     default-directory)
+   path))
+
+(defvar blog-base-directory
+  (my/relative-path-expand "org/")
+  "The `base-directory' for blog project.")
+
+(defvar blog-publish-directory
+  (my/relative-path-expand "html/")
+  ;; "/ssh:root@example.com:/var/www/html/"
+  "The `publishing-directory' for blog project.")
+
+(setq org-publish-project-alist
+      `(
+	("index"
+         :base-directory ,blog-base-directory
+         :base-extension "org"
+         :exclude ".*"
+         :include ("index.org")
+         :publishing-directory ,blog-publish-directory
+         :publishing-function org-html-publish-to-html
+
+         :html-head     ,blog-css
+         :html-preamble "&lt;div id=\"updated\"&gt;Updated: %C&lt;/div&gt;"
+         :html-postamble ,blog-footer)
+	("blog"
+	 :base-directory ,(concat blog-base-directory "blog/")
+	 :base-extension "org"
+	 :publishing-directory ,(concat blog-publish-directory "blog/")
+	 :publishing-function org-html-publish-to-html
+
+	 :auto-sitemap t
+	 :sitemap-title "Blog Posts"
+	 :sitemap-filename "index.org"
+	 :sitemap-sort-files anti-chronologically
+         :sitemap-format-entry org-sitemap-custom-entry-format
+
+	 :html-head ,blog-css
+	 :html-head-extra ,blog-css-extra
+	 :html-preamble ,blog-header
+	 :html-postamble ,blog-footer)
+	("static"
+	 :base-directory ,blog-base-directory
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :recursive t
+	 :publishing-directory ,blog-publish-directory
+	 :publishing-function org-publish-attachment)
+	("org" :components ("blog" "static"))))	      
+</pre>
+
+<p>
+makefile
+</p>
+<pre class="example" id="org49fbc7b">
+all:
+	emacs -Q --batch -l publish.el -f org-publish-all
+
+publish: all
+	rsync -e ssh -vr html/ root@example.com:/var/www/html/
+
+clean:
+	rm -r html/*
 </pre>
 </div>
 <div id="postamble" class="status">

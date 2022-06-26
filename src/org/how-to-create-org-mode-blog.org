@@ -1,6 +1,19 @@
 #+TITLE: 如何创建org-mode 博客
 #+DATE: ![2022-06-25 Sat 12:26]
 
+structure
+#+begin_example
+├── makefile
+├── org
+│   ├── blog
+│   │   └── org-mode-blog.org
+│   ├── css
+│   │   ├── modus-operandi.css
+│   │   ├── modus-vivendi.css
+│   │   └── style.css
+│   └── index.org
+└── publish.el
+#+end_example
 
 init.el
 #+begin_example
@@ -59,3 +72,143 @@ init.el
     (setq org-html-htmlize-output-type 'css)
   (setq org-html-htmlize-output-type 'nil))
 #+End_Example
+
+publish.el
+#+begin_example
+(load "~/.emacs.d/init.el")
+(require 'ox-publish)
+
+(setq org-export-global-macros
+      '(("timestamp" . "@@html:<span class=\"timestamp\">[$1]</span>@@")
+	("cc-by-nd" . "@@html:<div class=\"license-notice-container\">
+  <div class=\"license-notice\">
+    <div class\"notice\">
+      <span><b>Note:</b></span>
+      <span>
+        <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\">
+          <img alt=\"Creative Commons License\"
+               src=\"https://i.creativecommons.org/l/by-nd/4.0/88x31.png\" />
+        </a>
+      </span>
+    </div>
+    This post is licensed under the
+    <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\">
+      CC-BY-ND 4.0
+    </a>.
+  </div>
+</div>@@")
+	("right-justify" . "@@html:<span class=\"right-justify\">$1</span>@@")))
+
+(defun org-sitemap-custom-entry-format (entry style project)
+  "Sitemap PROJECT ENTRY STYLE format that includes date."
+  (let ((filename (org-publish-find-title entry project)))
+    (if (= (length filename) 0)
+        (format "*%s*" entry)
+      (format "{{{timestamp(%s)}}} [[file:%s][%s]]"
+              (format-time-string "%Y-%m-%d"
+				  (org-publish-find-date entry project))
+              entry
+              filename))))
+
+(defvar blog-css "<link rel=\"stylesheet\" href=\"/css/style.css\" type=\"text/css\"/>")
+(defvar blog-css-extra "<link rel=\"stylesheet\" media=\"(prefers-color-scheme: light)\" href=\"/css/modus-operandi.css\" type=\"text/css\"/>
+<link rel=\"stylesheet\" media=\"(prefers-color-scheme: dark)\" href=\"/css/modus-vivendi.css\" type=\"text/css\"/>")
+(defvar blog-header "<div id=\"updated\">Updated: %C</div>
+<div id=\"org-div-home-and-up\">
+<a href=\"https://example.com/blog\">Blog</a>
+<a href=\"https://example.com/\">Home</a>
+</div>
+")
+
+(defvar blog-footer "<hr/>
+<footer>
+<div class=\"copyright-container\">
+<div class=\"Copyright\">
+Copyright &copy; 2017-2022 example some rights reserved<br/>
+Content is available under
+<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">
+CC-BY-SA 4.0</a> unless otherwise noted
+</div>
+<div class=\"cc-badge\">
+<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">
+<img alt=\"Creative Commons License\"
+     src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" />
+</a>
+</div>
+</div>
+<div class=\"banner\">
+</a>
+</div>
+<div class=\"generated\">
+Created with %c on <a href=\"https://www.gnu.org\">GNU</a>/<a href=\"https://www.kernel.org/\">Linux</a>
+</div>
+</footer>")
+
+(defun my/relative-path-expand (path)
+  "Expand relative PATH from current buffer or file to a full path."
+  (concat
+   (if load-file-name
+       (file-name-directory load-file-name)
+     default-directory)
+   path))
+
+(defvar blog-base-directory
+  (my/relative-path-expand "org/")
+  "The `base-directory' for blog project.")
+
+(defvar blog-publish-directory
+  (my/relative-path-expand "html/")
+  ;; "/ssh:root@example.com:/var/www/html/"
+  "The `publishing-directory' for blog project.")
+
+(setq org-publish-project-alist
+      `(
+	("index"
+         :base-directory ,blog-base-directory
+         :base-extension "org"
+         :exclude ".*"
+         :include ("index.org")
+         :publishing-directory ,blog-publish-directory
+         :publishing-function org-html-publish-to-html
+
+         :html-head     ,blog-css
+         :html-preamble "<div id=\"updated\">Updated: %C</div>"
+         :html-postamble ,blog-footer)
+	("blog"
+	 :base-directory ,(concat blog-base-directory "blog/")
+	 :base-extension "org"
+	 :publishing-directory ,(concat blog-publish-directory "blog/")
+	 :publishing-function org-html-publish-to-html
+
+	 :auto-sitemap t
+	 :sitemap-title "Blog Posts"
+	 :sitemap-filename "index.org"
+	 :sitemap-sort-files anti-chronologically
+         :sitemap-format-entry org-sitemap-custom-entry-format
+
+	 :html-head ,blog-css
+	 :html-head-extra ,blog-css-extra
+	 :html-preamble ,blog-header
+	 :html-postamble ,blog-footer)
+	("static"
+	 :base-directory ,blog-base-directory
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :recursive t
+	 :publishing-directory ,blog-publish-directory
+	 :publishing-function org-publish-attachment)
+	("org" :components ("blog" "static"))))	      
+#+end_example
+
+makefile
+#+begin_example
+all:
+	emacs -Q --batch -l publish.el -f org-publish-all
+
+publish: all
+	rsync -e ssh -vr html/ root@example.com:/var/www/html/
+
+clean:
+	rm -r html/*
+#+end_example
+
+
