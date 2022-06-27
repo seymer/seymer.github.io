@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022 Jun 27 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Building a Emacs Org-Mode Blog</title>
+<meta name="author" content="Siqing Mu" />
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+<link rel="stylesheet" media="(prefers-color-scheme: light)" href="./css/modus-operandi.css" type="text/css"/>
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="./css/modus-vivendi.css" type="text/css"/>
+</head>
+<body>
+<div id="content" class="content">
+<header>
+<h1 class="title">Building a Emacs Org-Mode Blog</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org033195b">1. Goals</a>
+<ul>
+<li><a href="#org5eaf648">1.1. Tools</a></li>
+</ul>
+</li>
+<li><a href="#orgd249a49">2. Initial Setup</a>
+<ul>
+<li><a href="#org3eae636">2.1. Exporting</a>
+<ul>
+<li><a href="#orgb77f101">2.1.1. Testing your Website</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org479c6e7">3. Additional Options</a>
+<ul>
+<li><a href="#org75a371f">3.1. Customize the &lt;Head&gt;</a>
+<ul>
+<li><a href="#org8539c2c">3.1.1. CSS</a></li>
+</ul>
+</li>
+<li><a href="#orge6005cb">3.2. Preamble and Postamble</a></li>
+<li><a href="#orgd1c2581">3.3. Sitemap</a>
+<ul>
+<li><a href="#orgc9af632">3.3.1. Creating a List of Blog Posts</a></li>
+<li><a href="#org70017ab">3.3.2. Custom sitemap entries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org07081ed">4. Building and Publishing</a>
+<ul>
+<li><a href="#org7e298bc">4.1. Publish Over Tramp</a></li>
+<li><a href="#org7f9386a">4.2. Relative Directory Paths</a></li>
+</ul>
+</li>
+<li><a href="#org895f64b">5. Thanks</a></li>
+<li><a href="#org679ad75">6. See Also</a>
+<ul>
+<li><a href="#orgee06d26">6.1. Other Org mode blogs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+As my WordPress website nears the end of its subscription, I've decided this
+would be a perfect opportunity to build my own website using a pure <a href="https://gnu.org/s/emacs">Emacs</a> and
+<a href="https://orgmode.org">Org mode</a> setup. While using WordPress I already composed my posts in Org mode
+and published them using the <a href="https://github.com/org2blog/org2blog">org2blog</a> package. This works fine, but WordPress is
+overkill as I don't the editor, themes, or plugins. A simpler solution would be
+to utilize the HTML exporter built into Org mode. The result is a simple, fast
+website, built entirely with Emacs.
+</p>
+
+<div id="outline-container-org033195b" class="outline-2">
+<h2 id="org033195b"><span class="section-number-2">1.</span> Goals</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>A lightweight website with mobile scaling</li>
+<li>Easily rebuild my website and sync it to any web server</li>
+<li>Do so without adding any new software dependencies (just Emacs and ssh)</li>
+</ol>
+</div>
+
+<div id="outline-container-org5eaf648" class="outline-3">
+<h3 id="org5eaf648"><span class="section-number-3">1.1.</span> Tools</h3>
+<div class="outline-text-3" id="text-1-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Editor</b></td>
+<td class="org-left">GNU Emacs</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Markup Language</b></td>
+<td class="org-left">Org mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Site Generator</b></td>
+<td class="org-left">Org mode ox-publish</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Syncing</b></td>
+<td class="org-left">tramp and ssh</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd249a49" class="outline-2">
+<h2 id="orgd249a49"><span class="section-number-2">2.</span> Initial Setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Out of the box Org mode provides many of different exporters for HTML, LaTeX,
+even plain text. In addition to standard HTML exporting Org provides
+<b>ox-publish</b> specifically for publishing Org projects to websites.
+</p>
+
+<p>
+For my website, I use the following project structure:
+</p>
+<pre class="example">
+~/taingram.org/
+├── org/            # content to be exported
+│   ├── blog/
+│   │   └── example-post.org
+│   ├── img/
+│   ├── index.org
+│   ├── robots.txt
+│   └── style.css
+├── html/            # temporary export directory
+├── publish.el       # site sepecifc publishing config
+└── Makefile         # for building the site outside of emacs
+</pre>
+
+<p>
+We need to tell Org Publish about our project layout by defining the
+<kbd>org-publish-project-alist</kbd>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">require</span> <span class="org-highlight-quoted-quote">'</span><span class="org-constant">ox-publish</span><span class="org-rainbow-delimiters-depth-1">)</span>
+
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">setq</span> org-publish-project-alist
+      <span class="org-highlight-quoted-quote">`</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"pages"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/taingram.org/org/"</span>
+         <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+         <span class="org-builtin">:recursive</span> t
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/taingram.or/html/"</span>
+         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html<span class="org-rainbow-delimiters-depth-3">)</span>
+
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"static"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/taingram.org/org/"</span>
+         <span class="org-builtin">:base-extension</span> <span class="org-string">"css</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">txt</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">jpg</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">gif</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">png"</span>
+         <span class="org-builtin">:recursive</span> t
+         <span class="org-builtin">:publishing-directory</span>  <span class="org-string">"~/taingram.org/html/"</span>
+         <span class="org-builtin">:publishing-function</span> org-publish-attachment<span class="org-rainbow-delimiters-depth-3">)</span>
+
+        <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"taingram.org"</span> <span class="org-builtin">:components</span> <span class="org-rainbow-delimiters-depth-4">(</span><span class="org-string">"pages"</span> <span class="org-string">"static"</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+From the last line we can see "taingram.org" is broken down into the
+components "pages" and "static". Each component handles a different part of
+the website and has its own settings. The "pages" component handles org filesfff
+as specified by the <kbd>:base-extension</kbd> and exports the files to html as per the
+<kbd>:publishing-function</kbd>. The "static" component handles other files like images
+and style sheets.
+</p>
+
+<p>
+For each project component the following options should be set:
+</p>
+
+<ul class="org-ul">
+<li><kbd>:base-directory</kbd> &#x2014; where the source files are</li>
+<li><kbd>:base-extension</kbd> &#x2014; what type of file (e.g. org) is being exported</li>
+<li><kbd>:publishing-directory</kbd> &#x2014; where the exported files are going</li>
+<li><kbd>:publishing-function</kbd> &#x2014; how the files are exported. Some options are:
+<ul class="org-ul">
+<li><kbd>org-html-publish-to-html</kbd> &#x2014; converts org files to HTML</li>
+<li><kbd>org-publish-attachment</kbd> &#x2014; copies the files verbatim</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org3eae636" class="outline-3">
+<h3 id="org3eae636"><span class="section-number-3">2.1.</span> Exporting</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Evaluating above code is enough to enable publishing. Open an org file within
+your project and type <code>C</code>-<code>c</code> <code>C</code>-<code>e</code> to bring up the "Org Export
+Dispatcher", type <code>P</code> for Publishing, and <code>a</code> to publish all. The site will
+be generated and placed in the <kbd>html/</kbd> directory.
+</p>
+
+<p>
+You can also publish the site from elisp with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span>org-publish <span class="org-string">"taingram.org"</span> t<span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+The <kbd>t</kbd> argument is optional and will force every file to be re-export, even
+if that file has not changed. Useful if you are experimenting with project
+settings without changing org files.
+</p>
+</div>
+
+<div id="outline-container-orgb77f101" class="outline-4">
+<h4 id="orgb77f101"><span class="section-number-4">2.1.1.</span> Testing your Website</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+To test out your website with working links you will need a web
+server. Python includes one we can use, from the <kbd>html/</kbd> directory run
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">python3 -m http.server
+</pre>
+</div>
+
+<p>
+Open <a href="http://localhost:8000">http://localhost:8000</a> in a browser to see your new website.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org479c6e7" class="outline-2">
+<h2 id="org479c6e7"><span class="section-number-2">3.</span> Additional Options</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Now that we have a basic website exporting we can start experimenting with
+more advanced settings within Org publish.
+</p>
+</div>
+
+<div id="outline-container-org75a371f" class="outline-3">
+<h3 id="org75a371f"><span class="section-number-3">3.1.</span> Customize the &lt;Head&gt;</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We can tweak the way HTML is exported with a number of <kbd>:html-*</kbd> options. I
+prefer to use HTML5 and disable Org's default style sheet and scripts:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-comment-delimiter">; </span><span class="org-comment">HTML5</span>
+<span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
+<span class="org-builtin">:html-html5-fancy</span> t
+
+<span class="org-comment-delimiter">; </span><span class="org-comment">Disable some Org's HTML defaults</span>
+<span class="org-builtin">:html-head-include-scripts</span> nil
+<span class="org-builtin">:html-head-include-default-style</span> nil
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8539c2c" class="outline-4">
+<h4 id="org8539c2c"><span class="section-number-4">3.1.1.</span> CSS</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Org's HTML exporter makes it easy to create your own style sheet. The
+exported HTML makes sensible use of standard tags as well as specifying
+number of classes documented under <a href="https://orgmode.org/manual/CSS-support.html">CSS Support in the Org manual</a>. For my
+site I wrote my own style sheet and linked it with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-builtin">:html-head</span> <span class="org-string">"&lt;link rel=\"stylesheet\" href=\"/style.css\" type=\"text/css\"/&gt;"</span>
+</pre>
+</div>
+
+<p>
+The <kbd>:html-head</kbd> option lets you add any arbitrary HTML to the head tag.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge6005cb" class="outline-3">
+<h3 id="orge6005cb"><span class="section-number-3">3.2.</span> Preamble and Postamble</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Like <kbd>:html-head</kbd> Org Publish options for inserting extra HTML before and
+after your post content using <kbd>:html-preamble</kbd> and <kbd>:html-postamble</kbd>.
+</p>
+
+<p>
+You can add as much (or little) additional HTML as you would like. I used the
+preamble to insert some navigation and when the page was updated. The
+postamble has a footer with copyright information and site creation info.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-builtin">:html-preamble</span> <span class="org-string">"&lt;nav&gt;</span>
+<span class="org-string">  &lt;a href=\"/\"&gt;&amp;lt; Home&lt;/a&gt;</span>
+<span class="org-string">&lt;/nav&gt;</span>
+<span class="org-string">&lt;div id=\"updated\"&gt;Updated: %C&lt;/div&gt;"</span>
+
+<span class="org-builtin">:html-postamble</span> <span class="org-string">"&lt;hr/&gt;</span>
+<span class="org-string">&lt;footer&gt;</span>
+<span class="org-string">  &lt;div class=\"copyright-container\"&gt;</span>
+<span class="org-string">    &lt;div class=\"copyright\"&gt;</span>
+<span class="org-string">      Copyright &amp;copy; 2017-2020 Thomas Ingram some rights reserved&lt;br/&gt;</span>
+<span class="org-string">      Content is available under</span>
+<span class="org-string">      &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"&gt;</span>
+<span class="org-string">        CC-BY-SA 4.0</span>
+<span class="org-string">      &lt;/a&gt; unless otherwise noted</span>
+<span class="org-string">    &lt;/div&gt;</span>
+<span class="org-string">    &lt;div class=\"cc-badge\"&gt;</span>
+<span class="org-string">      &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"&gt;</span>
+<span class="org-string">        &lt;img alt=\"Creative Commons License\"</span>
+<span class="org-string">             src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /&gt;</span>
+<span class="org-string">      &lt;/a&gt;</span>
+<span class="org-string">    &lt;/div&gt;</span>
+<span class="org-string">  &lt;/div&gt;</span>
+
+<span class="org-string">  &lt;div class=\"generated\"&gt;</span>
+<span class="org-string">    Created with %c on &lt;a href=\"https://www.gnu.org\"&gt;GNU&lt;/a&gt;/&lt;a href=\"https://www.kernel.org/\"&gt;Linux&lt;/a&gt;</span>
+<span class="org-string">  &lt;/div&gt;</span>
+<span class="org-string">&lt;/footer&gt;"</span>
+</pre>
+</div>
+
+<p>
+Note the use of '%c' and '%C', these symbols will be expanded by Org's html
+exporter. Their meaning is documented in the <kbd>org-html-preamble-format</kbd>
+variable. Here is the complete list:
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">%t</td>
+<td class="org-left">stands for the title.</td>
+</tr>
+
+<tr>
+<td class="org-left">%s</td>
+<td class="org-left">stands for the subtitle.</td>
+</tr>
+
+<tr>
+<td class="org-left">%a</td>
+<td class="org-left">stands for the author’s name.</td>
+</tr>
+
+<tr>
+<td class="org-left">%e</td>
+<td class="org-left">stands for the author’s email.</td>
+</tr>
+
+<tr>
+<td class="org-left">%d</td>
+<td class="org-left">stands for the date.</td>
+</tr>
+
+<tr>
+<td class="org-left">%c</td>
+<td class="org-left">will be replaced by ‘org-html-creator-string’.</td>
+</tr>
+
+<tr>
+<td class="org-left">%v</td>
+<td class="org-left">will be replaced by ‘org-html-validation-link’.</td>
+</tr>
+
+<tr>
+<td class="org-left">%T</td>
+<td class="org-left">will be replaced by the export time.</td>
+</tr>
+
+<tr>
+<td class="org-left">%C</td>
+<td class="org-left">will be replaced by the last modification time.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd1c2581" class="outline-3">
+<h3 id="orgd1c2581"><span class="section-number-3">3.3.</span> Sitemap</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Org publish can generate a <a href="https://orgmode.org/manual/Site-map.html#Site-map">sitemap</a> for projects, essentially a site wide
+table of contents with links and directory structure. For a global sitemap in
+your website add the following to the "pages" project component:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-builtin">:auto-sitemap</span> t
+<span class="org-builtin">:sitemap-filename</span> <span class="org-string">"sitemap.org"</span>
+</pre>
+</div>
+
+<p>
+For example, a global sitemap for taingram.org would appear as follows:
+</p>
+
+<ul class="org-ul">
+<li><a href="../fun-links.html">Interesting Links From Around the Web</a></li>
+<li><a href="../resume.html">Résumé</a></li>
+<li><a href="../notes.html">Useful Tips and Tricks</a></li>
+<li>blog
+<ul class="org-ul">
+<li><a href="org-mode-blog.html">Building a Blog with Emacs Org-Mode</a></li>
+<li><a href="emacs-client.html">Emacsclient Setup with Desktop Integration</a></li>
+<li><a href="fix-xps-audio.html">Fixing Dell XPS 13 Audio</a></li>
+</ul></li>
+</ul>
+
+<p>
+Once the sitemap.org is generated you can include it from any other page with
+</p>
+
+<pre class="example">
+#+INCLUDE: sitemap.org :lines "3-"
+</pre>
+
+
+<p>
+The <kbd>:lines 3-</kbd> will only include the 3rd line on, skipping the <kbd>#+TITLE</kbd> tag
+set in sitemap.org and grabbing the list of pages as shown above.
+</p>
+</div>
+
+<div id="outline-container-orgc9af632" class="outline-4">
+<h4 id="orgc9af632"><span class="section-number-4">3.3.1.</span> Creating a List of Blog Posts</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+While a global sitemap can be useful, I want a greater distinction made
+between blog posts and regular pages. This can be accomplish by separating
+"pages" into two components: "pages" in the base directory and "blog" posts
+under <kbd>org/blog/</kbd>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"pages"</span>
+ <span class="org-builtin">:base-directory</span> <span class="org-string">"~/taingram.org/org/"</span>
+ <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+ <span class="org-builtin">:recursive</span> nil                               <span class="org-comment-delimiter">; </span><span class="org-comment">avoid exporting blog twice</span>
+ <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/taingram.org/html/"</span>
+ <span class="org-builtin">:publishing-function</span> org-html-publish-to-html<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"blog"</span>
+ <span class="org-builtin">:base-directory</span> <span class="org-string">"~/taingram.org/org/org/blog/"</span>
+ <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+ <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/taingram.org/org/html/blog/"</span>
+ <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+
+ <span class="org-builtin">:auto-sitemap</span> t
+ <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Blog Posts"</span>
+ <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
+ <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically<span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"taingram.org"</span> <span class="org-builtin">:components</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-string">"pages"</span> <span class="org-string">"blog"</span> <span class="org-string">"static"</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span><span class="org-rainbow-delimiters-unmatched">))</span>
+</pre>
+</div>
+
+<p>
+With these settings "blog" will have a sitemap in <kbd>blog/index.org</kbd> that
+contains a list of <b>only</b> blog posts. The option <kbd>:sitemap-sort-files
+    anti-chronologically</kbd> will sort the posts from newest to oldest.
+</p>
+
+<p>
+Now say you have written a homepage in <kbd>index.org</kbd> and would like to have
+your list of recent blog posts, again include with
+</p>
+
+<pre class="example">
+* Blog Posts
+#+INCLUDE: blog/blog.org :lines "3-8"
+[[file:blog/index.org][See more...]]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org70017ab" class="outline-4">
+<h4 id="org70017ab"><span class="section-number-4">3.3.2.</span> Custom sitemap entries</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+To take this one step further, we can customize the entry format with a
+<kbd>sitemap-format-entry</kbd> function. In my case I wanted to show the date inline
+with the blog post listings:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">defun</span> <span class="org-function-name">my/org-sitemap-date-entry-format</span> <span class="org-rainbow-delimiters-depth-2">(</span>entry style project<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-doc">"Format ENTRY in org-publish PROJECT Sitemap format ENTRY ENTRY STYLE format that includes date."</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">let</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">(</span>filename <span class="org-rainbow-delimiters-depth-5">(</span>org-publish-find-title entry project<span class="org-rainbow-delimiters-depth-5">)</span><span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-4">(</span>= <span class="org-rainbow-delimiters-depth-5">(</span>length filename<span class="org-rainbow-delimiters-depth-5">)</span> 0<span class="org-rainbow-delimiters-depth-4">)</span>
+        <span class="org-rainbow-delimiters-depth-4">(</span>format <span class="org-string">"*%s*"</span> entry<span class="org-rainbow-delimiters-depth-4">)</span>
+      <span class="org-rainbow-delimiters-depth-4">(</span>format <span class="org-string">"{{{timestamp(%s)}}} [[file:%s][%s]]"</span>
+              <span class="org-rainbow-delimiters-depth-5">(</span>format-time-string <span class="org-string">"%Y-%m-%d"</span>
+                                  <span class="org-rainbow-delimiters-depth-6">(</span>org-publish-find-date entry project<span class="org-rainbow-delimiters-depth-6">)</span><span class="org-rainbow-delimiters-depth-5">)</span>
+              entry
+              filename<span class="org-rainbow-delimiters-depth-4">)</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+Notice <kbd>(format "{{{timestamp(%s)}}} [[file:%s][%s]]"</kbd> inserts an <a href="https://orgmode.org/manual/Macro-Replacement.html">Org macro</a>
+called timestamp, it is defined as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">setq</span> org-export-global-macros
+      <span class="org-highlight-quoted-quote">'</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"timestamp"</span> . <span class="org-string">"@@html:&lt;span class=\"timestamp\"&gt;[$1]&lt;/span&gt;@@"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+This macro adds some HTML around the timestamp for CSS styling, it has to be
+done as a macro as otherwise Org escapes the HTML tags. The results are:
+</p>
+
+<ul class="org-ul">
+<li><span class="timestamp">[2020-09-11]</span> <a href="org-mode-blog.html">Building a Blog with Emacs Org-Mode</a></li>
+<li><span class="timestamp">[2017-05-09]</span> <a href="emacs-client.html">Emacsclient Setup with Desktop Integration</a></li>
+<li><span class="timestamp">[2017-04-01]</span> <a href="fix-xps-audio.html">Fixing Dell XPS 13 Audio Popping</a></li>
+</ul>
+
+<p>
+Further styling is added on the homepage by wrapping the list in an
+additional div class:
+</p>
+
+<pre class="example">
+#+HTML: &lt;div class="blog-entries"&gt;
+#+INCLUDE: "blog/index.org" :lines "3-"
+#+HTML: &lt;/div&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07081ed" class="outline-2">
+<h2 id="org07081ed"><span class="section-number-2">4.</span> Building and Publishing</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Now that we have our website looking more professional we need to publish it
+to the web server. A fast and simple way is to copy the <kbd>html/</kbd> directory with
+rsync:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">rsync -e ssh -uvr html/ thomas@taingram.org:/var/www/taingram.org/html/
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7e298bc" class="outline-3">
+<h3 id="org7e298bc"><span class="section-number-3">4.1.</span> Publish Over Tramp</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Another option is to publish directly to your web server using <a href="//www.gnu.org/software/tramp/">TRAMP</a>. TRAMP
+(Transparent Remote (file) Access, Multiple Protocol) is a tool built into
+Emacs for accessing files on remote servers. The format for accessing a file
+over TRAMP is <kbd>/method:user@host:/path/to/file</kbd> and can be used directly in
+Emacs find file dialog.
+</p>
+
+<p>
+We can simply replace our <kbd>:publishing-directory</kbd> with the tramp format:
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-builtin">:publishing-directory</span> <span class="org-string">"/ssh:thomas@taingram.org:/var/www/taingram.org/html/"</span>
+</pre>
+</div>
+
+<p>
+Just like that when we publish our file they will be sent directly to our
+server. Convenient for publishing individual files, but will be much slower
+than the rsync solution.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f9386a" class="outline-3">
+<h3 id="org7f9386a"><span class="section-number-3">4.2.</span> Relative Directory Paths</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+If you do not intent to distribute the source code of your website or move
+the directory around frequently. The simplest way to configure Org publish is
+to place settings directly in your <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html">Emacs init</a> with hard coded directory
+paths.
+</p>
+
+<p>
+However, I've released the source of my website and therefore hard coded
+paths will break when project folder moves around. For that reason I keep all
+of my Org publish configuration in <kbd>publish.el</kbd>. From <kbd>publish.el</kbd> we can get
+the complete project path:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">defun</span> <span class="org-function-name">my/relative-path-expand</span> <span class="org-rainbow-delimiters-depth-2">(</span>path<span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-doc">"Expand relative PATH from current buffer or file to a full path."</span>
+  <span class="org-rainbow-delimiters-depth-2">(</span>concat
+   <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">if</span> load-file-name
+       <span class="org-rainbow-delimiters-depth-4">(</span>file-name-directory load-file-name<span class="org-rainbow-delimiters-depth-4">)</span>
+     default-directory<span class="org-rainbow-delimiters-depth-3">)</span>
+   path<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+Now we can dynamically set our base directory to the full path:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-builtin">:base-directory</span>  ,<span class="org-rainbow-delimiters-depth-1">(</span>my/relative-path-expand <span class="org-string">"org/"</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+
+<p>
+<b>Note</b> for this to work your <kbd>org-publish-project-alist</kbd> should be started
+with a ` (backquote) which enables code after a comma to be evaluated. See
+<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Backquote.html">backquote in the Emacs Lisp Manual</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org895f64b" class="outline-2">
+<h2 id="org895f64b"><span class="section-number-2">5.</span> Thanks</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+I have always found the Emacs community to be full of extremely knowledgeable
+and helpful individuals. I would like to thank Thibault Marin on the
+<a href="https://orgmode.org/community.html">emacs-orgmode mailing list</a> for his <a href="https://lists.gnu.org/archive/html/emacs-orgmode/2019-07/msg00053.html">help fixing my custom sitemap function</a> with
+the suggestion of using an Org mode macro.
+</p>
+
+<p>
+Thanks to <a href="https://stackoverflow.com/a/26991675">Lindydancer on Stack Overflow</a> for the solution for determining the
+path of an Emacs Lisp file.
+</p>
+
+<p>
+Finally, thank you to all developers of Org mode for producing the best text
+based organization system in existence. Specifically thanks to David O’Toole
+who originally contributed Org Publish.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org679ad75" class="outline-2">
+<h2 id="org679ad75"><span class="section-number-2">6.</span> See Also</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML &#x2014; Worg</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgee06d26" class="outline-3">
+<h3 id="orgee06d26"><span class="section-number-3">6.1.</span> Other Org mode blogs</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a href="https://nicolas.petton.fr/">https://nicolas.petton.fr/</a></li>
+<li><a href="https://ogbe.net/">https://ogbe.net/</a></li>
+<li><a href="https://bastibe.de/">https://bastibe.de/</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'seymer';
+            (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+            </script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-110114842-1', 'auto');
+              ga('send', 'pageview');
+            </script>
+</div>
+</body>
+</html>
