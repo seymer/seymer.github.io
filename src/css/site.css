@@ -307,6 +307,11 @@ img.displayed {
      color: #579bda;
   }
 }
+
+@media (prefers-color-scheme: light) {
+    
+}
+
 /*@media (prefers-color-scheme: dark) {
   body {
     background-color: #444;
