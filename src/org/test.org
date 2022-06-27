@@ -42,3 +42,7 @@ adsafdsafdsa
 
 fasfdsafdsa
 fdasfdsafds
+
+#+begin_example
+fdsafdsafd
+#+end_example
