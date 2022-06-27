@@ -1,6 +1,0 @@
-#+TITLE: testafdsaf
-
-
-#+begin_example
-fdsafdsafdsafdsa
-#+end_example
