@@ -8,88 +8,15 @@
 <meta name="author" content="Siqing Mu" />
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="https://www.khow.me/blog/images/favicon.ico" /><link rel="stylesheet" type="text/css" href="./css/site.css" />
+<link rel="stylesheet" media="(prefers-color-scheme: light)" href="./css/modus-operandi.css" type="text/css"/>
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="./css/modus-vivendi.css" type="text/css"/>
 </head>
 <body>
 <div id="content" class="content">
 <header>
 <h1 class="title">test</h1>
 </header><p>
-fdasfd
-fdsafdsafds
-</p>
-<pre class="example" id="org9d4829a">
-(let ((minver "25.1"))
-  (when (version&lt; emacs-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version&lt; emacs-version "26.1")
-  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
-
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(require 'init-benchmarking) ;; Measure startup time
-
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
-(defconst *is-a-mac* (eq system-type 'darwin))
-</pre>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">let</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-rainbow-delimiters-depth-3">(</span>minver <span class="org-string">"25.1"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span>
-  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">when</span> <span class="org-rainbow-delimiters-depth-3">(</span>version&lt; emacs-version minver<span class="org-rainbow-delimiters-depth-3">)</span>
-    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-warning">error</span> <span class="org-string">"Your Emacs is too old -- this config requires v%s or higher"</span> minver<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
-<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">when</span> <span class="org-rainbow-delimiters-depth-2">(</span>version&lt; emacs-version <span class="org-string">"26.1"</span><span class="org-rainbow-delimiters-depth-2">)</span>
-  <span class="org-rainbow-delimiters-depth-2">(</span>message <span class="org-string">"Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
-
-<span class="org-rainbow-delimiters-depth-1">(</span>add-to-list <span class="org-highlight-quoted-quote">'</span><span class="org-highlight-quoted-symbol">load-path</span> <span class="org-rainbow-delimiters-depth-2">(</span>expand-file-name <span class="org-string">"lisp"</span> user-emacs-directory<span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
-<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">require</span> <span class="org-highlight-quoted-quote">'</span><span class="org-constant">init-benchmarking</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">;; </span><span class="org-comment">Measure startup time</span>
-
-<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">defconst</span> <span class="org-variable-name">*spell-check-support-enabled*</span> nil<span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-comment-delimiter">;; </span><span class="org-comment">Enable with t if you prefer</span>
-<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">defconst</span> <span class="org-variable-name">*is-a-mac*</span> <span class="org-rainbow-delimiters-depth-2">(</span>eq system-type <span class="org-highlight-quoted-quote">'</span><span class="org-highlight-quoted-symbol">darwin</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
-</pre>
-</div>
-
-
-<p>
-testadfasfdsafdsfdsafdsa
-fdsa
-fdasfdasfsdf
-fdsafds
-</p>
-
-<p>
-fdafdsafdasfds
-adsafdsafdsa
-</p>
-
-<p>
-fasfdsafdsa
-fdasfdsafds
-</p>
-
-<pre class="example" id="org773aa5e">
-fdsafdsafd
-</pre>
-<p>
-fdasfdsafdsa
-</p>
-
-
-<p>
-dfsafdsafds
-</p>
-
-<p>
-fdafsdf
-fdsafdsafdas
-fdasfdsafdas
-</p>
-
-<p>
-fdsafdsafdsafdsa
-</p>
-
-<p>
-fdsafdsafds
-fdsafdsafd
-fdasfsd
+dfsafdafds
 </p>
 </div>
 <div id="postamble" class="status">
